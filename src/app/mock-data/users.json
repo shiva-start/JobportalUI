@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "name": "Ahmed Hassan",
+    "email": "ahmed.hassan@example.com",
+    "role": "candidate",
+    "avatar": "AH",
+    "title": "Senior Frontend Developer",
+    "location": "Cairo, Egypt",
+    "bio": "Passionate frontend developer with 5+ years building modern web applications."
+  },
+  {
+    "id": "2",
+    "name": "Sara Mostafa",
+    "email": "sara.mostafa@example.com",
+    "role": "employer",
+    "avatar": "SM",
+    "company": "TechNova Solutions",
+    "title": "HR Manager",
+    "location": "Cairo, Egypt",
+    "bio": "HR professional helping build world-class engineering teams."
+  }
+]

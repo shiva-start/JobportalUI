@@ -2,7 +2,8 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
-    "packageManager": "npm"
+    "packageManager": "npm",
+    "analytics": "27cb3e9c-d42b-415d-9409-991e26aa5908"
   },
   "newProjectRoot": "projects",
   "projects": {
@@ -62,6 +63,7 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
+          "options": {},
           "configurations": {
             "production": {
               "buildTarget": "jobportal:build:production"

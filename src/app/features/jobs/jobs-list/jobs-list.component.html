@@ -1,0 +1,264 @@
+    <div class="min-h-screen bg-gray-50">
+      <!-- Page Header -->
+      <div class="bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <h1 class="text-2xl font-bold text-gray-900">Browse Jobs</h1>
+          <p class="text-gray-500 text-sm mt-1">
+            <span class="font-semibold text-blue-600">{{ jobService.filteredJobs().length }}</span> jobs found
+          </p>
+
+          <!-- Search Bar -->
+          <div class="mt-4 flex flex-col sm:flex-row gap-2">
+            <div class="relative flex-1">
+              <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+              <input [(ngModel)]="filters.keyword" (ngModelChange)="applyFilters()"
+                placeholder="Job title, skills, or company"
+                class="w-full pl-9 pr-4 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+            </div>
+            <div class="relative sm:w-48">
+              <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              </svg>
+              <input [(ngModel)]="filters.location" (ngModelChange)="applyFilters()"
+                placeholder="Location"
+                class="w-full pl-9 pr-4 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+            </div>
+            <div class="flex gap-2">
+              <button (click)="toggleMobileFilter()"
+                class="sm:hidden flex items-center gap-2 px-4 py-2.5 border border-gray-300 rounded-xl text-sm font-medium text-gray-700 hover:bg-gray-50">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2a1 1 0 01-.293.707L13 13.414V19a1 1 0 01-.553.894l-4 2A1 1 0 017 21v-7.586L3.293 6.707A1 1 0 013 6V4z"/>
+                </svg>
+                Filters
+                @if (hasActiveFilters()) {
+                  <span class="w-2 h-2 bg-blue-600 rounded-full"></span>
+                }
+              </button>
+              @if (hasActiveFilters()) {
+                <button (click)="clearFilters()"
+                  class="flex items-center gap-1 px-4 py-2.5 text-sm text-red-600 hover:bg-red-50 border border-red-200 rounded-xl transition-colors">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                  </svg>
+                  Clear
+                </button>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div class="flex gap-6">
+
+          <!-- Sidebar Filters -->
+          <aside [class.hidden]="!showFilters() && !isDesktop"
+            class="w-64 flex-shrink-0 hidden sm:block space-y-5">
+
+            <!-- Sort -->
+            <div class="bg-white rounded-xl border border-gray-200 p-4">
+              <h3 class="font-semibold text-gray-900 text-sm mb-3">Sort By</h3>
+              <select [(ngModel)]="sortBy" (ngModelChange)="applyFilters()"
+                class="w-full text-sm border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <option value="recent">Most Recent</option>
+                <option value="salary">Highest Salary</option>
+                <option value="applicants">Most Applied</option>
+              </select>
+            </div>
+
+            <!-- Category Filter -->
+            <div class="bg-white rounded-xl border border-gray-200 p-4">
+              <h3 class="font-semibold text-gray-900 text-sm mb-3">Category</h3>
+              <div class="space-y-2">
+                <label class="flex items-center gap-2 cursor-pointer group">
+                  <input type="radio" name="category" value="" [(ngModel)]="filters.category" (change)="applyFilters()"
+                    class="accent-blue-600">
+                  <span class="text-sm text-gray-600 group-hover:text-blue-600">All Categories</span>
+                </label>
+                @for (cat of categories; track cat) {
+                  <label class="flex items-center gap-2 cursor-pointer group">
+                    <input type="radio" name="category" [value]="cat" [(ngModel)]="filters.category" (change)="applyFilters()"
+                      class="accent-blue-600">
+                    <span class="text-sm text-gray-600 group-hover:text-blue-600">{{ cat }}</span>
+                  </label>
+                }
+              </div>
+            </div>
+
+            <!-- Experience Level -->
+            <div class="bg-white rounded-xl border border-gray-200 p-4">
+              <h3 class="font-semibold text-gray-900 text-sm mb-3">Experience Level</h3>
+              <div class="space-y-2">
+                @for (level of experienceLevels; track level.value) {
+                  <label class="flex items-center gap-2 cursor-pointer group">
+                    <input type="radio" name="exp" [value]="level.value" [(ngModel)]="filters.experienceLevel" (change)="applyFilters()"
+                      class="accent-blue-600">
+                    <span class="text-sm text-gray-600 group-hover:text-blue-600">{{ level.label }}</span>
+                  </label>
+                }
+              </div>
+            </div>
+
+            <!-- Job Type -->
+            <div class="bg-white rounded-xl border border-gray-200 p-4">
+              <h3 class="font-semibold text-gray-900 text-sm mb-3">Job Type</h3>
+              <div class="space-y-2">
+                @for (type of jobTypes; track type.value) {
+                  <label class="flex items-center gap-2 cursor-pointer group">
+                    <input type="radio" name="type" [value]="type.value" [(ngModel)]="filters.type" (change)="applyFilters()"
+                      class="accent-blue-600">
+                    <span class="text-sm text-gray-600 group-hover:text-blue-600">{{ type.label }}</span>
+                  </label>
+                }
+              </div>
+            </div>
+          </aside>
+
+          <!-- Mobile Filter Drawer -->
+          @if (showFilters() && !isDesktop) {
+            <div class="fixed inset-0 z-40 sm:hidden">
+              <div class="absolute inset-0 bg-black/50" (click)="toggleMobileFilter()"></div>
+              <div class="absolute bottom-0 left-0 right-0 bg-white rounded-t-2xl p-6 max-h-[80vh] overflow-y-auto">
+                <div class="flex items-center justify-between mb-4">
+                  <h3 class="font-bold text-gray-900">Filters</h3>
+                  <button (click)="toggleMobileFilter()" class="p-2 hover:bg-gray-100 rounded-lg">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                  </button>
+                </div>
+                <!-- Same filters content for mobile -->
+                <div class="space-y-6">
+                  <div>
+                    <h4 class="font-semibold text-gray-900 text-sm mb-3">Category</h4>
+                    <div class="grid grid-cols-2 gap-2">
+                      @for (cat of categories; track cat) {
+                        <label class="flex items-center gap-2 cursor-pointer">
+                          <input type="radio" name="m-category" [value]="cat" [(ngModel)]="filters.category" (change)="applyFilters()" class="accent-blue-600">
+                          <span class="text-sm text-gray-600">{{ cat }}</span>
+                        </label>
+                      }
+                    </div>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-900 text-sm mb-3">Experience Level</h4>
+                    <div class="space-y-2">
+                      @for (level of experienceLevels; track level.value) {
+                        <label class="flex items-center gap-2 cursor-pointer">
+                          <input type="radio" name="m-exp" [value]="level.value" [(ngModel)]="filters.experienceLevel" (change)="applyFilters()" class="accent-blue-600">
+                          <span class="text-sm text-gray-600">{{ level.label }}</span>
+                        </label>
+                      }
+                    </div>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-900 text-sm mb-3">Job Type</h4>
+                    <div class="space-y-2">
+                      @for (type of jobTypes; track type.value) {
+                        <label class="flex items-center gap-2 cursor-pointer">
+                          <input type="radio" name="m-type" [value]="type.value" [(ngModel)]="filters.type" (change)="applyFilters()" class="accent-blue-600">
+                          <span class="text-sm text-gray-600">{{ type.label }}</span>
+                        </label>
+                      }
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-6 flex gap-3">
+                  <button (click)="clearFilters(); toggleMobileFilter()" class="flex-1 py-2.5 border border-gray-300 rounded-xl text-sm font-medium text-gray-700">Clear All</button>
+                  <button (click)="toggleMobileFilter()" class="flex-1 py-2.5 bg-blue-600 text-white rounded-xl text-sm font-semibold">Apply</button>
+                </div>
+              </div>
+            </div>
+          }
+
+          <!-- Jobs Grid -->
+          <div class="flex-1 min-w-0">
+            <!-- Active filters chips -->
+            @if (hasActiveFilters()) {
+              <div class="flex flex-wrap gap-2 mb-4">
+                @if (filters.keyword) {
+                  <span class="inline-flex items-center gap-1 px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">
+                    "{{ filters.keyword }}"
+                    <button (click)="filters.keyword=''; applyFilters()" class="hover:text-blue-900">Ã—</button>
+                  </span>
+                }
+                @if (filters.category) {
+                  <span class="inline-flex items-center gap-1 px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">
+                    {{ filters.category }}
+                    <button (click)="filters.category=''; applyFilters()" class="hover:text-blue-900">Ã—</button>
+                  </span>
+                }
+                @if (filters.experienceLevel) {
+                  <span class="inline-flex items-center gap-1 px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">
+                    {{ filters.experienceLevel }}
+                    <button (click)="filters.experienceLevel=''; applyFilters()" class="hover:text-blue-900">Ã—</button>
+                  </span>
+                }
+                @if (filters.type) {
+                  <span class="inline-flex items-center gap-1 px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">
+                    {{ filters.type }}
+                    <button (click)="filters.type=''; applyFilters()" class="hover:text-blue-900">Ã—</button>
+                  </span>
+                }
+              </div>
+            }
+
+            @if (loading()) {
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                @for (i of [1,2,3,4,5,6]; track i) {
+                  <app-skeleton type="job-card"></app-skeleton>
+                }
+              </div>
+            } @else if (paginatedJobs().length === 0) {
+              <!-- Empty state -->
+              <div class="text-center py-16">
+                <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-slate-100 flex items-center justify-center">
+                  <svg class="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                  </svg>
+                </div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2">No jobs found</h3>
+                <p class="text-gray-500 text-sm mb-4">Try adjusting your filters or search terms</p>
+                <button (click)="clearFilters()"
+                  class="px-5 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-xl hover:bg-blue-700 transition-colors duration-200">
+                  Clear all filters
+                </button>
+              </div>
+            } @else {
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                @for (job of paginatedJobs(); track job.id) {
+                  <app-job-card
+                    [job]="job"
+                    [saved]="jobService.isJobSaved(job.id)"
+                    (saveToggle)="onSaveJob($event)">
+                  </app-job-card>
+                }
+              </div>
+
+              <!-- Pagination -->
+              @if (totalPages() > 1) {
+                <div class="mt-8 flex items-center justify-center gap-2">
+                  <button (click)="prevPage()" [disabled]="currentPage() === 1"
+                    class="px-4 py-2 text-sm font-medium border border-gray-300 rounded-lg text-gray-700 disabled:opacity-40 hover:bg-gray-50 transition-colors disabled:cursor-not-allowed">
+                    Previous
+                  </button>
+                  @for (p of pageNumbers(); track p) {
+                    <button (click)="goToPage(p)"
+                      [class]="p === currentPage() ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'"
+                      class="w-9 h-9 text-sm font-medium border rounded-lg transition-colors">
+                      {{ p }}
+                    </button>
+                  }
+                  <button (click)="nextPage()" [disabled]="currentPage() === totalPages()"
+                    class="px-4 py-2 text-sm font-medium border border-gray-300 rounded-lg text-gray-700 disabled:opacity-40 hover:bg-gray-50 transition-colors disabled:cursor-not-allowed">
+                    Next
+                  </button>
+                </div>
+              }
+            }
+          </div>
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,101 @@
+<section class="relative isolate flex min-h-[78vh] items-center justify-center overflow-hidden bg-slate-950 px-4 py-24 sm:px-6 lg:px-8">
+  <img
+    [src]="backgroundImageUrl"
+    alt=""
+    aria-hidden="true"
+    class="absolute inset-0 h-full w-full object-cover" />
+
+  <div class="absolute inset-0 bg-slate-950/55"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/45 to-slate-950/85"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.28),transparent_38%),radial-gradient(circle_at_bottom,rgba(14,165,233,0.18),transparent_30%)]"></div>
+
+  <div class="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center text-center">
+    <div class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-medium text-slate-100 backdrop-blur-md sm:text-sm">
+      <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+      <span>{{ badgeText }}</span>
+    </div>
+
+    <h1 class="mt-6 max-w-4xl text-balance text-3xl font-black tracking-tight text-white sm:text-4xl lg:text-6xl">
+      {{ titleLead }}
+      <span class="block bg-gradient-to-r from-sky-300 via-blue-200 to-indigo-200 bg-clip-text text-transparent">
+        {{ titleHighlight }}
+      </span>
+    </h1>
+
+    <p class="mt-6 max-w-2xl text-pretty text-sm leading-6 text-slate-200 sm:text-base">
+      {{ description }}
+    </p>
+
+    <form
+      class="mt-10 w-full max-w-4xl rounded-[2rem] border border-white/15 bg-white/12 p-3 shadow-2xl shadow-slate-950/40 backdrop-blur-xl"
+      (ngSubmit)="submitSearch()">
+      <div class="grid gap-3 lg:grid-cols-[1fr_1fr_auto]">
+        <div class="rounded-2xl border border-white/10 bg-white/95 text-left shadow-sm">
+          <label class="sr-only" for="hero-job-keyword">Job title or keyword</label>
+          <div class="flex items-center gap-3 px-4 py-4">
+            <svg class="h-5 w-5 flex-shrink-0 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 21l-4.35-4.35m1.85-5.15a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <input
+              id="hero-job-keyword"
+              name="jobKeyword"
+              [(ngModel)]="searchKeyword"
+              type="text"
+              autocomplete="off"
+              placeholder="Job title, keyword, or company"
+              class="w-full bg-transparent text-xs font-medium text-slate-900 outline-none placeholder:text-slate-400 sm:text-sm" />
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-white/10 bg-white/95 text-left shadow-sm">
+          <label class="sr-only" for="hero-job-location">Location</label>
+          <div class="flex items-center gap-3 px-4 py-4">
+            <svg class="h-5 w-5 flex-shrink-0 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 21s-6-5.33-6-11a6 6 0 1112 0c0 5.67-6 11-6 11z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 12.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" />
+            </svg>
+            <input
+              id="hero-job-location"
+              name="jobLocation"
+              [(ngModel)]="searchLocation"
+              type="text"
+              autocomplete="off"
+              placeholder="City, state, or remote"
+              class="w-full bg-transparent text-xs font-medium text-slate-900 outline-none placeholder:text-slate-400 sm:text-sm" />
+          </div>
+        </div>
+
+        <button
+          type="submit"
+          class="inline-flex items-center justify-center rounded-2xl bg-blue-600 px-6 py-4 text-xs font-semibold text-white transition hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:ring-offset-2 focus:ring-offset-slate-900 sm:text-sm">
+          Search Jobs
+        </button>
+      </div>
+
+      @if (popularSearches.length) {
+        <div class="mt-4 flex flex-wrap items-center justify-center gap-2 px-1 text-left">
+          <span class="text-xs font-medium text-slate-200 sm:text-sm">Trending:</span>
+          @for (tag of popularSearches; track tag) {
+            <button
+              type="button"
+              (click)="applyQuickSearch(tag)"
+              class="rounded-full border border-white/15 bg-white/10 px-3.5 py-1.5 text-xs text-white transition hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/40 sm:text-sm">
+              {{ tag }}
+            </button>
+          }
+        </div>
+      }
+    </form>
+
+    @if (stats.length) {
+      <div class="mt-10 grid w-full gap-3 sm:grid-cols-3">
+        @for (stat of stats; track stat.label) {
+          <div class="rounded-2xl border border-white/12 bg-white/10 px-5 py-4 backdrop-blur-md">
+            <div class="text-xl font-bold tracking-tight text-white sm:text-2xl">{{ stat.value }}</div>
+            <p class="mt-1 text-xs font-medium text-slate-200 sm:text-sm">{{ stat.label }}</p>
+          </div>
+        }
+      </div>
+    }
+  </div>
+</section>

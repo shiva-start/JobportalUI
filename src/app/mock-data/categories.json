@@ -1,0 +1,10 @@
+[
+  { "id": "1", "name": "Technology", "icon": "💻", "count": 284, "color": "blue" },
+  { "id": "2", "name": "Design", "icon": "🎨", "count": 97, "color": "purple" },
+  { "id": "3", "name": "Marketing", "icon": "📣", "count": 156, "color": "pink" },
+  { "id": "4", "name": "Sales", "icon": "💼", "count": 213, "color": "green" },
+  { "id": "5", "name": "Data & AI", "icon": "🤖", "count": 118, "color": "indigo" },
+  { "id": "6", "name": "Product", "icon": "📦", "count": 74, "color": "orange" },
+  { "id": "7", "name": "Human Resources", "icon": "👥", "count": 89, "color": "teal" },
+  { "id": "8", "name": "Finance", "icon": "💰", "count": 132, "color": "yellow" }
+]
