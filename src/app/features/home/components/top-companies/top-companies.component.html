@@ -1,0 +1,49 @@
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div appReveal class="text-center mb-12">
+      <p class="text-blue-600 text-sm font-semibold uppercase tracking-widest mb-2">Where talent goes</p>
+      <h2 class="text-3xl font-bold text-slate-900 mb-3">Top Hiring Companies</h2>
+      <p class="text-slate-500">Join teams at world-class organizations building the future</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      @for (company of topCompanies; track company.name; let i = $index) {
+        <div appReveal [revealDelay]="i * 110" class="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group">
+          <div class="relative aspect-[4/3] overflow-hidden">
+            <img
+              [src]="company.image.src"
+              [srcset]="company.image.srcset"
+              [sizes]="company.image.sizes"
+              [alt]="company.image.alt"
+              [width]="company.image.width"
+              [height]="company.image.height"
+              [loading]="company.image.loading"
+              decoding="async"
+              class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/30 to-transparent"></div>
+            <div class="absolute left-5 top-5 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-slate-800">
+              {{ company.openRoles }} open roles
+            </div>
+            <div class="absolute inset-x-0 bottom-0 p-5 text-white">
+              <p class="text-lg font-bold">{{ company.name }}</p>
+              <p class="mt-1 text-sm text-slate-200">{{ company.hiringFocus }}</p>
+            </div>
+          </div>
+          <div class="px-5 py-4">
+            <p class="text-sm text-slate-500">Explore teams with strong hiring momentum, polished onboarding, and opportunities across hybrid and remote roles.</p>
+          </div>
+        </div>
+      }
+    </div>
+
+    <div appReveal [revealDelay]="120" class="mt-10 text-center">
+      <a routerLink="/jobs"
+        class="inline-flex items-center gap-2 text-slate-600 hover:text-blue-600 text-sm font-medium border border-slate-200 hover:border-blue-300 bg-white hover:bg-blue-50 px-6 py-3 rounded-xl transition-all duration-200 hover:-translate-y-0.5">
+        Browse all companies
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

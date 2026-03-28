@@ -1,0 +1,128 @@
+<section class="relative overflow-hidden bg-slate-50 pt-24 pb-16 lg:pt-32 lg:pb-24">
+  <div class="absolute inset-0 bg-[linear-gradient(135deg,#f8fbff_0%,#fefefe_45%,#eef6ff_100%)]"></div>
+  <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(14,165,233,0.04)_1px,transparent_1px),linear-gradient(180deg,rgba(14,165,233,0.04)_1px,transparent_1px)] bg-[size:36px_36px] opacity-60"></div>
+  
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+      
+      <!-- Text & Form Content -->
+      <div class="max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
+        <div appReveal [revealDelay]="50" class="inline-flex items-center gap-2 rounded-full border border-sky-200/80 bg-white/90 px-4 py-2 text-xs font-semibold text-slate-700 shadow-sm shadow-sky-100/80 backdrop-blur-md sm:text-sm">
+          <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+          <span>{{ badgeText }}</span>
+        </div>
+
+        <h1 appReveal [revealDelay]="120" class="mt-6 text-4xl font-black tracking-tight text-slate-900 sm:text-5xl lg:text-6xl text-balance">
+          {{ titleLead }}
+          <span class="block bg-gradient-to-r from-sky-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent mt-1">
+            {{ titleHighlight }}
+          </span>
+        </h1>
+
+        <p appReveal [revealDelay]="180" class="mt-6 text-sm leading-7 text-slate-600 sm:text-base lg:text-lg">
+          {{ description }}
+        </p>
+
+        <form
+          appReveal
+          [revealDelay]="260"
+          class="mt-10 rounded-[2rem] border border-white/80 bg-white/80 p-3 shadow-xl shadow-slate-200/50 backdrop-blur-xl"
+          (ngSubmit)="submitSearch()">
+          <div class="grid gap-3 sm:grid-cols-[1fr_1fr_auto]">
+            <div class="rounded-2xl border border-slate-200 bg-white flex items-center gap-3 px-4 py-3.5 transition-all focus-within:border-sky-300 focus-within:shadow-md">
+              <label class="sr-only" for="hero-job-keyword">Job title or keyword</label>
+              <svg class="h-5 w-5 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 21l-4.35-4.35m1.85-5.15a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+              <input
+                id="hero-job-keyword"
+                name="jobKeyword"
+                [(ngModel)]="searchKeyword"
+                type="text"
+                autocomplete="off"
+                placeholder="Job title or keyword"
+                class="w-full bg-transparent text-sm font-medium text-slate-900 outline-none placeholder:text-slate-400" />
+            </div>
+
+            <div class="rounded-2xl border border-slate-200 bg-white flex items-center gap-3 px-4 py-3.5 transition-all focus-within:border-sky-300 focus-within:shadow-md">
+              <label class="sr-only" for="hero-job-location">Location</label>
+              <svg class="h-5 w-5 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 21s-6-5.33-6-11a6 6 0 1112 0c0 5.67-6 11-6 11z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 12.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" />
+              </svg>
+              <input
+                id="hero-job-location"
+                name="jobLocation"
+                [(ngModel)]="searchLocation"
+                type="text"
+                autocomplete="off"
+                placeholder="Location"
+                class="w-full bg-transparent text-sm font-medium text-slate-900 outline-none placeholder:text-slate-400" />
+            </div>
+
+            <button
+              type="submit"
+              class="rounded-2xl bg-gradient-to-r from-sky-600 to-blue-600 px-6 tracking-wide text-sm font-semibold text-white shadow-lg shadow-blue-200 transition-all hover:-translate-y-0.5 hover:shadow-xl py-3.5 sm:py-0 w-full sm:w-auto">
+              Search
+            </button>
+          </div>
+        </form>
+
+        @if (popularSearches.length) {
+          <div class="mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-2">
+            <span class="text-xs font-semibold text-slate-500">Trending:</span>
+            @for (tag of popularSearches; track tag; let i = $index) {
+              <button
+                type="button"
+                (click)="applyQuickSearch(tag)"
+                appReveal
+                [revealDelay]="320 + (i * 60)"
+                class="rounded-full border border-slate-200 bg-white/60 px-3 py-1 text-xs font-semibold text-slate-600 transition-all hover:-translate-y-0.5 hover:border-sky-200 hover:bg-sky-50 hover:text-sky-700">
+                {{ tag }}
+              </button>
+            }
+          </div>
+        }
+        
+        @if (stats.length) {
+          <div class="mt-10 grid grid-cols-3 gap-4 border-t border-slate-200/60 pt-8">
+            @for (stat of stats; track stat.label; let i = $index) {
+              <div appReveal [revealDelay]="360 + (i * 90)">
+                <div class="text-xl sm:text-2xl font-black text-slate-900">{{ stat.value }}</div>
+                <div class="mt-1 text-xs sm:text-sm font-medium text-slate-500">{{ stat.label }}</div>
+              </div>
+            }
+          </div>
+        }
+      </div>
+
+      <!-- Hero Image Right Panel -->
+      @if (heroImage) {
+        <div appReveal [revealOrigin]="'right'" [revealDelay]="200" class="relative hidden lg:block h-full min-h-[500px]">
+          <div class="absolute inset-0 rounded-[2.5rem] bg-gradient-to-tr from-blue-100 to-sky-50 transform -rotate-3 transition-transform hover:rotate-0 duration-500"></div>
+          <div class="absolute inset-0 rounded-[2.5rem] overflow-hidden border-8 border-white shadow-2xl transition-transform hover:scale-[1.02] duration-500 z-10">
+            <img 
+              [src]="heroImage.src" 
+              [srcset]="heroImage.srcset" 
+              [sizes]="heroImage.sizes"
+              [alt]="heroImage.alt"
+              [loading]="heroImage.loading"
+              class="w-full h-full object-cover object-center" />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/30 to-transparent"></div>
+          </div>
+          <!-- Floating decoration -->
+          <div class="absolute -left-8 top-12 z-20 rounded-2xl bg-white p-4 shadow-xl shadow-slate-200/50 backdrop-blur-md">
+            <div class="flex items-center gap-3">
+              <div class="flex -space-x-2">
+                <img class="w-8 h-8 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=64&h=64&fit=crop&q=80" alt="Avatar"/>
+                <img class="w-8 h-8 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=64&h=64&fit=crop&q=80" alt="Avatar"/>
+                <div class="w-8 h-8 rounded-full border-2 border-white bg-blue-100 flex items-center justify-center text-[10px] font-bold text-blue-700">+1k</div>
+              </div>
+              <div class="text-xs font-bold text-slate-700 leading-tight">New Jobs<br/>Today</div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

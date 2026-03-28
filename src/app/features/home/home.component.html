@@ -1,0 +1,41 @@
+<app-home-hero
+  [popularSearches]="popularSearches"
+  [stats]="stats"
+  [heroImage]="landingImages.heroImage"
+  (searchSubmitted)="onHeroSearch($event)">
+</app-home-hero>
+
+<app-featured-jobs
+  [loading]="loading()"
+  [featuredJobs]="jobService.featuredJobs()"
+  [skeletonItems]="skeletonItems"
+  [featuredJobsBanner]="landingImages.featuredJobsBanner"
+  [savedJobIds]="savedJobIds"
+  (saveToggle)="onSaveJob($event)">
+</app-featured-jobs>
+
+<app-job-categories
+  [categories]="categories"
+  (categorySelected)="onCategorySelected($event)">
+</app-job-categories>
+
+<app-top-companies
+  [topCompanies]="topCompanies">
+</app-top-companies>
+
+<app-how-it-works
+  [steps]="howItWorksSteps">
+</app-how-it-works>
+
+<app-cta-dual-panel
+  [ctaJobSeekers]="landingImages.ctaJobSeekers"
+  [ctaEmployers]="landingImages.ctaEmployers">
+</app-cta-dual-panel>
+
+<app-testimonials
+  [testimonials]="testimonials">
+</app-testimonials>
+
+<app-newsletter
+  [newsletterImage]="landingImages.newsletter">
+</app-newsletter>
