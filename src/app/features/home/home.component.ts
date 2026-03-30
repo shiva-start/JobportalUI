@@ -148,18 +148,18 @@ export class HomeComponent {
       loading: 'lazy' as ImageLoading,
       sizes: '(min-width: 1024px) 28vw, 100vw'
     }),
-    ctaJobSeekers: this.createImage('photo-1573164713988-8665fc963095', 800, 500, {
-      alt: 'Professional searching for jobs on a laptop',
+    ctaJobSeekers: this.createImage('photo-1486312338219-ce68d2c6f44d', 900, 620, {
+      alt: 'Professional exploring career opportunities on a laptop',
       loading: 'lazy' as ImageLoading,
       sizes: '(min-width: 1024px) 40vw, 100vw'
     }),
-    ctaEmployers: this.createImage('photo-1556761175-5973e4491763', 800, 500, {
-      alt: 'Hiring manager reviewing applications',
+    ctaEmployers: this.createImage('photo-1552664730-d307ca884978', 900, 620, {
+      alt: 'Hiring team collaborating in a modern corporate meeting',
       loading: 'lazy' as ImageLoading,
       sizes: '(min-width: 1024px) 40vw, 100vw'
     }),
-    newsletter: this.createImage('photo-1497215728101-856f4ea42174', 1400, 500, {
-      alt: 'Aesthetic modern office space',
+    newsletter: this.createImage('photo-1521737711867-e3b97375f902', 1600, 720, {
+      alt: 'Professionals collaborating in a modern office while reviewing opportunities',
       loading: 'lazy' as ImageLoading,
       sizes: '100vw'
     })
