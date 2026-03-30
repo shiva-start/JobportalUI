@@ -23,6 +23,13 @@ export class NewsletterComponent {
 
   email = '';
 
+  readonly newsletterFallback =
+    'https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1600&h=720&fit=crop&crop=entropy&q=70&auto=format,compress';
+
+  get backgroundImage(): string {
+    return `url('${this.newsletterImage?.src ?? this.newsletterFallback}')`;
+  }
+
   onSubmit(): void {
     // Handle newsletter subscription
     this.email = '';
