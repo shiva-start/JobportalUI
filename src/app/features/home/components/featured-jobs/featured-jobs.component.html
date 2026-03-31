@@ -1,10 +1,10 @@
-<section class="py-20 bg-slate-50">
+<section class="py-16 md:py-20 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div appReveal class="flex items-end justify-between mb-10">
-      <div appReveal [revealDelay]="60" [revealOrigin]="'left'">
-        <p class="text-blue-600 text-sm font-semibold uppercase tracking-widest mb-2">Curated for you</p>
-        <h2 class="text-3xl font-bold text-slate-900 leading-tight">Featured Opportunities</h2>
-        <p class="text-slate-500 mt-2">Hand-picked roles from top employers actively hiring</p>
+    <div appReveal class="flex items-end justify-between mb-12">
+      <div appReveal [revealDelay]="60" [revealOrigin]="'left'" class="space-y-3">
+        <p class="text-blue-600 text-sm font-semibold uppercase tracking-widest">Curated for you</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-800 leading-tight">Featured Opportunities</h2>
+        <p class="text-slate-600 mt-2 text-base">Hand-picked roles from top employers actively hiring</p>
       </div>
       <a routerLink="/jobs" appReveal [revealDelay]="120" [revealOrigin]="'right'" class="hidden sm:inline-flex items-center gap-1.5 text-blue-600 hover:text-blue-700 text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 group">
         View all jobs
@@ -15,7 +15,7 @@
     </div>
 
     @if (featuredJobsBanner) {
-      <div appReveal [revealDelay]="140" class="mb-10 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+      <div appReveal [revealDelay]="140" class="mb-12 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
         <div class="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] items-stretch">
           <div class="p-8 sm:p-10 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 text-white">
             <p class="text-sm font-semibold uppercase tracking-[0.24em] text-blue-200">Hiring right now</p>
@@ -46,13 +46,13 @@
     }
 
     @if (loading) {
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         @for (i of skeletonItems; track i) {
           <app-skeleton type="job-card"></app-skeleton>
         }
       </div>
     } @else {
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         @for (job of featuredJobs; track job.id; let i = $index) {
           <div appReveal [revealDelay]="180 + (i * 90)" class="hover-lift">
             <app-job-card
@@ -65,7 +65,7 @@
       </div>
     }
 
-    <div appReveal [revealDelay]="180" class="mt-10 text-center sm:hidden">
+    <div appReveal [revealDelay]="180" class="mt-12 text-center sm:hidden">
       <a routerLink="/jobs" class="inline-flex items-center gap-2 text-blue-600 font-semibold text-sm bg-blue-50 hover:bg-blue-100 px-5 py-2.5 rounded-xl transition-all duration-200 hover:-translate-y-0.5">
         View all jobs
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

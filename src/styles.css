@@ -8,8 +8,16 @@
   }
 
   body {
-    @apply text-gray-900 antialiased;
+    @apply antialiased;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    /* Global color system */
+    background-color: #f8fafc; /* slate-50 */
+    color: #1e293b; /* slate-800 - primary text */
+  }
+
+  /* Headings should use primary text color for consistency */
+  h1, h2, h3, h4, h5, h6 {
+    color: #1e293b;
   }
 
   * {
@@ -70,6 +78,53 @@
   .reveal-visible {
     opacity: 1;
     transform: translate3d(0, 0, 0);
+  }
+
+  /* Color utilities and overrides to enforce the new theme without changing markup */
+  /* Neutralize gradient utilities (use solid primary color instead) */
+  .bg-gradient-to-br {
+    background-image: none !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: cover !important;
+    /* fallback solid primary */
+    background-color: #2563eb !important;
+  }
+
+  /* Card surface */
+  .card-surface {
+    background-color: #ffffff; /* card background */
+    border: 1px solid #e2e8f0; /* slate-200 */
+    color: #1e293b;
+  }
+
+  /* Primary button utility fallback (for any elements using custom classes) */
+  .btn-primary {
+    background-color: #2563eb; /* blue-600 */
+    color: #ffffff;
+  }
+
+  .btn-primary:hover {
+    background-color: #1d4ed8; /* blue-700 */
+  }
+
+  /* Accent background */
+  .bg-accent-light {
+    background-color: #eff6ff; /* blue-50 */
+  }
+
+  /* Text helpers */
+  .text-primary {
+    color: #1e293b; /* slate-800 */
+  }
+
+  .text-secondary {
+    color: #64748b; /* slate-500 */
+  }
+
+  /* Soft border helper */
+  .border-soft {
+    border-color: #e2e8f0; /* slate-200 */
   }
 
   .hover-lift {

@@ -11,6 +11,7 @@ import { HowItWorksComponent, HowItWorksStep } from './components/how-it-works/h
 import { CtaDualPanelComponent, CtaImage } from './components/cta-dual-panel/cta-dual-panel.component';
 import { TestimonialsComponent, Testimonial } from './components/testimonials/testimonials.component';
 import { NewsletterComponent, NewsletterImage } from './components/newsletter/newsletter.component';
+import { FeaturedFreelancersComponent } from "./components/featured-freelancers/featured-freelancers.component";
 
 type ImageLoading = 'eager' | 'lazy';
 
@@ -37,7 +38,8 @@ interface LandingImage {
     CtaDualPanelComponent,
     TestimonialsComponent,
     NewsletterComponent,
-  ],
+    FeaturedFreelancersComponent
+],
   templateUrl: './home.component.html'
 })
 export class HomeComponent {
