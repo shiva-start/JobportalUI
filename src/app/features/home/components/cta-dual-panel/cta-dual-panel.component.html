@@ -1,48 +1,54 @@
-<section class="py-20 bg-white">
+<section class="py-16 md:py-20 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
       <!-- Job Seekers CTA -->
-      <div appReveal [revealOrigin]="'left'" class="group relative overflow-hidden rounded-3xl min-h-[360px] flex hover-lift">
+      <div appReveal [revealOrigin]="'left'" class="group relative overflow-hidden rounded-2xl min-h-[380px] flex cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300">
+        <!-- Background Image -->
         <div
-          class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
+          class="absolute inset-0 bg-cover bg-center transition-all duration-500 ease-out group-hover:scale-110 brightness-110 contrast-105"
           [style.background-image]="getPanelBackground(ctaJobSeekers, 'job-seekers')"
           [style.background-position]="getPanelPosition('job-seekers')"
           style="background-size: cover;">
         </div>
-        <div class="absolute inset-0 bg-gradient-to-br from-[rgba(4,34,96,0.72)] via-[rgba(15,76,164,0.68)] to-[rgba(18,29,87,0.82)] transition-opacity duration-300 group-hover:opacity-95"></div>
-        <div class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-slate-950/35 to-transparent"></div>
+
+        <!-- Overlay (Reduced on Hover) -->
+        <div class="absolute inset-0 bg-gradient-to-br from-[rgba(4,34,96,0.45)] via-[rgba(15,76,164,0.40)] to-[rgba(18,29,87,0.50)] transition-all duration-300 group-hover:from-[rgba(4,34,96,0.25)] group-hover:via-[rgba(15,76,164,0.20)] group-hover:to-[rgba(18,29,87,0.25)]"></div>
+
+        <!-- Bottom Gradient -->
+        <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-slate-950/20 to-transparent"></div>
+
         <!-- Content -->
         <div class="relative p-8 sm:p-10 text-white flex flex-col justify-between w-full">
           <div>
-            <div class="mb-4 inline-flex items-center rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-blue-100 backdrop-blur-sm">
+            <div class="mb-5 inline-flex items-center rounded-full border border-white/20 bg-white/12 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.24em] text-blue-100 backdrop-blur-sm hover:bg-white/18 transition-all duration-200">
               Career Growth
             </div>
-            <div class="w-14 h-14 rounded-2xl bg-white/15 flex items-center justify-center mb-6 backdrop-blur-sm">
+            <div class="w-14 h-14 rounded-2xl bg-white/15 flex items-center justify-center mb-6 backdrop-blur-sm group-hover:bg-white/25 transition-all duration-300">
               <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
               </svg>
             </div>
-            <h3 class="text-2xl font-bold mb-3 sm:text-[1.75rem]">For Job Seekers</h3>
+            <h3 class="text-2xl sm:text-3xl font-bold mb-4 leading-tight">For Job Seekers</h3>
             <p class="max-w-md text-blue-100/95 mb-8 leading-relaxed text-sm sm:text-[15px]">
               Upload your CV, unlock tailored alerts, and explore roles from companies that match your goals, pace, and preferred way of working.
             </p>
-            <div class="mb-8 flex flex-wrap gap-2 text-xs font-medium text-blue-50/95">
-              <span class="rounded-full border border-white/15 bg-white/10 px-3 py-1.5 backdrop-blur-sm">Smart job alerts</span>
-              <span class="rounded-full border border-white/15 bg-white/10 px-3 py-1.5 backdrop-blur-sm">One-click apply</span>
-              <span class="rounded-full border border-white/15 bg-white/10 px-3 py-1.5 backdrop-blur-sm">Verified employers</span>
+            <div class="mb-8 flex flex-wrap gap-2 text-xs font-medium text-blue-50/90">
+              <span class="rounded-full border border-white/15 bg-white/10 px-3 py-1.5 backdrop-blur-sm transition-all duration-200 group-hover:bg-white/20 group-hover:border-white/30">Smart job alerts</span>
+              <span class="rounded-full border border-white/15 bg-white/10 px-3 py-1.5 backdrop-blur-sm transition-all duration-200 group-hover:bg-white/20 group-hover:border-white/30">One-click apply</span>
+              <span class="rounded-full border border-white/15 bg-white/10 px-3 py-1.5 backdrop-blur-sm transition-all duration-200 group-hover:bg-white/20 group-hover:border-white/30">Verified employers</span>
             </div>
           </div>
-          <div class="flex flex-wrap gap-3">
+          <div class="flex flex-wrap gap-3 items-center">
             <a routerLink="/register"
-              class="inline-flex items-center gap-2 bg-white text-blue-700 font-semibold px-6 py-3 rounded-xl hover:bg-blue-50 transition-all duration-200 shadow-sm text-sm hover:-translate-y-0.5 hover:shadow-lg">
+              class="inline-flex items-center gap-2 bg-white text-blue-700 font-semibold px-6 py-3 rounded-xl hover:bg-blue-50 active:bg-blue-100 transition-all duration-200 shadow-sm text-sm hover:-translate-y-0.5 hover:shadow-md hover:scale-105">
               Create Free Account
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
               </svg>
             </a>
             <a routerLink="/jobs"
-              class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-200 text-sm border border-white/20 hover:-translate-y-0.5">
+              class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 active:bg-white/25 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-200 text-sm border border-white/20 hover:-translate-y-0.5 hover:scale-105">
               Browse Jobs
             </a>
           </div>
@@ -50,46 +56,52 @@
       </div>
 
       <!-- Employers CTA -->
-      <div appReveal [revealDelay]="120" [revealOrigin]="'right'" class="group relative overflow-hidden rounded-3xl min-h-[360px] flex hover-lift">
+      <div appReveal [revealDelay]="120" [revealOrigin]="'right'" class="group relative overflow-hidden rounded-2xl min-h-[380px] flex cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300">
+        <!-- Background Image -->
         <div
-          class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
+          class="absolute inset-0 bg-cover bg-center transition-all duration-500 ease-out group-hover:scale-110 brightness-110 contrast-105"
           [style.background-image]="getPanelBackground(ctaEmployers, 'employers')"
           [style.background-position]="getPanelPosition('employers')"
           style="background-size: cover;">
         </div>
-        <div class="absolute inset-0 bg-gradient-to-br from-[rgba(8,20,58,0.78)] via-[rgba(24,50,110,0.7)] to-[rgba(2,12,38,0.86)] transition-opacity duration-300 group-hover:opacity-95"></div>
-        <div class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-slate-950/40 to-transparent"></div>
+
+        <!-- Overlay (Reduced on Hover) -->
+        <div class="absolute inset-0 bg-gradient-to-br from-[rgba(8,20,58,0.45)] via-[rgba(24,50,110,0.40)] to-[rgba(2,12,38,0.50)] transition-all duration-300 group-hover:from-[rgba(8,20,58,0.25)] group-hover:via-[rgba(24,50,110,0.20)] group-hover:to-[rgba(2,12,38,0.25)]"></div>
+
+        <!-- Bottom Gradient -->
+        <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-slate-950/20 to-transparent"></div>
+
         <!-- Content -->
         <div class="relative p-8 sm:p-10 text-white flex flex-col justify-between w-full">
           <div>
-            <div class="mb-4 inline-flex items-center rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-100 backdrop-blur-sm">
+            <div class="mb-5 inline-flex items-center rounded-full border border-white/20 bg-white/12 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-100 backdrop-blur-sm hover:bg-white/18 transition-all duration-200">
               Hiring Teams
             </div>
-            <div class="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center mb-6 backdrop-blur-sm">
+            <div class="w-14 h-14 rounded-2xl bg-white/15 flex items-center justify-center mb-6 backdrop-blur-sm group-hover:bg-white/25 transition-all duration-300">
               <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
               </svg>
             </div>
-            <h3 class="text-2xl font-bold mb-3 sm:text-[1.75rem]">For Employers</h3>
+            <h3 class="text-2xl sm:text-3xl font-bold mb-4 leading-tight">For Employers</h3>
             <p class="max-w-md text-slate-200/95 mb-8 leading-relaxed text-sm sm:text-[15px]">
               Reach qualified candidates faster, promote open roles with confidence, and manage your hiring pipeline with a more polished recruiting experience.
             </p>
-            <div class="mb-8 flex flex-wrap gap-2 text-xs font-medium text-slate-100/95">
-              <span class="rounded-full border border-white/15 bg-white/10 px-3 py-1.5 backdrop-blur-sm">Verified candidates</span>
-              <span class="rounded-full border border-white/15 bg-white/10 px-3 py-1.5 backdrop-blur-sm">Faster shortlisting</span>
-              <span class="rounded-full border border-white/15 bg-white/10 px-3 py-1.5 backdrop-blur-sm">Team collaboration</span>
+            <div class="mb-8 flex flex-wrap gap-2 text-xs font-medium text-slate-100/90">
+              <span class="rounded-full border border-white/15 bg-white/10 px-3 py-1.5 backdrop-blur-sm transition-all duration-200 group-hover:bg-white/20 group-hover:border-white/30">Verified candidates</span>
+              <span class="rounded-full border border-white/15 bg-white/10 px-3 py-1.5 backdrop-blur-sm transition-all duration-200 group-hover:bg-white/20 group-hover:border-white/30">Faster shortlisting</span>
+              <span class="rounded-full border border-white/15 bg-white/10 px-3 py-1.5 backdrop-blur-sm transition-all duration-200 group-hover:bg-white/20 group-hover:border-white/30">Team collaboration</span>
             </div>
           </div>
-          <div class="flex flex-wrap gap-3">
+          <div class="flex flex-wrap gap-3 items-center">
             <a routerLink="/employer"
-              class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-200 shadow-sm text-sm hover:-translate-y-0.5 hover:shadow-lg">
+              class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-200 shadow-sm text-sm hover:-translate-y-0.5 hover:shadow-md hover:scale-105">
               Post a Job
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
               </svg>
             </a>
             <a routerLink="/register"
-              class="inline-flex items-center gap-2 bg-white/8 hover:bg-white/15 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-200 text-sm border border-white/15 hover:-translate-y-0.5">
+              class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 active:bg-white/25 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-200 text-sm border border-white/15 hover:-translate-y-0.5 hover:scale-105">
               Learn More
             </a>
           </div>

@@ -23,9 +23,9 @@ export class CtaDualPanelComponent {
   @Input() ctaEmployers?: CtaImage;
 
   readonly jobSeekersFallback =
-    'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=900&h=620&fit=crop&crop=entropy&q=70&auto=format,compress';
+    'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1200&h=700&fit=crop&crop=entropy&q=75&auto=format,compress';
   readonly employersFallback =
-    'https://images.unsplash.com/photo-1552664730-d307ca884978?w=900&h=620&fit=crop&crop=entropy&q=70&auto=format,compress';
+    'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=700&fit=crop&crop=entropy&q=75&auto=format,compress';
 
   getPanelBackground(image: CtaImage | undefined, audience: 'job-seekers' | 'employers'): string {
     const fallback = audience === 'job-seekers' ? this.jobSeekersFallback : this.employersFallback;
