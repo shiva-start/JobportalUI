@@ -3,7 +3,7 @@
       [ngClass]="scrolled()
         ? 'border-slate-200/80 bg-white/88 shadow-lg shadow-slate-900/8'
         : 'border-white/40 bg-white/70 shadow-slate-900/5 supports-[backdrop-filter]:bg-white/55'">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
 
           <!-- Logo -->
@@ -17,7 +17,7 @@
           </a>
 
           <!-- Desktop Nav Links -->
-          <div class="hidden md:flex items-center gap-1">
+          <div class="hidden md:flex items-center gap-3">
             <a routerLink="/home" routerLinkActive="text-blue-600 bg-blue-50" [routerLinkActiveOptions]="{exact:true}"
                class="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 hover:-translate-y-0.5">
               Home
@@ -25,6 +25,10 @@
             <a routerLink="/jobs" routerLinkActive="text-blue-600 bg-blue-50"
                class="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 hover:-translate-y-0.5">
               Find Jobs
+            </a>
+            <a routerLink="/freelancers" routerLinkActive="text-blue-600 bg-blue-50"
+               class="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 hover:-translate-y-0.5">
+              Freelancers
             </a>
             @if (auth.isEmployer()) {
               <a routerLink="/employer" routerLinkActive="text-blue-600 bg-blue-50"
@@ -102,6 +106,12 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
             </svg>
             Find Jobs
+          </a>
+          <a routerLink="/freelancers" (click)="closeMenu()" class="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zM6 20v-1c0-2.21 2.69-4 6-4s6 1.79 6 4v1H6z"/>
+            </svg>
+            Freelancers
           </a>
           @if (auth.isAuthenticated()) {
             <a [routerLink]="auth.isEmployer() ? '/employer' : '/candidate'" (click)="closeMenu()" class="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">
