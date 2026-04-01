@@ -1,66 +1,19 @@
-<section class="py-20 bg-slate-50 overflow-hidden">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div appReveal class="text-center mb-12">
-      <p class="text-blue-600 text-sm font-semibold uppercase tracking-widest mb-2">Social proof</p>
-      <h2 class="text-3xl font-bold text-slate-900 mb-3">Trusted by Thousands</h2>
-      <p class="text-slate-500">Real outcomes from real people who used JobPortal</p>
-    </div>
+<section class="py-20 bg-slate-50">
+  <div class="max-w-4xl mx-auto px-4 text-center">
+    <!-- Heading -->
+    <p class="text-blue-600 text-sm font-semibold uppercase tracking-widest mb-2">Testimonials</p>
+    <h2 class="text-3xl font-bold text-slate-900 mb-4">What Our Users Say</h2>
 
-    <div class="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-6 items-start">
-      <div appReveal [revealOrigin]="'left'" class="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
-        @for (t of testimonials; track t.name) {
-          @if ($index === currentTestimonialIndex()) {
-            <article class="animate-slide-up">
-              <div class="flex items-center justify-between gap-4">
-                <div class="inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">
-                  Candidate story
-                </div>
-                <div class="flex items-center gap-0.5">
-                  @for (i of [1,2,3,4,5]; track i) {
-                    <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                    </svg>
-                  }
-                </div>
-              </div>
+    <!-- Testimonial Card -->
+    <div class="mt-10">
+      @for (t of testimonials; track t.name) {
+        @if ($index === currentTestimonialIndex()) {
+          <div class="bg-white rounded-2xl shadow-md p-10 transition-all duration-500 animate-fade">
+            <!-- Quote -->
+            <p class="text-xl sm:text-2xl leading-9 text-slate-700 font-medium">"{{ t.quote }}"</p>
 
-              <p class="mt-8 max-w-2xl text-xl font-medium leading-9 text-slate-800 sm:text-2xl">
-                "{{ t.quote }}"
-              </p>
-
-              <div class="mt-8 flex items-center gap-4">
-                <img
-                  [src]="t.avatar.src"
-                  [srcset]="t.avatar.srcset"
-                  [sizes]="t.avatar.sizes"
-                  [alt]="t.avatar.alt"
-                  [width]="t.avatar.width"
-                  [height]="t.avatar.height"
-                  [loading]="t.avatar.loading"
-                  decoding="async"
-                  class="h-14 w-14 rounded-full object-cover ring-4 ring-blue-50"/>
-                <div>
-                  <p class="font-semibold text-slate-900">{{ t.name }}</p>
-                  <p class="text-sm text-slate-500">{{ t.role }}</p>
-                </div>
-              </div>
-            </article>
-          }
-        }
-      </div>
-
-      <div class="space-y-4">
-        @for (t of testimonials; track t.name; let i = $index) {
-          <button
-            type="button"
-            appReveal
-            [revealDelay]="i * 90"
-            (click)="selectTestimonial(i)"
-            class="w-full rounded-2xl border p-5 text-left transition-all duration-300"
-            [ngClass]="i === currentTestimonialIndex()
-              ? 'border-blue-200 bg-blue-50/70 shadow-lg shadow-blue-100/70 -translate-y-1'
-              : 'border-slate-200 bg-white hover:-translate-y-0.5 hover:border-blue-200'">
-            <div class="flex items-center gap-3">
+            <!-- User Info -->
+            <div class="mt-8 flex flex-col items-center gap-3">
               <img
                 [src]="t.avatar.src"
                 [srcset]="t.avatar.srcset"
@@ -70,51 +23,28 @@
                 [height]="t.avatar.height"
                 [loading]="t.avatar.loading"
                 decoding="async"
-                class="h-11 w-11 rounded-full object-cover"/>
-              <div class="min-w-0">
+                class="w-14 h-14 rounded-full object-cover"/>
+              <div>
                 <p class="font-semibold text-slate-900">{{ t.name }}</p>
-                <p class="truncate text-sm text-slate-500">{{ t.role }}</p>
+                <p class="text-sm text-slate-500">{{ t.role }}</p>
               </div>
             </div>
-            <p class="mt-4 text-sm leading-6 text-slate-600 line-clamp-2">{{ t.quote }}</p>
+          </div>
+        }
+      }
+
+      <!-- Navigation Dots -->
+      <div class="mt-8 flex justify-center gap-2">
+        @for (t of testimonials; track t.name; let i = $index) {
+          <button
+            (click)="selectTestimonial(i)"
+            class="h-2.5 rounded-full transition-all duration-300"
+            [class.w-8]="i === currentTestimonialIndex()"
+            [class.bg-blue-600]="i === currentTestimonialIndex()"
+            [class.w-2.5]="i !== currentTestimonialIndex()"
+            [class.bg-slate-300]="i !== currentTestimonialIndex()">
           </button>
         }
-
-        <div appReveal [revealDelay]="180" class="flex items-center gap-3 pt-2">
-          <button
-            type="button"
-            (click)="previousTestimonial()"
-            class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-200 hover:text-blue-600"
-            aria-label="Show previous testimonial">
-            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-            </svg>
-          </button>
-          <button
-            type="button"
-            (click)="nextTestimonial()"
-            class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-200 hover:text-blue-600"
-            aria-label="Show next testimonial">
-            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-            </svg>
-          </button>
-          <div class="ml-1 flex items-center gap-2">
-            @for (t of testimonials; track t.name; let i = $index) {
-              <button
-                type="button"
-                (click)="selectTestimonial(i)"
-                class="h-2.5 rounded-full transition-all duration-300"
-                [class.w-8]="i === currentTestimonialIndex()"
-                [class.bg-blue-600]="i === currentTestimonialIndex()"
-                [class.animate-pulse-soft]="i === currentTestimonialIndex()"
-                [class.w-2_5]="i !== currentTestimonialIndex()"
-                [class.bg-slate-300]="i !== currentTestimonialIndex()"
-                [attr.aria-label]="'Show testimonial ' + (i + 1)">
-              </button>
-            }
-          </div>
-        </div>
       </div>
     </div>
   </div>

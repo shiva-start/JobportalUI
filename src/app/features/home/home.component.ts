@@ -215,8 +215,8 @@ export class HomeComponent {
     },
     {
       step: 3,
-      title: 'Apply Instantly',
-      description: 'Submit your application with one click and track every stage of your process in real time.',
+      title: 'Get Hired Faster',
+      description: 'Apply in one click and get hired instantly, bringing you one step closer to your dream job.',
       svgPath: 'M13 10V3L4 14h7v7l9-11h-7z'
     },
   ];
