@@ -5,25 +5,12 @@
   (searchSubmitted)="onHeroSearch($event)">
 </app-home-hero>
 
-<app-featured-jobs
-  [loading]="loading()"
-  [featuredJobs]="jobService.featuredJobs()"
-  [skeletonItems]="skeletonItems"
-  [featuredJobsBanner]="landingImages.featuredJobsBanner"
-  [savedJobIds]="savedJobIds"
-  (saveToggle)="onSaveJob($event)">
-</app-featured-jobs>
-
 <app-featured-freelancers></app-featured-freelancers>
 
 <app-job-categories
   [categories]="categories"
   (categorySelected)="onCategorySelected($event)">
 </app-job-categories>
-
-<app-top-companies
-  [topCompanies]="topCompanies">
-</app-top-companies>
 
 <app-how-it-works
   [steps]="howItWorksSteps">
@@ -37,7 +24,3 @@
 <app-testimonials
   [testimonials]="testimonials">
 </app-testimonials>
-
-<app-newsletter
-  [newsletterImage]="landingImages.newsletter">
-</app-newsletter>

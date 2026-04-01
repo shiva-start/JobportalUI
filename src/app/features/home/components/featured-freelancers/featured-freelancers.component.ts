@@ -35,8 +35,8 @@ import { FreelancerCardComponent } from '../../../../shared/components/freelance
 })
 export class FeaturedFreelancersComponent {
   freelancers = [
-    { id: 'f1', name: 'Aisha Khan', role: 'Frontend Developer', type: 'Freelancer', skills: ['Angular','TypeScript','UI Design'], description: 'Building responsive, accessible UIs.' },
-    { id: 'f2', name: 'Omar Rizvi', role: '.NET Developer', type: 'Freelancer', skills: ['.NET','C#','APIs'], description: 'API development and backend solutions.' },
-    { id: 'f3', name: 'Lina Ahmed', role: 'UX/UI Designer', type: 'Freelancer', skills: ['Figma','UX','Prototyping'], description: 'Designing intuitive product experiences.' }
+    { id: 'f1', name: 'Aisha Khan', role: 'Frontend Developer', type: 'Freelancer', skills: ['Angular','TypeScript','UI Design'], description: 'Building responsive, accessible UIs.', avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=56&h=56&fit=crop&crop=faces&auto=format' },
+    { id: 'f2', name: 'Omar Rizvi', role: '.NET Developer', type: 'Freelancer', skills: ['.NET','C#','APIs'], description: 'API development and backend solutions.', avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=56&h=56&fit=crop&crop=faces&auto=format' },
+    { id: 'f3', name: 'Lina Ahmed', role: 'UX/UI Designer', type: 'Freelancer', skills: ['Figma','UX','Prototyping'], description: 'Designing intuitive product experiences.', avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=56&h=56&fit=crop&crop=faces&auto=format' }
   ];
 }

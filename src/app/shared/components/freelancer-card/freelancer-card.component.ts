@@ -11,7 +11,7 @@ import { RouterLink } from '@angular/router';
 
       <!-- Avatar Header -->
       <div class="flex items-center gap-4 mb-4">
-        <img [src]="freelancer.avatar || 'https://via.placeholder.com/56?text=' + (freelancer.name?.charAt(0) || '?')" alt="{{ freelancer.name }}" class="w-14 h-14 rounded-full object-cover ring-2 ring-blue-100 flex-shrink-0" />
+        <img [src]="freelancer.avatar || 'https://ui-avatars.com/api/?name=' + (freelancer.name || '?') + '&size=56&background=dbeafe&color=1d4ed8'" alt="{{ freelancer.name }}" class="w-14 h-14 rounded-full object-cover ring-2 ring-blue-100 flex-shrink-0 transition group-hover:ring-blue-300" />
         <div class="min-w-0 flex-1">
           <h3 class="text-base font-semibold text-slate-800 truncate">{{ freelancer.name }}</h3>
           <p class="text-sm text-slate-500 truncate mt-0.5">{{ freelancer.role }}</p>

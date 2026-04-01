@@ -23,7 +23,8 @@ export interface Testimonial {
   selector: 'app-testimonials',
   standalone: true,
   imports: [CommonModule, RevealDirective],
-  templateUrl: './testimonials.component.html'
+  templateUrl: './testimonials.component.html',
+  styleUrls: ['./testimonials.component.css']
 })
 export class TestimonialsComponent implements OnInit {
   @Input() testimonials: Testimonial[] = [];
