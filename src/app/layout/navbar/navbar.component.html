@@ -24,6 +24,10 @@
                class="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 hover:-translate-y-0.5">
               Find Jobs
             </a>
+            <a routerLink="/companies" routerLinkActive="text-blue-600 bg-blue-50"
+               class="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 hover:-translate-y-0.5">
+              Companies
+            </a>
             <a routerLink="/freelancers" routerLinkActive="text-blue-600 bg-blue-50"
                class="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 hover:-translate-y-0.5">
               Freelancers
@@ -110,6 +114,12 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zM6 20v-1c0-2.21 2.69-4 6-4s6 1.79 6 4v1H6z"/>
             </svg>
             Freelancers
+          </a>
+          <a routerLink="/companies" (click)="closeMenu()" class="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+            </svg>
+            Companies
           </a>
           @if (auth.isAuthenticated()) {
             <a [routerLink]="auth.isEmployer() ? '/employer' : '/candidate'" (click)="closeMenu()" class="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">
