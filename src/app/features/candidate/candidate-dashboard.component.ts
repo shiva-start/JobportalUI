@@ -2,6 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../core/services/auth.service';
+import { CandidateFreelancerRequestService } from '../../core/services/candidate-freelancer-request.service';
 import { JobService } from '../../core/services/job.service';
 import { ToastService } from '../../core/services/toast.service';
 import { JobCardComponent } from '../../shared/components/job-card/job-card.component';
@@ -19,6 +20,7 @@ export class CandidateDashboardComponent {
   auth = inject(AuthService);
   jobService = inject(JobService);
   private toastService = inject(ToastService);
+  private cfReq = inject(CandidateFreelancerRequestService);
 
   activeTab = signal<Tab>('overview');
 
@@ -59,6 +61,22 @@ export class CandidateDashboardComponent {
   ];
 
   demoSkills = ['React', 'TypeScript', 'Angular', 'Node.js', 'Tailwind CSS', 'GraphQL', 'Git'];
+
+  get isFreelancer() { return this.auth.isFreelancer(); }
+
+  get freelancerRequestPending() {
+    const cur = this.auth.currentUser();
+    if (!cur) return false;
+    const r = this.cfReq.findByUser(cur.id);
+    return !!r && r.status === 'pending';
+  }
+
+  applyForFreelancer() {
+    const cur = this.auth.currentUser();
+    if (!cur) return this.toastService.error('Not signed in');
+    this.cfReq.create(cur.id);
+    this.toastService.success('Freelancer request submitted — awaiting admin review.');
+  }
 
   getFirstName(): string {
     const name = this.auth.currentUser()?.name;

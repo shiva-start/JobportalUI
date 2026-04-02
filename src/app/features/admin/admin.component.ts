@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FreelancerService } from '../../core/services/freelancer.service';
 import { FreelancerRequestService } from '../../core/services/freelancer-request.service';
+import { CandidateFreelancerRequestService } from '../../core/services/candidate-freelancer-request.service';
 import { AuthService } from '../../core/services/auth.service';
 import { Router } from '@angular/router';
 
@@ -27,6 +28,21 @@ import { Router } from '@angular/router';
                 <button (click)="updateStatus(f.id, 'rejected')" class="px-3 py-1 rounded bg-red-100 text-red-700">Reject</button>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+      
+      <section class="bg-white p-6 rounded-xl border border-slate-100">
+        <h2 class="text-lg font-medium mb-4">Freelancer Applications (Candidates)</h2>
+        <div *ngIf="cfRequests().length === 0" class="text-sm text-slate-500">No candidate applications yet.</div>
+        <div *ngFor="let cr of cfRequests()" class="p-4 border rounded-lg mb-3 flex items-center justify-between">
+          <div>
+            <div class="font-semibold">User: {{ getUserName(cr.userId) }} <span class="text-sm text-slate-500">— {{ cr.createdAt }}</span></div>
+            <div class="text-sm text-slate-500">Status: <span class="font-medium">{{ cr.status }}</span></div>
+          </div>
+          <div class="flex items-center gap-2">
+            <button *ngIf="cr.status === 'pending'" (click)="approveCandidate(cr.id, cr.userId)" class="px-3 py-1 bg-green-100 text-green-700 rounded">Approve</button>
+            <button *ngIf="cr.status === 'pending'" (click)="rejectCandidate(cr.id)" class="px-3 py-1 bg-red-100 text-red-700 rounded">Reject</button>
           </div>
         </div>
       </section>
@@ -68,6 +84,7 @@ export class AdminComponent {
   private rs = inject(FreelancerRequestService);
   private auth = inject(AuthService);
   private router = inject(Router);
+  private cf = inject(CandidateFreelancerRequestService);
 
   constructor() {
     if (!this.auth.isAuthenticated() || !this.auth.isAdmin()) {
@@ -78,6 +95,12 @@ export class AdminComponent {
 
   freelancers = () => this.fs.list();
   requests = () => this.rs.list();
+  cfRequests = () => this.cf.list();
+
+  getUserName(userId: string) {
+    const u = this.auth.getUserById(userId);
+    return u ? u.name : userId;
+  }
 
   updateStatus(id: string, status: 'approved' | 'rejected') {
     this.fs.updateStatus(id, status);
@@ -91,6 +114,16 @@ export class AdminComponent {
     if (!freelancerId) return;
     this.fs.assignFreelancerToRequest(freelancerId, requestId);
     this.rs.assignFreelancer(requestId, freelancerId);
+  }
+
+  approveCandidate(requestId: string, userId: string) {
+    this.cf.updateStatus(requestId, 'approved');
+    // mark user as freelancer
+    this.auth.setFreelancerStatus(userId, true);
+  }
+
+  rejectCandidate(requestId: string) {
+    this.cf.updateStatus(requestId, 'rejected');
   }
 
   statusClass(s: string) {

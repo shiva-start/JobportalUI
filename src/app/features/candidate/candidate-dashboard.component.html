@@ -231,6 +231,21 @@
                   </div>
                 </div>
 
+                <!-- Become Freelancer -->
+                <div class="bg-white rounded-2xl border border-gray-200 p-6">
+                  <h3 class="font-semibold text-gray-900">Freelancer</h3>
+                  <p class="text-sm text-gray-500 mt-2">Offer your skills as a freelancer on the platform. Requests are reviewed by Admin.</p>
+                  <div class="mt-4">
+                    @if (!isFreelancer && !freelancerRequestPending) {
+                      <button (click)="applyForFreelancer()" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Become a Freelancer</button>
+                    } @else if (freelancerRequestPending) {
+                      <p class="text-yellow-600 text-sm">Your request is under review</p>
+                    } @else {
+                      <p class="text-green-600 text-sm">You are a verified freelancer</p>
+                    }
+                  </div>
+                </div>
+
                 <!-- Skills Section -->
                 <div class="bg-white rounded-2xl border border-gray-200 p-6">
                   <div class="flex items-center justify-between mb-4">

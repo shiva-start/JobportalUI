@@ -27,6 +27,7 @@ export interface User {
   title?: string;
   location?: string;
   bio?: string;
+  isFreelancer?: boolean;
 }
 
 export interface Category {
