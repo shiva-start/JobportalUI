@@ -21,12 +21,13 @@ export interface User {
   id: string;
   name: string;
   email: string;
-  role: 'candidate' | 'employer';
+  role: 'candidate' | 'employer' | 'admin';
   avatar?: string;
   company?: string;
   title?: string;
   location?: string;
   bio?: string;
+  isFreelancer?: boolean;
 }
 
 export interface Category {

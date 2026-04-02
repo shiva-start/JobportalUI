@@ -3,11 +3,6 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
-  {
-    path: 'home',
     loadComponent: () => import('./features/home/home.component').then(m => m.HomeComponent)
   },
   {
@@ -17,6 +12,10 @@ export const routes: Routes = [
   {
     path: 'freelancers',
     loadComponent: () => import('./features/freelancers/freelancers.component').then(m => m.FreelancersComponent)
+  },
+  {
+    path: 'companies',
+    loadComponent: () => import('./features/companies/companies.component').then(m => m.CompaniesComponent)
   },
   {
     path: 'jobs/:id',
@@ -31,6 +30,14 @@ export const routes: Routes = [
     loadComponent: () => import('./features/auth/register/register.component').then(m => m.RegisterComponent)
   },
   {
+    path: 'freelancer-request',
+    loadComponent: () => import('./features/freelancer-request/freelancer-request.component').then(m => m.FreelancerRequestComponent)
+  },
+  {
+    path: 'admin',
+    loadComponent: () => import('./features/admin/admin.component').then(m => m.AdminComponent)
+  },
+  {
     path: 'candidate',
     loadComponent: () => import('./features/candidate/candidate-dashboard.component').then(m => m.CandidateDashboardComponent)
   },
@@ -40,6 +47,6 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'home'
+    redirectTo: ''
   }
 ];

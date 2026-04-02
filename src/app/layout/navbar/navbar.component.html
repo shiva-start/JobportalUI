@@ -1,11 +1,11 @@
     <nav
-      class="fixed inset-x-0 top-0 z-50 w-full border-b backdrop-blur-xl transition-colors duration-300 bg-white/70 border-white/40 shadow-slate-900/5 supports-[backdrop-filter]:bg-white/55"
+      class="fixed inset-x-0 top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-gray-200 transition-colors duration-300 shadow-slate-900/5 supports-[backdrop-filter]:bg-white/80"
       [class.scrolled]="scrolled()">
       <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
 
           <!-- Logo -->
-          <a routerLink="/home" class="flex items-center gap-2.5 group flex-shrink-0 transition-transform duration-200 hover:-translate-y-0.5">
+          <a routerLink="/" class="flex items-center gap-2.5 group flex-shrink-0 transition-transform duration-200 hover:-translate-y-0.5">
             <div class="w-8 h-8 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-lg flex items-center justify-center shadow-sm group-hover:shadow-md transition-all duration-200 group-hover:scale-105">
               <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
@@ -16,13 +16,13 @@
 
           <!-- Desktop Nav Links -->
           <div class="hidden md:flex items-center gap-3">
-            <a routerLink="/home" routerLinkActive="text-blue-600 bg-blue-50" [routerLinkActiveOptions]="{exact:true}"
-               class="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 hover:-translate-y-0.5">
-              Home
-            </a>
             <a routerLink="/jobs" routerLinkActive="text-blue-600 bg-blue-50"
                class="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 hover:-translate-y-0.5">
               Find Jobs
+            </a>
+            <a routerLink="/companies" routerLinkActive="text-blue-600 bg-blue-50"
+               class="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 hover:-translate-y-0.5">
+              Companies
             </a>
             <a routerLink="/freelancers" routerLinkActive="text-blue-600 bg-blue-50"
                class="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 hover:-translate-y-0.5">
@@ -93,12 +93,6 @@
       <!-- Mobile Menu -->
       @if (menuOpen()) {
         <div class="md:hidden border-t border-slate-100 bg-white px-4 py-3 space-y-1 animate-fade-in shadow-lg">
-          <a routerLink="/home" (click)="closeMenu()" class="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
-            </svg>
-            Home
-          </a>
           <a routerLink="/jobs" (click)="closeMenu()" class="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
@@ -110,6 +104,12 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zM6 20v-1c0-2.21 2.69-4 6-4s6 1.79 6 4v1H6z"/>
             </svg>
             Freelancers
+          </a>
+          <a routerLink="/companies" (click)="closeMenu()" class="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+            </svg>
+            Companies
           </a>
           @if (auth.isAuthenticated()) {
             <a [routerLink]="auth.isEmployer() ? '/employer' : '/candidate'" (click)="closeMenu()" class="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">

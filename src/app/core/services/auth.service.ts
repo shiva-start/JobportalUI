@@ -11,6 +11,8 @@ export class AuthService {
   readonly isAuthenticated = computed(() => this._currentUser() !== null);
   readonly isCandidate = computed(() => this._currentUser()?.role === 'candidate');
   readonly isEmployer = computed(() => this._currentUser()?.role === 'employer');
+  readonly isAdmin = computed(() => this._currentUser()?.role === 'admin');
+  readonly isFreelancer = computed(() => this._currentUser()?.isFreelancer === true);
 
   login(email: string, _password: string): boolean {
     const user = this._users().find(u => u.email === email);
@@ -36,6 +38,26 @@ export class AuthService {
 
   loginAsCandidate(): void {
     this._currentUser.set(this._users().find(u => u.role === 'candidate') || null);
+  }
+
+  loginAsAdmin(): void {
+    // Create or pick an admin user from the mock list; if not present, inject a demo admin
+    const admin = this._users().find(u => u.role === 'admin') || { id: 'admin', name: 'Site Admin', email: 'admin@example.com', role: 'admin', avatar: 'AD' };
+    this._currentUser.set(admin as User);
+  }
+
+  setFreelancerStatus(userId: string, isFreelancer: boolean) {
+    // update users list
+    this._users.update(list => list.map(u => u.id === userId ? { ...u, isFreelancer } : u));
+    // if current user is the same, update currentUser
+    if (this._currentUser()?.id === userId) {
+      const u = { ...(this._currentUser() as User), isFreelancer } as User;
+      this._currentUser.set(u);
+    }
+  }
+
+  getUserById(userId: string) {
+    return this._users().find(u => u.id === userId) || null;
   }
 
   register(name: string, email: string, role: 'candidate' | 'employer'): boolean {
