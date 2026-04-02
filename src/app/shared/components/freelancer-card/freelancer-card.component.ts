@@ -40,9 +40,9 @@ import { RouterLink } from '@angular/router';
       <!-- Spacer -->
       <div class="flex-grow"></div>
 
-      <!-- Action Button -->
-      <a [routerLink]="['/freelancers', freelancer.id]" class="w-full text-center px-4 py-2.5 rounded-lg border-2 border-blue-600 text-blue-600 font-semibold text-sm hover:bg-blue-600 hover:text-white transition-all duration-200 group-hover:shadow-sm">
-        View Profile
+      <!-- Action Button (Request via Admin) -->
+      <a [routerLink]="['/freelancer-request']" [queryParams]="{ freelancerId: freelancer.id }" class="w-full text-center px-4 py-2.5 rounded-lg bg-blue-600 text-white font-semibold text-sm hover:bg-blue-700 transition-all duration-200 group-hover:shadow-sm">
+        Request Freelancer
       </a>
     </div>
   `

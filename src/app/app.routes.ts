@@ -30,6 +30,14 @@ export const routes: Routes = [
     loadComponent: () => import('./features/auth/register/register.component').then(m => m.RegisterComponent)
   },
   {
+    path: 'freelancer-request',
+    loadComponent: () => import('./features/freelancer-request/freelancer-request.component').then(m => m.FreelancerRequestComponent)
+  },
+  {
+    path: 'admin',
+    loadComponent: () => import('./features/admin/admin.component').then(m => m.AdminComponent)
+  },
+  {
     path: 'candidate',
     loadComponent: () => import('./features/candidate/candidate-dashboard.component').then(m => m.CandidateDashboardComponent)
   },

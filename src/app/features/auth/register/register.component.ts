@@ -25,6 +25,8 @@ export class RegisterComponent {
     name: ['', [Validators.required, Validators.minLength(2)]],
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(8)]],
+    companyName: [''],
+    industry: [''],
     terms: [false, Validators.requiredTrue]
   });
 
@@ -73,6 +75,17 @@ export class RegisterComponent {
 
   onSubmit(): void {
     if (this.form.invalid) { this.form.markAllAsTouched(); return; }
+    // additional minimal validation for employer flow
+    if (this.selectedRole() === 'employer') {
+      const company = this.form.value.companyName || '';
+      const industry = this.form.value.industry || '';
+      if (!company.trim() || !industry.trim()) {
+        this.form.get('companyName')?.markAsTouched();
+        this.form.get('industry')?.markAsTouched();
+        return;
+      }
+    }
+
     this.submitting.set(true);
     setTimeout(() => {
       const success = this.auth.register(

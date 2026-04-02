@@ -19,6 +19,7 @@ export class LoginComponent {
 
   showPassword = signal(false);
   submitting = signal(false);
+  userType = signal<'candidate' | 'employer'>('candidate');
 
   form = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
@@ -63,5 +64,11 @@ export class LoginComponent {
     this.auth.loginAsEmployer();
     this.toastService.success('Logged in as employer!');
     this.router.navigate(['/employer']);
+  }
+
+  loginAsAdmin(): void {
+    this.auth.loginAsAdmin();
+    this.toastService.success('Logged in as admin!');
+    this.router.navigate(['/admin']);
   }
 }
