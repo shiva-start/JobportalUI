@@ -1,269 +1,527 @@
-    <div class="min-h-screen bg-gray-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div class="flex flex-col lg:flex-row gap-6">
+<div class="min-h-screen bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="flex flex-col lg:flex-row gap-6">
 
-          <!-- Sidebar -->
-          <aside class="lg:w-64 flex-shrink-0">
+      <!-- ═══════════════════════════════════════════════════ SIDEBAR -->
+      <aside class="lg:w-64 flex-shrink-0 space-y-4">
 
-            <!-- Profile Card -->
-            <div class="bg-white rounded-2xl border border-gray-200 p-6 mb-4 text-center">
-              <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white text-xl font-bold mx-auto mb-3 shadow-lg">
-                {{ auth.currentUser()?.avatar || 'U' }}
-              </div>
-              <h2 class="font-bold text-gray-900 text-base">{{ auth.currentUser()?.name || 'User' }}</h2>
-              <p class="text-sm text-gray-500 mt-0.5">{{ auth.currentUser()?.title || 'Job Seeker' }}</p>
-              <div class="flex items-center justify-center gap-1 mt-1">
-                <svg class="w-3.5 h-3.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                </svg>
-                <span class="text-xs text-gray-400">{{ auth.currentUser()?.location || 'Cairo, Egypt' }}</span>
-              </div>
-              <!-- Profile completeness -->
-              <div class="mt-4">
-                <div class="flex justify-between text-xs text-gray-500 mb-1">
-                  <span>Profile strength</span>
-                  <span class="font-medium text-blue-600">65%</span>
+        <!-- Profile Card -->
+        <div class="bg-white rounded-2xl border border-gray-200 p-6 text-center">
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white text-xl font-bold mx-auto mb-3 shadow-lg">
+            {{ auth.currentUser()?.avatar || 'U' }}
+          </div>
+          <h2 class="font-bold text-gray-900 text-base">{{ auth.currentUser()?.name || 'User' }}</h2>
+          <p class="text-sm text-gray-500 mt-0.5">{{ auth.currentUser()?.title || 'Job Seeker' }}</p>
+          <p class="text-xs text-gray-400 mt-1 flex items-center justify-center gap-1">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+            </svg>
+            {{ auth.currentUser()?.location || 'Cairo, Egypt' }}
+          </p>
+          <!-- Profile strength -->
+          <div class="mt-4">
+            <div class="flex justify-between text-xs text-gray-500 mb-1">
+              <span>Profile strength</span>
+              <span class="font-medium text-blue-600">75%</span>
+            </div>
+            <div class="h-1.5 bg-gray-100 rounded-full overflow-hidden">
+              <div class="h-full bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full" style="width: 75%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="bg-white rounded-2xl border border-gray-200 p-2 space-y-0.5">
+          @for (item of navItems; track item.id) {
+            <button (click)="activeTab.set(item.id)"
+              [class]="activeTab() === item.id ? 'bg-blue-50 text-blue-700 font-semibold' : 'text-gray-600 hover:bg-gray-50'"
+              class="w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm transition-all duration-200">
+              <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="item.svgPath"/>
+              </svg>
+              <span class="flex-1 text-left">{{ item.label }}</span>
+              @if (item.badge) {
+                <span class="min-w-[20px] h-5 bg-blue-600 text-white text-xs font-bold rounded-full flex items-center justify-center px-1">
+                  {{ item.badge }}
+                </span>
+              }
+            </button>
+          }
+        </nav>
+
+        <!-- Complete Your Profile + Freelancer -->
+        <div class="bg-white rounded-2xl border border-gray-200 p-4">
+          <h3 class="text-sm font-semibold text-gray-700 mb-3">Complete Your Profile</h3>
+          <ul class="space-y-2 text-sm">
+            <li>
+              <button (click)="activeTab.set('profile')" class="text-blue-600 hover:underline text-left w-full">
+                + Add Skills
+              </button>
+            </li>
+            <li>
+              <button (click)="activeTab.set('profile')" class="text-blue-600 hover:underline text-left w-full">
+                + Add Experience
+              </button>
+            </li>
+            <li>
+              <button (click)="activeTab.set('profile')" class="text-blue-600 hover:underline text-left w-full">
+                + Upload Resume
+              </button>
+            </li>
+            <li class="pt-2 border-t border-gray-100">
+              @if (!isFreelancer && !freelancerRequestPending) {
+                <button (click)="applyForFreelancer()" class="text-green-600 font-medium hover:underline text-left w-full flex items-center gap-1.5">
+                  <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                  </svg>
+                  Become a Freelancer
+                </button>
+              } @else if (freelancerRequestPending) {
+                <span class="flex items-center gap-1.5 text-yellow-600 text-xs font-medium">
+                  <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                  Freelancer request pending
+                </span>
+              } @else {
+                <a routerLink="/freelancers" class="flex items-center gap-1.5 text-green-600 font-medium hover:underline text-sm">
+                  <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                  View Freelancer Profile
+                </a>
+              }
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- ═══════════════════════════════════════════════ MAIN CONTENT -->
+      <main class="flex-1 min-w-0">
+
+        <!-- ─── Overview Tab ────────────────────────────────────────── -->
+        @if (activeTab() === 'overview') {
+          <div class="space-y-5">
+            <h1 class="text-xl font-bold text-gray-900">Good morning, {{ getFirstName() }}.</h1>
+
+            <!-- Stats grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              @for (stat of stats; track stat.label) {
+                <div class="bg-white rounded-2xl border border-gray-200 p-5">
+                  <div class="text-2xl font-bold text-gray-900">{{ stat.value }}</div>
+                  <div class="text-xs text-gray-500 mt-1">{{ stat.label }}</div>
+                  @if (stat.change) {
+                    <div class="text-xs font-medium mt-2" [class]="stat.positive ? 'text-green-600' : 'text-red-500'">
+                      {{ stat.change }}
+                    </div>
+                  }
                 </div>
-                <div class="h-1.5 bg-gray-100 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full" style="width: 65%"></div>
+              }
+            </div>
+
+            <!-- Recent Applications -->
+            <div class="bg-white rounded-2xl border border-gray-200">
+              <div class="flex items-center justify-between p-5 border-b border-gray-100">
+                <h2 class="font-bold text-gray-900">Recent Applications</h2>
+                <button (click)="activeTab.set('applied')" class="text-sm text-blue-600 hover:text-blue-700 font-medium">View all</button>
+              </div>
+              @if (appliedJobs().length === 0) {
+                <div class="p-8 text-center">
+                  <svg class="w-10 h-10 mx-auto mb-3 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                  </svg>
+                  <p class="text-sm text-gray-500 mb-2">No applications yet</p>
+                  <a routerLink="/jobs" class="text-blue-600 text-sm font-medium hover:underline">Browse Jobs</a>
+                </div>
+              } @else {
+                <div class="divide-y divide-gray-100">
+                  @for (job of appliedJobs().slice(0, 3); track job.id) {
+                    <div class="flex items-center gap-4 p-4 hover:bg-gray-50 transition-colors">
+                      <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
+                        {{ job.companyLogo || job.company.slice(0,2) }}
+                      </div>
+                      <div class="flex-1 min-w-0">
+                        <p class="font-semibold text-gray-900 text-sm truncate">{{ job.title }}</p>
+                        <p class="text-xs text-gray-500">{{ job.company }} · {{ job.location }}</p>
+                      </div>
+                      <app-badge [variant]="getStatusVariant(getApplicationStatus(job.id))">
+                        {{ getStatusLabel(getApplicationStatus(job.id)) }}
+                      </app-badge>
+                    </div>
+                  }
+                </div>
+              }
+            </div>
+
+            <!-- Recommended Jobs -->
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <h2 class="font-bold text-gray-900">Recommended for You</h2>
+                <a routerLink="/jobs" class="text-sm text-blue-600 hover:text-blue-700 font-medium">View all</a>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                @for (job of recommendedJobs(); track job.id) {
+                  <app-job-card [job]="job" [saved]="jobService.isJobSaved(job.id)" (saveToggle)="onSaveJob($event)"></app-job-card>
+                }
+              </div>
+            </div>
+          </div>
+        }
+
+        <!-- ─── Applications Tab ────────────────────────────────────── -->
+        @if (activeTab() === 'applied') {
+          <div>
+            <h1 class="text-xl font-bold text-gray-900 mb-2">My Applications</h1>
+            <p class="text-sm text-gray-500 mb-5">Track the status of every job you've applied to. Statuses are updated by recruiters.</p>
+
+            @if (appliedJobs().length === 0) {
+              <div class="bg-white rounded-2xl border border-gray-200 p-12 text-center">
+                <svg class="w-12 h-12 mx-auto mb-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
+                <h3 class="font-bold text-gray-900 mb-1">No applications yet</h3>
+                <p class="text-sm text-gray-500 mb-4">Start applying to jobs that match your skills</p>
+                <a routerLink="/jobs" class="px-5 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-xl hover:bg-blue-700 transition-colors">
+                  Browse Jobs
+                </a>
+              </div>
+            } @else {
+              <!-- Status legend -->
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="text-xs text-gray-500 font-medium self-center">Status key:</span>
+                <app-badge variant="blue">Applied</app-badge>
+                <app-badge variant="orange">Under Review</app-badge>
+                <app-badge variant="green">Shortlisted</app-badge>
+                <app-badge variant="indigo">Interview Scheduled</app-badge>
+                <app-badge variant="teal">Offer Received</app-badge>
+                <app-badge variant="red">Rejected</app-badge>
+              </div>
+
+              <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden">
+                <div class="divide-y divide-gray-100">
+                  @for (job of appliedJobs(); track job.id) {
+                    <div class="flex items-center gap-4 p-5 hover:bg-gray-50 transition-colors">
+                      <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white font-bold flex-shrink-0">
+                        {{ job.companyLogo || job.company.slice(0,2) }}
+                      </div>
+                      <div class="flex-1 min-w-0">
+                        <a [routerLink]="['/jobs', job.id]" class="font-semibold text-gray-900 hover:text-blue-600 transition-colors text-sm">{{ job.title }}</a>
+                        <p class="text-xs text-gray-500 mt-0.5">{{ job.company }} · {{ job.location }}</p>
+                        <p class="text-xs text-gray-400 mt-0.5">Applied {{ getApplicationDate(job.id) }}</p>
+                      </div>
+                      <app-badge [variant]="getStatusVariant(getApplicationStatus(job.id))">
+                        {{ getStatusLabel(getApplicationStatus(job.id)) }}
+                      </app-badge>
+                    </div>
+                  }
+                </div>
+              </div>
+            }
+          </div>
+        }
+
+        <!-- ─── Saved Jobs Tab ──────────────────────────────────────── -->
+        @if (activeTab() === 'saved') {
+          <div>
+            <h1 class="text-xl font-bold text-gray-900 mb-5">Saved Jobs</h1>
+            @if (savedJobs().length === 0) {
+              <div class="bg-white rounded-2xl border border-gray-200 p-12 text-center">
+                <svg class="w-12 h-12 mx-auto mb-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+                </svg>
+                <h3 class="font-bold text-gray-900 mb-1">No saved jobs</h3>
+                <p class="text-sm text-gray-500 mb-4">Bookmark jobs you like to apply later</p>
+                <a routerLink="/jobs" class="px-5 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-xl hover:bg-blue-700 transition-colors">
+                  Browse Jobs
+                </a>
+              </div>
+            } @else {
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                @for (job of savedJobs(); track job.id) {
+                  <app-job-card [job]="job" [saved]="true" (saveToggle)="onSaveJob($event)"></app-job-card>
+                }
+              </div>
+            }
+          </div>
+        }
+
+        <!-- ─── Messages Tab ────────────────────────────────────────── -->
+        @if (activeTab() === 'messages') {
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <h1 class="text-xl font-bold text-gray-900">Messages</h1>
+              @if (unreadCount > 0) {
+                <app-badge variant="blue">{{ unreadCount }} unread</app-badge>
+              }
+            </div>
+
+            @if (messages.length) {
+              <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden">
+                <div class="divide-y divide-gray-100">
+                  @for (msg of messages; track msg.id) {
+                    <div (click)="markMessageRead(msg.id)"
+                         class="flex items-start gap-4 p-5 cursor-pointer hover:bg-gray-50 transition-colors"
+                         [class]="msg.read ? '' : 'bg-blue-50 hover:bg-blue-50/80'">
+                      <!-- Avatar -->
+                      <div class="w-10 h-10 rounded-full bg-gradient-to-br from-slate-500 to-slate-700 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
+                        {{ msg.avatar }}
+                      </div>
+                      <div class="flex-1 min-w-0">
+                        <div class="flex items-start justify-between gap-2">
+                          <div>
+                            <span class="font-semibold text-gray-900 text-sm">{{ msg.from }}</span>
+                            <span class="text-xs text-gray-400 ml-2">{{ msg.company }}</span>
+                          </div>
+                          <span class="text-xs text-gray-400 flex-shrink-0">{{ msg.date }}</span>
+                        </div>
+                        <p class="text-sm font-medium text-gray-800 mt-0.5">{{ msg.subject }}</p>
+                        <p class="text-xs text-gray-500 mt-1 line-clamp-1">{{ msg.preview }}</p>
+                      </div>
+                      @if (!msg.read) {
+                        <div class="w-2 h-2 rounded-full bg-blue-500 flex-shrink-0 mt-2"></div>
+                      }
+                    </div>
+                  }
+                </div>
+              </div>
+            } @else {
+              <div class="bg-white rounded-2xl border border-gray-200 p-12 text-center">
+                <svg class="w-12 h-12 mx-auto mb-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+                <p class="text-gray-400 text-sm">No messages yet</p>
+              </div>
+            }
+          </div>
+        }
+
+        <!-- ─── Profile Tab ─────────────────────────────────────────── -->
+        @if (activeTab() === 'profile') {
+          <div class="space-y-5">
+            <h1 class="text-xl font-bold text-gray-900">My Profile</h1>
+
+            <!-- Basic Information -->
+            <div class="bg-white rounded-2xl border border-gray-200 p-6">
+              <div class="flex items-center justify-between mb-5">
+                <h2 class="font-bold text-gray-900">Basic Information</h2>
+                <button class="text-sm text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
+                  </svg>
+                  Edit
+                </button>
+              </div>
+              <div class="flex items-center gap-4 mb-6">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white text-xl font-bold shadow-lg">
+                  {{ auth.currentUser()?.avatar || 'U' }}
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold text-gray-900">{{ auth.currentUser()?.name }}</h3>
+                  <p class="text-sm text-gray-500">{{ auth.currentUser()?.title || 'Job Seeker' }}</p>
+                </div>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-medium text-gray-500 mb-1">Email</label>
+                  <div class="px-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-sm text-gray-700">
+                    {{ auth.currentUser()?.email || '—' }}
+                  </div>
+                </div>
+                <div>
+                  <label class="block text-xs font-medium text-gray-500 mb-1">Location</label>
+                  <div class="px-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-sm text-gray-700">
+                    {{ auth.currentUser()?.location || 'Not specified' }}
+                  </div>
+                </div>
+                <div>
+                  <label class="block text-xs font-medium text-gray-500 mb-1">Phone</label>
+                  <div class="px-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-sm text-gray-700">
+                    +20 10 0000 0000
+                  </div>
+                </div>
+                <div>
+                  <label class="block text-xs font-medium text-gray-500 mb-1">Current Role</label>
+                  <div class="px-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-sm text-gray-700">
+                    {{ auth.currentUser()?.title || 'Not specified' }}
+                  </div>
                 </div>
               </div>
             </div>
 
-            <!-- Navigation -->
-            <nav class="bg-white rounded-2xl border border-gray-200 p-2 space-y-0.5">
-              @for (item of navItems; track item.id) {
-                <button (click)="activeTab.set(item.id)"
-                  [class]="activeTab() === item.id ? 'bg-blue-50 text-blue-700 font-semibold' : 'text-gray-600 hover:bg-gray-50'"
-                  class="w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm transition-all duration-200">
-                  <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="item.svgPath"/>
-                  </svg>
-                  <span class="flex-1 text-left">{{ item.label }}</span>
-                  @if (item.badge) {
-                    <span class="min-w-[20px] h-5 bg-blue-600 text-white text-xs font-bold rounded-full flex items-center justify-center px-1">
-                      {{ item.badge }}
+            <!-- About / Bio -->
+            <div class="bg-white rounded-2xl border border-gray-200 p-6">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="font-bold text-gray-900">About</h2>
+                <button class="text-sm text-blue-600 hover:text-blue-700 font-medium">Edit</button>
+              </div>
+              @if (auth.currentUser()?.bio) {
+                <p class="text-sm text-gray-600 leading-relaxed">{{ auth.currentUser()?.bio }}</p>
+              } @else {
+                <p class="text-gray-400 text-sm">No bio added yet. Add a short summary to help recruiters know you better.</p>
+              }
+            </div>
+
+            <!-- Skills -->
+            <div class="bg-white rounded-2xl border border-gray-200 p-6">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="font-bold text-gray-900">Skills</h2>
+                <button class="text-sm text-blue-600 hover:text-blue-700 font-medium">+ Add Skill</button>
+              </div>
+              @if (demoSkills.length) {
+                <div class="flex flex-wrap gap-2">
+                  @for (skill of demoSkills; track skill) {
+                    <span class="px-3 py-1.5 bg-blue-50 border border-blue-200 text-blue-700 text-sm font-medium rounded-lg flex items-center gap-1.5">
+                      {{ skill }}
+                      <button class="text-blue-400 hover:text-blue-600 leading-none text-base">×</button>
                     </span>
                   }
-                </button>
+                </div>
+              } @else {
+                <p class="text-gray-400 text-sm">No skills added yet.</p>
               }
-            </nav>
-
-            <!-- Quick Actions -->
-            <div class="mt-4 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-5 text-white">
-              <p class="font-semibold text-sm mb-1">Complete Your Profile</p>
-              <p class="text-xs text-blue-200 mb-3">Get 3x more views with a complete profile</p>
-              <button class="w-full py-2 bg-white text-blue-700 text-xs font-semibold rounded-lg hover:bg-blue-50 transition-colors">
-                Update Profile
-              </button>
             </div>
-          </aside>
 
-          <!-- Main Content -->
-          <main class="flex-1 min-w-0">
-
-            <!-- Overview Tab -->
-            @if (activeTab() === 'overview') {
-              <div class="space-y-5">
-                <h1 class="text-xl font-bold text-gray-900">
-                  Good morning, {{ getFirstName() }}.
-                </h1>
-
-                <!-- Stats -->
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                  @for (stat of stats; track stat.label) {
-                    <div class="bg-white rounded-2xl border border-gray-200 p-5">
-                      <div class="text-2xl font-bold text-gray-900">{{ stat.value }}</div>
-                      <div class="text-xs text-gray-500 mt-1">{{ stat.label }}</div>
-                      @if (stat.change) {
-                        <div class="text-xs font-medium mt-2" [class]="stat.positive ? 'text-green-600' : 'text-red-500'">
-                          {{ stat.change }}
+            <!-- Work Experience -->
+            <div class="bg-white rounded-2xl border border-gray-200 p-6">
+              <div class="flex items-center justify-between mb-5">
+                <h2 class="font-bold text-gray-900">Work Experience</h2>
+                <button class="text-sm text-blue-600 hover:text-blue-700 font-medium">+ Add</button>
+              </div>
+              @if (experience.length) {
+                <div class="space-y-0">
+                  @for (exp of experience; track exp.id; let isLast = $last) {
+                    <div class="flex gap-4">
+                      <!-- Timeline dot + line -->
+                      <div class="flex flex-col items-center">
+                        <div class="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600 font-bold text-xs flex-shrink-0">
+                          {{ exp.company.slice(0,2).toUpperCase() }}
                         </div>
-                      }
+                        @if (!isLast) {
+                          <div class="w-px flex-1 bg-gray-200 my-1"></div>
+                        }
+                      </div>
+                      <!-- Content -->
+                      <div class="flex-1 pb-5">
+                        <div class="flex flex-wrap items-start justify-between gap-2">
+                          <div>
+                            <h3 class="font-semibold text-gray-900 text-sm">{{ exp.title }}</h3>
+                            <p class="text-sm text-gray-600">{{ exp.company }} · {{ exp.location }}</p>
+                          </div>
+                          <div class="flex items-center gap-2 flex-shrink-0">
+                            <span class="text-xs text-gray-400">{{ exp.startDate }} – {{ exp.endDate }}</span>
+                            @if (exp.current) {
+                              <app-badge variant="green">Current</app-badge>
+                            }
+                          </div>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-2 leading-relaxed">{{ exp.description }}</p>
+                      </div>
                     </div>
                   }
                 </div>
+              } @else {
+                <p class="text-gray-400 text-sm">No experience added yet.</p>
+              }
+            </div>
 
-                <!-- Recent Applications -->
-                <div class="bg-white rounded-2xl border border-gray-200">
-                  <div class="flex items-center justify-between p-5 border-b border-gray-100">
-                    <h2 class="font-bold text-gray-900">Recent Applications</h2>
-                    <button (click)="activeTab.set('applied')" class="text-sm text-blue-600 hover:text-blue-700 font-medium">View all</button>
-                  </div>
-                  @if (appliedJobs().length === 0) {
-                    <div class="p-8 text-center">
-                      <div class="w-12 h-12 mx-auto mb-3 rounded-xl bg-slate-100 flex items-center justify-center">
-                        <svg class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            <!-- Education -->
+            <div class="bg-white rounded-2xl border border-gray-200 p-6">
+              <div class="flex items-center justify-between mb-5">
+                <h2 class="font-bold text-gray-900">Education</h2>
+                <button class="text-sm text-blue-600 hover:text-blue-700 font-medium">+ Add</button>
+              </div>
+              @if (education.length) {
+                <div class="space-y-4">
+                  @for (edu of education; track edu.id) {
+                    <div class="flex gap-4 p-4 bg-gray-50 rounded-xl border border-gray-100">
+                      <div class="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+                        </svg>
                       </div>
-                      <p class="text-sm text-gray-500">No applications yet</p>
-                      <a routerLink="/jobs" class="mt-3 inline-block text-blue-600 text-sm font-medium hover:underline">Browse Jobs</a>
-                    </div>
-                  } @else {
-                    <div class="divide-y divide-gray-100">
-                      @for (job of appliedJobs().slice(0, 3); track job.id) {
-                        <div class="flex items-center gap-4 p-4 hover:bg-gray-50 transition-colors">
-                          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
-                            {{ job.companyLogo || job.company.slice(0,2) }}
+                      <div class="flex-1 min-w-0">
+                        <div class="flex flex-wrap items-start justify-between gap-2">
+                          <div>
+                            <h3 class="font-semibold text-gray-900 text-sm">{{ edu.degree }} in {{ edu.field }}</h3>
+                            <p class="text-sm text-gray-600">{{ edu.institution }}</p>
                           </div>
-                          <div class="flex-1 min-w-0">
-                            <p class="font-semibold text-gray-900 text-sm truncate">{{ job.title }}</p>
-                            <p class="text-xs text-gray-500">{{ job.company }} Â· {{ job.location }}</p>
-                          </div>
-                          <app-badge variant="orange">Pending</app-badge>
+                          <span class="text-xs text-gray-400 flex-shrink-0">{{ edu.startYear }} – {{ edu.endYear }}</span>
                         </div>
-                      }
+                        @if (edu.grade) {
+                          <p class="text-xs text-gray-500 mt-1">GPA: {{ edu.grade }}</p>
+                        }
+                      </div>
                     </div>
                   }
                 </div>
+              } @else {
+                <p class="text-gray-400 text-sm">No education added yet.</p>
+              }
+            </div>
 
-                <!-- Recommended Jobs -->
-                <div>
-                  <div class="flex items-center justify-between mb-3">
-                    <h2 class="font-bold text-gray-900">Recommended for You</h2>
-                    <a routerLink="/jobs" class="text-sm text-blue-600 hover:text-blue-700 font-medium">View all</a>
-                  </div>
-                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    @for (job of recommendedJobs(); track job.id) {
-                      <app-job-card [job]="job" [saved]="jobService.isJobSaved(job.id)" (saveToggle)="onSaveJob($event)"></app-job-card>
-                    }
-                  </div>
-                </div>
+            <!-- Certifications -->
+            <div class="bg-white rounded-2xl border border-gray-200 p-6">
+              <div class="flex items-center justify-between mb-5">
+                <h2 class="font-bold text-gray-900">Certifications</h2>
+                <button class="text-sm text-blue-600 hover:text-blue-700 font-medium">+ Add</button>
               </div>
-            }
-
-            <!-- Applied Jobs Tab -->
-            @if (activeTab() === 'applied') {
-              <div>
-                <h1 class="text-xl font-bold text-gray-900 mb-5">Applied Jobs</h1>
-                @if (appliedJobs().length === 0) {
-                  <div class="bg-white rounded-2xl border border-gray-200 p-12 text-center">
-                    <div class="w-14 h-14 mx-auto mb-4 rounded-xl bg-slate-100 flex items-center justify-center">
-                      <svg class="w-7 h-7 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-                    </div>
-                    <h3 class="font-bold text-gray-900 mb-1">No applications yet</h3>
-                    <p class="text-sm text-gray-500 mb-4">Start applying to jobs that match your skills</p>
-                    <a routerLink="/jobs" class="px-5 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-xl hover:bg-blue-700 transition-colors">
-                      Browse Jobs
-                    </a>
-                  </div>
-                } @else {
-                  <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden">
-                    <div class="divide-y divide-gray-100">
-                      @for (job of appliedJobs(); track job.id; let i = $index) {
-                        <div class="flex items-center gap-4 p-5 hover:bg-gray-50 transition-colors">
-                          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white font-bold flex-shrink-0">
-                            {{ job.companyLogo || job.company.slice(0,2) }}
-                          </div>
-                          <div class="flex-1 min-w-0">
-                            <a [routerLink]="['/jobs', job.id]" class="font-semibold text-gray-900 hover:text-blue-600 transition-colors">{{ job.title }}</a>
-                            <p class="text-sm text-gray-500 mt-0.5">{{ job.company }} Â· {{ job.location }}</p>
-                          </div>
-                          <app-badge [variant]="applicationStatuses[i % 4].variant">
-                            {{ applicationStatuses[i % 4].label }}
-                          </app-badge>
-                        </div>
-                      }
-                    </div>
-                  </div>
-                }
-              </div>
-            }
-
-            <!-- Saved Jobs Tab -->
-            @if (activeTab() === 'saved') {
-              <div>
-                <h1 class="text-xl font-bold text-gray-900 mb-5">Saved Jobs</h1>
-                @if (savedJobs().length === 0) {
-                  <div class="bg-white rounded-2xl border border-gray-200 p-12 text-center">
-                    <div class="w-14 h-14 mx-auto mb-4 rounded-xl bg-slate-100 flex items-center justify-center">
-                      <svg class="w-7 h-7 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>
-                    </div>
-                    <h3 class="font-bold text-gray-900 mb-1">No saved jobs</h3>
-                    <p class="text-sm text-gray-500 mb-4">Bookmark jobs you like to apply later</p>
-                    <a routerLink="/jobs" class="px-5 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-xl hover:bg-blue-700 transition-colors">
-                      Browse Jobs
-                    </a>
-                  </div>
-                } @else {
-                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    @for (job of savedJobs(); track job.id) {
-                      <app-job-card [job]="job" [saved]="true" (saveToggle)="onSaveJob($event)"></app-job-card>
-                    }
-                  </div>
-                }
-              </div>
-            }
-
-            <!-- Profile Tab -->
-            @if (activeTab() === 'profile') {
-              <div class="space-y-5">
-                <h1 class="text-xl font-bold text-gray-900">My Profile</h1>
-
-                <!-- Basic Info -->
-                <div class="bg-white rounded-2xl border border-gray-200 p-6">
-                  <div class="flex items-center justify-between mb-5">
-                    <h2 class="font-bold text-gray-900">Basic Information</h2>
-                    <button class="text-sm text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1">
-                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
-                      </svg>
-                      Edit
-                    </button>
-                  </div>
-                  <div class="flex items-center gap-4 mb-6">
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white text-xl font-bold shadow-lg">
-                      {{ auth.currentUser()?.avatar || 'U' }}
-                    </div>
-                    <div>
-                      <h3 class="text-lg font-bold text-gray-900">{{ auth.currentUser()?.name }}</h3>
-                      <p class="text-sm text-gray-500">{{ auth.currentUser()?.email }}</p>
-                    </div>
-                  </div>
-                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    @for (field of profileFields; track field.label) {
-                      <div>
-                        <label class="block text-xs font-medium text-gray-500 mb-1">{{ field.label }}</label>
-                        <div class="px-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-sm text-gray-700">
-                          {{ field.value }}
+              @if (certifications.length) {
+                <div class="space-y-3">
+                  @for (cert of certifications; track cert.id) {
+                    <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-xl border border-gray-100">
+                      <div class="w-10 h-10 rounded-xl bg-yellow-50 border border-yellow-100 flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                        </svg>
+                      </div>
+                      <div class="flex-1 min-w-0">
+                        <h3 class="font-semibold text-gray-900 text-sm">{{ cert.name }}</h3>
+                        <p class="text-xs text-gray-600 mt-0.5">{{ cert.issuer }}</p>
+                        <div class="flex items-center gap-3 mt-1">
+                          <span class="text-xs text-gray-400">Issued {{ cert.issuedDate }}</span>
+                          @if (cert.expiryDate) {
+                            <span class="text-xs text-gray-400">· Expires {{ cert.expiryDate }}</span>
+                          }
                         </div>
                       </div>
-                    }
-                  </div>
+                    </div>
+                  }
                 </div>
+              } @else {
+                <p class="text-gray-400 text-sm">No certifications added yet.</p>
+              }
+            </div>
 
-                <!-- Become Freelancer -->
-                <div class="bg-white rounded-2xl border border-gray-200 p-6">
-                  <h3 class="font-semibold text-gray-900">Freelancer</h3>
-                  <p class="text-sm text-gray-500 mt-2">Offer your skills as a freelancer on the platform. Requests are reviewed by Admin.</p>
-                  <div class="mt-4">
-                    @if (!isFreelancer && !freelancerRequestPending) {
-                      <button (click)="applyForFreelancer()" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Become a Freelancer</button>
-                    } @else if (freelancerRequestPending) {
-                      <p class="text-yellow-600 text-sm">Your request is under review</p>
-                    } @else {
-                      <p class="text-green-600 text-sm">You are a verified freelancer</p>
-                    }
-                  </div>
-                </div>
-
-                <!-- Skills Section -->
-                <div class="bg-white rounded-2xl border border-gray-200 p-6">
-                  <div class="flex items-center justify-between mb-4">
-                    <h2 class="font-bold text-gray-900">Skills</h2>
-                    <button class="text-sm text-blue-600 hover:text-blue-700 font-medium">+ Add Skill</button>
-                  </div>
-                  <div class="flex flex-wrap gap-2">
-                    @for (skill of demoSkills; track skill) {
-                      <span class="px-3 py-1.5 bg-blue-50 border border-blue-200 text-blue-700 text-sm font-medium rounded-lg flex items-center gap-1.5">
-                        {{ skill }}
-                        <button class="text-blue-400 hover:text-blue-600 text-xs">Ã—</button>
-                      </span>
-                    }
-                  </div>
-                </div>
+            <!-- Resume -->
+            <div class="bg-white rounded-2xl border border-gray-200 p-6">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="font-bold text-gray-900">Resume</h2>
               </div>
-            }
-          </main>
-        </div>
-      </div>
+              <!-- Uploaded resume placeholder -->
+              <div class="flex items-center gap-4 p-4 bg-gray-50 border border-gray-200 rounded-xl mb-4">
+                <div class="w-10 h-10 rounded-xl bg-red-50 border border-red-100 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                  </svg>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p class="font-medium text-gray-800 text-sm truncate">Ahmed_Hassan_CV_2026.pdf</p>
+                  <p class="text-xs text-gray-400">Uploaded Mar 20, 2026 · 248 KB</p>
+                </div>
+                <button class="text-sm text-blue-600 hover:text-blue-700 font-medium flex-shrink-0">View</button>
+              </div>
+              <label class="flex items-center justify-center gap-2 w-full py-3 border-2 border-dashed border-gray-300 rounded-xl text-sm text-gray-500 hover:border-blue-400 hover:text-blue-500 cursor-pointer transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
+                </svg>
+                Upload new resume (PDF · max 5 MB)
+                <input type="file" accept=".pdf,.doc,.docx" class="hidden">
+              </label>
+            </div>
+
+          </div>
+        }
+      </main>
     </div>
+  </div>
+</div>

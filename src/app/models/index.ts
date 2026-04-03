@@ -56,3 +56,57 @@ export interface SavedJob {
   jobId: string;
   savedAt: string;
 }
+
+export type ApplicationStatus =
+  | 'applied'
+  | 'under-review'
+  | 'shortlisted'
+  | 'interview-scheduled'
+  | 'rejected'
+  | 'selected';
+
+export interface ApplicationRecord {
+  jobId: string;
+  appliedAt: string;
+  status: ApplicationStatus;
+}
+
+export interface Education {
+  id: string;
+  degree: string;
+  institution: string;
+  field: string;
+  startYear: number;
+  endYear: number | string;
+  grade?: string;
+}
+
+export interface WorkExperience {
+  id: string;
+  title: string;
+  company: string;
+  location: string;
+  startDate: string;
+  endDate: string;
+  current: boolean;
+  description: string;
+}
+
+export interface Certification {
+  id: string;
+  name: string;
+  issuer: string;
+  issuedDate: string;
+  expiryDate?: string;
+}
+
+export interface RecruiterMessage {
+  id: string;
+  from: string;
+  company: string;
+  avatar: string;
+  subject: string;
+  preview: string;
+  date: string;
+  read: boolean;
+}
