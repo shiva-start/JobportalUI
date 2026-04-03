@@ -1,14 +1,12 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FreelancerCardComponent } from '../../../../shared/components/freelancer-card/freelancer-card.component';
 import { FreelancerService } from '../../../../core/services/freelancer.service';
-import { inject } from '@angular/core';
 
 @Component({
   selector: 'app-featured-freelancers',
   standalone: true,
-  imports: [CommonModule, RouterLink, FreelancerCardComponent],
+  imports: [RouterLink, FreelancerCardComponent],
   template: `
     <section class="py-16 md:py-20 bg-slate-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -18,9 +16,13 @@ import { inject } from '@angular/core';
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10">
-          <app-freelancer-card [freelancer]="freelancers[0]"></app-freelancer-card>
-          <app-freelancer-card [freelancer]="freelancers[1]"></app-freelancer-card>
-          <app-freelancer-card [freelancer]="freelancers[2]"></app-freelancer-card>
+          @if (freelancers.length) {
+            @for (freelancer of freelancers; track freelancer.id) {
+              <app-freelancer-card [freelancer]="freelancer"></app-freelancer-card>
+            }
+          } @else {
+            <p class="col-span-3 text-center text-gray-400 py-8">No featured freelancers available.</p>
+          }
         </div>
 
         <div class="flex justify-center mt-12">
