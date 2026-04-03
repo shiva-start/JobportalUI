@@ -5,7 +5,12 @@ import categoriesData from '../../mock-data/categories.json';
 
 @Injectable({ providedIn: 'root' })
 export class JobService {
-  private readonly _jobs = signal<Job[]>(jobsData as Job[]);
+  private readonly _jobs = signal<Job[]>(
+    (jobsData as Job[]).map((job, index) => ({
+      ...job,
+      moderationStatus: index < 8 ? 'approved' : 'pending',
+    })),
+  );
   private readonly _savedJobIds = signal<string[]>([]);
   // Pre-seeded so the dashboard shows real data immediately
   private readonly _appliedJobIds = signal<string[]>(['1', '2', '3', '4']);
@@ -30,6 +35,8 @@ export class JobService {
     this._jobs().filter(j => j.featured).slice(0, 6)
   );
 
+  readonly jobs = computed(() => this._jobs());
+
   readonly categories: Category[] = categoriesData as Category[];
 
   readonly filteredJobs = computed(() => {
@@ -50,6 +57,10 @@ export class JobService {
 
   getJobById(id: string): Job | undefined {
     return this._jobs().find(j => j.id === id);
+  }
+
+  listJobs(): Job[] {
+    return this._jobs();
   }
 
   setFilters(filters: Partial<JobFilter>): void {
@@ -99,6 +110,10 @@ export class JobService {
     return this._applicationDetails();
   }
 
+  totalApplications(): number {
+    return this._applicationDetails().length;
+  }
+
   getApplicationStatus(jobId: string): ApplicationStatus {
     return this._applicationDetails().find(a => a.jobId === jobId)?.status ?? 'applied';
   }
@@ -108,6 +123,29 @@ export class JobService {
     if (!detail) return '';
     const d = new Date(detail.appliedAt);
     return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+  }
+
+  formatApplicationStatus(status: ApplicationStatus): string {
+    const map: Record<ApplicationStatus, string> = {
+      applied: 'Applied',
+      'under-review': 'Under Review',
+      shortlisted: 'Shortlisted',
+      'interview-scheduled': 'Interview',
+      rejected: 'Rejected',
+      selected: 'Selected',
+    };
+    return map[status];
+  }
+
+  updateModerationStatus(jobId: string, status: Job['moderationStatus']): void {
+    this._jobs.update(list => list.map(job => job.id === jobId ? { ...job, moderationStatus: status } : job));
+  }
+
+  removeJob(jobId: string): void {
+    this._jobs.update(list => list.filter(job => job.id !== jobId));
+    this._savedJobIds.update(ids => ids.filter(id => id !== jobId));
+    this._appliedJobIds.update(ids => ids.filter(id => id !== jobId));
+    this._applicationDetails.update(list => list.filter(detail => detail.jobId !== jobId));
   }
 
   getRelatedJobs(job: Job): Job[] {

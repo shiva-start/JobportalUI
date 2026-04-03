@@ -1,5 +1,5 @@
-import { Component, inject, signal } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, OnInit, inject, signal } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../core/services/auth.service';
@@ -20,6 +20,7 @@ export class EmployerDashboardComponent {
   jobService = inject(JobService);
   private toastService = inject(ToastService);
   private fb = inject(FormBuilder);
+  private route = inject(ActivatedRoute);
 
   activeTab = signal<Tab>('overview');
   jobPosting = signal(false);
@@ -69,6 +70,13 @@ export class EmployerDashboardComponent {
   });
 
   get jf() { return this.jobForm.controls; }
+
+  ngOnInit(): void {
+    const tab = this.route.snapshot.data['tab'] as Tab | undefined;
+    if (tab) {
+      this.activeTab.set(tab);
+    }
+  }
 
   onPostJob(): void {
     if (this.jobForm.invalid) { this.jobForm.markAllAsTouched(); return; }

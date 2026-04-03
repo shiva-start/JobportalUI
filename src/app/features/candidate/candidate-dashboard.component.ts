@@ -6,6 +6,8 @@ import { JobService } from '../../core/services/job.service';
 import { ToastService } from '../../core/services/toast.service';
 import { JobCardComponent } from '../../shared/components/job-card/job-card.component';
 import { BadgeComponent, BadgeVariant } from '../../shared/components/badge/badge.component';
+import { CandidateSkillsComponent } from './components/candidate-skills.component';
+import { CandidateExperienceComponent } from './components/candidate-experience.component';
 import type {
   ApplicationStatus,
   Education,
@@ -14,12 +16,12 @@ import type {
   RecruiterMessage,
 } from '../../models';
 
-type Tab = 'overview' | 'applied' | 'saved' | 'messages' | 'profile';
+type Tab = 'overview' | 'applied' | 'saved' | 'messages' | 'profile' | 'settings';
 
 @Component({
   selector: 'app-candidate-dashboard',
   standalone: true,
-  imports: [RouterLink, JobCardComponent, BadgeComponent],
+  imports: [RouterLink, JobCardComponent, BadgeComponent, CandidateSkillsComponent, CandidateExperienceComponent],
   templateUrl: './candidate-dashboard.component.html',
 })
 export class CandidateDashboardComponent {
@@ -45,6 +47,7 @@ export class CandidateDashboardComponent {
       { id: 'saved'     as Tab, label: 'Saved Jobs',   badge: null as number | null, svgPath: 'M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z' },
       { id: 'messages'  as Tab, label: 'Messages',     badge: this.unreadCount || null, svgPath: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z' },
       { id: 'profile'   as Tab, label: 'My Profile',   badge: null as number | null, svgPath: 'M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z' },
+      { id: 'settings'  as Tab, label: 'Settings',     badge: null as number | null, svgPath: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.07c1.516-.94 3.31.826 2.37 2.342a1.724 1.724 0 001.07 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.07 2.573c.94 1.516-.826 3.31-2.342 2.37a1.724 1.724 0 00-2.573 1.07c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.07c-1.516.94-3.31-.826-2.37-2.342a1.724 1.724 0 00-1.07-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.07-2.573c-.94-1.516.826-3.31 2.342-2.37.1.062.208.115.32.16' },
     ];
   }
 
