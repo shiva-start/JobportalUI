@@ -5,60 +5,53 @@
         <div class="flex items-center justify-between h-16">
 
           <!-- Logo -->
-          <a routerLink="/" class="flex items-center gap-2.5 group flex-shrink-0 transition-transform duration-200 hover:-translate-y-0.5">
+          <button type="button" (click)="goToHome()" class="flex items-center gap-2.5 group flex-shrink-0 transition-transform duration-200 hover:-translate-y-0.5">
             <div class="w-8 h-8 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-lg flex items-center justify-center shadow-sm group-hover:shadow-md transition-all duration-200 group-hover:scale-105">
               <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
               </svg>
             </div>
             <span class="text-xl font-bold text-slate-900">Job<span class="text-blue-600">Portal</span></span>
-          </a>
+          </button>
 
           <!-- Desktop Nav Links -->
-          <div class="hidden md:flex items-center gap-3">
-            <a routerLink="/jobs" routerLinkActive="text-blue-600 bg-blue-50"
-               class="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 hover:-translate-y-0.5">
-              Find Jobs
-            </a>
-            <a routerLink="/companies" routerLinkActive="text-blue-600 bg-blue-50"
-               class="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 hover:-translate-y-0.5">
-              Companies
-            </a>
-            <a routerLink="/freelancers" routerLinkActive="text-blue-600 bg-blue-50"
-               class="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 hover:-translate-y-0.5">
-              Freelancers
-            </a>
-            @if (auth.isEmployer()) {
-              <a routerLink="/employer" routerLinkActive="text-blue-600 bg-blue-50"
+          <div class="hidden md:flex items-center gap-6">
+            @for (item of filteredMenu(); track item.route) {
+              <a [routerLink]="item.route" routerLinkActive="text-blue-600 bg-blue-50"
                  class="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 hover:-translate-y-0.5">
-                Dashboard
-              </a>
-            }
-            @if (auth.isCandidate()) {
-              <a routerLink="/candidate" routerLinkActive="text-blue-600 bg-blue-50"
-                 class="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 hover:-translate-y-0.5">
-                Dashboard
+                {{ item.label }}
               </a>
             }
           </div>
 
           <!-- Auth Buttons -->
           <div class="hidden md:flex items-center gap-3">
-            @if (auth.isAuthenticated()) {
-              <div class="flex items-center gap-3">
-                <div class="flex items-center gap-2.5 px-3 py-2 rounded-xl bg-slate-50 border border-slate-200">
-                  <div class="w-7 h-7 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
+            @if (isLoggedIn()) {
+              <div class="relative flex items-center gap-3">
+                <button type="button" (click)="toggleProfileMenu()"
+                  class="flex items-center gap-2.5 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 transition hover:border-blue-200 hover:bg-blue-50">
+                  <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white text-xs font-bold flex-shrink-0 cursor-pointer">
                     {{ auth.getInitials(auth.currentUser()?.name || '') }}
                   </div>
                   <span class="text-sm font-medium text-slate-700">{{ auth.currentUser()?.name }}</span>
-                </div>
-                <button (click)="logout()"
-                  class="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-slate-600 hover:text-red-600 hover:bg-red-50 rounded-lg transition-all duration-200 hover:-translate-y-0.5">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+                  <svg class="h-4 w-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                   </svg>
-                  Sign out
                 </button>
+
+                @if (profileMenuOpen()) {
+                  <div class="absolute right-0 top-full mt-2 w-48 rounded-xl border border-slate-200 bg-white p-2 shadow-lg">
+                    <button type="button" (click)="goToProfile()" class="block w-full rounded-lg px-3 py-2 text-left text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-600">
+                      {{ userRole() === 'employer' ? 'Company Profile' : userRole() === 'admin' ? 'Admin Profile' : 'View Profile' }}
+                    </button>
+                    <button type="button" (click)="goToSettings()" class="block w-full rounded-lg px-3 py-2 text-left text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-blue-600">
+                      Settings
+                    </button>
+                    <button type="button" (click)="logout()" class="block w-full rounded-lg px-3 py-2 text-left text-sm font-medium text-red-600 transition hover:bg-red-50">
+                      Logout
+                    </button>
+                  </div>
+                }
               </div>
             } @else {
               <a routerLink="/login"
@@ -93,32 +86,22 @@
       <!-- Mobile Menu -->
       @if (menuOpen()) {
         <div class="md:hidden border-t border-slate-100 bg-white px-4 py-3 space-y-1 animate-fade-in shadow-lg">
-          <a routerLink="/jobs" (click)="closeMenu()" class="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-            </svg>
-            Find Jobs
-          </a>
-          <a routerLink="/freelancers" (click)="closeMenu()" class="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zM6 20v-1c0-2.21 2.69-4 6-4s6 1.79 6 4v1H6z"/>
-            </svg>
-            Freelancers
-          </a>
-          <a routerLink="/companies" (click)="closeMenu()" class="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-            </svg>
-            Companies
-          </a>
-          @if (auth.isAuthenticated()) {
-            <a [routerLink]="auth.isEmployer() ? '/employer' : '/candidate'" (click)="closeMenu()" class="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">
+          @for (item of filteredMenu(); track item.route) {
+            <a [routerLink]="item.route" (click)="closeMenu()" class="flex items-center gap-2.5 px-4 py-2.5 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
               </svg>
-              Dashboard
+              {{ item.label }}
             </a>
+          }
+          @if (isLoggedIn()) {
             <div class="pt-2 border-t border-slate-100 mt-2">
+              <button (click)="goToProfile()" class="flex items-center gap-2.5 w-full px-4 py-2.5 text-sm font-medium text-slate-600 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-all duration-200">
+                {{ userRole() === 'employer' ? 'Company Profile' : userRole() === 'admin' ? 'Admin Profile' : 'View Profile' }}
+              </button>
+              <button (click)="goToSettings()" class="flex items-center gap-2.5 w-full px-4 py-2.5 text-sm font-medium text-slate-600 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-all duration-200">
+                Settings
+              </button>
               <button (click)="logout()" class="flex items-center gap-2.5 w-full px-4 py-2.5 text-sm font-medium text-red-600 hover:bg-red-50 rounded-lg transition-all duration-200">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>

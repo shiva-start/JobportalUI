@@ -69,8 +69,11 @@ export class FreelancerRequestComponent {
     if (this.form.invalid) { this.form.markAllAsTouched(); return; }
     this.submitting = true;
     const payload = {
+      employerId: this.auth.currentUser()?.id || 'unknown',
+      employerName: this.auth.currentUser()?.company || this.auth.currentUser()?.name || 'Employer',
       employerEmail: this.auth.currentUser()?.email || 'unknown',
       description: this.form.value.description,
+      message: this.form.value.description,
       skills: (this.form.value.skills || '').split(',').map((s: string) => s.trim()).filter(Boolean),
       duration: this.form.value.duration || null
     } as any;

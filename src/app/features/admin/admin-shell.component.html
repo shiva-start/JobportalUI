@@ -1,0 +1,38 @@
+<div class="min-h-screen bg-slate-50">
+  <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 gap-6 lg:grid-cols-[280px_minmax(0,1fr)]">
+      <aside class="space-y-4">
+        <div class="bg-white rounded-xl shadow-sm p-4">
+          <div class="flex items-center gap-4">
+            <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-900 text-lg font-semibold text-white">
+              {{ auth.currentUser()?.avatar || 'AD' }}
+            </div>
+            <div>
+              <h2 class="font-semibold text-gray-900">{{ auth.currentUser()?.name || 'Admin' }}</h2>
+              <p class="text-sm text-gray-500">Platform Administrator</p>
+            </div>
+          </div>
+          <div class="mt-4 rounded-xl bg-slate-50 p-3">
+            <p class="text-xs uppercase tracking-wide text-gray-400">Pending approvals</p>
+            <p class="mt-1 text-2xl font-bold text-gray-900">{{ admin.stats()[4].value }}</p>
+          </div>
+        </div>
+
+        <nav class="bg-white rounded-xl shadow-sm p-2">
+          <a
+            *ngFor="let item of navItems()"
+            [routerLink]="item.route"
+            routerLinkActive="bg-slate-900 text-white"
+            class="mb-1 block rounded-lg px-4 py-3 text-sm font-medium text-gray-600 transition hover:bg-slate-100"
+          >
+            {{ item.label }}
+          </a>
+        </nav>
+      </aside>
+
+      <main class="min-w-0">
+        <router-outlet></router-outlet>
+      </main>
+    </div>
+  </div>
+</div>

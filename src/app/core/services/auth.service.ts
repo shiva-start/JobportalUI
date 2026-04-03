@@ -5,7 +5,12 @@ import usersData from '../../mock-data/users.json';
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private readonly _currentUser = signal<User | null>(null);
-  private readonly _users = signal<User[]>(usersData as User[]);
+  private readonly _users = signal<User[]>(
+    (usersData as User[]).map(user => ({
+      ...user,
+      accountStatus: user.accountStatus ?? 'active',
+    })),
+  );
 
   readonly currentUser = computed(() => this._currentUser());
   readonly isAuthenticated = computed(() => this._currentUser() !== null);
@@ -13,6 +18,7 @@ export class AuthService {
   readonly isEmployer = computed(() => this._currentUser()?.role === 'employer');
   readonly isAdmin = computed(() => this._currentUser()?.role === 'admin');
   readonly isFreelancer = computed(() => this._currentUser()?.isFreelancer === true);
+  readonly users = computed(() => this._users());
 
   login(email: string, _password: string): boolean {
     const user = this._users().find(u => u.email === email);
@@ -60,6 +66,24 @@ export class AuthService {
     return this._users().find(u => u.id === userId) || null;
   }
 
+  listUsers(): User[] {
+    return this._users();
+  }
+
+  updateUser(userId: string, patch: Partial<User>): void {
+    this._users.update(list => list.map(user => user.id === userId ? { ...user, ...patch } : user));
+    if (this._currentUser()?.id === userId) {
+      this._currentUser.set({ ...(this._currentUser() as User), ...patch });
+    }
+  }
+
+  removeUser(userId: string): void {
+    this._users.update(list => list.filter(user => user.id !== userId));
+    if (this._currentUser()?.id === userId) {
+      this._currentUser.set(null);
+    }
+  }
+
   register(name: string, email: string, role: 'candidate' | 'employer'): boolean {
     const newUser: User = {
       id: Date.now().toString(),
@@ -75,6 +99,14 @@ export class AuthService {
 
   logout(): void {
     this._currentUser.set(null);
+  }
+
+  isLoggedIn(): boolean {
+    return this.isAuthenticated();
+  }
+
+  getUserRole(): User['role'] | null {
+    return this._currentUser()?.role ?? null;
   }
 
   getInitials(name: string): string {
