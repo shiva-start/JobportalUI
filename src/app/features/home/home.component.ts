@@ -57,9 +57,10 @@ export class HomeComponent {
   popularSearches = ['React Developer', 'Product Manager', 'UI Designer', 'Remote', 'Data Analyst'];
 
   stats = [
-    { value: '12,000+', label: 'Active Jobs' },
-    { value: '3,500+', label: 'Companies' },
-    { value: '50,000+', label: 'Job Seekers' },
+    { value: '0+', label: 'Live Jobs' },
+    { value: '500+', label: 'Companies' },
+    { value: '10K+', label: 'Candidates' },
+    { value: '2K+', label: 'New Jobs' },
   ];
 
   categories: JobCategory[] = [

@@ -28,7 +28,7 @@ export interface HeroImage {
   templateUrl: './home-hero.component.html'
 })
 export class HomeHeroComponent {
-  @Input() badgeText = 'Over 1,200 new positions added this week';
+  // @Input() badgeText = 'Over 1,200 new positions added this week';
   @Input() titleLead = 'Find Work That';
   @Input() titleHighlight = 'Moves You Forward';
   @Input() description =
