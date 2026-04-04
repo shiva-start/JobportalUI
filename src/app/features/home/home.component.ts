@@ -12,6 +12,7 @@ import { CtaDualPanelComponent, CtaImage } from './components/cta-dual-panel/cta
 import { TestimonialsComponent, Testimonial } from './components/testimonials/testimonials.component';
 import { NewsletterComponent, NewsletterImage } from './components/newsletter/newsletter.component';
 import { FeaturedFreelancersComponent } from "./components/featured-freelancers/featured-freelancers.component";
+import { GetStartedCtaComponent } from './components/get-started-cta/get-started-cta.component';
 
 type ImageLoading = 'eager' | 'lazy';
 
@@ -38,8 +39,9 @@ interface LandingImage {
     CtaDualPanelComponent,
     TestimonialsComponent,
     NewsletterComponent,
-    FeaturedFreelancersComponent
-],
+    FeaturedFreelancersComponent,
+    GetStartedCtaComponent
+  ],
   templateUrl: './home.component.html'
 })
 export class HomeComponent {
@@ -55,9 +57,10 @@ export class HomeComponent {
   popularSearches = ['React Developer', 'Product Manager', 'UI Designer', 'Remote', 'Data Analyst'];
 
   stats = [
-    { value: '12,000+', label: 'Active Jobs' },
-    { value: '3,500+', label: 'Companies' },
-    { value: '50,000+', label: 'Job Seekers' },
+    { value: '0+', label: 'Live Jobs' },
+    { value: '500+', label: 'Companies' },
+    { value: '10K+', label: 'Candidates' },
+    { value: '2K+', label: 'New Jobs' },
   ];
 
   categories: JobCategory[] = [
@@ -203,20 +206,20 @@ export class HomeComponent {
   howItWorksSteps: HowItWorksStep[] = [
     {
       step: 1,
-      title: 'Create Your Profile',
-      description: 'Sign up and build a professional profile that showcases your skills and experience in minutes.',
+      title: 'Create Account',
+      description: 'Sign up and create your profile in minutes',
       svgPath: 'M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z'
     },
     {
       step: 2,
-      title: 'Discover Opportunities',
-      description: 'Browse thousands of jobs and use smart filters to find positions that match your goals.',
+      title: 'Search Jobs',
+      description: 'Browse thousands of jobs that match your skills',
       svgPath: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'
     },
     {
       step: 3,
       title: 'Get Hired Faster',
-      description: 'Apply in one click and get hired instantly, bringing you one step closer to your dream job.',
+      description: 'Apply with one click and land your dream job',
       svgPath: 'M13 10V3L4 14h7v7l9-11h-7z'
     },
   ];
@@ -281,7 +284,6 @@ export class HomeComponent {
         .filter(id => this.jobService.isJobSaved(id))
     );
   }
-
   private createImage(
     id: string,
     width: number,
