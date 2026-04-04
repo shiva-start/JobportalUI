@@ -50,8 +50,8 @@ export class NavbarComponent {
     const role = this.userRole();
     if (!role) {
       return [
-        { label: 'Find Jobs', route: '/jobs' },
-        { label: 'Companies', route: '/companies' },
+        { label: 'Job Seekers', route: '/jobs' },
+        { label: 'Employers', route: '/companies' },
         { label: 'Freelancers', route: '/freelancers' },
       ];
     }
