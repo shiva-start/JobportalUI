@@ -172,3 +172,83 @@ export interface PlatformReport {
   status: 'open' | 'reviewed' | 'resolved';
   createdAt: string;
 }
+
+// ---- Public Content Models ----
+
+export type BlogCategory = 'Career Tips' | 'Tech' | 'Industry News' | 'Interviews' | 'Freelancing';
+
+export interface BlogAuthor {
+  name: string;
+  avatar: string;
+  bio: string;
+}
+
+export interface BlogPost {
+  id: string;
+  slug: string;
+  title: string;
+  excerpt: string;
+  content: string;
+  category: BlogCategory;
+  author: BlogAuthor;
+  coverImage: string;
+  tags: string[];
+  publishedAt: string;
+  readTimeMinutes: number;
+  featured: boolean;
+}
+
+export interface Course {
+  id: string;
+  title: string;
+  description: string;
+  instructorName: string;
+  instructorAvatar: string;
+  level: 'Beginner' | 'Intermediate' | 'Advanced';
+  category: string;
+  duration: string;
+  price: number;
+  currency: string;
+  rating: number;
+  enrolledCount: number;
+  thumbnail: string;
+  skills: string[];
+  certificateOffered: boolean;
+}
+
+export interface Internship {
+  id: string;
+  title: string;
+  company: string;
+  companyLogo?: string;
+  location: string;
+  locationType: 'Remote' | 'Onsite' | 'Hybrid';
+  duration: string;
+  stipend: number | null;
+  stipendCurrency: string;
+  startDate: string;
+  skills: string[];
+  description: string;
+  requirements: string[];
+  openings: number;
+  category: string;
+  postedAt: string;
+  deadline: string;
+}
+
+export type FAQCategory = 'Candidates' | 'Employers' | 'General' | 'Billing';
+
+export interface FAQ {
+  id: string;
+  question: string;
+  answer: string;
+  category: FAQCategory;
+}
+
+export interface SupportTicket {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+  category: string;
+}
