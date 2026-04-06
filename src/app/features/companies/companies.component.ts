@@ -1,32 +1,73 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { PageHeroComponent } from '../../shared/components/page-hero/page-hero.component';
 
 @Component({
   selector: 'app-companies',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, PageHeroComponent],
   template: `
-    <div class="max-w-7xl mx-auto px-4 py-12">
-      <!-- Header & Search -->
-      <div class="mb-10 text-center max-w-2xl mx-auto">
-        <h1 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight">Discover Top <span class="text-blue-600">Companies</span></h1>
-        <p class="text-slate-500 text-lg mb-8">Find the best places to work and research employers that match your career goals.</p>
+    <app-page-hero
+      title="Explore Companies Worth Building With"
+      subtitle="Research teams, discover open roles, and compare employers that align with your goals."
+      badge="Companies & Employers"
+      bgClass="bg-gradient-to-br from-slate-900 to-blue-800">
 
-        <div class="relative max-w-lg mx-auto">
-          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <svg class="h-5 w-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div class="mt-8 max-w-3xl mx-auto">
+        <div class="flex flex-col gap-2 rounded-xl bg-white p-2 shadow-xl sm:flex-row">
+          <div class="flex flex-1 items-center gap-2 px-3">
+            <svg class="h-4 w-4 flex-shrink-0 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
             </svg>
+            <input type="text" [(ngModel)]="searchQuery"
+              class="w-full bg-transparent text-sm text-slate-700 placeholder:text-slate-400 focus:outline-none"
+              placeholder="Search by company name or industry...">
           </div>
-          <input type="text" [(ngModel)]="searchQuery"
-                 class="block w-full pl-10 pr-4 py-3.5 border border-slate-200 rounded-xl leading-5 bg-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all shadow-sm text-sm"
-                 placeholder="Search by company name or industry...">
+          <button class="rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:bg-blue-700">
+            Search
+          </button>
         </div>
       </div>
+    </app-page-hero>
 
-      <!-- Companies Grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    <section class="min-h-screen bg-gray-50 py-14">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-8 flex flex-wrap items-center gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-card">
+          <span class="mr-1 text-xs font-semibold uppercase tracking-wide text-slate-400">Filter:</span>
+
+          <select [(ngModel)]="selectedIndustry"
+            class="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option value="">All Industries</option>
+            @for (industry of industries; track industry) {
+              <option [value]="industry">{{ industry }}</option>
+            }
+          </select>
+
+          <select [(ngModel)]="selectedLocation"
+            class="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option value="">All Locations</option>
+            @for (location of locations; track location) {
+              <option [value]="location">{{ location }}</option>
+            }
+          </select>
+
+          <p class="ml-auto text-sm text-slate-500">
+            <span class="font-semibold text-slate-700">{{ filteredCompanies.length }}</span> companies
+          </p>
+
+          @if (hasActiveFilters()) {
+            <button (click)="clearFilters()"
+              class="flex items-center gap-1 text-xs font-medium text-red-500 hover:text-red-600">
+              <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+              Clear filters
+            </button>
+          }
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         @for (company of filteredCompanies; track company.id) {
           <div class="bg-white rounded-2xl border border-slate-100 p-6 hover:shadow-xl hover:border-blue-100 transition-all duration-300 group cursor-pointer flex flex-col h-full transform hover:-translate-y-1">
             <div class="flex items-start justify-between mb-4">
@@ -74,12 +115,15 @@ import { FormsModule } from '@angular/forms';
             <p class="mt-1">Try adjusting your search to find what you're looking for.</p>
           </div>
         }
+        </div>
       </div>
-    </div>
+    </section>
   `
 })
 export class CompaniesComponent {
   searchQuery = '';
+  selectedIndustry = '';
+  selectedLocation = '';
 
   companies = [
     { id: 'c1', name: 'TechFlow', industry: 'Software', location: 'San Francisco, CA', description: 'Building the next generation of seamless workflow automation tools for modern teams.', openJobs: 12, colorClass: 'bg-blue-50 text-blue-600' },
@@ -92,12 +136,34 @@ export class CompaniesComponent {
     { id: 'c8', name: 'GreenEnergy', industry: 'Cleantech', location: 'Denver, CO', description: 'Renewable energy solutions focusing on smart grid optimization and solar integration.', openJobs: 9, colorClass: 'bg-green-50 text-green-600' }
   ];
 
+  get industries() {
+    return [...new Set(this.companies.map(company => company.industry))];
+  }
+
+  get locations() {
+    return [...new Set(this.companies.map(company => company.location))];
+  }
+
+  hasActiveFilters(): boolean {
+    return !!(this.searchQuery || this.selectedIndustry || this.selectedLocation);
+  }
+
+  clearFilters(): void {
+    this.searchQuery = '';
+    this.selectedIndustry = '';
+    this.selectedLocation = '';
+  }
+
   get filteredCompanies() {
-    if (!this.searchQuery) return this.companies;
     const query = this.searchQuery.toLowerCase();
-    return this.companies.filter(c => 
-      c.name.toLowerCase().includes(query) || 
-      c.industry.toLowerCase().includes(query)
-    );
+    return this.companies.filter(c => {
+      const matchesQuery = !query ||
+        c.name.toLowerCase().includes(query) ||
+        c.industry.toLowerCase().includes(query);
+      const matchesIndustry = !this.selectedIndustry || c.industry === this.selectedIndustry;
+      const matchesLocation = !this.selectedLocation || c.location === this.selectedLocation;
+
+      return matchesQuery && matchesIndustry && matchesLocation;
+    });
   }
 }

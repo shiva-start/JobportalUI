@@ -4,12 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { JobService } from '../../../core/services/job.service';
 import { ToastService } from '../../../core/services/toast.service';
 import { JobCardComponent } from '../../../shared/components/job-card/job-card.component';
+import { PageHeroComponent } from '../../../shared/components/page-hero/page-hero.component';
 import { SkeletonComponent } from '../../../shared/components/skeleton/skeleton.component';
 
 @Component({
   selector: 'app-jobs-list',
   standalone: true,
-  imports: [CommonModule, FormsModule, JobCardComponent, SkeletonComponent],
+  imports: [CommonModule, FormsModule, JobCardComponent, PageHeroComponent, SkeletonComponent],
   templateUrl: './jobs-list.component.html'
 })
 export class JobsListComponent implements OnInit {
