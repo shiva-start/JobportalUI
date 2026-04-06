@@ -50,9 +50,13 @@ export class NavbarComponent {
     const role = this.userRole();
     if (!role) {
       return [
-        { label: 'Job Seekers', route: '/jobs' },
+        { label: 'Jobs', route: '/jobs' },
         { label: 'Employers', route: '/companies' },
         { label: 'Freelancers', route: '/freelancers' },
+        { label: 'Internships', route: '/internships' },
+        { label: 'Courses', route: '/courses' },
+        { label: 'Blog', route: '/blog' },
+        { label: 'Help', route: '/help' },
       ];
     }
     return this.menuItems.filter(item => item.roles.includes(role));

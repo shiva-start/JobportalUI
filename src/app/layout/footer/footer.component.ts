@@ -10,23 +10,24 @@ import { RouterLink } from '@angular/router';
 export class FooterComponent {
   seekerLinks = [
     { label: 'Browse Jobs', route: '/jobs' },
-    { label: 'Career Advice', route: '/register' },
+    { label: 'Internships', route: '/internships' },
+    { label: 'Courses', route: '/courses' },
+    { label: 'Career Blog', route: '/blog' },
     { label: 'Resume Builder', route: '/candidate' },
-    { label: 'Salary Guide', route: '/candidate' },
   ];
 
   employerLinks = [
     { label: 'Post a Job', route: '/employer' },
     { label: 'Browse Candidates', route: '/employer' },
-    { label: 'Pricing', route: '/employer' },
-    { label: 'Resources', route: '/home' },
+    { label: 'Browse Freelancers', route: '/freelancers' },
+    { label: 'Companies', route: '/companies' },
   ];
 
   companyLinks = [
-    { label: 'About Us', route: '/home' },
-    { label: 'Contact', route: '/home' },
-    { label: 'Privacy Policy', route: '/home' },
-    { label: 'Terms of Service', route: '/home' },
+    { label: 'About Us', route: '/' },
+    { label: 'Help & Support', route: '/help' },
+    { label: 'Privacy Policy', route: '/' },
+    { label: 'Terms of Service', route: '/' },
   ];
   
 }

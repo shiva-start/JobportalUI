@@ -35,6 +35,35 @@ export const routes: Routes = [
     path: 'freelancer-request',
     loadComponent: () => import('./features/freelancer-request/freelancer-request.component').then(m => m.FreelancerRequestComponent)
   },
+  // ---- Public Content Pages ----
+  {
+    path: 'blog',
+    loadComponent: () => import('./features/public/blog/pages/blog-list-page.component').then(m => m.BlogListPageComponent)
+  },
+  {
+    path: 'blog/:slug',
+    loadComponent: () => import('./features/public/blog/pages/blog-detail-page.component').then(m => m.BlogDetailPageComponent)
+  },
+  {
+    path: 'courses',
+    loadComponent: () => import('./features/public/courses/pages/courses-list-page.component').then(m => m.CoursesListPageComponent)
+  },
+  {
+    path: 'courses/:id',
+    loadComponent: () => import('./features/public/courses/pages/course-detail-page.component').then(m => m.CourseDetailPageComponent)
+  },
+  {
+    path: 'internships',
+    loadComponent: () => import('./features/public/internships/pages/internships-list-page.component').then(m => m.InternshipsListPageComponent)
+  },
+  {
+    path: 'internships/:id',
+    loadComponent: () => import('./features/public/internships/pages/internship-detail-page.component').then(m => m.InternshipDetailPageComponent)
+  },
+  {
+    path: 'help',
+    loadComponent: () => import('./features/public/help/pages/help-page.component').then(m => m.HelpPageComponent)
+  },
   {
     path: 'admin',
     loadComponent: () => import('./features/admin/admin-shell.component').then(m => m.AdminShellComponent),
