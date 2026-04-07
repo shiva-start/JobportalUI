@@ -1,13 +1,14 @@
 import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { TranslatePipe } from '@ngx-translate/core';
 import { Course } from '../../../../../models';
 import { BadgeComponent } from '../../../../../shared/components/badge/badge.component';
 
 @Component({
   selector: 'app-course-card',
   standalone: true,
-  imports: [RouterLink, CommonModule, BadgeComponent],
+  imports: [RouterLink, CommonModule, BadgeComponent, TranslatePipe],
   template: `
     <div class="group bg-white border border-slate-200 rounded-xl overflow-hidden shadow-card hover:shadow-card-hover hover:border-blue-300 transition-all duration-300 flex flex-col h-full hover:-translate-y-1">
 
@@ -20,7 +21,7 @@ import { BadgeComponent } from '../../../../../shared/components/badge/badge.com
         <!-- Price badge -->
         <div class="absolute top-3 right-3">
           @if (course.price === 0) {
-            <span class="px-2.5 py-1 bg-green-500 text-white text-xs font-bold rounded-lg shadow">Free</span>
+            <span class="px-2.5 py-1 bg-green-500 text-white text-xs font-bold rounded-lg shadow">{{ 'COMMON.FREE' | translate }}</span>
           } @else {
             <span class="px-2.5 py-1 bg-blue-600 text-white text-xs font-bold rounded-lg shadow">
               {{ course.currency }} {{ course.price | number }}
@@ -35,7 +36,7 @@ import { BadgeComponent } from '../../../../../shared/components/badge/badge.com
               <svg class="w-3 h-3 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
               </svg>
-              Certificate
+              {{ 'COURSES.CARD.CERTIFICATE' | translate }}
             </span>
           </div>
         }
@@ -82,7 +83,7 @@ import { BadgeComponent } from '../../../../../shared/components/badge/badge.com
         <!-- CTA -->
         <a [routerLink]="['/courses', course.id]"
            class="mt-2 w-full py-2.5 text-center bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold rounded-lg transition-all duration-200 shadow-sm hover:shadow-md block">
-          {{ course.price === 0 ? 'Enroll Free' : 'Enroll Now' }}
+          {{ course.price === 0 ? ('COURSES.CARD.ENROLL_FREE' | translate) : ('COURSES.CARD.ENROLL_NOW' | translate) }}
         </a>
       </div>
     </div>

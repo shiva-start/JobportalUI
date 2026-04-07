@@ -1,6 +1,7 @@
 import { Component, inject, signal, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
 import { BadgeComponent } from '../../../../shared/components/badge/badge.component';
 import { BlogCardComponent } from '../components/blog-card/blog-card.component';
 import { BlogService } from '../services/blog.service';
@@ -9,7 +10,7 @@ import { BlogPost } from '../../../../models';
 @Component({
   selector: 'app-blog-detail-page',
   standalone: true,
-  imports: [CommonModule, RouterLink, BadgeComponent, BlogCardComponent],
+  imports: [CommonModule, RouterLink, BadgeComponent, BlogCardComponent, TranslatePipe],
   template: `
     @if (post()) {
       <div class="min-h-screen bg-gray-50">
@@ -17,9 +18,9 @@ import { BlogPost } from '../../../../models';
         <!-- Breadcrumb -->
         <div class="bg-white border-b border-slate-200">
           <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center gap-2 text-xs text-slate-500">
-            <a routerLink="/" class="hover:text-blue-600">Home</a>
+            <a routerLink="/" class="hover:text-blue-600">{{ 'COMMON.HOME' | translate }}</a>
             <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            <a routerLink="/blog" class="hover:text-blue-600">Blog</a>
+            <a routerLink="/blog" class="hover:text-blue-600">{{ 'NAV.BLOG' | translate }}</a>
             <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             <span class="text-slate-700 font-medium truncate">{{ post()!.title }}</span>
           </div>
@@ -31,8 +32,8 @@ import { BlogPost } from '../../../../models';
           <!-- Article header -->
           <header class="mb-8">
             <div class="flex items-center gap-2 mb-4">
-              <app-badge [variant]="categoryVariant">{{ post()!.category }}</app-badge>
-              <span class="text-xs text-slate-400">{{ post()!.readTimeMinutes }} min read</span>
+              <app-badge [variant]="categoryVariant">{{ ('BLOG.CATEGORIES.' + categoryKey(post()!.category)) | translate }}</app-badge>
+              <span class="text-xs text-slate-400">{{ 'BLOG.CARD.MIN_READ' | translate:{ count: post()!.readTimeMinutes } }}</span>
             </div>
             <h1 class="text-3xl md:text-4xl font-bold text-slate-900 leading-tight mb-5">{{ post()!.title }}</h1>
             <p class="text-lg text-slate-600 leading-relaxed mb-6">{{ post()!.excerpt }}</p>
@@ -86,7 +87,7 @@ import { BlogPost } from '../../../../models';
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
             </svg>
-            Back to Blog
+            {{ 'BLOG.DETAIL.BACK' | translate }}
           </a>
         </article>
 
@@ -94,7 +95,7 @@ import { BlogPost } from '../../../../models';
         @if (related().length > 0) {
           <section class="py-12 bg-white border-t border-slate-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 class="text-2xl font-bold text-slate-900 mb-6">Related Articles</h2>
+              <h2 class="text-2xl font-bold text-slate-900 mb-6">{{ 'BLOG.DETAIL.RELATED' | translate }}</h2>
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 @for (relPost of related(); track relPost.id) {
                   <app-blog-card [post]="relPost"/>
@@ -107,8 +108,8 @@ import { BlogPost } from '../../../../models';
     } @else {
       <div class="min-h-screen flex items-center justify-center bg-gray-50">
         <div class="text-center">
-          <p class="text-slate-500 mb-4">Article not found.</p>
-          <a routerLink="/blog" class="text-blue-600 hover:text-blue-700 text-sm font-medium">Back to Blog</a>
+          <p class="text-slate-500 mb-4">{{ 'BLOG.DETAIL.NOT_FOUND' | translate }}</p>
+          <a routerLink="/blog" class="text-blue-600 hover:text-blue-700 text-sm font-medium">{{ 'BLOG.DETAIL.BACK' | translate }}</a>
         </div>
       </div>
     }
@@ -127,6 +128,10 @@ export class BlogDetailPageComponent implements OnInit {
       'Industry News': 'orange', 'Interviews': 'teal',
     };
     return map[this.post()?.category ?? ''] ?? 'blue';
+  }
+
+  categoryKey(category: string): string {
+    return category.toUpperCase().replace(/[^A-Z0-9]+/g, '_');
   }
 
   ngOnInit(): void {

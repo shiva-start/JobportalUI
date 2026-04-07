@@ -2,13 +2,14 @@ import { Component, inject, signal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, Validators, ReactiveFormsModule, AbstractControl } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { AuthService } from '../../../core/services/auth.service';
 import { ToastService } from '../../../core/services/toast.service';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterLink],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink, TranslatePipe],
   templateUrl: './register.component.html'
 })
 export class RegisterComponent {
@@ -16,6 +17,7 @@ export class RegisterComponent {
   private auth = inject(AuthService);
   private router = inject(Router);
   private toastService = inject(ToastService);
+  private translate = inject(TranslateService);
 
   showPass = signal(false);
   submitting = signal(false);
@@ -67,10 +69,10 @@ export class RegisterComponent {
 
   strengthLabel(): string {
     const s = this.passwordStrength();
-    if (s <= 1) return 'Weak';
-    if (s === 2) return 'Fair';
-    if (s === 3) return 'Good';
-    return 'Strong';
+    if (s <= 1) return this.translate.instant('AUTH.FORM.STRENGTH_WEAK');
+    if (s === 2) return this.translate.instant('AUTH.FORM.STRENGTH_FAIR');
+    if (s === 3) return this.translate.instant('AUTH.FORM.STRENGTH_GOOD');
+    return this.translate.instant('AUTH.FORM.STRENGTH_STRONG');
   }
 
   onSubmit(): void {
@@ -95,7 +97,7 @@ export class RegisterComponent {
       );
       this.submitting.set(false);
       if (success) {
-        this.toastService.success('Account created successfully! Welcome aboard.');
+        this.toastService.success(this.translate.instant('AUTH.REGISTER.SUCCESS_TOAST'));
         this.router.navigate([this.selectedRole() === 'employer' ? '/employer' : '/candidate']);
       }
     }, 1000);

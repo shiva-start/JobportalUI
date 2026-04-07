@@ -7,6 +7,10 @@
     scroll-behavior: smooth;
   }
 
+  html[dir='rtl'] body {
+    direction: rtl;
+  }
+
   body {
     @apply antialiased;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -152,6 +156,46 @@
 
   .animate-pulse-soft {
     animation: pulseSoft 3.8s ease-in-out infinite;
+  }
+
+  .rtl\:text-right:where([dir='rtl'], [dir='rtl'] *) {
+    text-align: right;
+  }
+
+  .rtl\:text-left:where([dir='rtl'], [dir='rtl'] *) {
+    text-align: left;
+  }
+
+  .rtl\:flex-row-reverse:where([dir='rtl'], [dir='rtl'] *) {
+    flex-direction: row-reverse;
+  }
+
+  .rtl\:justify-end:where([dir='rtl'], [dir='rtl'] *) {
+    justify-content: flex-end;
+  }
+
+  .rtl\:space-x-reverse:where([dir='rtl'], [dir='rtl'] *) > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+  }
+
+  .rtl\:left-auto:where([dir='rtl'], [dir='rtl'] *) {
+    left: auto;
+  }
+
+  .rtl\:right-3:where([dir='rtl'], [dir='rtl'] *) {
+    right: 0.75rem;
+  }
+
+  .rtl\:pl-4:where([dir='rtl'], [dir='rtl'] *) {
+    padding-left: 1rem;
+  }
+
+  .rtl\:pr-10:where([dir='rtl'], [dir='rtl'] *) {
+    padding-right: 2.5rem;
+  }
+
+  .rtl\:-scale-x-100:where([dir='rtl'], [dir='rtl'] *) {
+    transform: scaleX(-1);
   }
 }
 

@@ -1,6 +1,7 @@
 import { Component, inject, signal, OnInit, PLATFORM_ID, HostListener } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { JobService } from '../../../core/services/job.service';
 import { ToastService } from '../../../core/services/toast.service';
 import { JobCardComponent } from '../../../shared/components/job-card/job-card.component';
@@ -10,12 +11,13 @@ import { SkeletonComponent } from '../../../shared/components/skeleton/skeleton.
 @Component({
   selector: 'app-jobs-list',
   standalone: true,
-  imports: [CommonModule, FormsModule, JobCardComponent, PageHeroComponent, SkeletonComponent],
+  imports: [CommonModule, FormsModule, TranslatePipe, JobCardComponent, PageHeroComponent, SkeletonComponent],
   templateUrl: './jobs-list.component.html'
 })
 export class JobsListComponent implements OnInit {
   jobService = inject(JobService);
   private toastService = inject(ToastService);
+  private translate = inject(TranslateService);
   private platformId = inject(PLATFORM_ID);
 
   loading = signal(true);
@@ -44,21 +46,21 @@ export class JobsListComponent implements OnInit {
   categories = ['Technology', 'Design', 'Marketing', 'Sales', 'Data & AI', 'Product', 'Human Resources', 'Finance'];
 
   experienceLevels = [
-    { value: '', label: 'All Levels' },
-    { value: 'entry', label: 'Entry Level' },
-    { value: 'mid', label: 'Mid Level' },
-    { value: 'senior', label: 'Senior' },
-    { value: 'lead', label: 'Lead' },
-    { value: 'executive', label: 'Executive' },
+    { value: '', labelKey: 'JOBS.FILTER.ALL_LEVELS' },
+    { value: 'entry', labelKey: 'JOBS.LEVELS.ENTRY' },
+    { value: 'mid', labelKey: 'JOBS.LEVELS.MID' },
+    { value: 'senior', labelKey: 'JOBS.LEVELS.SENIOR' },
+    { value: 'lead', labelKey: 'JOBS.LEVELS.LEAD' },
+    { value: 'executive', labelKey: 'JOBS.LEVELS.EXECUTIVE' },
   ];
 
   jobTypes = [
-    { value: '', label: 'All Types' },
-    { value: 'full-time', label: 'Full-time' },
-    { value: 'part-time', label: 'Part-time' },
-    { value: 'remote', label: 'Remote' },
-    { value: 'contract', label: 'Contract' },
-    { value: 'internship', label: 'Internship' },
+    { value: '', labelKey: 'JOBS.FILTER.ALL_TYPES' },
+    { value: 'full-time', labelKey: 'JOBS.TYPES.FULL_TIME' },
+    { value: 'part-time', labelKey: 'JOBS.TYPES.PART_TIME' },
+    { value: 'remote', labelKey: 'JOBS.TYPES.REMOTE' },
+    { value: 'contract', labelKey: 'JOBS.TYPES.CONTRACT' },
+    { value: 'internship', labelKey: 'JOBS.TYPES.INTERNSHIP' },
   ];
 
   ngOnInit(): void {
@@ -114,6 +116,6 @@ export class JobsListComponent implements OnInit {
   onSaveJob(jobId: string): void {
     this.jobService.toggleSaveJob(jobId);
     const saved = this.jobService.isJobSaved(jobId);
-    this.toastService.success(saved ? 'Job saved!' : 'Job removed.');
+    this.toastService.success(this.translate.instant(saved ? 'JOBS.TOASTS.SAVED_SHORT' : 'JOBS.TOASTS.REMOVED_SHORT'));
   }
 }

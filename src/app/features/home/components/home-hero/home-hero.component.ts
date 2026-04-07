@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { TranslatePipe } from '@ngx-translate/core';
 import { RevealDirective } from '../../../../shared/directives/reveal.directive';
 
 export interface HomeHeroSearch {
@@ -8,9 +9,14 @@ export interface HomeHeroSearch {
   location: string;
 }
 
+export interface HomeHeroQuickSearch {
+  labelKey: string;
+  value: string;
+}
+
 export interface HomeHeroStat {
   value: string;
-  label: string;
+  labelKey: string;
 }
 
 export interface HeroImage {
@@ -24,16 +30,15 @@ export interface HeroImage {
 @Component({
   selector: 'app-home-hero',
   standalone: true,
-  imports: [CommonModule, FormsModule, RevealDirective],
+  imports: [CommonModule, FormsModule, RevealDirective, TranslatePipe],
   templateUrl: './home-hero.component.html'
 })
 export class HomeHeroComponent {
   // @Input() badgeText = 'Over 1,200 new positions added this week';
-  @Input() titleLead = 'Find Work That';
-  @Input() titleHighlight = 'Moves You Forward';
-  @Input() description =
-    'Connect with industry-leading companies hiring right now. Search thousands of roles across every field and level.';
-  @Input() popularSearches: string[] = [];
+  @Input() titleLeadKey = 'HOME.HERO.TITLE_LEAD';
+  @Input() titleHighlightKey = 'HOME.HERO.TITLE_HIGHLIGHT';
+  @Input() descriptionKey = 'HOME.HERO.DESCRIPTION';
+  @Input() popularSearches: HomeHeroQuickSearch[] = [];
   @Input() stats: HomeHeroStat[] = [];
   @Input() heroImage?: HeroImage;
 
@@ -49,8 +54,8 @@ export class HomeHeroComponent {
     });
   }
 
-  applyQuickSearch(term: string): void {
-    this.searchKeyword = term;
+  applyQuickSearch(search: HomeHeroQuickSearch): void {
+    this.searchKeyword = search.value;
     this.submitSearch();
   }
 }

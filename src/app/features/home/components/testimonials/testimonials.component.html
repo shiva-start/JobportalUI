@@ -1,8 +1,8 @@
 <section class="py-20 bg-slate-50">
   <div class="max-w-4xl mx-auto px-4 text-center">
     <!-- Heading -->
-    <p class="text-blue-600 text-sm font-semibold uppercase tracking-widest mb-2">Testimonials</p>
-    <h2 class="text-3xl font-bold text-slate-900 mb-4">What Our Users Say</h2>
+    <p class="text-blue-600 text-sm font-semibold uppercase tracking-widest mb-2">{{ 'HOME.TESTIMONIALS.EYEBROW' | translate }}</p>
+    <h2 class="text-3xl font-bold text-slate-900 mb-4">{{ 'HOME.TESTIMONIALS.TITLE' | translate }}</h2>
 
     <!-- Testimonial Card -->
     <div class="mt-10">
@@ -10,7 +10,7 @@
         @if ($index === currentTestimonialIndex()) {
           <div class="bg-white rounded-2xl shadow-md p-10 transition-all duration-500 animate-fade">
             <!-- Quote -->
-            <p class="text-xl sm:text-2xl leading-9 text-slate-700 font-medium">"{{ t.quote }}"</p>
+            <p class="text-xl sm:text-2xl leading-9 text-slate-700 font-medium">"{{ t.quoteKey | translate }}"</p>
 
             <!-- User Info -->
             <div class="mt-8 flex flex-col items-center gap-3">
@@ -26,7 +26,7 @@
                 class="w-14 h-14 rounded-full object-cover"/>
               <div>
                 <p class="font-semibold text-slate-900">{{ t.name }}</p>
-                <p class="text-sm text-slate-500">{{ t.role }}</p>
+                <p class="text-sm text-slate-500">{{ t.roleKey | translate }}</p>
               </div>
             </div>
           </div>

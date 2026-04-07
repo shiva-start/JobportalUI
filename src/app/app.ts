@@ -6,6 +6,7 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { ToastContainerComponent } from './shared/components/toast/toast.component';
 import { NgIf } from '@angular/common';
+import { LanguageService } from './core/services/language.service';
 
 @Component({
   selector: 'app-root',
@@ -33,7 +34,11 @@ export class App implements OnDestroy {
   isAuthRoute = false;
   private sub: Subscription;
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private languageService: LanguageService
+  ) {
+    this.languageService.init();
     // mark auth routes when url contains common auth paths
     this.isAuthRoute = this.checkAuthUrl(this.router.url);
     this.sub = this.router.events.pipe(filter(e => e instanceof NavigationEnd)).subscribe(() => {

@@ -1,0 +1,781 @@
+{
+  "COMMON": {
+    "SEARCH": "Search",
+    "APPLY": "Apply",
+    "PREVIOUS": "Previous",
+    "NEXT": "Next",
+    "CLEAR_ALL": "Clear All",
+    "TIME": {
+      "TODAY": "Today",
+      "DAY_AGO": "{{count}} day ago",
+      "DAYS_AGO": "{{count}} days ago",
+      "WEEKS_AGO": "{{count}}w ago",
+      "MONTHS_AGO": "{{count}}mo ago"
+    },
+    "HOME": "Home",
+    "FREE": "Free"
+  },
+  "NAV": {
+    "JOBSEEKERS": "Jobseekers",
+    "COMPANIES": "Companies",
+    "FREELANCERS": "Freelancers",
+    "RESOURCES": "Resources",
+    "HELP": "Help",
+    "BLOG": "Blog",
+    "COURSES": "Courses",
+    "INTERNSHIPS": "Internships",
+    "LOGIN": "Login",
+    "REGISTER": "Register",
+    "GO_HOME": "Go to home",
+    "CHANGE_LANGUAGE": "Change language",
+    "TOGGLE_MENU": "Toggle menu"
+  },
+  "HOME": {
+    "HERO": {
+      "ARIA_REGION": "Job search hero",
+      "ARIA_IMAGE": "Office professionals collaborating",
+      "TITLE_LEAD": "Find Work That",
+      "TITLE_HIGHLIGHT": "Moves You Forward",
+      "DESCRIPTION": "Connect with industry-leading companies hiring right now. Search thousands of roles across every field and level.",
+      "SEARCH_KEYWORD_LABEL": "Job title or keyword",
+      "SEARCH_KEYWORD_PLACEHOLDER": "Job title or keyword",
+      "SEARCH_LOCATION_LABEL": "Location",
+      "SEARCH_LOCATION_PLACEHOLDER": "Location",
+      "STATS": {
+        "LIVE_JOBS": "Live Jobs",
+        "COMPANIES": "Companies",
+        "CANDIDATES": "Candidates",
+        "NEW_JOBS": "New Jobs"
+      },
+      "POPULAR_SEARCHES": {
+        "REACT_DEVELOPER": "React Developer",
+        "PRODUCT_MANAGER": "Product Manager",
+        "UI_DESIGNER": "UI Designer",
+        "REMOTE": "Remote",
+        "DATA_ANALYST": "Data Analyst"
+      }
+    },
+    "CATEGORIES": {
+      "EYEBROW": "Browse by field",
+      "TITLE": "Explore Job Categories",
+      "DESCRIPTION": "Discover roles across every major industry. Filter by your expertise to find the right fit.",
+      "OPEN_ROLES": "{{count}} open roles",
+      "ITEMS": {
+        "TECHNOLOGY": "Technology",
+        "DESIGN": "Design",
+        "MARKETING": "Marketing",
+        "SALES": "Sales",
+        "DATA_AI": "Data & AI",
+        "PRODUCT": "Product",
+        "HUMAN_RESOURCES": "Human Resources",
+        "FINANCE": "Finance"
+      }
+    },
+    "HOW_IT_WORKS": {
+      "TITLE": "How It Works",
+      "DESCRIPTION": "Get hired in 3 easy steps",
+      "STEPS": {
+        "CREATE_ACCOUNT": {
+          "TITLE": "Create Account",
+          "DESCRIPTION": "Sign up and create your profile in minutes"
+        },
+        "SEARCH_JOBS": {
+          "TITLE": "Search Jobs",
+          "DESCRIPTION": "Browse thousands of jobs that match your skills"
+        },
+        "GET_HIRED": {
+          "TITLE": "Get Hired Faster",
+          "DESCRIPTION": "Apply with one click and land your dream job"
+        }
+      }
+    },
+    "CTA": {
+      "JOB_SEEKERS": {
+        "IMAGE_ALT": "Job search",
+        "TITLE": "Find Your Next Job",
+        "DESCRIPTION": "Discover jobs that match your skills and apply in seconds.",
+        "BUTTON": "Get Started"
+      },
+      "EMPLOYERS": {
+        "IMAGE_ALT": "Hiring team",
+        "TITLE": "Hire Top Talent",
+        "DESCRIPTION": "Post jobs and connect with qualified candidates faster.",
+        "BUTTON": "Post a Job"
+      }
+    },
+    "TESTIMONIALS": {
+      "EYEBROW": "Testimonials",
+      "TITLE": "What Our Users Say",
+      "ITEMS": {
+        "MOHAMED": {
+          "ROLE": "Frontend Developer at TechCorp",
+          "QUOTE": "Found my dream job within 2 weeks of signing up. The platform made the entire process incredibly smooth and stress-free."
+        },
+        "RANA": {
+          "ROLE": "HR Manager at BuildScale",
+          "QUOTE": "We have hired 5 exceptional engineers through JobPortal. The quality and relevance of candidates is consistently impressive."
+        },
+        "TAREK": {
+          "ROLE": "Senior Product Manager",
+          "QUOTE": "The job alerts feature is a game changer. I received a notification about my current role before it appeared anywhere else."
+        }
+      }
+    },
+    "GET_STARTED": {
+      "TITLE": "Ready to Find Your Next Opportunity?",
+      "DESCRIPTION": "Join thousands of professionals who found their dream jobs",
+      "BUTTON": "Get Started Now"
+    }
+  },
+  "JOBS": {
+    "LIST": {
+      "TITLE": "Find Opportunities That Match Your Ambition",
+      "SUBTITLE": "Search active openings, refine by role and location, and explore jobs tailored to your next move.",
+      "BADGE": "Jobs & Career Growth"
+    },
+    "FILTER": {
+      "LABEL": "Filter:",
+      "SEARCH_PLACEHOLDER": "Job title, skills, or company",
+      "LOCATION_PLACEHOLDER": "Location",
+      "ALL_CATEGORIES": "All Categories",
+      "SORT_BY": "Sort By",
+      "SORT_RECENT": "Most Recent",
+      "SORT_SALARY": "Highest Salary",
+      "CATEGORY": "Category",
+      "EXPERIENCE_LEVEL": "Experience Level",
+      "ALL_LEVELS": "All Levels",
+      "JOB_TYPE": "Job Type",
+      "ALL_TYPES": "All Types",
+      "FILTERS": "Filters",
+      "JOBS_FOUND": "{{count}} jobs found",
+      "CLEAR": "Clear filters",
+      "CLEAR_ALL": "Clear All"
+    },
+    "EMPTY": {
+      "TITLE": "No jobs found",
+      "DESCRIPTION": "Try adjusting your filters or search terms",
+      "CLEAR_FILTERS": "Clear all filters"
+    },
+    "CARD": {
+      "FEATURED": "Featured",
+      "VIEW_DETAILS": "View Details",
+      "SAVE": "Save job",
+      "REMOVE_SAVED": "Remove from saved"
+    },
+    "TYPES": {
+      "FULL_TIME": "Full Time",
+      "PART_TIME": "Part Time",
+      "CONTRACT": "Contract",
+      "REMOTE": "Remote",
+      "INTERNSHIP": "Internship"
+    },
+    "LEVELS": {
+      "ENTRY": "Entry Level",
+      "MID": "Mid Level",
+      "SENIOR": "Senior",
+      "LEAD": "Lead",
+      "EXECUTIVE": "Executive"
+    },
+    "TOASTS": {
+      "SAVED": "Job saved to your list.",
+      "REMOVED": "Job removed from saved.",
+      "SAVED_SHORT": "Job saved!",
+      "REMOVED_SHORT": "Job removed."
+    }
+  },
+  "AUTH": {
+    "LOGIN": {
+      "TITLE": "Welcome back",
+      "SUBTITLE": "Sign in to your account to continue",
+      "DEMO_CANDIDATE": "Candidate",
+      "DEMO_EMPLOYER": "Employer",
+      "DEMO_ADMIN": "Admin",
+      "OR_EMAIL": "or sign in with email",
+      "FORGOT_PASSWORD": "Forgot password?",
+      "SUBMIT": "Sign In",
+      "SUBMITTING": "Signing in...",
+      "NO_ACCOUNT": "Don't have an account?",
+      "CREATE_ACCOUNT": "Create one free",
+      "WELCOME_TOAST": "Welcome back!",
+      "ERROR_TOAST": "Invalid credentials",
+      "CANDIDATE_TOAST": "Logged in as candidate!",
+      "EMPLOYER_TOAST": "Logged in as employer!",
+      "ADMIN_TOAST": "Logged in as admin!"
+    },
+    "REGISTER": {
+      "TITLE": "Create your account",
+      "SUBTITLE": "Join thousands of people finding their next opportunity",
+      "ROLE_LABEL": "I am a...",
+      "ROLE_SEEKER": "Job Seeker",
+      "ROLE_EMPLOYER": "Employer",
+      "TERMS_TEXT": "I agree to the",
+      "TERMS_LINK": "Terms of Service",
+      "TERMS_AND": "and",
+      "PRIVACY_LINK": "Privacy Policy",
+      "SUBMIT": "Create Account",
+      "SUBMITTING": "Creating account...",
+      "HAVE_ACCOUNT": "Already have an account?",
+      "SIGN_IN": "Sign in",
+      "SUCCESS_TOAST": "Account created successfully! Welcome aboard."
+    },
+    "FORM": {
+      "EMAIL_LABEL": "Email address",
+      "EMAIL_PLACEHOLDER": "you@example.com",
+      "EMAIL_REQUIRED": "Email is required",
+      "EMAIL_INVALID": "Please enter a valid email",
+      "PASSWORD_LABEL": "Password",
+      "PASSWORD_PLACEHOLDER": "••••••••",
+      "PASSWORD_MIN_PLACEHOLDER": "Min 8 characters",
+      "PASSWORD_REQUIRED": "Password is required",
+      "PASSWORD_MIN_LENGTH": "Password must be at least 8 characters",
+      "FULL_NAME_LABEL": "Full Name",
+      "FULL_NAME_PLACEHOLDER": "John Doe",
+      "NAME_REQUIRED": "Name is required",
+      "NAME_MIN_LENGTH": "Name must be at least 2 characters",
+      "COMPANY_NAME_LABEL": "Company Name",
+      "COMPANY_NAME_PLACEHOLDER": "Your Company",
+      "COMPANY_REQUIRED": "Company name is required for employers",
+      "INDUSTRY_LABEL": "Industry / Sector",
+      "INDUSTRY_PLACEHOLDER": "e.g. Software, Marketing",
+      "INDUSTRY_REQUIRED": "Industry is required for employers",
+      "TERMS_REQUIRED": "You must agree to the terms",
+      "STRENGTH_WEAK": "Weak",
+      "STRENGTH_FAIR": "Fair",
+      "STRENGTH_GOOD": "Good",
+      "STRENGTH_STRONG": "Strong"
+    }
+  },
+  "FREELANCERS": {
+    "FEATURED": {
+      "TITLE": "Featured Freelancers",
+      "DESCRIPTION": "Connect with skilled professionals ready to bring your projects to life",
+      "EMPTY": "No featured freelancers available.",
+      "BROWSE_ALL": "Browse All Freelancers"
+    },
+    "CARD": {
+      "REQUEST": "Request Freelancer"
+    },
+    "PAGE": {
+      "TITLE": "Hire Proven Freelancers Faster",
+      "SUBTITLE": "Browse approved specialists, filter by skill set and location, and find talent ready to contribute.",
+      "BADGE": "Freelancers & Specialists"
+    },
+    "FILTER": {
+      "SEARCH_PLACEHOLDER": "Search skills or role",
+      "LOCATION_PLACEHOLDER": "Location",
+      "LABEL": "Filter:",
+      "EXPERIENCE_LEVEL": "Experience Level",
+      "EXPERIENCE_OPTIONS": {
+        "BEGINNER": "Beginner",
+        "INTERMEDIATE": "Intermediate",
+        "EXPERT": "Expert"
+      },
+      "AVAILABILITY": "Availability",
+      "AVAILABILITY_OPTIONS": {
+        "AVAILABLE_NOW": "Available Now",
+        "PART_TIME": "Part-time",
+        "CONTRACT": "Contract"
+      },
+      "RESULTS": "{{count}} freelancers",
+      "CLEAR": "Clear filters"
+    },
+    "EMPTY": "No freelancers match your search."
+  },
+  "FOOTER": {
+    "DESCRIPTION": "The smartest way to find your next job or hire top talent. Connecting people with meaningful opportunities since 2026.",
+    "SOCIAL": {
+      "TWITTER": "Twitter",
+      "LINKEDIN": "LinkedIn",
+      "GITHUB": "GitHub"
+    },
+    "HEADINGS": {
+      "JOB_SEEKERS": "For Job Seekers",
+      "EMPLOYERS": "For Employers",
+      "COMPANY": "Company"
+    },
+    "LINKS": {
+      "SEEKERS": {
+        "BROWSE_JOBS": "Browse Jobs",
+        "INTERNSHIPS": "Internships",
+        "COURSES": "Courses",
+        "CAREER_BLOG": "Career Blog",
+        "RESUME_BUILDER": "Resume Builder"
+      },
+      "EMPLOYERS": {
+        "POST_A_JOB": "Post a Job",
+        "BROWSE_CANDIDATES": "Browse Candidates",
+        "BROWSE_FREELANCERS": "Browse Freelancers",
+        "COMPANIES": "Companies"
+      },
+      "COMPANY": {
+        "ABOUT_US": "About Us",
+        "HELP_SUPPORT": "Help & Support",
+        "PRIVACY_POLICY": "Privacy Policy",
+        "TERMS_OF_SERVICE": "Terms of Service"
+      }
+    },
+    "COPYRIGHT": "© 2026 JobPortal. All rights reserved.",
+    "BOTTOM": {
+      "PRIVACY_POLICY": "Privacy Policy",
+      "TERMS_OF_SERVICE": "Terms of Service",
+      "COOKIE_POLICY": "Cookie Policy"
+    }
+  },
+  "EMPLOYER": {
+    "NAV": {
+      "OVERVIEW": "Overview",
+      "POST_JOB": "Post a Job",
+      "MANAGE_JOBS": "Manage Jobs",
+      "APPLICANTS": "Applicants"
+    },
+    "STATUS": {
+      "ACTIVE": "Active",
+      "CLOSED": "Closed",
+      "NEW": "New",
+      "REVIEWED": "Reviewed",
+      "SHORTLISTED": "Shortlisted",
+      "REJECTED": "Rejected"
+    },
+    "CTA": {
+      "TITLE": "Post a New Job",
+      "SUBTITLE": "Reach 50,000+ active candidates today",
+      "BUTTON": "Post Job Now"
+    },
+    "OVERVIEW": {
+      "TITLE": "Dashboard Overview",
+      "VERIFIED_COMPANY": "Verified Company",
+      "ACTIVE_POSTINGS": "Active Job Postings",
+      "POST_JOB": "Post Job",
+      "RECENT_APPLICANTS": "Recent Applicants",
+      "VIEW_ALL": "View all",
+      "APPLIED_FOR": "Applied for"
+    },
+    "STATS": {
+      "ACTIVE_POSTINGS": "Active Postings",
+      "TOTAL_APPLICANTS": "Total Applicants",
+      "TOTAL_VIEWS": "Total Views",
+      "HIRES_MADE": "Hires Made",
+      "CHANGE_THIS_MONTH": "+2 this month",
+      "CHANGE_THIS_WEEK": "+28 this week",
+      "CHANGE_PERCENT": "+12%"
+    },
+    "TABLE": {
+      "JOB_TITLE": "Job Title",
+      "APPLICANTS": "Applicants",
+      "VIEWS": "Views",
+      "STATUS": "Status",
+      "APPLICANTS_LABEL": "applicants"
+    },
+    "POSTED": {
+      "THREE_DAYS_AGO": "3 days ago",
+      "ONE_WEEK_AGO": "1 week ago",
+      "TWO_WEEKS_AGO": "2 weeks ago",
+      "THREE_WEEKS_AGO": "3 weeks ago",
+      "ONE_MONTH_AGO": "1 month ago"
+    },
+    "POST_JOB": {
+      "TITLE": "Post a New Job",
+      "DETAILS": "Job Details",
+      "SAVE_DRAFT": "Save Draft",
+      "PUBLISHING": "Publishing...",
+      "PUBLISH": "Publish Job",
+      "SKILLS_HELP": "Separate skills with commas",
+      "FIELDS": {
+        "TITLE": "Job Title *",
+        "CATEGORY": "Category *",
+        "TYPE": "Job Type *",
+        "LOCATION": "Location *",
+        "EXPERIENCE": "Experience Level *",
+        "SALARY": "Salary Range (optional)",
+        "DESCRIPTION": "Job Description *",
+        "SKILLS": "Required Skills"
+      },
+      "PLACEHOLDERS": {
+        "TITLE": "e.g. Senior Frontend Developer",
+        "CATEGORY": "Select category",
+        "TYPE": "Select type",
+        "LOCATION": "e.g. Cairo, Egypt or Remote",
+        "EXPERIENCE": "Select level",
+        "SALARY": "e.g. $3,000 - $5,000",
+        "DESCRIPTION": "Describe the role, responsibilities, and what you're looking for...",
+        "SKILLS": "e.g. React, TypeScript, Node.js (comma separated)"
+      },
+      "ERRORS": {
+        "TITLE_REQUIRED": "Job title is required",
+        "DESCRIPTION_REQUIRED": "Description is required"
+      }
+    },
+    "MANAGE": {
+      "TITLE": "Manage Jobs",
+      "POST_NEW": "Post New Job",
+      "POSITION": "Position",
+      "APPLICATIONS": "Applications",
+      "POSTED": "Posted",
+      "STATUS": "Status",
+      "ACTIONS": "Actions",
+      "EDIT": "Edit",
+      "CLOSE": "Close"
+    },
+    "APPLICANTS": {
+      "TITLE": "All Applicants",
+      "SEARCH": "Search applicants...",
+      "ALL_STATUS": "All Status",
+      "APPLIED_FOR": "Applied for",
+      "REVIEW": "Review",
+      "SHORTLIST": "Shortlist"
+    },
+    "COMPANY_PROFILE": {
+      "TITLE": "Company Profile",
+      "SUBTITLE": "Manage the public details candidates see before they apply.",
+      "COMPANY": "Company",
+      "OWNER": "Account Owner",
+      "EMPTY_COMPANY": "Company name not set",
+      "EMPTY_OWNER": "Employer user"
+    },
+    "MESSAGES": {
+      "TITLE": "Messages",
+      "SUBTITLE": "Hiring conversations and recruiter inbox tools will appear here.",
+      "OUTREACH_TITLE": "Candidate outreach",
+      "EMPTY": "No messages available yet."
+    },
+    "SETTINGS": {
+      "TITLE": "Settings",
+      "SUBTITLE": "Employer account controls for your hiring workspace.",
+      "PASSWORD_PLACEHOLDER": "Enter a new password",
+      "UPDATE_PASSWORD": "Update Password",
+      "WORKSPACE": "Workspace",
+      "WORKSPACE_NOTE": "Notifications and team settings can be added here as the employer module grows."
+    },
+    "TOASTS": {
+      "JOB_POSTED": "Job posted successfully.",
+      "PASSWORD_REQUIRED": "Please enter a new password.",
+      "PASSWORD_UPDATED": "Password updated."
+    }
+  },
+  "CANDIDATE": {},
+  "ADMIN": {},
+  "BLOG": {
+    "LIST": {
+      "TITLE": "The JobPortal Blog",
+      "SUBTITLE": "Career advice, tech insights, and industry news to help you grow professionally.",
+      "BADGE": "Articles & Insights",
+      "SEARCH_PLACEHOLDER": "Search articles...",
+      "RESULTS": "{{count}} articles"
+    },
+    "FEATURED": {
+      "BADGE": "Featured",
+      "EDITOR_PICK": "Editor's Pick",
+      "TITLE": "Featured Article",
+      "READ_ARTICLE": "Read Article"
+    },
+    "FILTER": {
+      "ALL": "All"
+    },
+    "CARD": {
+      "MIN_READ": "{{count}} min read",
+      "READ": "Read"
+    },
+    "EMPTY": {
+      "TITLE": "No articles found",
+      "MESSAGE": "Try a different category or clear your search.",
+      "ACTION": "Show All Articles"
+    },
+    "NEWSLETTER": {
+      "TITLE": "Stay in the Loop",
+      "SUBTITLE": "Get the latest career tips, job market insights, and tech articles delivered to your inbox weekly.",
+      "PLACEHOLDER": "your@email.com",
+      "SUBMIT": "Subscribe"
+    },
+    "DETAIL": {
+      "BACK": "Back to Blog",
+      "RELATED": "Related Articles",
+      "NOT_FOUND": "Article not found."
+    },
+    "CATEGORIES": {
+      "CAREER_TIPS": "Career Tips",
+      "TECH": "Tech",
+      "INDUSTRY_NEWS": "Industry News",
+      "INTERVIEWS": "Interviews",
+      "FREELANCING": "Freelancing"
+    }
+  },
+  "COURSES": {
+    "LIST": {
+      "TITLE": "Level Up Your Skills",
+      "SUBTITLE": "Expertly crafted courses to help you land your next role or grow in your current one.",
+      "BADGE": "Courses & Learning",
+      "RESULTS": "Showing {{count}} courses"
+    },
+    "FILTER": {
+      "SEARCH_PLACEHOLDER": "Search courses...",
+      "ALL_LEVELS": "All Levels",
+      "ALL_CATEGORIES": "All Categories",
+      "ANY_PRICE": "Any Price",
+      "CLEAR": "Clear",
+      "PRICE_OPTIONS": {
+        "FREE": "Free",
+        "PAID": "Paid"
+      }
+    },
+    "LEVELS": {
+      "BEGINNER": "Beginner",
+      "INTERMEDIATE": "Intermediate",
+      "ADVANCED": "Advanced"
+    },
+    "STATS": {
+      "COURSES": "Courses",
+      "STUDENTS": "Students",
+      "AVG_RATING": "Avg Rating",
+      "CERTIFICATES": "Certificates"
+    },
+    "EMPTY": {
+      "TITLE": "No courses found",
+      "MESSAGE": "Try a different search or clear your filters.",
+      "ACTION": "Clear Filters"
+    },
+    "CTA": {
+      "TITLE": "Can't find the right course?",
+      "SUBTITLE": "Tell us what you'd like to learn and we'll notify you when it's available.",
+      "BUTTON": "Request a Course"
+    },
+    "CARD": {
+      "CERTIFICATE": "Certificate",
+      "ENROLL_FREE": "Enroll Free",
+      "ENROLL_FOR_FREE": "Enroll for Free",
+      "ENROLL_NOW": "Enroll Now"
+    },
+    "DETAIL": {
+      "STUDENTS": "({{count}} students)",
+      "DURATION": "Duration",
+      "CERTIFICATE": "Certificate Offered",
+      "INSTRUCTOR": "Your Instructor",
+      "EXPERT_INSTRUCTOR": "Expert {{category}} Instructor",
+      "SKILLS": "Skills You'll Learn",
+      "PAYMENT_NOTE": "One-time payment ? Lifetime access",
+      "PREVIEW": "Preview Course",
+      "BACK": "Back to all courses",
+      "NOT_FOUND": "Course not found.",
+      "BROWSE": "Browse all courses",
+      "FEATURES": {
+        "LIFETIME_ACCESS": "Lifetime access",
+        "MOBILE_DESKTOP": "Access on mobile & desktop",
+        "COMMUNITY_SUPPORT": "Community support",
+        "CERTIFICATE": "Certificate of completion"
+      }
+    }
+  },
+  "INTERNSHIPS": {
+    "LIST": {
+      "TITLE": "Find Your Perfect Internship",
+      "SUBTITLE": "Kickstart your career with hands-on experience at top companies.",
+      "BADGE": "Internships & Training",
+      "RESULTS": "Showing {{count}} internships"
+    },
+    "FILTER": {
+      "SEARCH_PLACEHOLDER": "Search internships or companies...",
+      "LABEL": "Filter:",
+      "ALL_LOCATIONS": "All Locations",
+      "ANY_DURATION": "Any Duration",
+      "ANY_STIPEND": "Any Stipend",
+      "ALL_CATEGORIES": "All Categories",
+      "CLEAR": "Clear filters",
+      "LOCATION_OPTIONS": {
+        "REMOTE": "Remote",
+        "ONSITE": "Onsite",
+        "HYBRID": "Hybrid"
+      },
+      "DURATION_OPTIONS": {
+        "THREE_MONTHS": "3 Months",
+        "SIX_MONTHS": "6 Months"
+      },
+      "STIPEND_OPTIONS": {
+        "PAID_ONLY": "Paid Only",
+        "UNPAID": "Unpaid"
+      }
+    },
+    "EMPTY": {
+      "TITLE": "No internships found",
+      "MESSAGE": "Try adjusting your filters or search query.",
+      "ACTION": "Clear Filters"
+    },
+    "CARD": {
+      "BADGE": "Internship",
+      "MONTH": "month",
+      "UNPAID": "Unpaid",
+      "DEADLINE": "Deadline"
+    },
+    "DETAIL": {
+      "ABOUT": "About the Internship",
+      "REQUIREMENTS": "Requirements",
+      "SKILLS": "Skills Required",
+      "STIPEND": "Stipend",
+      "UNPAID": "Unpaid Internship",
+      "APPLY": "Apply Now",
+      "SAVE": "Save Internship",
+      "OPENINGS": "Openings",
+      "START_DATE": "Start Date",
+      "APPLY_BY": "Apply by",
+      "CATEGORY": "Category",
+      "BACK": "Back to all internships",
+      "NOT_FOUND": "Internship not found.",
+      "BROWSE": "Browse all internships",
+      "META": {
+        "DURATION": "Duration",
+        "LOCATION": "Location",
+        "START_DATE": "Start Date",
+        "OPENINGS": "Openings"
+      }
+    },
+    "LOCATION_TYPES": {
+      "REMOTE": "Remote",
+      "ONSITE": "Onsite",
+      "HYBRID": "Hybrid"
+    },
+    "DURATIONS": {
+      "THREE_MONTHS": "3 Months",
+      "SIX_MONTHS": "6 Months"
+    },
+    "CATEGORIES": {
+      "ENGINEERING": "Engineering",
+      "DATA_SCIENCE": "Data Science",
+      "DESIGN": "Design",
+      "MARKETING": "Marketing",
+      "PRODUCT": "Product"
+    }
+  },
+  "HELP": {
+    "PAGE": {
+      "TITLE": "How can we help you?",
+      "SUBTITLE": "Search our knowledge base or browse by category below.",
+      "BADGE": "Help & Support",
+      "SEARCH_PLACEHOLDER": "Search FAQs...",
+      "BROWSE_BY_TOPIC": "Browse by topic",
+      "ALL_QUESTIONS": "All Questions",
+      "QUESTIONS_COUNT": "{{count}} questions",
+      "CLEAR_FILTER": "Clear filter",
+      "NO_RESULTS": "No results found for \"{{query}}\"",
+      "CLEAR_SEARCH": "Clear search"
+    },
+    "CATEGORIES": {
+      "CANDIDATES": "Candidates",
+      "EMPLOYERS": "Employers",
+      "GENERAL": "General",
+      "BILLING": "Billing"
+    },
+    "QUICK_LINKS": {
+      "CANDIDATES": "For Candidates",
+      "EMPLOYERS": "For Employers",
+      "GENERAL": "General",
+      "BILLING": "Billing"
+    },
+    "CONTACT": {
+      "LABEL": "Still need help?",
+      "TITLE": "Contact our support team",
+      "SUBTITLE": "Can't find what you're looking for? Send us a message and we'll get back to you as soon as possible.",
+      "INFO": {
+        "EMAIL": {
+          "LABEL": "Email",
+          "NOTE": "We reply within 24 hours"
+        },
+        "LIVE_CHAT": {
+          "LABEL": "Live Chat",
+          "VALUE": "Available Mon-Fri, 9am-6pm IST",
+          "NOTE": "Fastest response"
+        },
+        "RESPONSE_TIME": {
+          "LABEL": "Response Time",
+          "VALUE": "Usually within 2-4 hours",
+          "NOTE": "During business hours"
+        }
+      }
+    },
+    "SUPPORT_FORM": {
+      "TITLE": "Contact Support",
+      "SUBTITLE": "We typically respond within 24 hours.",
+      "SUCCESS_TITLE": "Message sent!",
+      "SUCCESS_MESSAGE": "Our team will get back to you at {{email}} within 24 hours.",
+      "RESET": "Send another message",
+      "SENDING": "Sending...",
+      "SUBMIT": "Send Message",
+      "FIELDS": {
+        "NAME": "Full Name *",
+        "EMAIL": "Email Address *",
+        "CATEGORY": "Category *",
+        "SUBJECT": "Subject *",
+        "MESSAGE": "Message *"
+      },
+      "PLACEHOLDERS": {
+        "NAME": "John Doe",
+        "EMAIL": "you@example.com",
+        "CATEGORY": "Select a category",
+        "SUBJECT": "Brief description of your issue",
+        "MESSAGE": "Describe your issue in detail..."
+      },
+      "CATEGORIES": {
+        "ACCOUNT": "Account",
+        "JOBS": "Jobs & Applications",
+        "BILLING": "Billing",
+        "TECHNICAL": "Technical Issue",
+        "OTHER": "Other"
+      }
+    },
+    "FAQ": {
+      "CANDIDATES": {
+        "CREATE_PROFILE": {
+          "Q": "How do I create a candidate profile?",
+          "A": "Click \"Get Started\" and register with your email. Once verified, navigate to your profile page to fill in your experience, skills, and education details."
+        },
+        "MULTIPLE_APPLICATIONS": {
+          "Q": "Can I apply to multiple jobs at once?",
+          "A": "Yes. Browse jobs and click \"Apply\" on each listing. You can track all your applications from the Applications section in your dashboard."
+        },
+        "UPLOAD_RESUME": {
+          "Q": "How do I upload my resume?",
+          "A": "Go to your Profile page and scroll to the Resume section. Click \"Upload Resume\" and select a PDF file up to 5MB."
+        },
+        "PROFILE_VISIBILITY": {
+          "Q": "Will employers see my profile before I apply?",
+          "A": "Only if your profile visibility is set to Public. You can toggle this in Settings under Privacy."
+        }
+      },
+      "EMPLOYERS": {
+        "POST_JOB": {
+          "Q": "How do I post a job listing?",
+          "A": "Log in as an employer, navigate to \"Post Job\" from your dashboard, fill in the job details, and submit. Your listing will go live after a quick review."
+        },
+        "FREE_JOBS": {
+          "Q": "How many jobs can I post for free?",
+          "A": "The free plan allows up to 3 active job listings. Upgrade to a paid plan to post unlimited listings and access premium features."
+        },
+        "EDIT_JOB": {
+          "Q": "Can I edit a job post after publishing?",
+          "A": "Yes. Go to Manage Jobs in your dashboard, find the listing, and click Edit. Changes are reflected immediately."
+        }
+      },
+      "GENERAL": {
+        "FREE_TO_USE": {
+          "Q": "Is JobPortal free to use?",
+          "A": "JobPortal is free for candidates. Employers can post up to 3 jobs for free. Premium plans are available for advanced hiring features."
+        },
+        "RESET_PASSWORD": {
+          "Q": "How do I reset my password?",
+          "A": "Click \"Sign in\" then \"Forgot password\". Enter your registered email and we will send you a reset link within 5 minutes."
+        },
+        "AVAILABILITY": {
+          "Q": "Which countries is JobPortal available in?",
+          "A": "JobPortal is available worldwide. Remote jobs are accessible globally, while on-site listings are filtered by location."
+        }
+      },
+      "BILLING": {
+        "PAYMENT_METHODS": {
+          "Q": "What payment methods are accepted?",
+          "A": "We accept all major credit/debit cards (Visa, Mastercard, Amex) and UPI payments."
+        },
+        "CANCEL_SUBSCRIPTION": {
+          "Q": "Can I cancel my subscription at any time?",
+          "A": "Yes. You can cancel anytime from your billing settings. Your plan remains active until the end of the current billing cycle."
+        }
+      }
+    }
+  }
+}

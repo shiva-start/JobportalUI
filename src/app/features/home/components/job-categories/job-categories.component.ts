@@ -1,10 +1,12 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslatePipe } from '@ngx-translate/core';
 import { RevealDirective } from '../../../../shared/directives/reveal.directive';
 
 export interface JobCategory {
   id: string;
   name: string;
+  labelKey: string;
   count: number;
   bgClass: string;
   iconClass: string;
@@ -23,7 +25,7 @@ export interface JobCategory {
 @Component({
   selector: 'app-job-categories',
   standalone: true,
-  imports: [CommonModule, RevealDirective],
+  imports: [CommonModule, RevealDirective, TranslatePipe],
   templateUrl: './job-categories.component.html'
 })
 export class JobCategoriesComponent {

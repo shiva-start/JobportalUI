@@ -1,40 +1,57 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { FAQ, FAQCategory, SupportTicket } from '../../../../models';
 
-const MOCK_FAQS: FAQ[] = [
-  { id: '1', category: 'Candidates', question: 'How do I create a candidate profile?', answer: 'Click "Get Started" and register with your email. Once verified, navigate to your profile page to fill in your experience, skills, and education details.' },
-  { id: '2', category: 'Candidates', question: 'Can I apply to multiple jobs at once?', answer: 'Yes. Browse jobs and click "Apply" on each listing. You can track all your applications from the Applications section in your dashboard.' },
-  { id: '3', category: 'Candidates', question: 'How do I upload my resume?', answer: 'Go to your Profile page and scroll to the Resume section. Click "Upload Resume" and select a PDF file up to 5MB.' },
-  { id: '4', category: 'Candidates', question: 'Will employers see my profile before I apply?', answer: 'Only if your profile visibility is set to Public. You can toggle this in Settings under Privacy.' },
-  { id: '5', category: 'Employers', question: 'How do I post a job listing?', answer: 'Log in as an employer, navigate to "Post Job" from your dashboard, fill in the job details, and submit. Your listing will go live after a quick review.' },
-  { id: '6', category: 'Employers', question: 'How many jobs can I post for free?', answer: 'The free plan allows up to 3 active job listings. Upgrade to a paid plan to post unlimited listings and access premium features.' },
-  { id: '7', category: 'Employers', question: 'Can I edit a job post after publishing?', answer: 'Yes. Go to Manage Jobs in your dashboard, find the listing, and click Edit. Changes are reflected immediately.' },
-  { id: '8', category: 'General', question: 'Is JobPortal free to use?', answer: 'JobPortal is free for candidates. Employers can post up to 3 jobs for free. Premium plans are available for advanced hiring features.' },
-  { id: '9', category: 'General', question: 'How do I reset my password?', answer: 'Click "Sign in" then "Forgot password". Enter your registered email and we will send you a reset link within 5 minutes.' },
-  { id: '10', category: 'General', question: 'Which countries is JobPortal available in?', answer: 'JobPortal is available worldwide. Remote jobs are accessible globally, while on-site listings are filtered by location.' },
-  { id: '11', category: 'Billing', question: 'What payment methods are accepted?', answer: 'We accept all major credit/debit cards (Visa, Mastercard, Amex) and UPI payments.' },
-  { id: '12', category: 'Billing', question: 'Can I cancel my subscription at any time?', answer: 'Yes. You can cancel anytime from your billing settings. Your plan remains active until the end of the current billing cycle.' },
+type FaqKeyItem = {
+  id: string;
+  category: FAQCategory;
+  questionKey: string;
+  answerKey: string;
+};
+
+const FAQ_ITEMS: FaqKeyItem[] = [
+  { id: '1', category: 'Candidates', questionKey: 'HELP.FAQ.CANDIDATES.CREATE_PROFILE.Q', answerKey: 'HELP.FAQ.CANDIDATES.CREATE_PROFILE.A' },
+  { id: '2', category: 'Candidates', questionKey: 'HELP.FAQ.CANDIDATES.MULTIPLE_APPLICATIONS.Q', answerKey: 'HELP.FAQ.CANDIDATES.MULTIPLE_APPLICATIONS.A' },
+  { id: '3', category: 'Candidates', questionKey: 'HELP.FAQ.CANDIDATES.UPLOAD_RESUME.Q', answerKey: 'HELP.FAQ.CANDIDATES.UPLOAD_RESUME.A' },
+  { id: '4', category: 'Candidates', questionKey: 'HELP.FAQ.CANDIDATES.PROFILE_VISIBILITY.Q', answerKey: 'HELP.FAQ.CANDIDATES.PROFILE_VISIBILITY.A' },
+  { id: '5', category: 'Employers', questionKey: 'HELP.FAQ.EMPLOYERS.POST_JOB.Q', answerKey: 'HELP.FAQ.EMPLOYERS.POST_JOB.A' },
+  { id: '6', category: 'Employers', questionKey: 'HELP.FAQ.EMPLOYERS.FREE_JOBS.Q', answerKey: 'HELP.FAQ.EMPLOYERS.FREE_JOBS.A' },
+  { id: '7', category: 'Employers', questionKey: 'HELP.FAQ.EMPLOYERS.EDIT_JOB.Q', answerKey: 'HELP.FAQ.EMPLOYERS.EDIT_JOB.A' },
+  { id: '8', category: 'General', questionKey: 'HELP.FAQ.GENERAL.FREE_TO_USE.Q', answerKey: 'HELP.FAQ.GENERAL.FREE_TO_USE.A' },
+  { id: '9', category: 'General', questionKey: 'HELP.FAQ.GENERAL.RESET_PASSWORD.Q', answerKey: 'HELP.FAQ.GENERAL.RESET_PASSWORD.A' },
+  { id: '10', category: 'General', questionKey: 'HELP.FAQ.GENERAL.AVAILABILITY.Q', answerKey: 'HELP.FAQ.GENERAL.AVAILABILITY.A' },
+  { id: '11', category: 'Billing', questionKey: 'HELP.FAQ.BILLING.PAYMENT_METHODS.Q', answerKey: 'HELP.FAQ.BILLING.PAYMENT_METHODS.A' },
+  { id: '12', category: 'Billing', questionKey: 'HELP.FAQ.BILLING.CANCEL_SUBSCRIPTION.Q', answerKey: 'HELP.FAQ.BILLING.CANCEL_SUBSCRIPTION.A' },
 ];
 
 @Injectable({ providedIn: 'root' })
 export class HelpService {
-  private faqs = signal<FAQ[]>(MOCK_FAQS);
+  private readonly translate = inject(TranslateService);
 
   getFAQs(category?: FAQCategory): FAQ[] {
-    if (!category) return this.faqs();
-    return this.faqs().filter(f => f.category === category);
+    const items = category ? FAQ_ITEMS.filter(f => f.category === category) : FAQ_ITEMS;
+    return items.map(item => this.toFaq(item));
   }
 
   searchFAQs(query: string): FAQ[] {
     const q = query.toLowerCase().trim();
-    if (!q) return this.faqs();
-    return this.faqs().filter(f =>
+    const faqs = this.getFAQs();
+    if (!q) return faqs;
+    return faqs.filter(f =>
       f.question.toLowerCase().includes(q) || f.answer.toLowerCase().includes(q)
     );
   }
 
   submitTicket(ticket: SupportTicket): Promise<void> {
-    // In production this would call a real API endpoint
     return new Promise(resolve => setTimeout(resolve, 800));
+  }
+
+  private toFaq(item: FaqKeyItem): FAQ {
+    return {
+      id: item.id,
+      category: item.category,
+      question: this.translate.instant(item.questionKey),
+      answer: this.translate.instant(item.answerKey),
+    };
   }
 }

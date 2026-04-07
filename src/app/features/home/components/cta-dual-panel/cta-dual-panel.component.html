@@ -7,7 +7,7 @@
         <!-- Background Image -->
         <img
           src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=1400&q=80&auto=format&fit=crop"
-          alt="Job search"
+          [alt]="'HOME.CTA.JOB_SEEKERS.IMAGE_ALT' | translate"
           aria-hidden="false"
           class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
         />
@@ -20,11 +20,11 @@
 
         <!-- Content (simplified, improved contrast & hierarchy) -->
         <div class="relative z-10 p-8 flex flex-col justify-center h-full text-white">
-          <h3 class="text-2xl md:text-3xl font-semibold text-white mb-2 drop-shadow-md transform transition duration-300 group-hover:-translate-y-1">Find Your Next Job</h3>
-          <p class="text-sm md:text-base text-white/90 leading-relaxed mb-5 max-w-md">Discover jobs that match your skills and apply in seconds.</p>
+          <h3 class="text-2xl md:text-3xl font-semibold text-white mb-2 drop-shadow-md transform transition duration-300 group-hover:-translate-y-1">{{ 'HOME.CTA.JOB_SEEKERS.TITLE' | translate }}</h3>
+          <p class="text-sm md:text-base text-white/90 leading-relaxed mb-5 max-w-md">{{ 'HOME.CTA.JOB_SEEKERS.DESCRIPTION' | translate }}</p>
 
           <div class="flex items-center gap-3">
-            <a routerLink="/register" class="bg-white text-blue-700 px-5 py-2.5 rounded-lg font-medium shadow hover:bg-gray-100 transition">Get Started</a>
+            <a routerLink="/register" class="bg-white text-blue-700 px-5 py-2.5 rounded-lg font-medium shadow hover:bg-gray-100 transition">{{ 'HOME.CTA.JOB_SEEKERS.BUTTON' | translate }}</a>
           </div>
         </div>
       </div>
@@ -34,7 +34,7 @@
         <!-- Background Image -->
         <img
           src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1400&q=80&auto=format&fit=crop"
-          alt="Hiring team"
+          [alt]="'HOME.CTA.EMPLOYERS.IMAGE_ALT' | translate"
           aria-hidden="false"
           class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
         />
@@ -47,11 +47,11 @@
 
         <!-- Content (simplified, improved contrast & hierarchy) -->
         <div class="relative z-10 p-8 flex flex-col justify-center h-full text-white">
-          <h3 class="text-2xl md:text-3xl font-semibold text-white mb-2 drop-shadow-md transform transition duration-300 group-hover:-translate-y-1">Hire Top Talent</h3>
-          <p class="text-sm md:text-base text-white/90 leading-relaxed mb-5 max-w-md">Post jobs and connect with qualified candidates faster.</p>
+          <h3 class="text-2xl md:text-3xl font-semibold text-white mb-2 drop-shadow-md transform transition duration-300 group-hover:-translate-y-1">{{ 'HOME.CTA.EMPLOYERS.TITLE' | translate }}</h3>
+          <p class="text-sm md:text-base text-white/90 leading-relaxed mb-5 max-w-md">{{ 'HOME.CTA.EMPLOYERS.DESCRIPTION' | translate }}</p>
 
           <div class="flex items-center gap-3">
-            <a routerLink="/register" class="bg-blue-600 text-white px-5 py-2.5 rounded-lg font-medium shadow hover:bg-blue-700 transition">Post a Job</a>
+            <a routerLink="/register" class="bg-blue-600 text-white px-5 py-2.5 rounded-lg font-medium shadow hover:bg-blue-700 transition">{{ 'HOME.CTA.EMPLOYERS.BUTTON' | translate }}</a>
           </div>
         </div>
       </div>

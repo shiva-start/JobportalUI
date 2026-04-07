@@ -1,13 +1,15 @@
 import { Component, Input, Output, EventEmitter, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { Job } from '../../../models';
 import { BadgeComponent } from '../badge/badge.component';
+import { LanguageService } from '../../../core/services/language.service';
 
 @Component({
   selector: 'app-job-card',
   standalone: true,
-  imports: [RouterLink, CommonModule, BadgeComponent],
+  imports: [RouterLink, CommonModule, BadgeComponent, TranslatePipe],
   template: `
     <div [class]="cardClasses"
       class="group relative bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg hover:border-blue-300 transition-all duration-300 ease-in-out cursor-pointer flex flex-col h-full hover:-translate-y-1 hover:scale-[1.02]">
@@ -21,7 +23,7 @@ import { BadgeComponent } from '../badge/badge.component';
         <!-- Featured ribbon -->
         @if (job.featured) {
           <div class="absolute top-4 right-4 z-10">
-            <app-badge variant="indigo">Featured</app-badge>
+            <app-badge variant="indigo">{{ 'JOBS.CARD.FEATURED' | translate }}</app-badge>
           </div>
         }
 
@@ -52,9 +54,9 @@ import { BadgeComponent } from '../badge/badge.component';
         <!-- Meta section -->
         <div class="space-y-2.5">
           <div class="flex items-center gap-2 flex-wrap">
-            <app-badge [variant]="typeVariant" class="text-xs bg-blue-50 hover:bg-blue-100 transition-colors duration-200">{{ formatType(job.type) }}</app-badge>
+            <app-badge [variant]="typeVariant" class="text-xs bg-blue-50 hover:bg-blue-100 transition-colors duration-200">{{ ('JOBS.TYPES.' + typeKey(job.type)) | translate }}</app-badge>
             <span class="text-xs text-slate-400">•</span>
-            <span class="text-xs text-slate-600 font-medium">{{ formatLevel(job.experienceLevel) }}</span>
+            <span class="text-xs text-slate-600 font-medium">{{ ('JOBS.LEVELS.' + levelKey(job.experienceLevel)) | translate }}</span>
           </div>
           @if (job.salary) {
             <div class="flex items-center gap-1.5">
@@ -91,15 +93,15 @@ import { BadgeComponent } from '../badge/badge.component';
             <div class="flex items-center gap-2">
               <a [routerLink]="['/jobs', job.id]"
                  class="px-3 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-xs font-medium transition-all duration-200 shadow-sm hover:shadow-md flex items-center gap-1.5">
-                View Details
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {{ 'JOBS.CARD.VIEW_DETAILS' | translate }}
+                <svg class="w-3.5 h-3.5 rtl:-scale-x-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                 </svg>
               </a>
 
               <button (click)="onSaveToggle($event)"
                 class="p-2 rounded-lg hover:bg-slate-100 transition-all duration-200 group/save"
-                [title]="saved ? 'Remove from saved' : 'Save job'">
+                [title]="saved ? ('JOBS.CARD.REMOVE_SAVED' | translate) : ('JOBS.CARD.SAVE' | translate)">
                 @if (saved) {
                   <svg class="w-5 h-5 text-blue-600 fill-current transition-transform duration-200 group-hover/save:scale-110" viewBox="0 0 24 24">
                     <path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
@@ -118,6 +120,9 @@ import { BadgeComponent } from '../badge/badge.component';
   `
 })
 export class JobCardComponent {
+  private readonly translate = inject(TranslateService);
+  private readonly languageService = inject(LanguageService);
+
   @Input({ required: true }) job!: Job;
   @Input() saved = false;
   @Input() compact = false;
@@ -157,26 +162,24 @@ export class JobCardComponent {
     this.saveToggle.emit(this.job.id);
   }
 
-  formatType(type: string): string {
-    return type.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+  typeKey(type: string): string {
+    return type.toUpperCase().replace(/-/g, '_');
   }
 
-  formatLevel(level: string): string {
-    const map: Record<string, string> = {
-      entry: 'Entry Level', mid: 'Mid Level', senior: 'Senior',
-      lead: 'Lead', executive: 'Executive'
-    };
-    return map[level] || level;
+  levelKey(level: string): string {
+    return level.toUpperCase();
   }
 
   timeAgo(dateStr: string): string {
+    this.languageService.currentLanguage();
+
     const now = new Date();
     const date = new Date(dateStr);
     const diffDays = Math.floor((now.getTime() - date.getTime()) / (1000 * 60 * 60 * 24));
-    if (diffDays === 0) return 'Today';
-    if (diffDays === 1) return '1 day ago';
-    if (diffDays < 7) return `${diffDays} days ago`;
-    if (diffDays < 30) return `${Math.floor(diffDays / 7)}w ago`;
-    return `${Math.floor(diffDays / 30)}mo ago`;
+    if (diffDays === 0) return this.translate.instant('COMMON.TIME.TODAY');
+    if (diffDays === 1) return this.translate.instant('COMMON.TIME.DAY_AGO', { count: 1 });
+    if (diffDays < 7) return this.translate.instant('COMMON.TIME.DAYS_AGO', { count: diffDays });
+    if (diffDays < 30) return this.translate.instant('COMMON.TIME.WEEKS_AGO', { count: Math.floor(diffDays / 7) });
+    return this.translate.instant('COMMON.TIME.MONTHS_AGO', { count: Math.floor(diffDays / 30) });
   }
 }

@@ -1,10 +1,10 @@
-<section class="relative min-h-screen flex items-center overflow-hidden py-24" role="region" aria-label="Job search hero">
+<section class="relative min-h-screen flex items-center overflow-hidden py-24" role="region" [attr.aria-label]="'HOME.HERO.ARIA_REGION' | translate">
   <!-- Background Image with Overlay -->
   <div
     class="absolute inset-0 bg-cover bg-center bg-no-repeat"
     [style.backgroundImage]="'url(https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600&q=80&auto=format&fit=crop)'"
     role="img"
-    aria-label="Office professionals collaborating">
+    [attr.aria-label]="'HOME.HERO.ARIA_IMAGE' | translate">
   </div>
 
   <!-- Overlay -->
@@ -22,10 +22,10 @@
     <!-- Heading -->
     <div appReveal [revealDelay]="80" class="text-center space-y-4">
       <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight">
-        {{ titleLead }}<br><span class="text-blue-300">{{ titleHighlight }}</span>
+        {{ titleLeadKey | translate }}<br><span class="text-blue-300">{{ titleHighlightKey | translate }}</span>
       </h1>
       <p class="text-lg md:text-xl text-slate-200 max-w-3xl mx-auto leading-relaxed">
-        {{ description }}
+        {{ descriptionKey | translate }}
       </p>
     </div>
 
@@ -34,8 +34,8 @@
       <form (ngSubmit)="submitSearch()" class="w-full max-w-2xl">
         <div class="flex flex-col sm:flex-row items-stretch gap-3 bg-white rounded-xl shadow-lg p-3">
           <div class="relative flex-1">
-            <label class="sr-only" for="hero-job-keyword">Job title or keyword</label>
-            <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-slate-400">
+            <label class="sr-only" for="hero-job-keyword">{{ 'HOME.HERO.SEARCH_KEYWORD_LABEL' | translate }}</label>
+            <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-slate-400 rtl:left-auto rtl:right-3">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35m1.35-5.65a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
@@ -45,16 +45,16 @@
               name="jobKeyword"
               [(ngModel)]="searchKeyword"
               type="text"
-              placeholder="Job title or keyword"
-              class="w-full rounded-lg bg-transparent py-3 pl-10 pr-4 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:ring-2 focus:ring-blue-500"
+              [placeholder]="'HOME.HERO.SEARCH_KEYWORD_PLACEHOLDER' | translate"
+              class="w-full rounded-lg bg-transparent py-3 pl-10 pr-4 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:ring-2 focus:ring-blue-500 rtl:pl-4 rtl:pr-10"
             />
           </div>
 
           <div class="hidden sm:block w-px bg-gray-200"></div>
 
           <div class="relative w-full sm:w-auto sm:min-w-[180px]">
-            <label class="sr-only" for="hero-job-location">Location</label>
-            <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-slate-400">
+            <label class="sr-only" for="hero-job-location">{{ 'HOME.HERO.SEARCH_LOCATION_LABEL' | translate }}</label>
+            <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-slate-400 rtl:left-auto rtl:right-3">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z" />
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -66,15 +66,15 @@
               [(ngModel)]="searchLocation"
               type="text"
               autocomplete="off"
-              placeholder="Location"
-              class="w-full rounded-lg bg-transparent py-3 pl-10 pr-4 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:ring-2 focus:ring-blue-500"
+              [placeholder]="'HOME.HERO.SEARCH_LOCATION_PLACEHOLDER' | translate"
+              class="w-full rounded-lg bg-transparent py-3 pl-10 pr-4 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:ring-2 focus:ring-blue-500 rtl:pl-4 rtl:pr-10"
             />
           </div>
 
           <button
             type="submit"
             class="px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-semibold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 whitespace-nowrap">
-            Search
+            {{ 'COMMON.SEARCH' | translate }}
           </button>
         </div>
       </form>
@@ -89,7 +89,7 @@
       <div class="mx-auto grid max-w-3xl grid-cols-2 gap-4 rounded-2xl border border-white/15 bg-white/10 px-6 py-5 text-center backdrop-blur-md md:grid-cols-4">
         <div *ngFor="let stat of stats" class="space-y-1">
           <h3 class="text-lg font-semibold text-white md:text-xl">{{ stat.value }}</h3>
-          <p class="text-xs uppercase tracking-[0.18em] text-slate-300">{{ stat.label }}</p>
+          <p class="text-xs uppercase tracking-[0.18em] text-slate-300">{{ stat.labelKey | translate }}</p>
         </div>
       </div>
     </div>
