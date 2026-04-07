@@ -1,6 +1,6 @@
 import { Component, Input, Inject, DestroyRef, PLATFORM_ID, inject, signal, OnInit } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { RevealDirective } from '../../../../shared/directives/reveal.directive';
+import { TranslatePipe } from '@ngx-translate/core';
 
 export interface TestimonialAvatar {
   src: string;
@@ -14,15 +14,15 @@ export interface TestimonialAvatar {
 
 export interface Testimonial {
   name: string;
-  role: string;
+  roleKey: string;
   avatar: TestimonialAvatar;
-  quote: string;
+  quoteKey: string;
 }
 
 @Component({
   selector: 'app-testimonials',
   standalone: true,
-  imports: [CommonModule, RevealDirective],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './testimonials.component.html',
   styleUrls: ['./testimonials.component.css']
 })

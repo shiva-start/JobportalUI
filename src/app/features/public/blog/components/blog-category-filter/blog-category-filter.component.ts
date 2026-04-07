@@ -1,11 +1,12 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslatePipe } from '@ngx-translate/core';
 import { BlogCategory } from '../../../../../models';
 
 @Component({
   selector: 'app-blog-category-filter',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   template: `
     <div class="flex flex-wrap gap-2">
       <button
@@ -13,7 +14,7 @@ import { BlogCategory } from '../../../../../models';
         [class]="!active
           ? 'px-4 py-2 rounded-full text-sm font-semibold bg-blue-600 text-white shadow-sm'
           : 'px-4 py-2 rounded-full text-sm font-medium bg-white border border-slate-200 text-slate-600 hover:border-blue-300 hover:text-blue-600 transition-all duration-200'">
-        All
+        {{ 'BLOG.FILTER.ALL' | translate }}
       </button>
       @for (cat of categories; track cat) {
         <button
@@ -21,7 +22,7 @@ import { BlogCategory } from '../../../../../models';
           [class]="active === cat
             ? 'px-4 py-2 rounded-full text-sm font-semibold bg-blue-600 text-white shadow-sm'
             : 'px-4 py-2 rounded-full text-sm font-medium bg-white border border-slate-200 text-slate-600 hover:border-blue-300 hover:text-blue-600 transition-all duration-200'">
-          {{ cat }}
+          {{ ('BLOG.CATEGORIES.' + categoryKey(cat)) | translate }}
         </button>
       }
     </div>
@@ -31,4 +32,8 @@ export class BlogCategoryFilterComponent {
   @Input({ required: true }) categories!: BlogCategory[];
   @Input() active: BlogCategory | '' = '';
   @Output() select = new EventEmitter<BlogCategory | ''>();
+
+  categoryKey(category: string): string {
+    return category.toUpperCase().replace(/[^A-Z0-9]+/g, '_');
+  }
 }

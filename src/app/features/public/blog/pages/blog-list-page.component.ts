@@ -1,6 +1,7 @@
 import { Component, inject, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { TranslatePipe } from '@ngx-translate/core';
 import { PageHeroComponent } from '../../../../shared/components/page-hero/page-hero.component';
 import { SectionHeaderComponent } from '../../../../shared/components/section-header/section-header.component';
 import { EmptyStateComponent } from '../../../../shared/components/empty-state/empty-state.component';
@@ -17,62 +18,53 @@ const PAGE_SIZE = 6;
   selector: 'app-blog-list-page',
   standalone: true,
   imports: [
-    CommonModule, FormsModule,
+    CommonModule, FormsModule, TranslatePipe,
     PageHeroComponent, SectionHeaderComponent, EmptyStateComponent,
     PaginationComponent, BlogCardComponent, BlogFeaturedPostComponent,
     BlogCategoryFilterComponent,
   ],
   template: `
-    <!-- Hero -->
     <app-page-hero
-      title="The JobPortal Blog"
-      subtitle="Career advice, tech insights, and industry news to help you grow professionally."
-      badge="Articles & Insights"
+      [title]="'BLOG.LIST.TITLE' | translate"
+      [subtitle]="'BLOG.LIST.SUBTITLE' | translate"
+      [badge]="'BLOG.LIST.BADGE' | translate"
       bgClass="bg-gradient-to-br from-slate-900 to-blue-800">
-
-      <!-- Search -->
       <div class="mt-8 max-w-xl mx-auto">
         <div class="relative">
           <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
           </svg>
           <input type="text" [(ngModel)]="filter.search" (ngModelChange)="onSearchChange()"
-            placeholder="Search articles..."
+            [placeholder]="'BLOG.LIST.SEARCH_PLACEHOLDER' | translate"
             class="w-full pl-12 pr-4 py-3.5 rounded-xl bg-white text-slate-800 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-400 shadow-lg"/>
         </div>
       </div>
     </app-page-hero>
 
     <div class="bg-gray-50 min-h-screen">
-
-      <!-- Featured Post -->
       @if (featuredPost() && !filter.category && !filter.search) {
         <section class="pt-14 pb-6">
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-6">
-              <app-section-header label="Editor's Pick" title="Featured Article" alignment="left"/>
+              <app-section-header [label]="'BLOG.FEATURED.EDITOR_PICK' | translate" [title]="'BLOG.FEATURED.TITLE' | translate" alignment="left"/>
             </div>
             <app-blog-featured-post [post]="featuredPost()!"/>
           </div>
         </section>
       }
 
-      <!-- Posts grid -->
       <section class="py-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-          <!-- Category filter + result count row -->
           <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
             <app-blog-category-filter
               [categories]="categories"
               [active]="filter.category"
               (select)="onCategoryChange($event)"/>
             <p class="text-sm text-slate-500 flex-shrink-0">
-              <span class="font-semibold text-slate-700">{{ filtered().length }}</span> articles
+              {{ 'BLOG.LIST.RESULTS' | translate:{ count: filtered().length } }}
             </p>
           </div>
 
-          <!-- Grid -->
           @if (paginated().length > 0) {
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               @for (post of paginated(); track post.id) {
@@ -85,25 +77,24 @@ const PAGE_SIZE = 6;
               (pageChange)="onPageChange($event)"/>
           } @else {
             <app-empty-state
-              title="No articles found"
-              message="Try a different category or clear your search."
-              actionLabel="Show All Articles"
+              [title]="'BLOG.EMPTY.TITLE' | translate"
+              [message]="'BLOG.EMPTY.MESSAGE' | translate"
+              [actionLabel]="'BLOG.EMPTY.ACTION' | translate"
               (action)="clearFilters()"/>
           }
         </div>
       </section>
 
-      <!-- Newsletter CTA -->
       <section class="pb-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="bg-gradient-to-br from-blue-700 to-indigo-700 rounded-2xl p-8 md:p-12 text-center">
-            <h3 class="text-2xl font-bold text-white mb-2">Stay in the Loop</h3>
-            <p class="text-white/80 text-sm mb-6 max-w-md mx-auto">Get the latest career tips, job market insights, and tech articles delivered to your inbox weekly.</p>
+            <h3 class="text-2xl font-bold text-white mb-2">{{ 'BLOG.NEWSLETTER.TITLE' | translate }}</h3>
+            <p class="text-white/80 text-sm mb-6 max-w-md mx-auto">{{ 'BLOG.NEWSLETTER.SUBTITLE' | translate }}</p>
             <div class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <input type="email" placeholder="your@email.com"
+              <input type="email" [placeholder]="'BLOG.NEWSLETTER.PLACEHOLDER' | translate"
                 class="flex-1 px-4 py-3 rounded-xl text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-300"/>
               <button class="px-6 py-3 bg-white text-blue-600 font-semibold text-sm rounded-xl hover:bg-blue-50 transition-all duration-200 whitespace-nowrap">
-                Subscribe
+                {{ 'BLOG.NEWSLETTER.SUBMIT' | translate }}
               </button>
             </div>
           </div>

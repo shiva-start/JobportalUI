@@ -21,7 +21,7 @@ import { CommonModule } from '@angular/common';
         <!-- Page numbers -->
         @for (page of pages(); track page) {
           @if (page === -1) {
-            <span class="px-3 py-2 text-slate-400 text-sm">…</span>
+            <span class="px-3 py-2 text-slate-400 text-sm">...</span>
           } @else {
             <button
               (click)="changePage(page)"

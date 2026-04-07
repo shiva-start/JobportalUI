@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
 import { RevealDirective } from '../../../../shared/directives/reveal.directive';
 
 export interface CtaImage {
@@ -15,7 +16,7 @@ export interface CtaImage {
 @Component({
   selector: 'app-cta-dual-panel',
   standalone: true,
-  imports: [CommonModule, RouterLink, RevealDirective],
+  imports: [CommonModule, RouterLink, RevealDirective, TranslatePipe],
   templateUrl: './cta-dual-panel.component.html'
 })
 export class CtaDualPanelComponent {

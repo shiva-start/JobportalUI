@@ -12,7 +12,7 @@
           type="button"
           (click)="goToHome()"
           class="flex items-center gap-3 text-slate-900"
-          aria-label="Go to home"
+          [attr.aria-label]="'NAV.GO_HOME' | translate"
         >
           <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600 text-sm font-semibold text-white">
             JP
@@ -27,7 +27,7 @@
             [routerLinkActiveOptions]="{ exact: true }"
             class="text-sm font-medium text-gray-700 transition duration-200 hover:text-blue-600"
           >
-            {{ primaryLinks[0].label }}
+            {{ primaryLinks[0].labelKey | translate }}
           </a>
           <a
             [routerLink]="primaryLinks[1].route"
@@ -35,7 +35,7 @@
             [routerLinkActiveOptions]="{ exact: true }"
             class="text-sm font-medium text-gray-700 transition duration-200 hover:text-blue-600"
           >
-            {{ primaryLinks[1].label }}
+            {{ primaryLinks[1].labelKey | translate }}
           </a>
           <a
             [routerLink]="primaryLinks[2].route"
@@ -43,7 +43,7 @@
             [routerLinkActiveOptions]="{ exact: true }"
             class="text-sm font-medium text-gray-700 transition duration-200 hover:text-blue-600"
           >
-            {{ primaryLinks[2].label }}
+            {{ primaryLinks[2].labelKey | translate }}
           </a>
 
           <div
@@ -57,10 +57,13 @@
               aria-haspopup="true"
               [attr.aria-expanded]="isResourcesOpen()"
             >
-              <span>Resources</span>
+              <span>{{ 'NAV.RESOURCES' | translate }}</span>
               <svg
                 class="h-4 w-4 transition duration-200"
-                [ngClass]="{ 'rotate-180': isResourcesOpen() }"
+                [ngClass]="{
+                  'rotate-180': isResourcesOpen(),
+                  '-scale-x-100': isRtl()
+                }"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -78,7 +81,7 @@
                       (click)="closeAllMenus()"
                       class="block px-4 py-2 text-sm font-medium text-gray-700 transition duration-200 hover:bg-gray-100 hover:text-blue-600"
                     >
-                      {{ item.label }}
+                      {{ item.labelKey | translate }}
                     </a>
                   }
                 </div>
@@ -92,37 +95,63 @@
             [routerLinkActiveOptions]="{ exact: true }"
             class="text-sm font-medium text-gray-700 transition duration-200 hover:text-blue-600"
           >
-            {{ primaryLinks[3].label }}
+            {{ primaryLinks[3].labelKey | translate }}
           </a>
         </div>
 
         <div class="hidden items-center gap-3 lg:flex">
+          <div class="inline-flex items-center rounded-lg border border-gray-300 bg-white p-1">
+            <button
+              type="button"
+              (click)="setLanguage('en')"
+              class="rounded-md px-3 py-1.5 text-xs font-semibold transition"
+              [ngClass]="currentLanguage() === 'en' ? 'bg-slate-900 text-white' : 'text-gray-600 hover:text-slate-900'"
+            >
+              EN
+            </button>
+            <button
+              type="button"
+              (click)="setLanguage('ar')"
+              class="rounded-md px-3 py-1.5 text-xs font-semibold transition"
+              [ngClass]="currentLanguage() === 'ar' ? 'bg-slate-900 text-white' : 'text-gray-600 hover:text-slate-900'"
+            >
+              AR
+            </button>
+          </div>
           <a
             routerLink="/login"
             class="rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 transition duration-200 hover:bg-gray-100 hover:text-blue-600"
           >
-            Login
+            {{ 'NAV.LOGIN' | translate }}
           </a>
           <a
             routerLink="/register"
             class="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition duration-200 hover:bg-blue-700"
           >
-            Register
+            {{ 'NAV.REGISTER' | translate }}
           </a>
         </div>
 
         <div class="flex items-center gap-2 lg:hidden">
+          <button
+            type="button"
+            (click)="toggleLanguage()"
+            class="rounded-lg border border-gray-300 px-3 py-2 text-xs font-semibold text-gray-700 transition duration-200 hover:bg-gray-100"
+            [attr.aria-label]="'NAV.CHANGE_LANGUAGE' | translate"
+          >
+            {{ currentLanguage() === 'en' ? 'AR' : 'EN' }}
+          </button>
           <a
             routerLink="/login"
             class="rounded-lg border border-gray-300 px-3 py-2 text-sm font-medium text-gray-700 transition duration-200 hover:bg-gray-100"
           >
-            Login
+            {{ 'NAV.LOGIN' | translate }}
           </a>
           <button
             type="button"
             (click)="toggleMenu()"
             class="rounded-lg border border-gray-300 p-2 text-gray-700 transition duration-200 hover:bg-gray-100"
-            aria-label="Toggle menu"
+            [attr.aria-label]="'NAV.TOGGLE_MENU' | translate"
             [attr.aria-expanded]="menuOpen()"
           >
             @if (menuOpen()) {
@@ -147,7 +176,7 @@
                 (click)="closeAllMenus()"
                 class="rounded-lg px-4 py-3 text-sm font-medium text-gray-700 transition duration-200 hover:bg-gray-100 hover:text-blue-600"
               >
-                {{ item.label }}
+                {{ item.labelKey | translate }}
               </a>
             }
 
@@ -158,10 +187,13 @@
                 class="flex w-full items-center justify-between px-4 py-3 text-sm font-medium text-gray-700 transition duration-200 hover:bg-gray-50 hover:text-blue-600"
                 [attr.aria-expanded]="isMobileResourcesOpen()"
               >
-                <span>Resources</span>
+                <span>{{ 'NAV.RESOURCES' | translate }}</span>
                 <svg
                   class="h-4 w-4 transition duration-200"
-                  [ngClass]="{ 'rotate-180': isMobileResourcesOpen() }"
+                  [ngClass]="{
+                    'rotate-180': isMobileResourcesOpen(),
+                    '-scale-x-100': isRtl()
+                  }"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -178,7 +210,7 @@
                       (click)="closeAllMenus()"
                       class="block rounded-lg px-3 py-2 text-sm font-medium text-gray-700 transition duration-200 hover:bg-gray-100 hover:text-blue-600"
                     >
-                      {{ item.label }}
+                      {{ item.labelKey | translate }}
                     </a>
                   }
                 </div>
@@ -192,14 +224,14 @@
               (click)="closeAllMenus()"
               class="rounded-lg border border-gray-300 px-4 py-3 text-center text-sm font-medium text-gray-700 transition duration-200 hover:bg-gray-100"
             >
-              Login
+              {{ 'NAV.LOGIN' | translate }}
             </a>
             <a
               routerLink="/register"
               (click)="closeAllMenus()"
               class="rounded-lg bg-blue-600 px-4 py-3 text-center text-sm font-medium text-white transition duration-200 hover:bg-blue-700"
             >
-              Register
+              {{ 'NAV.REGISTER' | translate }}
             </a>
           </div>
         </div>
