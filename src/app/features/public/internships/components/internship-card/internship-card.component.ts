@@ -1,9 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
 import { Internship } from '../../../../../models';
 import { BadgeComponent } from '../../../../../shared/components/badge/badge.component';
+import { LanguageService } from '../../../../../core/services/language.service';
 
 @Component({
   selector: 'app-internship-card',
@@ -19,13 +20,13 @@ import { BadgeComponent } from '../../../../../shared/components/badge/badge.com
             {{ internship.companyLogo || internship.company.slice(0,2).toUpperCase() }}
           </div>
           <div class="min-w-0 flex-1">
-            <p class="text-sm font-semibold text-slate-800 truncate">{{ internship.company }}</p>
+            <p class="text-sm font-semibold text-slate-800 truncate">{{ localizedCompany }}</p>
             <p class="text-xs text-slate-500 flex items-center gap-1 mt-0.5">
               <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
               </svg>
-              {{ internship.location }}
+              {{ localizedLocation }}
             </p>
           </div>
           <app-badge variant="teal">{{ 'INTERNSHIPS.CARD.BADGE' | translate }}</app-badge>
@@ -33,7 +34,7 @@ import { BadgeComponent } from '../../../../../shared/components/badge/badge.com
 
         <a [routerLink]="['/internships', internship.id]"
            class="block text-base font-semibold text-slate-800 group-hover:text-blue-600 transition-colors duration-200 line-clamp-2">
-          {{ internship.title }}
+          {{ localizedTitle }}
         </a>
 
         <div class="flex flex-wrap gap-2">
@@ -60,11 +61,11 @@ import { BadgeComponent } from '../../../../../shared/components/badge/badge.com
 
         @if (internship.skills.length) {
           <div class="flex flex-wrap gap-1.5">
-            @for (skill of internship.skills.slice(0,3); track skill) {
+            @for (skill of localizedSkills.slice(0,3); track skill) {
               <span class="text-xs text-slate-600 bg-slate-50 border border-slate-200 px-2.5 py-1 rounded-md">{{ skill }}</span>
             }
-            @if (internship.skills.length > 3) {
-              <span class="text-xs text-slate-400 px-2.5 py-1">+{{ internship.skills.length - 3 }}</span>
+            @if (localizedSkills.length > 3) {
+              <span class="text-xs text-slate-400 px-2.5 py-1">+{{ localizedSkills.length - 3 }}</span>
             }
           </div>
         }
@@ -88,6 +89,8 @@ import { BadgeComponent } from '../../../../../shared/components/badge/badge.com
   `
 })
 export class InternshipCardComponent {
+  private readonly languageService = inject(LanguageService);
+
   @Input({ required: true }) internship!: Internship;
 
   durationKey(duration: string): string {
@@ -111,6 +114,26 @@ export class InternshipCardComponent {
     ];
     const index = this.internship.id.charCodeAt(this.internship.id.length - 1) % colors.length;
     return colors[index];
+  }
+
+  get localizedCompany(): string {
+    return this.isArabic ? this.internship.companyAr ?? this.internship.company : this.internship.company;
+  }
+
+  get localizedLocation(): string {
+    return this.isArabic ? this.internship.locationAr ?? this.internship.location : this.internship.location;
+  }
+
+  get localizedTitle(): string {
+    return this.isArabic ? this.internship.titleAr ?? this.internship.title : this.internship.title;
+  }
+
+  get localizedSkills(): string[] {
+    return this.isArabic ? this.internship.skillsAr ?? this.internship.skills : this.internship.skills;
+  }
+
+  private get isArabic(): boolean {
+    return this.languageService.currentLanguage() === 'ar';
   }
 }
 

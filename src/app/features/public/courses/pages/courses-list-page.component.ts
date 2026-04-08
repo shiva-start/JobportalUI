@@ -8,6 +8,7 @@ import { EmptyStateComponent } from '../../../../shared/components/empty-state/e
 import { PaginationComponent } from '../../../../shared/components/pagination/pagination.component';
 import { CourseCardComponent } from '../components/course-card/course-card.component';
 import { CoursesService, CourseFilter } from '../services/courses.service';
+import { LanguageService } from '../../../../core/services/language.service';
 
 const PAGE_SIZE = 6;
 
@@ -59,7 +60,7 @@ const PAGE_SIZE = 6;
             class="text-sm border border-slate-200 rounded-lg px-3 py-2 bg-white text-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
             <option value="">{{ 'COURSES.FILTER.ALL_CATEGORIES' | translate }}</option>
             @for (cat of categories; track cat) {
-              <option [value]="cat">{{ cat }}</option>
+              <option [value]="cat">{{ getCategoryLabel(cat) }}</option>
             }
           </select>
 
@@ -118,6 +119,7 @@ const PAGE_SIZE = 6;
 })
 export class CoursesListPageComponent {
   private service = inject(CoursesService);
+  private languageService = inject(LanguageService);
 
   filter: CourseFilter = { search: '', level: '', category: '', priceType: '' };
   currentPage = signal(1);
@@ -138,6 +140,22 @@ export class CoursesListPageComponent {
     { value: '4.8?', labelKey: 'COURSES.STATS.AVG_RATING' },
     { value: '100%', labelKey: 'COURSES.STATS.CERTIFICATES' },
   ];
+
+  getCategoryLabel(category: string): string {
+    if (this.languageService.currentLanguage() !== 'ar') {
+      return category;
+    }
+
+    const labels: Record<string, string> = {
+      'Web Development': 'تطوير الويب',
+      'Data Science': 'علوم البيانات',
+      'Design': 'التصميم',
+      'Marketing': 'التسويق',
+      'DevOps': 'ديف أوبس',
+    };
+
+    return labels[category] ?? category;
+  }
 
   onFilterChange(): void { this.currentPage.set(1); }
   onPageChange(page: number): void { this.currentPage.set(page); window.scrollTo({ top: 0, behavior: 'smooth' }); }

@@ -1,9 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, formatDate } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
 import { BlogPost } from '../../../../../models';
 import { BadgeComponent } from '../../../../../shared/components/badge/badge.component';
+import { LanguageService } from '../../../../../core/services/language.service';
 
 @Component({
   selector: 'app-blog-featured-post',
@@ -15,7 +16,7 @@ import { BadgeComponent } from '../../../../../shared/components/badge/badge.com
 
         <!-- Image -->
         <div class="lg:w-1/2 overflow-hidden h-64 lg:h-auto bg-slate-100 relative">
-          <img [src]="post.coverImage" [alt]="post.title"
+          <img [src]="post.coverImage" [alt]="localizedTitle"
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
           <div class="absolute inset-0 bg-gradient-to-r from-transparent to-black/10"></div>
           <div class="absolute top-4 left-4">
@@ -37,10 +38,10 @@ import { BadgeComponent } from '../../../../../shared/components/badge/badge.com
 
           <a [routerLink]="['/blog', post.slug]"
              class="block text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors duration-200 mb-3 leading-snug">
-            {{ post.title }}
+            {{ localizedTitle }}
           </a>
 
-          <p class="text-sm text-slate-600 leading-relaxed mb-5 line-clamp-3">{{ post.excerpt }}</p>
+          <p class="text-sm text-slate-600 leading-relaxed mb-5 line-clamp-3">{{ localizedExcerpt }}</p>
 
           <!-- Author -->
           <div class="flex items-center gap-3 mb-6">
@@ -48,14 +49,14 @@ import { BadgeComponent } from '../../../../../shared/components/badge/badge.com
               {{ post.author.avatar }}
             </div>
             <div>
-              <p class="text-sm font-semibold text-slate-700">{{ post.author.name }}</p>
-              <p class="text-xs text-slate-400">{{ post.publishedAt | date:'MMMM d, y' }}</p>
+              <p class="text-sm font-semibold text-slate-700">{{ localizedAuthorName }}</p>
+              <p class="text-xs text-slate-400">{{ localizedPublishedDate }}</p>
             </div>
           </div>
 
           <!-- Tags -->
           <div class="flex flex-wrap gap-1.5 mb-6">
-            @for (tag of post.tags; track tag) {
+            @for (tag of localizedTags; track tag) {
               <span class="text-xs text-slate-500 bg-slate-50 border border-slate-200 px-2.5 py-1 rounded-md">#{{ tag }}</span>
             }
           </div>
@@ -73,9 +74,35 @@ import { BadgeComponent } from '../../../../../shared/components/badge/badge.com
   `
 })
 export class BlogFeaturedPostComponent {
+  private readonly languageService = inject(LanguageService);
+
   @Input({ required: true }) post!: BlogPost;
 
   categoryKey(category: string): string {
     return category.toUpperCase().replace(/[^A-Z0-9]+/g, '_');
+  }
+
+  get localizedTitle(): string {
+    return this.isArabic ? this.post.titleAr ?? this.post.title : this.post.title;
+  }
+
+  get localizedExcerpt(): string {
+    return this.isArabic ? this.post.excerptAr ?? this.post.excerpt : this.post.excerpt;
+  }
+
+  get localizedAuthorName(): string {
+    return this.isArabic ? this.post.author.nameAr ?? this.post.author.name : this.post.author.name;
+  }
+
+  get localizedTags(): string[] {
+    return this.isArabic ? this.post.tagsAr ?? this.post.tags : this.post.tags;
+  }
+
+  get localizedPublishedDate(): string {
+    return formatDate(this.post.publishedAt, 'MMMM d, y', this.isArabic ? 'ar' : 'en-US');
+  }
+
+  private get isArabic(): boolean {
+    return this.languageService.currentLanguage() === 'ar';
   }
 }

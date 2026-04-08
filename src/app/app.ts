@@ -47,7 +47,8 @@ export class App implements OnDestroy {
   }
 
   private checkAuthUrl(url: string): boolean {
-    return url.includes('/auth') || url.includes('/login') || url.includes('/register');
+    return url.includes('/auth') || url.includes('/login') || url.includes('/register')
+      || url.includes('/candidate') || url.includes('/employer') || url.includes('/admin');
   }
 
   ngOnDestroy(): void {

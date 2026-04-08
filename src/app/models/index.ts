@@ -179,20 +179,26 @@ export type BlogCategory = 'Career Tips' | 'Tech' | 'Industry News' | 'Interview
 
 export interface BlogAuthor {
   name: string;
+  nameAr?: string;
   avatar: string;
   bio: string;
+  bioAr?: string;
 }
 
 export interface BlogPost {
   id: string;
   slug: string;
   title: string;
+  titleAr?: string;
   excerpt: string;
+  excerptAr?: string;
   content: string;
+  contentAr?: string;
   category: BlogCategory;
   author: BlogAuthor;
   coverImage: string;
   tags: string[];
+  tagsAr?: string[];
   publishedAt: string;
   readTimeMinutes: number;
   featured: boolean;
@@ -201,33 +207,43 @@ export interface BlogPost {
 export interface Course {
   id: string;
   title: string;
+  titleAr?: string;
   description: string;
+  descriptionAr?: string;
   instructorName: string;
+  instructorNameAr?: string;
   instructorAvatar: string;
   level: 'Beginner' | 'Intermediate' | 'Advanced';
   category: string;
+  categoryAr?: string;
   duration: string;
+  durationAr?: string;
   price: number;
   currency: string;
   rating: number;
   enrolledCount: number;
   thumbnail: string;
   skills: string[];
+  skillsAr?: string[];
   certificateOffered: boolean;
 }
 
 export interface Internship {
   id: string;
   title: string;
+  titleAr?: string;
   company: string;
+  companyAr?: string;
   companyLogo?: string;
   location: string;
+  locationAr?: string;
   locationType: 'Remote' | 'Onsite' | 'Hybrid';
   duration: string;
   stipend: number | null;
   stipendCurrency: string;
   startDate: string;
   skills: string[];
+  skillsAr?: string[];
   description: string;
   requirements: string[];
   openings: number;

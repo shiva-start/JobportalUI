@@ -34,13 +34,13 @@ import { LanguageService } from '../../../core/services/language.service';
             {{ job.companyLogo || job.company.slice(0,2).toUpperCase() }}
           </div>
           <div class="min-w-0 flex-1">
-            <p class="text-sm font-semibold text-slate-800 truncate">{{ job.company }}</p>
+            <p class="text-sm font-semibold text-slate-800 truncate">{{ companyKey ? (companyKey | translate) : job.company }}</p>
             <p class="text-xs text-slate-500 truncate flex items-center gap-1 mt-0.5">
               <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
               </svg>
-              {{ job.location }}
+              {{ locationKey ? (locationKey | translate) : job.location }}
             </p>
           </div>
         </div>
@@ -48,7 +48,7 @@ import { LanguageService } from '../../../core/services/language.service';
         <!-- Job title -->
         <a [routerLink]="['/jobs', job.id]"
            class="block text-base font-semibold text-slate-800 group-hover:text-blue-600 transition-colors duration-200 line-clamp-2 leading-snug">
-          {{ job.title }}
+          {{ titleKey ? (titleKey | translate) : job.title }}
         </a>
 
         <!-- Meta section -->
@@ -123,6 +123,43 @@ export class JobCardComponent {
   private readonly translate = inject(TranslateService);
   private readonly languageService = inject(LanguageService);
 
+  private readonly titleKeyMap: Record<string, string> = {
+    'Senior Frontend Developer': 'JOBS.CARD.TITLES.SENIOR_FRONTEND_DEVELOPER',
+    'Product Manager': 'JOBS.CARD.TITLES.PRODUCT_MANAGER',
+    'UI/UX Designer': 'JOBS.CARD.TITLES.UI_UX_DESIGNER',
+    'Backend Engineer (Node.js)': 'JOBS.CARD.TITLES.BACKEND_ENGINEER_NODE',
+    'Digital Marketing Specialist': 'JOBS.CARD.TITLES.DIGITAL_MARKETING_SPECIALIST',
+    'Data Scientist': 'JOBS.CARD.TITLES.DATA_SCIENTIST',
+    'DevOps Engineer': 'JOBS.CARD.TITLES.DEVOPS_ENGINEER',
+    'Sales Executive': 'JOBS.CARD.TITLES.SALES_EXECUTIVE',
+    'Android Developer': 'JOBS.CARD.TITLES.ANDROID_DEVELOPER',
+    'HR Business Partner': 'JOBS.CARD.TITLES.HR_BUSINESS_PARTNER',
+    'Frontend Developer (Angular)': 'JOBS.CARD.TITLES.FRONTEND_DEVELOPER_ANGULAR',
+    'Content Writer': 'JOBS.CARD.TITLES.CONTENT_WRITER'
+  };
+
+  private readonly companyKeyMap: Record<string, string> = {
+    'TechNova Solutions': 'JOBS.CARD.COMPANIES.TECHNOVA_SOLUTIONS',
+    'FinEdge Corp': 'JOBS.CARD.COMPANIES.FINEDGE_CORP',
+    'CreativeHub Agency': 'JOBS.CARD.COMPANIES.CREATIVEHUB_AGENCY',
+    'CloudStack Ltd': 'JOBS.CARD.COMPANIES.CLOUDSTACK_LTD',
+    'GrowthBox': 'JOBS.CARD.COMPANIES.GROWTHBOX',
+    'InsightAI': 'JOBS.CARD.COMPANIES.INSIGHT_AI',
+    'InfraBase': 'JOBS.CARD.COMPANIES.INFRABASE',
+    'TradeLink': 'JOBS.CARD.COMPANIES.TRADELINK',
+    'MobileFirst': 'JOBS.CARD.COMPANIES.MOBILEFIRST',
+    'PeopleFirst': 'JOBS.CARD.COMPANIES.PEOPLEFIRST',
+    'PixelCraft': 'JOBS.CARD.COMPANIES.PIXELCRAFT',
+    'MediaSphere': 'JOBS.CARD.COMPANIES.MEDIASPHERE'
+  };
+
+  private readonly locationKeyMap: Record<string, string> = {
+    'Cairo, Egypt': 'JOBS.CARD.LOCATIONS.CAIRO_EGYPT',
+    'Alexandria, Egypt': 'JOBS.CARD.LOCATIONS.ALEXANDRIA_EGYPT',
+    Remote: 'JOBS.CARD.LOCATIONS.REMOTE',
+    'Giza, Egypt': 'JOBS.CARD.LOCATIONS.GIZA_EGYPT'
+  };
+
   @Input({ required: true }) job!: Job;
   @Input() saved = false;
   @Input() compact = false;
@@ -154,6 +191,18 @@ export class JobCardComponent {
       'internship': 'teal',
     };
     return map[this.job.type] || 'gray';
+  }
+
+  get titleKey(): string | null {
+    return this.titleKeyMap[this.job?.title] ?? null;
+  }
+
+  get companyKey(): string | null {
+    return this.companyKeyMap[this.job?.company] ?? null;
+  }
+
+  get locationKey(): string | null {
+    return this.locationKeyMap[this.job?.location] ?? null;
   }
 
   onSaveToggle(event: MouseEvent): void {

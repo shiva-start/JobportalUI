@@ -1,9 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
 import { Course } from '../../../../../models';
 import { BadgeComponent } from '../../../../../shared/components/badge/badge.component';
+import { LanguageService } from '../../../../../core/services/language.service';
 
 @Component({
   selector: 'app-course-card',
@@ -14,7 +15,7 @@ import { BadgeComponent } from '../../../../../shared/components/badge/badge.com
 
       <!-- Thumbnail -->
       <div class="relative overflow-hidden h-44 bg-slate-100">
-        <img [src]="course.thumbnail" [alt]="course.title"
+        <img [src]="course.thumbnail" [alt]="localizedTitle"
           class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
         <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
 
@@ -47,14 +48,14 @@ import { BadgeComponent } from '../../../../../shared/components/badge/badge.com
 
         <!-- Level + Category -->
         <div class="flex items-center gap-2">
-          <app-badge [variant]="levelVariant">{{ course.level }}</app-badge>
-          <span class="text-xs text-slate-400">{{ course.category }}</span>
+          <app-badge [variant]="levelVariant">{{ levelLabel }}</app-badge>
+          <span class="text-xs text-slate-400">{{ localizedCategory }}</span>
         </div>
 
         <!-- Title -->
         <a [routerLink]="['/courses', course.id]"
            class="block text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors duration-200 line-clamp-2 leading-snug">
-          {{ course.title }}
+          {{ localizedTitle }}
         </a>
 
         <!-- Instructor -->
@@ -62,7 +63,7 @@ import { BadgeComponent } from '../../../../../shared/components/badge/badge.com
           <div class="w-6 h-6 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white text-[10px] font-bold flex-shrink-0">
             {{ course.instructorAvatar }}
           </div>
-          <span class="text-xs text-slate-500">{{ course.instructorName }}</span>
+          <span class="text-xs text-slate-500">{{ localizedInstructorName }}</span>
         </div>
 
         <!-- Rating + Duration -->
@@ -75,7 +76,7 @@ import { BadgeComponent } from '../../../../../shared/components/badge/badge.com
             <span class="text-xs text-slate-400">({{ (course.enrolledCount / 1000).toFixed(1) }}k)</span>
           </div>
           <span class="text-xs text-slate-400">•</span>
-          <span class="text-xs text-slate-500">{{ course.duration }}</span>
+          <span class="text-xs text-slate-500">{{ localizedDuration }}</span>
         </div>
 
         <div class="flex-grow"></div>
@@ -90,6 +91,8 @@ import { BadgeComponent } from '../../../../../shared/components/badge/badge.com
   `
 })
 export class CourseCardComponent {
+  private readonly languageService = inject(LanguageService);
+
   @Input({ required: true }) course!: Course;
 
   get levelVariant(): 'green' | 'blue' | 'orange' {
@@ -97,5 +100,35 @@ export class CourseCardComponent {
       'Beginner': 'green', 'Intermediate': 'blue', 'Advanced': 'orange'
     };
     return map[this.course.level] || 'blue';
+  }
+
+  get localizedTitle(): string {
+    return this.isArabic ? this.course.titleAr ?? this.course.title : this.course.title;
+  }
+
+  get localizedInstructorName(): string {
+    return this.isArabic ? this.course.instructorNameAr ?? this.course.instructorName : this.course.instructorName;
+  }
+
+  get localizedCategory(): string {
+    return this.isArabic ? this.course.categoryAr ?? this.course.category : this.course.category;
+  }
+
+  get localizedDuration(): string {
+    return this.isArabic ? this.course.durationAr ?? this.course.duration : this.course.duration;
+  }
+
+  get levelLabel(): string {
+    const labels: Record<Course['level'], string> = {
+      Beginner: this.isArabic ? 'مبتدئ' : 'Beginner',
+      Intermediate: this.isArabic ? 'متوسط' : 'Intermediate',
+      Advanced: this.isArabic ? 'متقدم' : 'Advanced',
+    };
+
+    return labels[this.course.level];
+  }
+
+  private get isArabic(): boolean {
+    return this.languageService.currentLanguage() === 'ar';
   }
 }
