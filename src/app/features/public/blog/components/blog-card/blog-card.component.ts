@@ -1,9 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
 import { BlogPost } from '../../../../../models';
 import { BadgeComponent } from '../../../../../shared/components/badge/badge.component';
+import { LanguageService } from '../../../../../core/services/language.service';
 
 @Component({
   selector: 'app-blog-card',
@@ -30,7 +31,7 @@ import { BadgeComponent } from '../../../../../shared/components/badge/badge.com
           <div class="w-6 h-6 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white text-[10px] font-bold flex-shrink-0">
             {{ post.author.avatar }}
           </div>
-          <span class="text-xs text-slate-500">{{ post.author.name }}</span>
+          <span class="text-xs text-slate-500">{{ localizedAuthorName }}</span>
           <span class="text-slate-300">·</span>
           <span class="text-xs text-slate-400">{{ post.publishedAt | date:'MMM d' }}</span>
           <span class="text-slate-300">·</span>
@@ -40,18 +41,18 @@ import { BadgeComponent } from '../../../../../shared/components/badge/badge.com
         <!-- Title -->
         <a [routerLink]="['/blog', post.slug]"
            class="block text-sm font-bold text-slate-800 group-hover:text-blue-600 transition-colors duration-200 line-clamp-2 leading-snug">
-          {{ post.title }}
+          {{ localizedTitle }}
         </a>
 
         <!-- Excerpt -->
-        <p class="text-xs text-slate-500 leading-relaxed line-clamp-2">{{ post.excerpt }}</p>
+        <p class="text-xs text-slate-500 leading-relaxed line-clamp-2">{{ localizedExcerpt }}</p>
 
         <div class="flex-grow"></div>
 
         <!-- Tags + Read link -->
         <div class="flex items-center justify-between pt-3 border-t border-slate-100">
           <div class="flex gap-1.5 flex-wrap">
-            @for (tag of post.tags.slice(0,2); track tag) {
+            @for (tag of localizedTags.slice(0,2); track tag) {
               <span class="text-xs text-slate-500 bg-slate-50 border border-slate-200 px-2 py-0.5 rounded-md">#{{ tag }}</span>
             }
           </div>
@@ -68,7 +69,29 @@ import { BadgeComponent } from '../../../../../shared/components/badge/badge.com
   `
 })
 export class BlogCardComponent {
+  private readonly languageService = inject(LanguageService);
+
   @Input({ required: true }) post!: BlogPost;
+
+  private get isArabic(): boolean {
+    return this.languageService.currentLanguage() === 'ar';
+  }
+
+  get localizedTitle(): string {
+    return this.isArabic ? this.post.titleAr ?? this.post.title : this.post.title;
+  }
+
+  get localizedExcerpt(): string {
+    return this.isArabic ? this.post.excerptAr ?? this.post.excerpt : this.post.excerpt;
+  }
+
+  get localizedAuthorName(): string {
+    return this.isArabic ? this.post.author.nameAr ?? this.post.author.name : this.post.author.name;
+  }
+
+  get localizedTags(): string[] {
+    return this.isArabic ? this.post.tagsAr ?? this.post.tags : this.post.tags;
+  }
 
   categoryKey(category: string): string {
     return category.toUpperCase().replace(/[^A-Z0-9]+/g, '_');

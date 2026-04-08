@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { TranslatePipe } from '@ngx-translate/core';
 import { JobService } from '../../../core/services/job.service';
 import { ToastService } from '../../../core/services/toast.service';
 import { JobCardComponent } from '../../../shared/components/job-card/job-card.component';
@@ -8,46 +9,43 @@ import { JobCardComponent } from '../../../shared/components/job-card/job-card.c
 @Component({
   selector: 'app-candidate-jobs-page',
   standalone: true,
-  imports: [CommonModule, FormsModule, JobCardComponent],
+  imports: [CommonModule, FormsModule, JobCardComponent, TranslatePipe],
   template: `
     <section class="space-y-6">
       <div class="bg-white rounded-xl shadow-sm p-5 sm:p-6">
-        <h1 class="text-2xl font-bold text-gray-900">Jobs</h1>
-        <p class="mt-2 text-sm text-gray-500">Search by keyword or location and save the roles you want to revisit.</p>
+        <h1 class="text-2xl font-bold text-gray-900">{{ 'CANDIDATE.JOBS.TITLE' | translate }}</h1>
+        <p class="mt-2 text-sm text-gray-500">{{ 'CANDIDATE.JOBS.SUBTITLE' | translate }}</p>
 
         <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
           <input
             [(ngModel)]="filters.keyword"
             (ngModelChange)="applyFilters()"
-            placeholder="Search jobs, skills, or company"
+            [placeholder]="'CANDIDATE.JOBS.SEARCH_PLACEHOLDER' | translate"
             class="rounded-xl border border-gray-200 px-4 py-3 text-sm outline-none focus:border-blue-500"
           />
           <input
             [(ngModel)]="filters.location"
             (ngModelChange)="applyFilters()"
-            placeholder="Filter by location"
+            [placeholder]="'CANDIDATE.JOBS.LOCATION_PLACEHOLDER' | translate"
             class="rounded-xl border border-gray-200 px-4 py-3 text-sm outline-none focus:border-blue-500"
           />
         </div>
       </div>
 
-      <div *ngIf="jobService.filteredJobs().length; else empty" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <app-job-card
-          *ngFor="let job of jobService.filteredJobs()"
-          [job]="job"
-          [saved]="jobService.isJobSaved(job.id)"
-          (saveToggle)="toggleSave($event)"
-        ></app-job-card>
-      </div>
-
-      <ng-template #empty>
+      @if (jobService.filteredJobs().length) {
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          @for (job of jobService.filteredJobs(); track job.id) {
+            <app-job-card [job]="job" [saved]="jobService.isJobSaved(job.id)" (saveToggle)="toggleSave($event)"></app-job-card>
+          }
+        </div>
+      } @else {
         <div class="bg-white rounded-xl shadow-sm p-8 text-center">
-          <p class="text-gray-400">No data available</p>
+          <p class="text-gray-400">{{ 'CANDIDATE.NO_DATA' | translate }}</p>
           <button type="button" (click)="clearFilters()" class="mt-4 rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white">
-            Reset filters
+            {{ 'CANDIDATE.JOBS.RESET_FILTERS' | translate }}
           </button>
         </div>
-      </ng-template>
+      }
     </section>
   `,
 })

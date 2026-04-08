@@ -160,7 +160,41 @@
       "FEATURED": "Featured",
       "VIEW_DETAILS": "View Details",
       "SAVE": "Save job",
-      "REMOVE_SAVED": "Remove from saved"
+      "REMOVE_SAVED": "Remove from saved",
+      "TITLES": {
+        "SENIOR_FRONTEND_DEVELOPER": "Senior Frontend Developer",
+        "PRODUCT_MANAGER": "Product Manager",
+        "UI_UX_DESIGNER": "UI/UX Designer",
+        "BACKEND_ENGINEER_NODE": "Backend Engineer (Node.js)",
+        "DIGITAL_MARKETING_SPECIALIST": "Digital Marketing Specialist",
+        "DATA_SCIENTIST": "Data Scientist",
+        "DEVOPS_ENGINEER": "DevOps Engineer",
+        "SALES_EXECUTIVE": "Sales Executive",
+        "ANDROID_DEVELOPER": "Android Developer",
+        "HR_BUSINESS_PARTNER": "HR Business Partner",
+        "FRONTEND_DEVELOPER_ANGULAR": "Frontend Developer (Angular)",
+        "CONTENT_WRITER": "Content Writer"
+      },
+      "COMPANIES": {
+        "TECHNOVA_SOLUTIONS": "TechNova Solutions",
+        "FINEDGE_CORP": "FinEdge Corp",
+        "CREATIVEHUB_AGENCY": "CreativeHub Agency",
+        "CLOUDSTACK_LTD": "CloudStack Ltd",
+        "GROWTHBOX": "GrowthBox",
+        "INSIGHT_AI": "InsightAI",
+        "INFRABASE": "InfraBase",
+        "TRADELINK": "TradeLink",
+        "MOBILEFIRST": "MobileFirst",
+        "PEOPLEFIRST": "PeopleFirst",
+        "PIXELCRAFT": "PixelCraft",
+        "MEDIASPHERE": "MediaSphere"
+      },
+      "LOCATIONS": {
+        "CAIRO_EGYPT": "Cairo, Egypt",
+        "ALEXANDRIA_EGYPT": "Alexandria, Egypt",
+        "REMOTE": "Remote",
+        "GIZA_EGYPT": "Giza, Egypt"
+      }
     },
     "TYPES": {
       "FULL_TIME": "Full Time",
@@ -253,7 +287,53 @@
       "BROWSE_ALL": "Browse All Freelancers"
     },
     "CARD": {
-      "REQUEST": "Request Freelancer"
+      "REQUEST": "Request Freelancer",
+      "NAMES": {
+        "AISHA_KHAN": "Aisha Khan",
+        "OMAR_RIZVI": "Omar Rizvi",
+        "LINA_AHMED": "Lina Ahmed",
+        "SAMIR_PATEL": "Samir Patel",
+        "PRIYA_SHARMA": "Priya Sharma",
+        "ZAID_HASSAN": "Zaid Hassan"
+      },
+      "ROLES": {
+        "FRONTEND_DEVELOPER": "Frontend Developer",
+        "DOTNET_DEVELOPER": ".NET Developer",
+        "UX_UI_DESIGNER": "UX/UI Designer",
+        "FULL_STACK_DEVELOPER": "Full-Stack Developer",
+        "DATA_ANALYST": "Data Analyst",
+        "MOBILE_DEVELOPER": "Mobile Developer"
+      },
+      "TYPES": {
+        "FREELANCER": "Freelancer"
+      },
+      "DESCRIPTIONS": {
+        "FRONTEND_DEVELOPER": "Building responsive, accessible UIs with modern frameworks.",
+        "DOTNET_DEVELOPER": "Robust API development and scalable backend solutions.",
+        "UX_UI_DESIGNER": "Designing intuitive product experiences that delight users.",
+        "FULL_STACK_DEVELOPER": "End-to-end web applications from database to deployment.",
+        "DATA_ANALYST": "Turning raw data into actionable business insights.",
+        "MOBILE_DEVELOPER": "Cross-platform mobile apps for iOS and Android."
+      },
+      "SKILLS": {
+        "ANGULAR": "Angular",
+        "TYPESCRIPT": "TypeScript",
+        "UI_DESIGN": "UI Design",
+        "DOTNET": ".NET",
+        "C_SHARP": "C#",
+        "REST_APIS": "REST APIs",
+        "FIGMA": "Figma",
+        "UX_RESEARCH": "UX Research",
+        "PROTOTYPING": "Prototyping",
+        "NODE_JS": "Node.js",
+        "POSTGRESQL": "PostgreSQL",
+        "PYTHON": "Python",
+        "POWER_BI": "Power BI",
+        "SQL": "SQL",
+        "FLUTTER": "Flutter",
+        "DART": "Dart",
+        "FIREBASE": "Firebase"
+      }
     },
     "PAGE": {
       "TITLE": "Hire Proven Freelancers Faster",
@@ -280,6 +360,69 @@
       "CLEAR": "Clear filters"
     },
     "EMPTY": "No freelancers match your search."
+  },
+  "COMPANIES": {
+    "PAGE": {
+      "TITLE": "Explore Companies Worth Building With",
+      "SUBTITLE": "Research teams, discover open roles, and compare employers that align with your goals.",
+      "BADGE": "Companies & Employers"
+    },
+    "FILTER": {
+      "SEARCH_PLACEHOLDER": "Search by company name or industry...",
+      "LABEL": "Filter:",
+      "ALL_INDUSTRIES": "All Industries",
+      "ALL_LOCATIONS": "All Locations",
+      "RESULTS": "{{count}} companies",
+      "CLEAR": "Clear filters"
+    },
+    "CARD": {
+      "OPEN_JOBS": "{{count}} Open Jobs",
+      "VIEW": "View"
+    },
+    "NAMES": {
+      "TECHFLOW": "TechFlow",
+      "GLOBAL_HEALTH": "Global Health",
+      "FINTRUST": "FinTrust",
+      "CLOUDSCALE": "CloudScale",
+      "DESIGNHUB": "DesignHub",
+      "EDUSPHERE": "EduSphere",
+      "AUTODRIVE_AI": "AutoDrive AI",
+      "GREENENERGY": "GreenEnergy"
+    },
+    "LOCATIONS": {
+      "SAN_FRANCISCO_CA": "San Francisco, CA",
+      "NEW_YORK_NY": "New York, NY",
+      "LONDON_UK": "London, UK",
+      "AUSTIN_TX": "Austin, TX",
+      "BERLIN_DE": "Berlin, DE",
+      "REMOTE": "Remote",
+      "DETROIT_MI": "Detroit, MI",
+      "DENVER_CO": "Denver, CO"
+    },
+    "DESCRIPTIONS": {
+      "TECHFLOW": "Building the next generation of seamless workflow automation tools for modern teams.",
+      "GLOBAL_HEALTH": "Innovative health tech solutions bridging the gap between patients and medical professionals.",
+      "FINTRUST": "Democratizing algorithmic trading and secure asset management for everyday users.",
+      "CLOUDSCALE": "Enterprise cloud infrastructure simplified. We help scale businesses securely.",
+      "DESIGNHUB": "Award-winning creative agency focused on digital experiences and brand identity.",
+      "EDUSPHERE": "Accessible online learning platforms that empower students globally.",
+      "AUTODRIVE_AI": "Pioneering autonomous vehicle software using advanced neural networks.",
+      "GREENENERGY": "Renewable energy solutions focusing on smart grid optimization and solar integration."
+    },
+    "EMPTY": {
+      "TITLE": "No companies found",
+      "MESSAGE": "Try adjusting your search to find what you're looking for."
+    },
+    "INDUSTRIES": {
+      "SOFTWARE": "Software",
+      "HEALTHCARE": "Healthcare",
+      "FINTECH": "Fintech",
+      "CLOUD_OPS": "Cloud Ops",
+      "AGENCY": "Agency",
+      "EDTECH": "EdTech",
+      "AUTOMOTIVE": "Automotive",
+      "CLEANTECH": "Cleantech"
+    }
   },
   "FOOTER": {
     "DESCRIPTION": "The smartest way to find your next job or hire top talent. Connecting people with meaningful opportunities since 2026.",
@@ -452,11 +595,79 @@
       "PASSWORD_UPDATED": "Password updated."
     }
   },
-  "CANDIDATE": {},
+  "CANDIDATE": {
+    "NO_DATA": "No data available",
+    "HEADER": {
+      "LOGOUT": "Log out"
+    },
+    "NAV": {
+      "DASHBOARD": "Dashboard",
+      "PROFILE": "Profile",
+      "JOBS": "Jobs",
+      "APPLICATIONS": "Applications",
+      "SAVED_JOBS": "Saved Jobs",
+      "MESSAGES": "Messages",
+      "NOTIFICATIONS": "Notifications"
+    },
+    "SHELL": {
+      "PROFILE_COMPLETION": "Profile completion",
+      "COMPLETE_PROFILE": "Complete Your Profile",
+      "DONE": "Done",
+      "OPEN": "Open",
+      "PROFILE_OVERVIEW": "Profile Overview Card",
+      "PROFILE_TIP": "Keep your profile current so recruiters can discover you faster.",
+      "BECOME_FREELANCER": "Become a Freelancer",
+      "FREELANCER_PENDING": "Freelancer request pending",
+      "VIEW_FREELANCER_PROFILE": "View Freelancer Profile"
+    },
+    "OVERVIEW": {
+      "WELCOME": "Welcome back",
+      "TITLE": "Your candidate dashboard is ready",
+      "SUBTITLE": "Track your applications, complete your profile, and stay on top of recruiter activity.",
+      "RECOMMENDED_JOBS": "Recommended jobs",
+      "SEE_ALL": "See all",
+      "RECENT_ACTIVITY": "Recent activity",
+      "APPLICATIONS_LINK": "Applications",
+      "LATEST_UPDATES": "Latest updates",
+      "NOTIFICATIONS_LINK": "Notifications",
+      "NEW_BADGE": "New"
+    },
+    "APPLICATIONS": {
+      "TITLE": "Applications",
+      "SUBTITLE": "Statuses are read only and updated only by employers or recruiters.",
+      "JOB_TITLE": "Job Title",
+      "COMPANY": "Company",
+      "APPLIED_DATE": "Applied Date",
+      "STATUS": "Status"
+    },
+    "MESSAGES": {
+      "TITLE": "Messages",
+      "SUBTITLE": "Recruiter communication is ready with a clean placeholder experience.",
+      "AT": "at"
+    },
+    "NOTIFICATIONS": {
+      "TITLE": "Notifications",
+      "SUBTITLE": "Job alerts and application updates appear here.",
+      "NEW_BADGE": "New",
+      "MARK_READ": "Mark as read"
+    },
+    "SAVED_JOBS": {
+      "TITLE": "Saved Jobs",
+      "SUBTITLE": "Bookmark roles to compare them later and apply when you are ready.",
+      "BROWSE_JOBS": "Browse jobs"
+    },
+    "JOBS": {
+      "TITLE": "Jobs",
+      "SUBTITLE": "Search by keyword or location and save the roles you want to revisit.",
+      "SEARCH_PLACEHOLDER": "Search jobs, skills, or company",
+      "LOCATION_PLACEHOLDER": "Filter by location",
+      "RESET_FILTERS": "Reset filters"
+    }
+  },
   "ADMIN": {},
   "BLOG": {
     "LIST": {
-      "TITLE": "The JobPortal Blog",
+      "TITLE": "JOBPORTAL Blogs",
       "SUBTITLE": "Career advice, tech insights, and industry news to help you grow professionally.",
       "BADGE": "Articles & Insights",
       "SEARCH_PLACEHOLDER": "Search articles...",

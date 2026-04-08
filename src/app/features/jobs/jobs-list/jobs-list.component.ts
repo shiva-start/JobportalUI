@@ -118,4 +118,8 @@ export class JobsListComponent implements OnInit {
     const saved = this.jobService.isJobSaved(jobId);
     this.toastService.success(this.translate.instant(saved ? 'JOBS.TOASTS.SAVED_SHORT' : 'JOBS.TOASTS.REMOVED_SHORT'));
   }
+
+  categoryKey(category: string): string {
+    return `HOME.CATEGORIES.ITEMS.${category.toUpperCase().replace(/[^A-Z0-9]+/g, '_')}`;
+  }
 }

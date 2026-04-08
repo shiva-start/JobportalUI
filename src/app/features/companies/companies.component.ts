@@ -1,17 +1,18 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { TranslatePipe } from '@ngx-translate/core';
 import { PageHeroComponent } from '../../shared/components/page-hero/page-hero.component';
 
 @Component({
   selector: 'app-companies',
   standalone: true,
-  imports: [CommonModule, FormsModule, PageHeroComponent],
+  imports: [CommonModule, FormsModule, PageHeroComponent, TranslatePipe],
   template: `
     <app-page-hero
-      title="Explore Companies Worth Building With"
-      subtitle="Research teams, discover open roles, and compare employers that align with your goals."
-      badge="Companies & Employers"
+      [title]="'COMPANIES.PAGE.TITLE' | translate"
+      [subtitle]="'COMPANIES.PAGE.SUBTITLE' | translate"
+      [badge]="'COMPANIES.PAGE.BADGE' | translate"
       bgClass="bg-gradient-to-br from-slate-900 to-blue-800">
 
       <div class="mt-8 max-w-3xl mx-auto">
@@ -22,10 +23,10 @@ import { PageHeroComponent } from '../../shared/components/page-hero/page-hero.c
             </svg>
             <input type="text" [(ngModel)]="searchQuery"
               class="w-full bg-transparent text-sm text-slate-700 placeholder:text-slate-400 focus:outline-none"
-              placeholder="Search by company name or industry...">
+              [placeholder]="'COMPANIES.FILTER.SEARCH_PLACEHOLDER' | translate">
           </div>
           <button class="rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:bg-blue-700">
-            Search
+            {{ 'COMMON.SEARCH' | translate }}
           </button>
         </div>
       </div>
@@ -34,26 +35,26 @@ import { PageHeroComponent } from '../../shared/components/page-hero/page-hero.c
     <section class="min-h-screen bg-gray-50 py-14">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="mb-8 flex flex-wrap items-center gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-card">
-          <span class="mr-1 text-xs font-semibold uppercase tracking-wide text-slate-400">Filter:</span>
+          <span class="mr-1 text-xs font-semibold uppercase tracking-wide text-slate-400">{{ 'COMPANIES.FILTER.LABEL' | translate }}</span>
 
           <select [(ngModel)]="selectedIndustry"
             class="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
-            <option value="">All Industries</option>
+            <option value="">{{ 'COMPANIES.FILTER.ALL_INDUSTRIES' | translate }}</option>
             @for (industry of industries; track industry) {
-              <option [value]="industry">{{ industry }}</option>
+              <option [value]="industry">{{ industryKey(industry) | translate }}</option>
             }
           </select>
 
           <select [(ngModel)]="selectedLocation"
             class="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
-            <option value="">All Locations</option>
+            <option value="">{{ 'COMPANIES.FILTER.ALL_LOCATIONS' | translate }}</option>
             @for (location of locations; track location) {
               <option [value]="location">{{ location }}</option>
             }
           </select>
 
           <p class="ml-auto text-sm text-slate-500">
-            <span class="font-semibold text-slate-700">{{ filteredCompanies.length }}</span> companies
+            {{ 'COMPANIES.FILTER.RESULTS' | translate:{ count: filteredCompanies.length } }}
           </p>
 
           @if (hasActiveFilters()) {
@@ -62,7 +63,7 @@ import { PageHeroComponent } from '../../shared/components/page-hero/page-hero.c
               <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
               </svg>
-              Clear filters
+              {{ 'COMPANIES.FILTER.CLEAR' | translate }}
             </button>
           }
         </div>
@@ -76,26 +77,26 @@ import { PageHeroComponent } from '../../shared/components/page-hero/page-hero.c
                 {{ company.name.charAt(0) }}
               </div>
               <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-slate-50 text-slate-600 border border-slate-200 group-hover:bg-blue-50 group-hover:text-blue-700 group-hover:border-blue-200 transition-colors">
-                {{ company.industry }}
+                {{ industryKey(company.industry) | translate }}
               </span>
             </div>
             
-            <h3 class="text-lg font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">{{ company.name }}</h3>
+            <h3 class="text-lg font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">{{ companyNameKey(company.name) | translate }}</h3>
             
             <div class="flex items-center gap-1 mt-1.5 text-sm text-slate-500">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
               </svg>
-              <span>{{ company.location }}</span>
+              <span>{{ locationKey(company.location) | translate }}</span>
             </div>
 
-            <p class="text-slate-600 text-sm mt-4 line-clamp-2 flex-grow">{{ company.description }}</p>
+            <p class="text-slate-600 text-sm mt-4 line-clamp-2 flex-grow">{{ descriptionKey(company.description) | translate }}</p>
 
             <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-sm">
-              <span class="font-medium text-slate-700">{{ company.openJobs }} Open Jobs</span>
+              <span class="font-medium text-slate-700">{{ 'COMPANIES.CARD.OPEN_JOBS' | translate:{ count: company.openJobs } }}</span>
               <span class="text-blue-600 font-medium group-hover:underline flex items-center gap-1">
-                View
+                {{ 'COMPANIES.CARD.VIEW' | translate }}
                 <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                 </svg>
@@ -111,8 +112,8 @@ import { PageHeroComponent } from '../../shared/components/page-hero/page-hero.c
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
             </div>
-            <p class="text-lg font-medium text-slate-700">No companies found</p>
-            <p class="mt-1">Try adjusting your search to find what you're looking for.</p>
+            <p class="text-lg font-medium text-slate-700">{{ 'COMPANIES.EMPTY.TITLE' | translate }}</p>
+            <p class="mt-1">{{ 'COMPANIES.EMPTY.MESSAGE' | translate }}</p>
           </div>
         }
         </div>
@@ -165,5 +166,32 @@ export class CompaniesComponent {
 
       return matchesQuery && matchesIndustry && matchesLocation;
     });
+  }
+
+  industryKey(industry: string): string {
+    return `COMPANIES.INDUSTRIES.${industry.toUpperCase().replace(/[^A-Z0-9]+/g, '_')}`;
+  }
+
+  companyNameKey(name: string): string {
+    return `COMPANIES.NAMES.${name.toUpperCase().replace(/[^A-Z0-9]+/g, '_')}`;
+  }
+
+  locationKey(location: string): string {
+    return `COMPANIES.LOCATIONS.${location.toUpperCase().replace(/[^A-Z0-9]+/g, '_')}`;
+  }
+
+  descriptionKey(description: string): string {
+    const map: Record<string, string> = {
+      'Building the next generation of seamless workflow automation tools for modern teams.': 'COMPANIES.DESCRIPTIONS.TECHFLOW',
+      'Innovative health tech solutions bridging the gap between patients and medical professionals.': 'COMPANIES.DESCRIPTIONS.GLOBAL_HEALTH',
+      'Democratizing algorithmic trading and secure asset management for everyday users.': 'COMPANIES.DESCRIPTIONS.FINTRUST',
+      'Enterprise cloud infrastructure simplified. We help scale businesses securely.': 'COMPANIES.DESCRIPTIONS.CLOUDSCALE',
+      'Award-winning creative agency focused on digital experiences and brand identity.': 'COMPANIES.DESCRIPTIONS.DESIGNHUB',
+      'Accessible online learning platforms that empower students globally.': 'COMPANIES.DESCRIPTIONS.EDUSPHERE',
+      'Pioneering autonomous vehicle software using advanced neural networks.': 'COMPANIES.DESCRIPTIONS.AUTODRIVE_AI',
+      'Renewable energy solutions focusing on smart grid optimization and solar integration.': 'COMPANIES.DESCRIPTIONS.GREENENERGY'
+    };
+
+    return map[description] ?? description;
   }
 }
