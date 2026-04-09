@@ -1,27 +1,29 @@
-<div class="min-h-screen bg-gray-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    <div class="flex flex-col lg:flex-row gap-6">
-      <aside class="lg:w-64 flex-shrink-0">
-        <div class="bg-white rounded-2xl border border-gray-200 p-6 mb-4 text-center">
-          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white mx-auto mb-3 shadow-lg">
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+ï»¿<div [dir]="isArabic() ? 'rtl' : 'ltr'" class="min-h-screen bg-gray-50">
+  <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+    <div class="flex flex-col gap-6 lg:flex-row">
+      <aside class="flex-shrink-0 lg:w-64">
+        <div class="mb-4 rounded-2xl border border-gray-200 bg-white p-6 text-center">
+          <div class="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 text-white shadow-lg">
+            <svg class="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
           </div>
           <h2 class="font-bold text-gray-900">{{ auth.currentUser()?.company || ('EMPLOYER.COMPANY_PROFILE.EMPTY_COMPANY' | translate) }}</h2>
-          <p class="text-sm text-gray-500 mt-0.5">{{ auth.currentUser()?.name || ('EMPLOYER.COMPANY_PROFILE.EMPTY_OWNER' | translate) }}</p>
+          <p class="mt-0.5 text-sm text-gray-500">{{ auth.currentUser()?.name || ('EMPLOYER.COMPANY_PROFILE.EMPTY_OWNER' | translate) }}</p>
           <div class="mt-3 flex justify-center">
             <app-badge variant="green">{{ 'EMPLOYER.OVERVIEW.VERIFIED_COMPANY' | translate }}</app-badge>
           </div>
         </div>
 
-        <nav class="bg-white rounded-2xl border border-gray-200 p-2 space-y-0.5">
+        <nav class="space-y-0.5 rounded-2xl border border-gray-200 bg-white p-2">
           @for (item of navItems; track item.id) {
-            <button (click)="activeTab.set(item.id)"
+            <button
+              (click)="activeTab.set(item.id)"
               [class]="activeTab() === item.id ? 'bg-indigo-50 text-indigo-700 font-semibold' : 'text-gray-600 hover:bg-gray-50'"
-              class="w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm transition-all duration-200">
-              <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="item.svgPath"/></svg>
-              <span class="flex-1 text-left">{{ item.labelKey | translate }}</span>
+              class="flex w-full items-center gap-3 rounded-xl px-4 py-2.5 text-sm transition-all duration-200 rtl:flex-row-reverse"
+            >
+              <svg class="h-4 w-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="item.svgPath"/></svg>
+              <span class="flex-1 text-left rtl:text-right">{{ item.labelKey | translate }}</span>
               @if (item.badge) {
-                <span class="min-w-[20px] h-5 bg-indigo-600 text-white text-xs font-bold rounded-full flex items-center justify-center px-1">
+                <span class="flex h-5 min-w-[20px] items-center justify-center rounded-full bg-indigo-600 px-1 text-xs font-bold text-white">
                   {{ item.badge }}
                 </span>
               }
@@ -29,71 +31,68 @@
           }
         </nav>
 
-        <div class="mt-4 bg-gradient-to-br from-indigo-600 to-purple-700 rounded-2xl p-5 text-white">
-          <p class="font-semibold text-sm mb-1">{{ 'EMPLOYER.CTA.TITLE' | translate }}</p>
-          <p class="text-xs text-indigo-200 mb-3">{{ 'EMPLOYER.CTA.SUBTITLE' | translate }}</p>
-          <button (click)="activeTab.set('post-job')" class="w-full py-2 bg-white text-indigo-700 text-xs font-semibold rounded-lg hover:bg-indigo-50 transition-colors">
+        <div class="mt-4 rounded-2xl bg-gradient-to-br from-indigo-600 to-purple-700 p-5 text-white">
+          <p class="mb-1 text-sm font-semibold rtl:text-right">{{ 'EMPLOYER.CTA.TITLE' | translate }}</p>
+          <p class="mb-3 text-xs text-indigo-200 rtl:text-right">{{ 'EMPLOYER.CTA.SUBTITLE' | translate }}</p>
+          <button (click)="activeTab.set('post-job')" class="w-full rounded-lg bg-white py-2 text-xs font-semibold text-indigo-700 transition-colors hover:bg-indigo-50">
             {{ 'EMPLOYER.CTA.BUTTON' | translate }}
           </button>
         </div>
       </aside>
 
-      <main class="flex-1 min-w-0">
+      <main class="min-w-0 flex-1">
         @if (activeTab() === 'overview') {
           <div class="space-y-5">
-            <h1 class="text-xl font-bold text-gray-900">{{ 'EMPLOYER.OVERVIEW.TITLE' | translate }}</h1>
+            <h1 class="text-xl font-bold text-gray-900 rtl:text-right">{{ 'EMPLOYER.OVERVIEW.TITLE' | translate }}</h1>
 
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div class="grid grid-cols-2 gap-4 sm:grid-cols-4">
               @for (stat of stats; track stat.labelKey) {
-                <div class="bg-white rounded-2xl border border-gray-200 p-5">
-                  <div class="flex items-center justify-between mb-2">
-                    <div class="w-8 h-8 rounded-lg bg-indigo-50 flex items-center justify-center">
-                      <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="stat.svgPath"/></svg>
+                <div class="rounded-2xl border border-gray-200 bg-white p-5">
+                  <div class="mb-2 flex items-center justify-between rtl:flex-row-reverse">
+                    <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-50">
+                      <svg class="h-4 w-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="stat.svgPath"/></svg>
                     </div>
                     @if (stat.changeKey) {
                       <span class="text-xs font-medium text-green-600">{{ stat.changeKey | translate }}</span>
                     }
                   </div>
                   <div class="text-2xl font-bold text-gray-900">{{ stat.value }}</div>
-                  <div class="text-xs text-gray-500 mt-0.5">{{ stat.labelKey | translate }}</div>
+                  <div class="mt-0.5 text-xs text-gray-500 rtl:text-right">{{ stat.labelKey | translate }}</div>
                 </div>
               }
             </div>
 
-            <div class="bg-white rounded-2xl border border-gray-200">
-              <div class="flex items-center justify-between p-5 border-b border-gray-100">
-                <h2 class="font-bold text-gray-900">{{ 'EMPLOYER.OVERVIEW.ACTIVE_POSTINGS' | translate }}</h2>
-                <button (click)="activeTab.set('post-job')"
-                  class="flex items-center gap-1.5 px-3 py-1.5 bg-indigo-600 text-white text-xs font-semibold rounded-lg hover:bg-indigo-700 transition-colors">
+            <div class="rounded-2xl border border-gray-200 bg-white">
+              <div class="flex items-center justify-between border-b border-gray-100 p-5 rtl:flex-row-reverse">
+                <h2 class="font-bold text-gray-900 rtl:text-right">{{ 'EMPLOYER.OVERVIEW.ACTIVE_POSTINGS' | translate }}</h2>
+                <button (click)="activeTab.set('post-job')" class="flex items-center gap-1.5 rounded-lg bg-indigo-600 px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-indigo-700 rtl:flex-row-reverse">
                   <span>+</span> {{ 'EMPLOYER.OVERVIEW.POST_JOB' | translate }}
                 </button>
               </div>
               <div class="overflow-x-auto">
                 <table class="w-full">
                   <thead>
-                    <tr class="text-left border-b border-gray-100">
-                      <th class="px-5 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wide">{{ 'EMPLOYER.TABLE.JOB_TITLE' | translate }}</th>
-                      <th class="px-5 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wide hidden sm:table-cell">{{ 'EMPLOYER.TABLE.APPLICANTS' | translate }}</th>
-                      <th class="px-5 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wide hidden md:table-cell">{{ 'EMPLOYER.TABLE.VIEWS' | translate }}</th>
-                      <th class="px-5 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wide">{{ 'EMPLOYER.TABLE.STATUS' | translate }}</th>
+                    <tr class="border-b border-gray-100 text-left rtl:text-right">
+                      <th class="px-5 py-3 text-xs font-semibold uppercase tracking-wide text-gray-500">{{ 'EMPLOYER.TABLE.JOB_TITLE' | translate }}</th>
+                      <th class="hidden px-5 py-3 text-xs font-semibold uppercase tracking-wide text-gray-500 sm:table-cell">{{ 'EMPLOYER.TABLE.APPLICANTS' | translate }}</th>
+                      <th class="hidden px-5 py-3 text-xs font-semibold uppercase tracking-wide text-gray-500 md:table-cell">{{ 'EMPLOYER.TABLE.VIEWS' | translate }}</th>
+                      <th class="px-5 py-3 text-xs font-semibold uppercase tracking-wide text-gray-500">{{ 'EMPLOYER.TABLE.STATUS' | translate }}</th>
                     </tr>
                   </thead>
                   <tbody class="divide-y divide-gray-100">
                     @for (job of postedJobs; track job.title) {
-                      <tr class="hover:bg-gray-50 transition-colors">
+                      <tr class="transition-colors hover:bg-gray-50">
                         <td class="px-5 py-4">
-                          <p class="font-medium text-gray-900 text-sm">{{ job.title }}</p>
-                          <p class="text-xs text-gray-500">{{ typeKey(job.type) | translate }} · {{ job.postedKey | translate }}</p>
+                          <p class="text-sm font-medium text-gray-900 rtl:text-right">{{ job.title }}</p>
+                          <p class="text-xs text-gray-500 rtl:text-right">{{ typeKey(job.type) | translate }} Â· {{ job.postedKey | translate }}</p>
                         </td>
-                        <td class="px-5 py-4 hidden sm:table-cell">
+                        <td class="hidden px-5 py-4 sm:table-cell">
                           <span class="font-semibold text-gray-900">{{ job.applicants }}</span>
-                          <span class="text-xs text-gray-500 ml-1">{{ 'EMPLOYER.TABLE.APPLICANTS_LABEL' | translate }}</span>
+                          <span class="ml-1 text-xs text-gray-500">{{ 'EMPLOYER.TABLE.APPLICANTS_LABEL' | translate }}</span>
                         </td>
-                        <td class="px-5 py-4 hidden md:table-cell text-gray-600 text-sm">{{ job.views }}</td>
+                        <td class="hidden px-5 py-4 text-sm text-gray-600 md:table-cell">{{ job.views }}</td>
                         <td class="px-5 py-4">
-                          <app-badge [variant]="job.active ? 'green' : 'gray'">
-                            {{ jobStatusKey(job.active) | translate }}
-                          </app-badge>
+                          <app-badge [variant]="job.active ? 'green' : 'gray'">{{ jobStatusKey(job.active) | translate }}</app-badge>
                         </td>
                       </tr>
                     }
@@ -102,19 +101,19 @@
               </div>
             </div>
 
-            <div class="bg-white rounded-2xl border border-gray-200">
-              <div class="flex items-center justify-between p-5 border-b border-gray-100">
-                <h2 class="font-bold text-gray-900">{{ 'EMPLOYER.OVERVIEW.RECENT_APPLICANTS' | translate }}</h2>
-                <button (click)="activeTab.set('applicants')" class="text-sm text-indigo-600 hover:text-indigo-700 font-medium">{{ 'EMPLOYER.OVERVIEW.VIEW_ALL' | translate }}</button>
+            <div class="rounded-2xl border border-gray-200 bg-white">
+              <div class="flex items-center justify-between border-b border-gray-100 p-5 rtl:flex-row-reverse">
+                <h2 class="font-bold text-gray-900 rtl:text-right">{{ 'EMPLOYER.OVERVIEW.RECENT_APPLICANTS' | translate }}</h2>
+                <button (click)="activeTab.set('applicants')" class="text-sm font-medium text-indigo-600 hover:text-indigo-700">{{ 'EMPLOYER.OVERVIEW.VIEW_ALL' | translate }}</button>
               </div>
               <div class="divide-y divide-gray-100">
                 @for (applicant of recentApplicants.slice(0, 4); track applicant.name) {
-                  <div class="flex items-center gap-4 p-4 hover:bg-gray-50 transition-colors">
-                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-indigo-500 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">
+                  <div class="flex items-center gap-4 p-4 transition-colors hover:bg-gray-50 rtl:flex-row-reverse">
+                    <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-indigo-500 text-sm font-bold text-white">
                       {{ applicant.avatar }}
                     </div>
-                    <div class="flex-1 min-w-0">
-                      <p class="font-medium text-gray-900 text-sm">{{ applicant.name }}</p>
+                    <div class="min-w-0 flex-1 rtl:text-right">
+                      <p class="text-sm font-medium text-gray-900">{{ applicant.name }}</p>
                       <p class="text-xs text-gray-500">{{ 'EMPLOYER.OVERVIEW.APPLIED_FOR' | translate }} {{ applicant.job }}</p>
                     </div>
                     <app-badge [variant]="applicant.status === 'new' ? 'blue' : applicant.status === 'shortlisted' ? 'green' : 'gray'">
@@ -129,24 +128,23 @@
 
         @if (activeTab() === 'post-job') {
           <div>
-            <h1 class="text-xl font-bold text-gray-900 mb-5">{{ 'EMPLOYER.POST_JOB.TITLE' | translate }}</h1>
+            <h1 class="mb-5 text-xl font-bold text-gray-900 rtl:text-right">{{ 'EMPLOYER.POST_JOB.TITLE' | translate }}</h1>
             <form [formGroup]="jobForm" (ngSubmit)="onPostJob()" class="space-y-5">
-              <div class="bg-white rounded-2xl border border-gray-200 p-6 space-y-5">
-                <h2 class="font-bold text-gray-900 border-b border-gray-100 pb-3">{{ 'EMPLOYER.POST_JOB.DETAILS' | translate }}</h2>
+              <div class="space-y-5 rounded-2xl border border-gray-200 bg-white p-6">
+                <h2 class="border-b border-gray-100 pb-3 font-bold text-gray-900 rtl:text-right">{{ 'EMPLOYER.POST_JOB.DETAILS' | translate }}</h2>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div class="sm:col-span-2">
-                    <label class="block text-sm font-medium text-gray-700 mb-1.5">{{ 'EMPLOYER.POST_JOB.FIELDS.TITLE' | translate }}</label>
-                    <input formControlName="title" [placeholder]="'EMPLOYER.POST_JOB.PLACEHOLDERS.TITLE' | translate"
-                      class="w-full px-4 py-3 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                    <label class="mb-1.5 block text-sm font-medium text-gray-700 rtl:text-right">{{ 'EMPLOYER.POST_JOB.FIELDS.TITLE' | translate }}</label>
+                    <input formControlName="title" [placeholder]="'EMPLOYER.POST_JOB.PLACEHOLDERS.TITLE' | translate" class="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-indigo-500 rtl:text-right">
                     @if (jf['title'].errors?.['required'] && jf['title'].touched) {
-                      <p class="mt-1 text-xs text-red-500">{{ 'EMPLOYER.POST_JOB.ERRORS.TITLE_REQUIRED' | translate }}</p>
+                      <p class="mt-1 text-xs text-red-500 rtl:text-right">{{ 'EMPLOYER.POST_JOB.ERRORS.TITLE_REQUIRED' | translate }}</p>
                     }
                   </div>
 
                   <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1.5">{{ 'EMPLOYER.POST_JOB.FIELDS.CATEGORY' | translate }}</label>
-                    <select formControlName="category" class="w-full px-4 py-3 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <label class="mb-1.5 block text-sm font-medium text-gray-700 rtl:text-right">{{ 'EMPLOYER.POST_JOB.FIELDS.CATEGORY' | translate }}</label>
+                    <select formControlName="category" class="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 rtl:text-right">
                       <option value="">{{ 'EMPLOYER.POST_JOB.PLACEHOLDERS.CATEGORY' | translate }}</option>
                       @for (cat of categories; track cat) {
                         <option [value]="cat">{{ categoryKey(cat) | translate }}</option>
@@ -155,8 +153,8 @@
                   </div>
 
                   <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1.5">{{ 'EMPLOYER.POST_JOB.FIELDS.TYPE' | translate }}</label>
-                    <select formControlName="type" class="w-full px-4 py-3 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <label class="mb-1.5 block text-sm font-medium text-gray-700 rtl:text-right">{{ 'EMPLOYER.POST_JOB.FIELDS.TYPE' | translate }}</label>
+                    <select formControlName="type" class="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 rtl:text-right">
                       <option value="">{{ 'EMPLOYER.POST_JOB.PLACEHOLDERS.TYPE' | translate }}</option>
                       <option value="full-time">{{ 'JOBS.TYPES.FULL_TIME' | translate }}</option>
                       <option value="part-time">{{ 'JOBS.TYPES.PART_TIME' | translate }}</option>
@@ -167,14 +165,13 @@
                   </div>
 
                   <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1.5">{{ 'EMPLOYER.POST_JOB.FIELDS.LOCATION' | translate }}</label>
-                    <input formControlName="location" [placeholder]="'EMPLOYER.POST_JOB.PLACEHOLDERS.LOCATION' | translate"
-                      class="w-full px-4 py-3 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <label class="mb-1.5 block text-sm font-medium text-gray-700 rtl:text-right">{{ 'EMPLOYER.POST_JOB.FIELDS.LOCATION' | translate }}</label>
+                    <input formControlName="location" [placeholder]="'EMPLOYER.POST_JOB.PLACEHOLDERS.LOCATION' | translate" class="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 rtl:text-right">
                   </div>
 
                   <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1.5">{{ 'EMPLOYER.POST_JOB.FIELDS.EXPERIENCE' | translate }}</label>
-                    <select formControlName="experienceLevel" class="w-full px-4 py-3 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <label class="mb-1.5 block text-sm font-medium text-gray-700 rtl:text-right">{{ 'EMPLOYER.POST_JOB.FIELDS.EXPERIENCE' | translate }}</label>
+                    <select formControlName="experienceLevel" class="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 rtl:text-right">
                       <option value="">{{ 'EMPLOYER.POST_JOB.PLACEHOLDERS.EXPERIENCE' | translate }}</option>
                       <option value="entry">{{ 'JOBS.LEVELS.ENTRY' | translate }}</option>
                       <option value="mid">{{ 'JOBS.LEVELS.MID' | translate }}</option>
@@ -185,37 +182,33 @@
                   </div>
 
                   <div class="sm:col-span-2">
-                    <label class="block text-sm font-medium text-gray-700 mb-1.5">{{ 'EMPLOYER.POST_JOB.FIELDS.SALARY' | translate }}</label>
-                    <input formControlName="salary" [placeholder]="'EMPLOYER.POST_JOB.PLACEHOLDERS.SALARY' | translate"
-                      class="w-full px-4 py-3 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <label class="mb-1.5 block text-sm font-medium text-gray-700 rtl:text-right">{{ 'EMPLOYER.POST_JOB.FIELDS.SALARY' | translate }}</label>
+                    <input formControlName="salary" [placeholder]="'EMPLOYER.POST_JOB.PLACEHOLDERS.SALARY' | translate" class="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 rtl:text-right">
                   </div>
 
                   <div class="sm:col-span-2">
-                    <label class="block text-sm font-medium text-gray-700 mb-1.5">{{ 'EMPLOYER.POST_JOB.FIELDS.DESCRIPTION' | translate }}</label>
-                    <textarea formControlName="description" rows="6" [placeholder]="'EMPLOYER.POST_JOB.PLACEHOLDERS.DESCRIPTION' | translate"
-                      class="w-full px-4 py-3 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-none"></textarea>
+                    <label class="mb-1.5 block text-sm font-medium text-gray-700 rtl:text-right">{{ 'EMPLOYER.POST_JOB.FIELDS.DESCRIPTION' | translate }}</label>
+                    <textarea formControlName="description" rows="6" [placeholder]="'EMPLOYER.POST_JOB.PLACEHOLDERS.DESCRIPTION' | translate" class="w-full resize-none rounded-xl border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 rtl:text-right"></textarea>
                     @if (jf['description'].errors?.['required'] && jf['description'].touched) {
-                      <p class="mt-1 text-xs text-red-500">{{ 'EMPLOYER.POST_JOB.ERRORS.DESCRIPTION_REQUIRED' | translate }}</p>
+                      <p class="mt-1 text-xs text-red-500 rtl:text-right">{{ 'EMPLOYER.POST_JOB.ERRORS.DESCRIPTION_REQUIRED' | translate }}</p>
                     }
                   </div>
 
                   <div class="sm:col-span-2">
-                    <label class="block text-sm font-medium text-gray-700 mb-1.5">{{ 'EMPLOYER.POST_JOB.FIELDS.SKILLS' | translate }}</label>
-                    <input formControlName="skills" [placeholder]="'EMPLOYER.POST_JOB.PLACEHOLDERS.SKILLS' | translate"
-                      class="w-full px-4 py-3 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                    <p class="mt-1 text-xs text-gray-500">{{ 'EMPLOYER.POST_JOB.SKILLS_HELP' | translate }}</p>
+                    <label class="mb-1.5 block text-sm font-medium text-gray-700 rtl:text-right">{{ 'EMPLOYER.POST_JOB.FIELDS.SKILLS' | translate }}</label>
+                    <input formControlName="skills" [placeholder]="'EMPLOYER.POST_JOB.PLACEHOLDERS.SKILLS' | translate" class="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 rtl:text-right">
+                    <p class="mt-1 text-xs text-gray-500 rtl:text-right">{{ 'EMPLOYER.POST_JOB.SKILLS_HELP' | translate }}</p>
                   </div>
                 </div>
               </div>
 
-              <div class="flex gap-3">
-                <button type="button" class="flex-1 sm:flex-none px-6 py-3 border border-gray-300 text-gray-700 font-semibold rounded-xl hover:bg-gray-50 transition-colors text-sm">
+              <div class="flex gap-3 rtl:flex-row-reverse">
+                <button type="button" class="flex-1 rounded-xl border border-gray-300 px-6 py-3 text-sm font-semibold text-gray-700 transition-colors hover:bg-gray-50 sm:flex-none">
                   {{ 'EMPLOYER.POST_JOB.SAVE_DRAFT' | translate }}
                 </button>
-                <button type="submit" [disabled]="jobPosting()"
-                  class="flex-1 sm:flex-none px-8 py-3 bg-indigo-600 hover:bg-indigo-700 disabled:bg-indigo-400 text-white font-semibold rounded-xl transition-all duration-200 shadow-sm hover:shadow-md text-sm flex items-center justify-center gap-2">
+                <button type="submit" [disabled]="jobPosting()" class="flex flex-1 items-center justify-center gap-2 rounded-xl bg-indigo-600 px-8 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-indigo-700 hover:shadow-md disabled:bg-indigo-400 sm:flex-none rtl:flex-row-reverse">
                   @if (jobPosting()) {
-                    <svg class="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
+                    <svg class="h-4 w-4 animate-spin" fill="none" viewBox="0 0 24 24">
                       <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
                       <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
                     </svg>
@@ -231,43 +224,42 @@
 
         @if (activeTab() === 'jobs') {
           <div>
-            <div class="flex items-center justify-between mb-5">
-              <h1 class="text-xl font-bold text-gray-900">{{ 'EMPLOYER.MANAGE.TITLE' | translate }}</h1>
-              <button (click)="activeTab.set('post-job')"
-                class="flex items-center gap-1.5 px-4 py-2 bg-indigo-600 text-white text-sm font-semibold rounded-xl hover:bg-indigo-700 transition-colors">
+            <div class="mb-5 flex items-center justify-between rtl:flex-row-reverse">
+              <h1 class="text-xl font-bold text-gray-900 rtl:text-right">{{ 'EMPLOYER.MANAGE.TITLE' | translate }}</h1>
+              <button (click)="activeTab.set('post-job')" class="flex items-center gap-1.5 rounded-xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-indigo-700 rtl:flex-row-reverse">
                 + {{ 'EMPLOYER.MANAGE.POST_NEW' | translate }}
               </button>
             </div>
-            <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden">
+            <div class="overflow-hidden rounded-2xl border border-gray-200 bg-white">
               <div class="overflow-x-auto">
                 <table class="w-full">
-                  <thead class="bg-gray-50 border-b border-gray-200">
+                  <thead class="border-b border-gray-200 bg-gray-50">
                     <tr>
-                      <th class="px-5 py-3.5 text-left text-xs font-semibold text-gray-500 uppercase tracking-wide">{{ 'EMPLOYER.MANAGE.POSITION' | translate }}</th>
-                      <th class="px-5 py-3.5 text-left text-xs font-semibold text-gray-500 uppercase tracking-wide hidden sm:table-cell">{{ 'EMPLOYER.MANAGE.APPLICATIONS' | translate }}</th>
-                      <th class="px-5 py-3.5 text-left text-xs font-semibold text-gray-500 uppercase tracking-wide hidden md:table-cell">{{ 'EMPLOYER.MANAGE.POSTED' | translate }}</th>
-                      <th class="px-5 py-3.5 text-left text-xs font-semibold text-gray-500 uppercase tracking-wide">{{ 'EMPLOYER.MANAGE.STATUS' | translate }}</th>
-                      <th class="px-5 py-3.5 text-left text-xs font-semibold text-gray-500 uppercase tracking-wide">{{ 'EMPLOYER.MANAGE.ACTIONS' | translate }}</th>
+                      <th class="px-5 py-3.5 text-left text-xs font-semibold uppercase tracking-wide text-gray-500 rtl:text-right">{{ 'EMPLOYER.MANAGE.POSITION' | translate }}</th>
+                      <th class="hidden px-5 py-3.5 text-left text-xs font-semibold uppercase tracking-wide text-gray-500 sm:table-cell rtl:text-right">{{ 'EMPLOYER.MANAGE.APPLICATIONS' | translate }}</th>
+                      <th class="hidden px-5 py-3.5 text-left text-xs font-semibold uppercase tracking-wide text-gray-500 md:table-cell rtl:text-right">{{ 'EMPLOYER.MANAGE.POSTED' | translate }}</th>
+                      <th class="px-5 py-3.5 text-left text-xs font-semibold uppercase tracking-wide text-gray-500 rtl:text-right">{{ 'EMPLOYER.MANAGE.STATUS' | translate }}</th>
+                      <th class="px-5 py-3.5 text-left text-xs font-semibold uppercase tracking-wide text-gray-500 rtl:text-right">{{ 'EMPLOYER.MANAGE.ACTIONS' | translate }}</th>
                     </tr>
                   </thead>
                   <tbody class="divide-y divide-gray-100">
                     @for (job of postedJobs; track job.title) {
-                      <tr class="hover:bg-gray-50 transition-colors">
+                      <tr class="transition-colors hover:bg-gray-50">
                         <td class="px-5 py-4">
-                          <p class="font-medium text-gray-900 text-sm">{{ job.title }}</p>
-                          <p class="text-xs text-gray-500 mt-0.5">{{ typeKey(job.type) | translate }}</p>
+                          <p class="text-sm font-medium text-gray-900 rtl:text-right">{{ job.title }}</p>
+                          <p class="mt-0.5 text-xs text-gray-500 rtl:text-right">{{ typeKey(job.type) | translate }}</p>
                         </td>
-                        <td class="px-5 py-4 hidden sm:table-cell">
+                        <td class="hidden px-5 py-4 sm:table-cell">
                           <span class="text-sm font-semibold text-gray-900">{{ job.applicants }}</span>
                         </td>
-                        <td class="px-5 py-4 hidden md:table-cell text-sm text-gray-600">{{ job.postedKey | translate }}</td>
+                        <td class="hidden px-5 py-4 text-sm text-gray-600 md:table-cell">{{ job.postedKey | translate }}</td>
                         <td class="px-5 py-4">
                           <app-badge [variant]="job.active ? 'green' : 'gray'">{{ jobStatusKey(job.active) | translate }}</app-badge>
                         </td>
                         <td class="px-5 py-4">
-                          <div class="flex gap-1">
-                            <button class="p-1.5 text-gray-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors text-xs">{{ 'EMPLOYER.MANAGE.EDIT' | translate }}</button>
-                            <button class="p-1.5 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors text-xs">{{ 'EMPLOYER.MANAGE.CLOSE' | translate }}</button>
+                          <div class="flex gap-1 rtl:flex-row-reverse">
+                            <button class="rounded-lg p-1.5 text-xs text-gray-400 transition-colors hover:bg-indigo-50 hover:text-indigo-600">{{ 'EMPLOYER.MANAGE.EDIT' | translate }}</button>
+                            <button class="rounded-lg p-1.5 text-xs text-gray-400 transition-colors hover:bg-red-50 hover:text-red-600">{{ 'EMPLOYER.MANAGE.CLOSE' | translate }}</button>
                           </div>
                         </td>
                       </tr>
@@ -281,12 +273,11 @@
 
         @if (activeTab() === 'applicants') {
           <div>
-            <h1 class="text-xl font-bold text-gray-900 mb-5">{{ 'EMPLOYER.APPLICANTS.TITLE' | translate }}</h1>
-            <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden">
-              <div class="p-4 border-b border-gray-100 flex flex-col sm:flex-row gap-3">
-                <input [placeholder]="'EMPLOYER.APPLICANTS.SEARCH' | translate"
-                  class="flex-1 px-4 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                <select class="px-4 py-2 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            <h1 class="mb-5 text-xl font-bold text-gray-900 rtl:text-right">{{ 'EMPLOYER.APPLICANTS.TITLE' | translate }}</h1>
+            <div class="overflow-hidden rounded-2xl border border-gray-200 bg-white">
+              <div class="flex flex-col gap-3 border-b border-gray-100 p-4 sm:flex-row rtl:sm:flex-row-reverse">
+                <input [placeholder]="'EMPLOYER.APPLICANTS.SEARCH' | translate" class="flex-1 rounded-xl border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 rtl:text-right">
+                <select class="rounded-xl border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 rtl:text-right">
                   <option>{{ 'EMPLOYER.APPLICANTS.ALL_STATUS' | translate }}</option>
                   <option>{{ 'EMPLOYER.STATUS.NEW' | translate }}</option>
                   <option>{{ 'EMPLOYER.STATUS.REVIEWED' | translate }}</option>
@@ -296,17 +287,17 @@
               </div>
               <div class="divide-y divide-gray-100">
                 @for (applicant of recentApplicants; track applicant.name) {
-                  <div class="flex items-center gap-4 p-5 hover:bg-gray-50 transition-colors">
-                    <div class="w-11 h-11 rounded-full bg-gradient-to-br from-blue-500 to-indigo-500 flex items-center justify-center text-white font-bold flex-shrink-0">
+                  <div class="flex items-center gap-4 p-5 transition-colors hover:bg-gray-50 rtl:flex-row-reverse">
+                    <div class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-indigo-500 font-bold text-white">
                       {{ applicant.avatar }}
                     </div>
-                    <div class="flex-1 min-w-0">
-                      <p class="font-semibold text-gray-900 text-sm">{{ applicant.name }}</p>
-                      <p class="text-xs text-gray-500 mt-0.5">{{ applicant.title }} · {{ 'EMPLOYER.APPLICANTS.APPLIED_FOR' | translate }} <span class="font-medium text-gray-700">{{ applicant.job }}</span></p>
+                    <div class="min-w-0 flex-1 rtl:text-right">
+                      <p class="text-sm font-semibold text-gray-900">{{ applicant.name }}</p>
+                      <p class="mt-0.5 text-xs text-gray-500">{{ applicant.title }} Â· {{ 'EMPLOYER.APPLICANTS.APPLIED_FOR' | translate }} <span class="font-medium text-gray-700">{{ applicant.job }}</span></p>
                     </div>
-                    <div class="hidden sm:flex gap-2">
-                      <button class="px-3 py-1.5 text-xs font-medium border border-gray-300 text-gray-600 rounded-lg hover:bg-gray-100 transition-colors">{{ 'EMPLOYER.APPLICANTS.REVIEW' | translate }}</button>
-                      <button class="px-3 py-1.5 text-xs font-medium bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">{{ 'EMPLOYER.APPLICANTS.SHORTLIST' | translate }}</button>
+                    <div class="hidden gap-2 sm:flex rtl:flex-row-reverse">
+                      <button class="rounded-lg border border-gray-300 px-3 py-1.5 text-xs font-medium text-gray-600 transition-colors hover:bg-gray-100">{{ 'EMPLOYER.APPLICANTS.REVIEW' | translate }}</button>
+                      <button class="rounded-lg bg-indigo-600 px-3 py-1.5 text-xs font-medium text-white transition-colors hover:bg-indigo-700">{{ 'EMPLOYER.APPLICANTS.SHORTLIST' | translate }}</button>
                     </div>
                     <app-badge [variant]="applicant.status === 'new' ? 'blue' : applicant.status === 'shortlisted' ? 'green' : applicant.status === 'reviewed' ? 'purple' : 'gray'">
                       {{ applicantStatusKey(applicant.status) | translate }}

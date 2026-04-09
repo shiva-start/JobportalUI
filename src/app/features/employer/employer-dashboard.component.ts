@@ -5,6 +5,7 @@ import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { AuthService } from '../../core/services/auth.service';
 import { JobService } from '../../core/services/job.service';
+import { LanguageService } from '../../core/services/language.service';
 import { ToastService } from '../../core/services/toast.service';
 import { BadgeComponent } from '../../shared/components/badge/badge.component';
 
@@ -32,6 +33,7 @@ export class EmployerDashboardComponent implements OnInit {
   jobService = inject(JobService);
   private toastService = inject(ToastService);
   private translate = inject(TranslateService);
+  readonly languageService = inject(LanguageService);
   private fb = inject(FormBuilder);
   private route = inject(ActivatedRoute);
 
@@ -123,5 +125,9 @@ export class EmployerDashboardComponent implements OnInit {
 
   jobStatusKey(active: boolean): string {
     return active ? 'EMPLOYER.STATUS.ACTIVE' : 'EMPLOYER.STATUS.CLOSED';
+  }
+
+  isArabic(): boolean {
+    return this.languageService.currentLanguage() === 'ar';
   }
 }

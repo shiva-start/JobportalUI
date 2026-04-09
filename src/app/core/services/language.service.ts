@@ -11,8 +11,8 @@ export class LanguageService {
   private readonly activeLanguage = signal<AppLanguage>(this.defaultLanguage);
 
   readonly currentLanguage = this.activeLanguage.asReadonly();
-  readonly isRtl = computed(() => false);
-  readonly direction = computed(() => 'ltr');
+  readonly isRtl = computed(() => this.activeLanguage() === 'ar');
+  readonly direction = computed(() => (this.isRtl() ? 'rtl' : 'ltr'));
 
   constructor(
     private readonly translate: TranslateService,
@@ -20,6 +20,7 @@ export class LanguageService {
     @Inject(PLATFORM_ID) private readonly platformId: object
   ) {
     this.translate.addLangs(['en', 'ar']);
+    this.translate.setDefaultLang(this.defaultLanguage);
   }
 
   init(): void {
@@ -52,6 +53,6 @@ export class LanguageService {
   private syncDocument(language: AppLanguage): void {
     const html = this.document.documentElement;
     html.lang = language;
-    html.dir = 'ltr';
+    html.dir = language === 'ar' ? 'rtl' : 'ltr';
   }
 }

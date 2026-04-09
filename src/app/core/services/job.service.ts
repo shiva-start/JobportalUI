@@ -5,6 +5,28 @@ import categoriesData from '../../mock-data/categories.json';
 
 @Injectable({ providedIn: 'root' })
 export class JobService {
+  private readonly applicationStatusAliases: Record<string, ApplicationStatus> = {
+    applied: 'applied',
+    'under-review': 'under-review',
+    'under review': 'under-review',
+    shortlisted: 'shortlisted',
+    'interview-scheduled': 'interview-scheduled',
+    'interview scheduled': 'interview-scheduled',
+    interview: 'interview-scheduled',
+    rejected: 'rejected',
+    selected: 'selected',
+    'offer received': 'selected',
+  };
+
+  private readonly applicationStatusKeyMap: Record<ApplicationStatus, string> = {
+    applied: 'CANDIDATE.STATUS.APPLIED',
+    'under-review': 'CANDIDATE.STATUS.UNDER_REVIEW',
+    shortlisted: 'CANDIDATE.STATUS.SHORTLISTED',
+    'interview-scheduled': 'CANDIDATE.STATUS.INTERVIEW_SCHEDULED',
+    rejected: 'CANDIDATE.STATUS.REJECTED',
+    selected: 'CANDIDATE.STATUS.SELECTED',
+  };
+
   private readonly _jobs = signal<Job[]>(
     (jobsData as Job[]).map((job, index) => ({
       ...job,
@@ -115,7 +137,8 @@ export class JobService {
   }
 
   getApplicationStatus(jobId: string): ApplicationStatus {
-    return this._applicationDetails().find(a => a.jobId === jobId)?.status ?? 'applied';
+    const rawStatus = this._applicationDetails().find(a => a.jobId === jobId)?.status ?? 'applied';
+    return this.normalizeApplicationStatus(rawStatus);
   }
 
   getApplicationDate(jobId: string): string {
@@ -135,6 +158,15 @@ export class JobService {
       selected: 'Selected',
     };
     return map[status];
+  }
+
+  getApplicationStatusKey(status: string): string {
+    return this.applicationStatusKeyMap[this.normalizeApplicationStatus(status)];
+  }
+
+  normalizeApplicationStatus(status: string): ApplicationStatus {
+    const normalizedStatus = status.trim().toLowerCase().replace(/[_\s]+/g, '-');
+    return this.applicationStatusAliases[normalizedStatus] ?? 'applied';
   }
 
   updateModerationStatus(jobId: string, status: Job['moderationStatus']): void {
