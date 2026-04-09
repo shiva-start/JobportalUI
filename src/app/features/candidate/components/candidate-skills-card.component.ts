@@ -1,15 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-candidate-skills-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   template: `
     <div class="bg-white rounded-xl shadow-sm p-4 sm:p-6">
-      <div class="mb-4 flex items-center justify-between">
-        <h2 class="font-bold text-gray-900">Skills</h2>
-        <button type="button" class="text-sm font-medium text-blue-600 hover:text-blue-700">+ Add Skill</button>
+      <div class="mb-4 flex items-center justify-between rtl:flex-row-reverse">
+        <h2 class="font-bold text-gray-900 rtl:text-right">{{ 'CANDIDATE.PROFILE.SKILLS' | translate }}</h2>
+        <button type="button" class="text-sm font-medium text-blue-600 hover:text-blue-700">{{ 'CANDIDATE.PROFILE.ADD_SKILL' | translate }}</button>
       </div>
 
       <ng-container *ngIf="skills?.length; else empty">
@@ -24,7 +25,7 @@ import { Component, Input } from '@angular/core';
       </ng-container>
 
       <ng-template #empty>
-        <p class="text-sm text-gray-400">No data available</p>
+        <p class="text-sm text-gray-400 rtl:text-right">{{ 'CANDIDATE.NO_DATA' | translate }}</p>
       </ng-template>
     </div>
   `,

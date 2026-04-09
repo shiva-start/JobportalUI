@@ -1,68 +1,31 @@
-<!-- Fixed top header -->
-<header class="fixed inset-x-0 top-0 z-50 h-16 border-b border-gray-200 bg-white/95 backdrop-blur flex items-center px-4 sm:px-6 lg:px-8 shadow-sm">
-  <div class="mx-auto max-w-7xl w-full flex items-center justify-between">
-    <!-- Logo -->
-    <a routerLink="/candidate/dashboard" class="flex items-center gap-3 text-slate-900">
-      <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600 text-sm font-semibold text-white">JP</span>
-      <span class="text-lg font-semibold tracking-tight hidden sm:block">JobPortal</span>
-    </a>
-
-    <!-- Right side: language toggle + user -->
-    <div class="flex items-center gap-3">
-      <!-- Language toggle -->
-      <div class="inline-flex items-center rounded-lg border border-gray-300 bg-white p-1">
-        <button
-          type="button"
-          (click)="languageService.setLanguage('en')"
-          class="rounded-md px-3 py-1.5 text-xs font-semibold transition"
-          [ngClass]="languageService.currentLanguage() === 'en' ? 'bg-slate-900 text-white' : 'text-gray-600 hover:text-slate-900'"
-        >EN</button>
-        <button
-          type="button"
-          (click)="languageService.setLanguage('ar')"
-          class="rounded-md px-3 py-1.5 text-xs font-semibold transition"
-          [ngClass]="languageService.currentLanguage() === 'ar' ? 'bg-slate-900 text-white' : 'text-gray-600 hover:text-slate-900'"
-        >AR</button>
-      </div>
-
-      <!-- User avatar + name + logout -->
-      <div class="flex items-center gap-2">
-        <div class="flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-xs font-semibold text-white">
-          {{ auth.currentUser()?.avatar || auth.getInitials(auth.currentUser()?.name || '') }}
-        </div>
-        <span class="hidden text-sm font-medium text-gray-700 md:block">{{ auth.currentUser()?.name }}</span>
-        <button
-          type="button"
-          (click)="logout()"
-          class="rounded-lg border border-gray-200 px-3 py-1.5 text-xs font-semibold text-gray-600 transition hover:border-red-300 hover:bg-red-50 hover:text-red-600"
-        >
-          {{ 'CANDIDATE.HEADER.LOGOUT' | translate }}
-        </button>
-      </div>
-    </div>
-  </div>
-</header>
+<app-navbar></app-navbar>
 
 <!-- Page body (offset by header height) -->
-<div class="min-h-screen bg-slate-50 pt-16">
+<div [dir]="isArabic() ? 'rtl' : 'ltr'" class="min-h-screen bg-slate-50 pt-16">
   <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 gap-6 lg:grid-cols-[280px_minmax(0,1fr)]">
       <aside class="space-y-4">
         <!-- User card -->
         <div class="bg-white rounded-xl shadow-sm p-4" id="cand2">
-          <div class="flex items-center gap-4">
+          <div class="flex items-center gap-4 rtl:flex-row-reverse">
             <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-600 text-lg font-semibold text-white">
               {{ auth.currentUser()?.avatar || auth.getInitials(auth.currentUser()?.name || 'Candidate') }}
             </div>
-            <div class="min-w-0">
-              <h2 class="truncate font-semibold text-gray-900">{{ auth.currentUser()?.name }}</h2>
-              <p class="truncate text-sm text-gray-500">{{ candidate.profile().headline }}</p>
-              <p class="text-xs text-gray-400">{{ candidate.profile().location }}</p>
+            <div class="min-w-0 flex-1 rtl:text-right">
+              <h2 class="truncate font-semibold text-gray-900">
+                {{ currentUserNameKey() ? (currentUserNameKey()! | translate) : auth.currentUser()?.name }}
+              </h2>
+              <p class="truncate text-sm text-gray-500">
+                {{ currentUserTitleKey() ? (currentUserTitleKey()! | translate) : candidate.profile().headline }}
+              </p>
+              <p class="text-xs text-gray-400">
+                {{ currentUserLocationKey() ? (currentUserLocationKey()! | translate) : candidate.profile().location }}
+              </p>
             </div>
           </div>
 
           <div class="mt-4">
-            <div class="mb-1 flex items-center justify-between text-xs text-gray-500">
+            <div class="mb-1 flex items-center justify-between text-xs text-gray-500 rtl:flex-row-reverse">
               <span>{{ 'CANDIDATE.SHELL.PROFILE_COMPLETION' | translate }}</span>
               <span class="font-semibold text-blue-600">{{ completion() }}%</span>
             </div>
@@ -78,7 +41,7 @@
             <a
               [routerLink]="item.route"
               routerLinkActive="bg-blue-50 text-blue-700"
-              class="mb-1 flex items-center justify-between rounded-lg px-4 py-3 text-sm font-medium text-gray-600 transition hover:bg-gray-50"
+              class="mb-1 flex items-center justify-between rounded-lg px-4 py-3 text-sm font-medium text-gray-600 transition hover:bg-gray-50 rtl:flex-row-reverse rtl:text-right"
             >
               <span>{{ item.labelKey | translate }}</span>
               @if (item.badge) {
@@ -90,14 +53,14 @@
 
         <!-- Profile checklist -->
         <div class="bg-white rounded-xl shadow-sm p-4">
-          <h3 class="font-semibold text-gray-900">{{ 'CANDIDATE.SHELL.COMPLETE_PROFILE' | translate }}</h3>
+          <h3 class="font-semibold text-gray-900 rtl:text-right">{{ 'CANDIDATE.SHELL.COMPLETE_PROFILE' | translate }}</h3>
           <div class="mt-3 space-y-2">
             @for (item of candidate.profileChecklist(); track item.route) {
               <a
                 [routerLink]="item.route"
-                class="flex items-center justify-between rounded-lg border border-gray-100 px-3 py-2 text-sm text-gray-600 hover:border-blue-200 hover:bg-blue-50"
+                class="flex items-center justify-between rounded-lg border border-gray-100 px-3 py-2 text-sm text-gray-600 hover:border-blue-200 hover:bg-blue-50 rtl:flex-row-reverse rtl:text-right"
               >
-                <span>{{ item.label }}</span>
+                <span>{{ item.labelKey | translate }}</span>
                 <span [class]="item.done ? 'text-green-600' : 'text-blue-600'">
                   {{ (item.done ? 'CANDIDATE.SHELL.DONE' : 'CANDIDATE.SHELL.OPEN') | translate }}
                 </span>
@@ -106,8 +69,8 @@
           </div>
 
           <div class="mt-4 rounded-xl bg-slate-50 p-3">
-            <h4 class="text-sm font-semibold text-gray-900">{{ 'CANDIDATE.SHELL.PROFILE_OVERVIEW' | translate }}</h4>
-            <p class="mt-1 text-sm text-gray-500">{{ 'CANDIDATE.SHELL.PROFILE_TIP' | translate }}</p>
+            <h4 class="text-sm font-semibold text-gray-900 rtl:text-right">{{ 'CANDIDATE.SHELL.PROFILE_OVERVIEW' | translate }}</h4>
+            <p class="mt-1 text-sm text-gray-500 rtl:text-right">{{ 'CANDIDATE.SHELL.PROFILE_TIP' | translate }}</p>
 
             @if (candidate.canBecomeFreelancer()) {
               <button
@@ -120,13 +83,13 @@
             }
 
             @if (candidate.freelancerRequestPending()) {
-              <p class="mt-3 text-sm font-medium text-amber-600">
+              <p class="mt-3 text-sm font-medium text-amber-600 rtl:text-right">
                 {{ 'CANDIDATE.SHELL.FREELANCER_PENDING' | translate }}
               </p>
             }
 
             @if (auth.isFreelancer()) {
-              <a routerLink="/freelancers" class="mt-3 inline-flex text-sm font-medium text-emerald-600 hover:text-emerald-700">
+              <a routerLink="/freelancers" class="mt-3 inline-flex text-sm font-medium text-emerald-600 hover:text-emerald-700 rtl:justify-end">
                 {{ 'CANDIDATE.SHELL.VIEW_FREELANCER_PROFILE' | translate }}
               </a>
             }

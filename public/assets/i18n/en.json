@@ -30,6 +30,15 @@
     "CHANGE_LANGUAGE": "Change language",
     "TOGGLE_MENU": "Toggle menu"
   },
+  "NAVBAR": {
+    "WORKSPACE": "Workspace",
+    "OPEN_PROFILE_MENU": "Open profile menu",
+    "PROFILE": "Profile",
+    "SETTINGS": "Settings",
+    "CANDIDATE_ACCOUNT": "Candidate account",
+    "EMPLOYER_ACCOUNT": "Employer account",
+    "ADMIN_ACCOUNT": "Administrator"
+  },
   "HOME": {
     "HERO": {
       "ARIA_REGION": "Job search hero",
@@ -469,7 +478,8 @@
       "OVERVIEW": "Overview",
       "POST_JOB": "Post a Job",
       "MANAGE_JOBS": "Manage Jobs",
-      "APPLICANTS": "Applicants"
+      "APPLICANTS": "Applicants",
+      "MESSAGES": "Messages"
     },
     "STATUS": {
       "ACTIVE": "Active",
@@ -612,11 +622,17 @@
     "SHELL": {
       "PROFILE_COMPLETION": "Profile completion",
       "COMPLETE_PROFILE": "Complete Your Profile",
+      "CHECKLIST": {
+        "ADD_SKILLS": "Add Skills",
+        "ADD_EXPERIENCE": "Add Experience",
+        "UPLOAD_RESUME": "Upload Resume"
+      },
       "DONE": "Done",
       "OPEN": "Open",
       "PROFILE_OVERVIEW": "Profile Overview Card",
       "PROFILE_TIP": "Keep your profile current so recruiters can discover you faster.",
       "BECOME_FREELANCER": "Become a Freelancer",
+      "FREELANCER_REQUEST_SUBMITTED": "Freelancer request submitted for review.",
       "FREELANCER_PENDING": "Freelancer request pending",
       "VIEW_FREELANCER_PROFILE": "View Freelancer Profile"
     },
@@ -624,17 +640,30 @@
       "WELCOME": "Welcome back",
       "TITLE": "Your candidate dashboard is ready",
       "SUBTITLE": "Track your applications, complete your profile, and stay on top of recruiter activity.",
+      "RECENT_ACTIVITY_TITLE": "Recent Activity",
+      "STATS": {
+        "TOTAL_APPLICATIONS": "Total Applications",
+        "SHORTLISTED": "Shortlisted",
+        "INTERVIEWS": "Interviews"
+      },
       "RECOMMENDED_JOBS": "Recommended jobs",
       "SEE_ALL": "See all",
       "RECENT_ACTIVITY": "Recent activity",
+      "RECENT_ACTIVITY_SUBTITLE": "Track your latest job-related updates",
       "APPLICATIONS_LINK": "Applications",
       "LATEST_UPDATES": "Latest updates",
+      "LATEST_UPDATES_SUBTITLE": "Follow fresh job matches, recruiter activity, and profile reminders.",
       "NOTIFICATIONS_LINK": "Notifications",
       "NEW_BADGE": "New"
     },
+    "USER": {
+      "NAME": {
+        "AHMED_HASSAN": "Ahmed Hassan"
+      }
+    },
     "APPLICATIONS": {
       "TITLE": "Applications",
-      "SUBTITLE": "Statuses are read only and updated only by employers or recruiters.",
+      "SUBTITLE": "Track your submitted applications and review the latest status updates from employers.",
       "JOB_TITLE": "Job Title",
       "COMPANY": "Company",
       "APPLIED_DATE": "Applied Date",
@@ -643,13 +672,57 @@
     "MESSAGES": {
       "TITLE": "Messages",
       "SUBTITLE": "Recruiter communication is ready with a clean placeholder experience.",
-      "AT": "at"
+      "AT": "at",
+      "CONTACTS": {
+        "NEHA_KAPOOR": "Neha Kapoor",
+        "RAHUL_MENON": "Rahul Menon",
+        "PRIYA_DESAI": "Priya Desai"
+      },
+      "COMPANIES": {
+        "HIREWAVE": "HireWave",
+        "PEOPLEMESH": "PeopleMesh",
+        "CLOUDORBIT": "CloudOrbit"
+      },
+      "SUBJECTS": {
+        "INTERVIEW_AVAILABILITY": "Interview availability request",
+        "QUICK_FOLLOW_UP": "Quick follow-up from recruiter",
+        "APPLICATION_UPDATE": "Application update"
+      },
+      "PREVIEWS": {
+        "INTERVIEW_AVAILABILITY": "Your profile stood out to the team. Are you available for a first-round discussion this week?",
+        "APPLICATION_FOLLOW_UP": "We are moving your application forward and would like to confirm your notice period.",
+        "APPLICATION_CLOSED": "Thanks again for applying. We have filled the role but would like to keep your profile on file."
+      }
     },
     "NOTIFICATIONS": {
       "TITLE": "Notifications",
       "SUBTITLE": "Job alerts and application updates appear here.",
       "NEW_BADGE": "New",
-      "MARK_READ": "Mark as read"
+      "MARK_READ": "Mark as read",
+      "ITEMS": {
+        "NEW_JOB_MATCH": {
+          "TITLE": "New job match",
+          "MESSAGE": "3 frontend jobs match your Angular and Tailwind skills."
+        },
+        "APPLICATION_MOVED": {
+          "TITLE": "Application moved to interview",
+          "MESSAGE": "PeopleMesh advanced your application to the interview stage."
+        },
+        "RECRUITER_MESSAGE": {
+          "TITLE": "Recruiter message received",
+          "MESSAGE": "{{sender}} sent you a new message about interview scheduling."
+        },
+        "COMPLETE_PROFILE": {
+          "TITLE": "Complete your profile",
+          "MESSAGE": "Adding one more project or certification can improve recruiter visibility."
+        },
+        "ACTIONS": {
+          "VIEW_JOBS": "View jobs",
+          "VIEW_APPLICATIONS": "View applications",
+          "OPEN_MESSAGES": "Open messages",
+          "OPEN_PROFILE": "Open profile"
+        }
+      }
     },
     "SAVED_JOBS": {
       "TITLE": "Saved Jobs",
@@ -662,9 +735,55 @@
       "SEARCH_PLACEHOLDER": "Search jobs, skills, or company",
       "LOCATION_PLACEHOLDER": "Filter by location",
       "RESET_FILTERS": "Reset filters"
+    },
+    "STATUS": {
+      "APPLIED": "Applied",
+      "UNDER_REVIEW": "Under review",
+      "SHORTLISTED": "Shortlisted",
+      "INTERVIEW_SCHEDULED": "Interview scheduled",
+      "REJECTED": "Rejected",
+      "SELECTED": "Selected"
+    },
+    "ACTIVITY": {
+      "MESSAGE_FROM": "Message from {{sender}}",
+      "APPLICATION_UPDATE_TITLE": "Application update for {{jobTitle}}",
+      "APPLICATION_UPDATE_DESCRIPTION": "Your application is now {{status}} at {{company}}.",
+      "OPEN_MESSAGE": "Open Message",
+      "VIEW_APPLICATION": "View Application",
+      "ROLE_FALLBACK": "this role",
+      "EMPLOYER_FALLBACK": "the employer"
+    },
+    "PROFILE": {
+      "EMAIL": "Email",
+      "PHONE": "Phone",
+      "ABOUT": "About",
+      "READ_ONLY_PREVIEW": "Read-only preview",
+      "SKILLS": "Skills",
+      "ADD_SKILL": "+ Add Skill",
+      "EXPERIENCE": "Experience",
+      "EDUCATION": "Education",
+      "CERTIFICATIONS": "Certifications",
+      "RESUME": "Resume",
+      "VIEW": "View",
+      "UPLOAD_RESUME": "Upload Resume",
+      "UPLOADED": "Uploaded",
+      "ISSUED": "Issued",
+      "EXPIRES": "Expires",
+      "CURRENT": "Current",
+      "GRADE": "Grade",
+      "IN": "in",
+      "ADD": "+ Add"
     }
   },
-  "ADMIN": {},
+  "ADMIN": {
+    "NAV": {
+      "DASHBOARD": "Dashboard",
+      "REQUESTS": "Requests",
+      "USERS": "Users",
+      "JOBS": "Jobs",
+      "REPORTS": "Reports"
+    }
+  },
   "BLOG": {
     "LIST": {
       "TITLE": "JOBPORTAL Blogs",

@@ -148,51 +148,48 @@ export const routes: Routes = [
   },
   {
     path: 'employer',
-    loadComponent: () => import('./features/employer/employer-dashboard.component').then(m => m.EmployerDashboardComponent),
+    loadComponent: () => import('./features/employer/employer-shell.component').then(m => m.EmployerShellComponent),
     canActivate: [AuthGuard, RoleGuard],
-    data: { role: 'employer' }
-  },
-  {
-    path: 'employer/dashboard',
-    loadComponent: () => import('./features/employer/employer-dashboard.component').then(m => m.EmployerDashboardComponent),
-    canActivate: [AuthGuard, RoleGuard],
-    data: { role: 'employer', tab: 'overview' }
-  },
-  {
-    path: 'employer/post-job',
-    loadComponent: () => import('./features/employer/employer-dashboard.component').then(m => m.EmployerDashboardComponent),
-    canActivate: [AuthGuard, RoleGuard],
-    data: { role: 'employer', tab: 'post-job' }
-  },
-  {
-    path: 'employer/manage-jobs',
-    loadComponent: () => import('./features/employer/employer-dashboard.component').then(m => m.EmployerDashboardComponent),
-    canActivate: [AuthGuard, RoleGuard],
-    data: { role: 'employer', tab: 'jobs' }
-  },
-  {
-    path: 'employer/candidates',
-    loadComponent: () => import('./features/employer/employer-dashboard.component').then(m => m.EmployerDashboardComponent),
-    canActivate: [AuthGuard, RoleGuard],
-    data: { role: 'employer', tab: 'applicants' }
-  },
-  {
-    path: 'employer/messages',
-    loadComponent: () => import('./features/employer/employer-messages.component').then(m => m.EmployerMessagesComponent),
-    canActivate: [AuthGuard, RoleGuard],
-    data: { role: 'employer' }
-  },
-  {
-    path: 'employer/company-profile',
-    loadComponent: () => import('./features/employer/employer-company-profile.component').then(m => m.EmployerCompanyProfileComponent),
-    canActivate: [AuthGuard, RoleGuard],
-    data: { role: 'employer' }
-  },
-  {
-    path: 'employer/settings',
-    loadComponent: () => import('./features/employer/employer-settings.component').then(m => m.EmployerSettingsComponent),
-    canActivate: [AuthGuard, RoleGuard],
-    data: { role: 'employer' }
+    data: { role: 'employer' },
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'dashboard',
+      },
+      {
+        path: 'dashboard',
+        loadComponent: () => import('./features/employer/employer-dashboard.component').then(m => m.EmployerDashboardComponent),
+        data: { tab: 'overview' }
+      },
+      {
+        path: 'post-job',
+        loadComponent: () => import('./features/employer/employer-dashboard.component').then(m => m.EmployerDashboardComponent),
+        data: { tab: 'post-job' }
+      },
+      {
+        path: 'manage-jobs',
+        loadComponent: () => import('./features/employer/employer-dashboard.component').then(m => m.EmployerDashboardComponent),
+        data: { tab: 'jobs' }
+      },
+      {
+        path: 'candidates',
+        loadComponent: () => import('./features/employer/employer-dashboard.component').then(m => m.EmployerDashboardComponent),
+        data: { tab: 'applicants' }
+      },
+      {
+        path: 'messages',
+        loadComponent: () => import('./features/employer/employer-messages.component').then(m => m.EmployerMessagesComponent),
+      },
+      {
+        path: 'company-profile',
+        loadComponent: () => import('./features/employer/employer-company-profile.component').then(m => m.EmployerCompanyProfileComponent),
+      },
+      {
+        path: 'settings',
+        loadComponent: () => import('./features/employer/employer-settings.component').then(m => m.EmployerSettingsComponent),
+      },
+    ]
   },
   {
     path: '**',
