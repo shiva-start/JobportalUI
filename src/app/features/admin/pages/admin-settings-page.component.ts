@@ -1,25 +1,29 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { TranslatePipe } from '@ngx-translate/core';
+import { LanguageService } from '../../../core/services/language.service';
 
 @Component({
   selector: 'app-admin-settings-page',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   template: `
-    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <section [attr.dir]="languageService.isRtl() ? 'rtl' : 'ltr'" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       <div class="bg-white rounded-xl shadow-sm p-4">
-        <h2 class="font-semibold text-gray-900">Platform Configuration</h2>
-        <p class="mt-2 text-sm text-gray-500">Manage platform behavior, approvals, and operational controls.</p>
+        <h2 class="font-semibold text-gray-900 rtl:text-right">{{ 'ADMIN.SETTINGS.PLATFORM_CONFIGURATION.TITLE' | translate }}</h2>
+        <p class="mt-2 text-sm text-gray-500 rtl:text-right">{{ 'ADMIN.SETTINGS.PLATFORM_CONFIGURATION.DESCRIPTION' | translate }}</p>
       </div>
       <div class="bg-white rounded-xl shadow-sm p-4">
-        <h2 class="font-semibold text-gray-900">Job Categories</h2>
-        <p class="mt-2 text-sm text-gray-500">Category and taxonomy management placeholder.</p>
+        <h2 class="font-semibold text-gray-900 rtl:text-right">{{ 'ADMIN.SETTINGS.JOB_CATEGORIES.TITLE' | translate }}</h2>
+        <p class="mt-2 text-sm text-gray-500 rtl:text-right">{{ 'ADMIN.SETTINGS.JOB_CATEGORIES.DESCRIPTION' | translate }}</p>
       </div>
       <div class="bg-white rounded-xl shadow-sm p-4">
-        <h2 class="font-semibold text-gray-900">Skill Library</h2>
-        <p class="mt-2 text-sm text-gray-500">Centralized skill management placeholder.</p>
+        <h2 class="font-semibold text-gray-900 rtl:text-right">{{ 'ADMIN.SETTINGS.SKILL_LIBRARY.TITLE' | translate }}</h2>
+        <p class="mt-2 text-sm text-gray-500 rtl:text-right">{{ 'ADMIN.SETTINGS.SKILL_LIBRARY.DESCRIPTION' | translate }}</p>
       </div>
     </section>
   `,
 })
-export class AdminSettingsPageComponent {}
+export class AdminSettingsPageComponent {
+  readonly languageService = inject(LanguageService);
+}

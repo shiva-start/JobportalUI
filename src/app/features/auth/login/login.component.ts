@@ -49,6 +49,11 @@ export class LoginComponent {
       this.submitting.set(false);
       if (success) {
         this.toastService.success(this.translate.instant('AUTH.LOGIN.WELCOME_TOAST'));
+        const role = this.auth.getUserRole();
+        if (role === 'candidate') {
+          this.router.navigate(['/candidate/home']);
+          return;
+        }
         this.router.navigate([this.auth.isEmployer() ? '/employer' : '/candidate']);
       } else {
         this.toastService.error(this.translate.instant('AUTH.LOGIN.ERROR_TOAST'));
@@ -59,7 +64,7 @@ export class LoginComponent {
   loginAsCandidate(): void {
     this.auth.loginAsCandidate();
     this.toastService.success(this.translate.instant('AUTH.LOGIN.CANDIDATE_TOAST'));
-    this.router.navigate(['/candidate']);
+    this.router.navigate(['/candidate/home']);
   }
 
   loginAsEmployer(): void {
