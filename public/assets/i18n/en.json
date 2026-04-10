@@ -656,6 +656,43 @@
       "NOTIFICATIONS_LINK": "Notifications",
       "NEW_BADGE": "New"
     },
+    "HOME": {
+      "WELCOME_LABEL": "Candidate Home",
+      "WELCOME_TITLE": "Welcome, {{name}}",
+      "WELCOME_SUBTITLE": "A lighter starting point for your job search, with quick access to jobs, profile momentum, and the latest activity.",
+      "BROWSE_JOBS": "Browse Jobs",
+      "COMPLETE_PROFILE": "Complete Profile",
+      "RECOMMENDED_TITLE": "Recommended for you",
+      "RECOMMENDED_SUBTITLE": "Fresh matches based on your current profile and activity.",
+      "PROFILE_STRENGTH": "Profile Strength",
+      "PROFILE_STRENGTH_SUBTITLE": "A stronger profile helps recruiters discover you faster.",
+      "IMPROVE_PROFILE": "Improve Profile",
+      "RECENT_ACTIVITY": "Recent Activity",
+      "RECENT_ACTIVITY_SUBTITLE": "Keep track of the latest actions around your job search.",
+      "PROFILE_STRENGTH_MESSAGES": {
+        "STRONG": "Your profile is in great shape. A few small updates can make it even stronger.",
+        "GROWING": "You have a solid start. Add a few more details to boost visibility.",
+        "START": "Complete the basics to unlock better job matches and recruiter interest."
+      },
+      "ACTIONS": {
+        "BROWSE_JOBS": {
+          "TITLE": "Browse Jobs",
+          "SUBTITLE": "Explore new openings"
+        },
+        "APPLICATIONS": {
+          "TITLE": "My Applications",
+          "SUBTITLE": "Track submitted roles"
+        },
+        "PROFILE": {
+          "TITLE": "Profile",
+          "SUBTITLE": "Strengthen your profile"
+        },
+        "SAVED": {
+          "TITLE": "Saved Jobs",
+          "SUBTITLE": "Revisit bookmarked roles"
+        }
+      }
+    },
     "USER": {
       "NAME": {
         "AHMED_HASSAN": "Ahmed Hassan"
@@ -781,7 +818,114 @@
       "REQUESTS": "Requests",
       "USERS": "Users",
       "JOBS": "Jobs",
-      "REPORTS": "Reports"
+      "REPORTS": "Reports",
+      "SETTINGS": "Settings"
+    },
+    "SHELL": {
+      "ROLE": "Platform Administrator",
+      "PENDING_APPROVALS": "Pending approvals"
+    },
+    "DASHBOARD": {
+      "TITLE": "Admin Dashboard",
+      "SUBTITLE": "Centralized platform control, moderation, and freelancer mediation.",
+      "REQUEST_STATUS": "Status",
+      "SECTIONS": {
+        "PLATFORM_OVERVIEW": "Platform Overview",
+        "FREELANCER_MEDIATION": "Freelancer Mediation",
+        "REPORTS": "Reports & Complaints"
+      },
+      "STATS": {
+        "TOTAL_USERS": "Total Users",
+        "TOTAL_JOBS": "Total Jobs",
+        "TOTAL_APPLICATIONS": "Total Applications",
+        "ACTIVE_FREELANCERS": "Active Freelancers",
+        "PENDING_REQUESTS": "Pending Requests"
+      },
+      "ANALYTICS": {
+        "CANDIDATE_GROWTH": "Candidate Growth",
+        "CANDIDATE_GROWTH_DETAIL": "Compared to last month",
+        "HIRING_COMPANIES": "Hiring Companies",
+        "HIRING_COMPANIES_DETAIL": "Active employer accounts",
+        "APPROVED_JOBS": "Approved Jobs",
+        "APPROVED_JOBS_DETAIL": "Visible on platform",
+        "OPEN_REPORTS": "Open Reports",
+        "OPEN_REPORTS_DETAIL": "Require moderation"
+      },
+      "REPORT_TYPES": {
+        "JOB": "job",
+        "USER": "user",
+        "CONTENT": "content"
+      },
+      "REPORT_STATUS": {
+        "OPEN": "open",
+        "REVIEWED": "reviewed",
+        "RESOLVED": "resolved"
+      },
+      "REPORT_SUBJECTS": {
+        "SALARY_MISMATCH": "Suspicious salary mismatch in Backend Engineer posting",
+        "SPAM_OUTREACH": "Candidate reported spam outreach from recruiter",
+        "INAPPROPRIATE_WORDING": "Inappropriate wording flagged in sales job description"
+      }
+    },
+    "REQUESTS": {
+      "TITLE": "Freelancer Requests",
+      "SUBTITLE": "This is the main admin workflow: review employer freelancer requests and control access.",
+      "PENDING_EMPLOYER_REQUESTS": "Pending Employer Requests",
+      "FREELANCER_DIRECTORY": "Freelancer Directory",
+      "CANDIDATE_FREELANCER_APPLICATIONS": "Candidate Freelancer Applications",
+      "NO_DATA": "No data available",
+      "SKILLS": "Skills",
+      "STATUS": "Status",
+      "ASSIGNED": "Assigned",
+      "SUBMITTED": "Submitted",
+      "ASSIGN_FREELANCER": "Assign freelancer",
+      "APPROVE": "Approve",
+      "REJECT": "Reject"
+    },
+    "USERS": {
+      "CANDIDATES": "Candidates",
+      "EMPLOYERS": "Employers",
+      "DEACTIVATE": "Deactivate",
+      "BLOCK": "Block",
+      "STATUS": {
+        "ACTIVE": "active",
+        "INACTIVE": "inactive",
+        "BLOCKED": "blocked"
+      },
+      "TITLES": {
+        "HR_MANAGER": "HR Manager"
+      }
+    },
+    "JOBS": {
+      "TITLE": "Jobs",
+      "SUBTITLE": "Monitor postings and remove only spam, fake, or offensive jobs when needed.",
+      "FLAG": "Flag",
+      "REMOVE": "Remove",
+      "STATUS": {
+        "APPROVED": "approved",
+        "PENDING": "pending",
+        "REJECTED": "rejected"
+      }
+    },
+    "REPORTS": {
+      "TITLE": "Reports & Analytics",
+      "SUBTITLE": "Track moderation, trends, and system health.",
+      "MODERATION_REPORTS": "Moderation Reports",
+      "RESOLVE": "Resolve"
+    },
+    "SETTINGS": {
+      "PLATFORM_CONFIGURATION": {
+        "TITLE": "Platform Configuration",
+        "DESCRIPTION": "Manage platform behavior, approvals, and operational controls."
+      },
+      "JOB_CATEGORIES": {
+        "TITLE": "Job Categories",
+        "DESCRIPTION": "Category and taxonomy management placeholder."
+      },
+      "SKILL_LIBRARY": {
+        "TITLE": "Skill Library",
+        "DESCRIPTION": "Centralized skill management placeholder."
+      }
     }
   },
   "BLOG": {

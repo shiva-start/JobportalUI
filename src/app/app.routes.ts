@@ -85,15 +85,15 @@ export const routes: Routes = [
       },
       {
         path: 'jobs',
-        loadComponent: () => import('./features/admin/pages/admin-jobs-page.component').then(m => m.AdminJobsPageComponent),
+        loadComponent: () => import('./features/admin/pages/admin-jobs-page-localized.component').then(m => m.AdminJobsPageLocalizedComponent),
       },
       {
         path: 'requests',
-        loadComponent: () => import('./features/admin/pages/admin-requests-page.component').then(m => m.AdminRequestsPageComponent),
+        loadComponent: () => import('./features/admin/pages/admin-requests-page-localized.component').then(m => m.AdminRequestsPageLocalizedComponent),
       },
       {
         path: 'reports',
-        loadComponent: () => import('./features/admin/pages/admin-reports-page.component').then(m => m.AdminReportsPageComponent),
+        loadComponent: () => import('./features/admin/pages/admin-reports-page-localized.component').then(m => m.AdminReportsPageLocalizedComponent),
       },
       {
         path: 'settings',
@@ -111,6 +111,10 @@ export const routes: Routes = [
         path: '',
         pathMatch: 'full',
         redirectTo: 'dashboard',
+      },
+      {
+        path: 'home',
+        loadComponent: () => import('./features/candidate/pages/candidate-home.component').then(m => m.CandidateHomeComponent),
       },
       {
         path: 'dashboard',

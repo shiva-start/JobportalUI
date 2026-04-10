@@ -6,7 +6,7 @@ import { AdminDashboardService } from '../../../core/services/admin-dashboard.se
 import { LanguageService } from '../../../core/services/language.service';
 
 @Component({
-  selector: 'app-admin-requests-page',
+  selector: 'app-admin-requests-page-localized',
   standalone: true,
   imports: [CommonModule, FormsModule, TranslatePipe],
   template: `
@@ -25,12 +25,20 @@ import { LanguageService } from '../../../core/services/language.service';
                 <p class="font-semibold text-gray-900">{{ request.employerName || request.employerEmail }}</p>
                 <p class="text-sm text-gray-500">{{ request.message || request.description }}</p>
                 <p class="mt-1 text-xs text-gray-400">{{ 'ADMIN.REQUESTS.SKILLS' | translate }}: {{ request.skills.join(', ') }}</p>
-                <p class="mt-1 text-xs text-gray-400">{{ 'ADMIN.REQUESTS.STATUS' | translate }}: {{ request.status }}<span *ngIf="request.freelancerName"> · {{ 'ADMIN.REQUESTS.ASSIGNED' | translate }} {{ request.freelancerName }}</span></p>
+                <p class="mt-1 text-xs text-gray-400">
+                  {{ 'ADMIN.REQUESTS.STATUS' | translate }}: {{ request.status }}
+                  <span *ngIf="request.freelancerName">
+                    · {{ 'ADMIN.REQUESTS.ASSIGNED' | translate }}
+                    {{ freelancerNameKey(request.freelancerName) ? (freelancerNameKey(request.freelancerName)! | translate) : request.freelancerName }}
+                  </span>
+                </p>
               </div>
               <div class="min-w-[220px]">
                 <select [(ngModel)]="selectedFreelancers[request.id]" class="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm">
                   <option value="">{{ 'ADMIN.REQUESTS.ASSIGN_FREELANCER' | translate }}</option>
-                  <option *ngFor="let freelancer of approvedFreelancers()" [value]="freelancer.id">{{ freelancer.name }} - {{ freelancer.role }}</option>
+                  <option *ngFor="let freelancer of approvedFreelancers()" [value]="freelancer.id">
+                    {{ freelancerNameKey(freelancer.name) ? (freelancerNameKey(freelancer.name)! | translate) : freelancer.name }} - {{ freelancer.role }}
+                  </option>
                 </select>
                 <div class="mt-3 flex flex-wrap gap-2">
                   <button type="button" (click)="approve(request.id)" class="px-3 py-1 rounded-lg text-sm font-medium bg-green-100 text-green-700">{{ 'ADMIN.REQUESTS.APPROVE' | translate }}</button>
@@ -47,7 +55,7 @@ import { LanguageService } from '../../../core/services/language.service';
         <h3 class="font-semibold mb-2 rtl:text-right">{{ 'ADMIN.REQUESTS.FREELANCER_DIRECTORY' | translate }}</h3>
         <div *ngIf="approvedFreelancers().length; else noDirectory" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           <div *ngFor="let freelancer of approvedFreelancers()" class="rounded-xl border border-gray-100 p-4">
-            <p class="font-semibold text-gray-900 rtl:text-right">{{ freelancer.name }}</p>
+            <p class="font-semibold text-gray-900 rtl:text-right">{{ freelancerNameKey(freelancer.name) ? (freelancerNameKey(freelancer.name)! | translate) : freelancer.name }}</p>
             <p class="text-sm text-gray-500 rtl:text-right">{{ freelancer.role }}</p>
             <p class="mt-2 text-sm text-gray-500 rtl:text-right">{{ freelancer.description }}</p>
             <p class="mt-2 text-xs text-gray-400 rtl:text-right">{{ 'ADMIN.REQUESTS.SKILLS' | translate }}: {{ freelancer.skills.join(', ') }}</p>
@@ -76,13 +84,30 @@ import { LanguageService } from '../../../core/services/language.service';
     </section>
   `,
 })
-export class AdminRequestsPageComponent {
+export class AdminRequestsPageLocalizedComponent {
   readonly admin = inject(AdminDashboardService);
   readonly languageService = inject(LanguageService);
   selectedFreelancers: Record<string, string> = {};
 
+  private readonly freelancerNameKeyMap: Record<string, string> = {
+    'Aisha Khan': 'FREELANCERS.CARD.NAMES.AISHA_KHAN',
+    'Omar Rizvi': 'FREELANCERS.CARD.NAMES.OMAR_RIZVI',
+    'Lina Ahmed': 'FREELANCERS.CARD.NAMES.LINA_AHMED',
+    'Samir Patel': 'FREELANCERS.CARD.NAMES.SAMIR_PATEL',
+    'Priya Sharma': 'FREELANCERS.CARD.NAMES.PRIYA_SHARMA',
+    'Zaid Hassan': 'FREELANCERS.CARD.NAMES.ZAID_HASSAN',
+  };
+
   approvedFreelancers() {
     return this.admin.freelancersList().filter(freelancer => freelancer.status === 'approved');
+  }
+
+  freelancerNameKey(name: string | null | undefined): string | null {
+    if (!name) {
+      return null;
+    }
+
+    return this.freelancerNameKeyMap[name] ?? null;
   }
 
   approve(requestId: string): void {
@@ -90,6 +115,7 @@ export class AdminRequestsPageComponent {
     if (!freelancerId) {
       return;
     }
+
     this.admin.approveFreelancerRequest(requestId, freelancerId);
   }
 }

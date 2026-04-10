@@ -1,10 +1,12 @@
 import { Injectable, computed, inject, signal } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from './auth.service';
 import { CandidateFreelancerRequestService } from './candidate-freelancer-request.service';
 import { FreelancerRequestService } from './freelancer-request.service';
 import { FreelancerService } from './freelancer.service';
 import { JobService } from './job.service';
 import { PlatformReport, User } from '../../models';
+import { LanguageService } from './language.service';
 
 @Injectable({ providedIn: 'root' })
 export class AdminDashboardService {
@@ -13,6 +15,8 @@ export class AdminDashboardService {
   private readonly freelancers = inject(FreelancerService);
   private readonly freelancerRequests = inject(FreelancerRequestService);
   private readonly candidateFreelancerRequests = inject(CandidateFreelancerRequestService);
+  private readonly translate = inject(TranslateService);
+  private readonly languageService = inject(LanguageService);
 
   private readonly _reports = signal<PlatformReport[]>([
     { id: 'r1', type: 'job', subject: 'Suspicious salary mismatch in Backend Engineer posting', status: 'open', createdAt: '2026-04-02' },
@@ -36,26 +40,64 @@ export class AdminDashboardService {
       owner: employer.name,
       email: employer.email,
       status: employer.accountStatus ?? 'active',
-      location: employer.location ?? 'No data available',
+      location: employer.location ?? this.translateLabel('COMMON.NO_DATA'),
     })),
   );
 
-  readonly stats = computed(() => [
-    { label: 'Total Users', value: this.users().length },
-    { label: 'Total Jobs', value: this.jobsList().length },
-    { label: 'Total Applications', value: this.jobs.totalApplications() },
-    { label: 'Active Freelancers', value: this.freelancers.activeCount() },
-    { label: 'Pending Requests', value: this.freelancerRequests.pendingCount() + this.candidateFreelancerRequestsList().filter(item => item.status === 'pending').length },
-  ]);
+  readonly stats = computed(() => {
+    this.languageService.currentLanguage();
 
-  readonly analytics = computed(() => [
-    { label: 'Candidate Growth', value: `+${this.candidates().length * 12}%`, detail: 'Compared to last month' },
-    { label: 'Hiring Companies', value: this.employers().length, detail: 'Active employer accounts' },
-    { label: 'Approved Jobs', value: this.jobsList().filter(job => job.moderationStatus === 'approved').length, detail: 'Visible on platform' },
-    { label: 'Open Reports', value: this.reports().filter(report => report.status === 'open').length, detail: 'Require moderation' },
-  ]);
+    return [
+      { label: this.translateLabel('ADMIN.DASHBOARD.STATS.TOTAL_USERS'), value: this.users().length },
+      { label: this.translateLabel('ADMIN.DASHBOARD.STATS.TOTAL_JOBS'), value: this.jobsList().length },
+      { label: this.translateLabel('ADMIN.DASHBOARD.STATS.TOTAL_APPLICATIONS'), value: this.jobs.totalApplications() },
+      { label: this.translateLabel('ADMIN.DASHBOARD.STATS.ACTIVE_FREELANCERS'), value: this.freelancers.activeCount() },
+      {
+        label: this.translateLabel('ADMIN.DASHBOARD.STATS.PENDING_REQUESTS'),
+        value: this.freelancerRequests.pendingCount() + this.candidateFreelancerRequestsList().filter(item => item.status === 'pending').length,
+      },
+    ];
+  });
 
-  readonly flaggedContent = computed(() => this._reports().filter(report => report.status !== 'resolved'));
+  readonly analytics = computed(() => {
+    this.languageService.currentLanguage();
+
+    return [
+      {
+        label: this.translateLabel('ADMIN.DASHBOARD.ANALYTICS.CANDIDATE_GROWTH'),
+        value: `+${this.candidates().length * 12}%`,
+        detail: this.translateLabel('ADMIN.DASHBOARD.ANALYTICS.CANDIDATE_GROWTH_DETAIL'),
+      },
+      {
+        label: this.translateLabel('ADMIN.DASHBOARD.ANALYTICS.HIRING_COMPANIES'),
+        value: this.employers().length,
+        detail: this.translateLabel('ADMIN.DASHBOARD.ANALYTICS.HIRING_COMPANIES_DETAIL'),
+      },
+      {
+        label: this.translateLabel('ADMIN.DASHBOARD.ANALYTICS.APPROVED_JOBS'),
+        value: this.jobsList().filter(job => job.moderationStatus === 'approved').length,
+        detail: this.translateLabel('ADMIN.DASHBOARD.ANALYTICS.APPROVED_JOBS_DETAIL'),
+      },
+      {
+        label: this.translateLabel('ADMIN.DASHBOARD.ANALYTICS.OPEN_REPORTS'),
+        value: this.reports().filter(report => report.status === 'open').length,
+        detail: this.translateLabel('ADMIN.DASHBOARD.ANALYTICS.OPEN_REPORTS_DETAIL'),
+      },
+    ];
+  });
+
+  readonly flaggedContent = computed(() => {
+    this.languageService.currentLanguage();
+
+    return this._reports()
+      .filter(report => report.status !== 'resolved')
+      .map(report => ({
+        ...report,
+        subject: this.translateReportSubject(report.subject),
+        type: this.translateLabel(`ADMIN.DASHBOARD.REPORT_TYPES.${report.type.toUpperCase()}`),
+        status: this.translateLabel(`ADMIN.DASHBOARD.REPORT_STATUS.${report.status.toUpperCase()}`),
+      }));
+  });
 
   setUserStatus(userId: string, status: User['accountStatus']): void {
     this.auth.updateUser(userId, { accountStatus: status });
@@ -107,5 +149,20 @@ export class AdminDashboardService {
 
   resolveReport(reportId: string): void {
     this._reports.update(list => list.map(report => report.id === reportId ? { ...report, status: 'resolved' } : report));
+  }
+
+  private translateLabel(key: string): string {
+    return this.translate.instant(key);
+  }
+
+  private translateReportSubject(subject: string): string {
+    const subjectMap: Record<string, string> = {
+      'Suspicious salary mismatch in Backend Engineer posting': 'ADMIN.DASHBOARD.REPORT_SUBJECTS.SALARY_MISMATCH',
+      'Candidate reported spam outreach from recruiter': 'ADMIN.DASHBOARD.REPORT_SUBJECTS.SPAM_OUTREACH',
+      'Inappropriate wording flagged in sales job description': 'ADMIN.DASHBOARD.REPORT_SUBJECTS.INAPPROPRIATE_WORDING',
+    };
+
+    const key = subjectMap[subject];
+    return key ? this.translate.instant(key) : subject;
   }
 }

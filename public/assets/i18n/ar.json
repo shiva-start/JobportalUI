@@ -647,6 +647,43 @@
       "RECENT_ACTIVITY_SUBTITLE": "تابع آخر التحديثات الخاصة بك",
       "LATEST_UPDATES_SUBTITLE": "اطلع على الوظائف المطابقة الجديدة ونشاط مسؤولي التوظيف وتذكيرات تحسين الملف الشخصي."
     },
+    "HOME": {
+      "WELCOME_LABEL": "الصفحة الرئيسية للمرشح",
+      "WELCOME_TITLE": "مرحباً، {{name}}",
+      "WELCOME_SUBTITLE": "نقطة بداية أخف لرحلة بحثك عن العمل، مع وصول سريع إلى الوظائف وتقدم ملفك الشخصي وآخر الأنشطة.",
+      "BROWSE_JOBS": "تصفح الوظائف",
+      "COMPLETE_PROFILE": "أكمل الملف الشخصي",
+      "RECOMMENDED_TITLE": "موصى به لك",
+      "RECOMMENDED_SUBTITLE": "فرص جديدة تناسب ملفك الشخصي الحالي ونشاطك.",
+      "PROFILE_STRENGTH": "قوة الملف الشخصي",
+      "PROFILE_STRENGTH_SUBTITLE": "الملف الشخصي الأقوى يساعد مسؤولي التوظيف على العثور عليك بشكل أسرع.",
+      "IMPROVE_PROFILE": "حسّن الملف الشخصي",
+      "RECENT_ACTIVITY": "النشاط الأخير",
+      "RECENT_ACTIVITY_SUBTITLE": "تابع أحدث الأنشطة المتعلقة ببحثك عن عمل.",
+      "PROFILE_STRENGTH_MESSAGES": {
+        "STRONG": "ملفك الشخصي في حالة ممتازة. بعض التحديثات البسيطة قد تجعله أقوى.",
+        "GROWING": "لديك بداية جيدة. أضف بعض التفاصيل الإضافية لزيادة الظهور.",
+        "START": "أكمل الأساسيات للحصول على وظائف أكثر ملاءمة وجذب اهتمام مسؤولي التوظيف."
+      },
+      "ACTIONS": {
+        "BROWSE_JOBS": {
+          "TITLE": "تصفح الوظائف",
+          "SUBTITLE": "استكشف الفرص الجديدة"
+        },
+        "APPLICATIONS": {
+          "TITLE": "طلباتي",
+          "SUBTITLE": "تابع الوظائف التي قدمت عليها"
+        },
+        "PROFILE": {
+          "TITLE": "الملف الشخصي",
+          "SUBTITLE": "عزّز قوة ملفك الشخصي"
+        },
+        "SAVED": {
+          "TITLE": "الوظائف المحفوظة",
+          "SUBTITLE": "ارجع إلى الوظائف المحفوظة"
+        }
+      }
+    },
     "USER": {
       "NAME": {
         "AHMED_HASSAN": "أحمد حسن"
@@ -772,7 +809,114 @@
       "REQUESTS": "الطلبات",
       "USERS": "المستخدمون",
       "JOBS": "الوظائف",
-      "REPORTS": "التقارير"
+      "REPORTS": "التقارير",
+      "SETTINGS": "الإعدادات"
+    },
+    "SHELL": {
+      "ROLE": "مسؤول المنصة",
+      "PENDING_APPROVALS": "الموافقات المعلّقة"
+    },
+    "DASHBOARD": {
+      "TITLE": "لوحة تحكم المسؤول",
+      "SUBTITLE": "تحكم مركزي في المنصة والإشراف والوساطة بين أصحاب العمل والمستقلين.",
+      "REQUEST_STATUS": "الحالة",
+      "SECTIONS": {
+        "PLATFORM_OVERVIEW": "نظرة عامة على المنصة",
+        "FREELANCER_MEDIATION": "وساطة المستقلين",
+        "REPORTS": "البلاغات والشكاوى"
+      },
+      "STATS": {
+        "TOTAL_USERS": "إجمالي المستخدمين",
+        "TOTAL_JOBS": "إجمالي الوظائف",
+        "TOTAL_APPLICATIONS": "إجمالي الطلبات",
+        "ACTIVE_FREELANCERS": "المستقلون النشطون",
+        "PENDING_REQUESTS": "الطلبات المعلّقة"
+      },
+      "ANALYTICS": {
+        "CANDIDATE_GROWTH": "نمو المرشحين",
+        "CANDIDATE_GROWTH_DETAIL": "مقارنة بالشهر الماضي",
+        "HIRING_COMPANIES": "الشركات التي توظف",
+        "HIRING_COMPANIES_DETAIL": "حسابات أصحاب العمل النشطة",
+        "APPROVED_JOBS": "الوظائف المعتمدة",
+        "APPROVED_JOBS_DETAIL": "مرئية على المنصة",
+        "OPEN_REPORTS": "البلاغات المفتوحة",
+        "OPEN_REPORTS_DETAIL": "تتطلب إشرافًا"
+      },
+      "REPORT_TYPES": {
+        "JOB": "وظيفة",
+        "USER": "مستخدم",
+        "CONTENT": "محتوى"
+      },
+      "REPORT_STATUS": {
+        "OPEN": "مفتوح",
+        "REVIEWED": "تمت مراجعته",
+        "RESOLVED": "تم حله"
+      },
+      "REPORT_SUBJECTS": {
+        "SALARY_MISMATCH": "اشتباه في عدم تطابق الراتب في إعلان وظيفة مهندس Backend",
+        "SPAM_OUTREACH": "أبلغ أحد المرشحين عن رسائل مزعجة من مسؤول توظيف",
+        "INAPPROPRIATE_WORDING": "تم الإبلاغ عن صياغة غير مناسبة في وصف وظيفة المبيعات"
+      }
+    },
+    "REQUESTS": {
+      "TITLE": "طلبات المستقلين",
+      "SUBTITLE": "هذه هي سير العمل الرئيسية للمسؤول: مراجعة طلبات أصحاب العمل للمستقلين والتحكم في الوصول.",
+      "PENDING_EMPLOYER_REQUESTS": "طلبات أصحاب العمل المعلّقة",
+      "FREELANCER_DIRECTORY": "دليل المستقلين",
+      "CANDIDATE_FREELANCER_APPLICATIONS": "طلبات المرشحين للعمل المستقل",
+      "NO_DATA": "لا توجد بيانات متاحة",
+      "SKILLS": "المهارات",
+      "STATUS": "الحالة",
+      "ASSIGNED": "تم التعيين لـ",
+      "SUBMITTED": "تاريخ التقديم",
+      "ASSIGN_FREELANCER": "تعيين مستقل",
+      "APPROVE": "موافقة",
+      "REJECT": "رفض"
+    },
+    "USERS": {
+      "CANDIDATES": "المرشحون",
+      "EMPLOYERS": "أصحاب العمل",
+      "DEACTIVATE": "إلغاء التفعيل",
+      "BLOCK": "حظر",
+      "STATUS": {
+        "ACTIVE": "نشط",
+        "INACTIVE": "غير نشط",
+        "BLOCKED": "محظور"
+      },
+      "TITLES": {
+        "HR_MANAGER": "مدير الموارد البشرية"
+      }
+    },
+    "JOBS": {
+      "TITLE": "الوظائف",
+      "SUBTITLE": "راقب الإعلانات واحذف فقط الوظائف المزعجة أو الوهمية أو المسيئة عند الحاجة.",
+      "FLAG": "وضع علامة",
+      "REMOVE": "إزالة",
+      "STATUS": {
+        "APPROVED": "مقبول",
+        "PENDING": "معلّق",
+        "REJECTED": "مرفوض"
+      }
+    },
+    "REPORTS": {
+      "TITLE": "التقارير والتحليلات",
+      "SUBTITLE": "تابع الإشراف والاتجاهات وصحة النظام.",
+      "MODERATION_REPORTS": "تقارير الإشراف",
+      "RESOLVE": "حل"
+    },
+    "SETTINGS": {
+      "PLATFORM_CONFIGURATION": {
+        "TITLE": "إعدادات المنصة",
+        "DESCRIPTION": "أدر سلوك المنصة والموافقات وعناصر التحكم التشغيلية."
+      },
+      "JOB_CATEGORIES": {
+        "TITLE": "فئات الوظائف",
+        "DESCRIPTION": "عنصر نائب لإدارة الفئات والتصنيفات."
+      },
+      "SKILL_LIBRARY": {
+        "TITLE": "مكتبة المهارات",
+        "DESCRIPTION": "عنصر نائب لإدارة المهارات بشكل مركزي."
+      }
     }
   },
   "BLOG": {
