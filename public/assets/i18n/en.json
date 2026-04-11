@@ -17,7 +17,7 @@
   },
   "NAV": {
     "JOBSEEKERS": "Jobseekers",
-    "COMPANIES": "Companies",
+    "COMPANIES": "Employers",
     "FREELANCERS": "Freelancers",
     "RESOURCES": "Resources",
     "HELP": "Help",
@@ -603,6 +603,45 @@
       "JOB_POSTED": "Job posted successfully.",
       "PASSWORD_REQUIRED": "Please enter a new password.",
       "PASSWORD_UPDATED": "Password updated."
+    },
+    "HOME": {
+      "WELCOME_LABEL": "Employer workspace",
+      "WELCOME_TITLE": "{{company}} hiring overview",
+      "WELCOME_SUBTITLE": "{{owner}}, you currently have {{activeJobs}} active jobs attracting {{applicants}} applicants across your hiring pipeline.",
+      "HERO_STATS": {
+        "TOTAL_POSTS": "Total posts",
+        "ACTIVE_JOBS": "Active jobs",
+        "TOTAL_APPLICANTS": "Applicants"
+      },
+      "PROGRESS_TITLE": "Hiring momentum",
+      "PROGRESS_BADGE": "Live pipeline",
+      "PROGRESS_SUBTITLE": "A quick signal based on how many applicants are already moving into your shortlist.",
+      "PERFORMANCE_TITLE": "Performance snapshot",
+      "PERFORMANCE_SUBTITLE": "High-level metrics from your current hiring workspace.",
+      "RECENT_POSTINGS_TITLE": "Latest job postings",
+      "RECENT_POSTINGS_SUBTITLE": "Monitor the listings drawing attention right now.",
+      "RECENT_APPLICANTS_TITLE": "Recent applicants",
+      "RECENT_APPLICANTS_SUBTITLE": "Review the newest candidates entering your pipeline.",
+      "PIPELINE_TITLE": "Candidate pipeline",
+      "PIPELINE_SUBTITLE": "A simple breakdown of where recent applicants currently stand.",
+      "ACTIONS": {
+        "POST_JOB": {
+          "TITLE": "Post a job",
+          "SUBTITLE": "Launch a new opening with your existing employer workflow."
+        },
+        "MANAGE_JOBS": {
+          "TITLE": "Manage jobs",
+          "SUBTITLE": "Review active listings, visibility, and posting performance."
+        },
+        "VIEW_APPLICANTS": {
+          "TITLE": "View applicants",
+          "SUBTITLE": "Screen candidates and move strong matches forward."
+        }
+      },
+      "JOB_TITLES": {
+        "PRODUCT_DESIGNER": "Product Designer",
+        "BACKEND_ENGINEER": "Backend Engineer"
+      }
     }
   },
   "CANDIDATE": {

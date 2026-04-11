@@ -39,6 +39,7 @@ export class NavbarComponent {
       { labelKey: 'CANDIDATE.NAV.APPLICATIONS', route: '/candidate/applications' },
       { labelKey: 'CANDIDATE.NAV.SAVED_JOBS', route: '/candidate/saved-jobs' },
       { labelKey: 'CANDIDATE.NAV.MESSAGES', route: '/candidate/messages' },
+      { labelKey: 'NAV.HELP', route: '/help' },
     ],
     employer: [
       { labelKey: 'EMPLOYER.NAV.OVERVIEW', route: '/employer/dashboard' },
@@ -46,6 +47,7 @@ export class NavbarComponent {
       { labelKey: 'EMPLOYER.NAV.MANAGE_JOBS', route: '/employer/manage-jobs' },
       { labelKey: 'EMPLOYER.NAV.APPLICANTS', route: '/employer/candidates' },
       { labelKey: 'EMPLOYER.NAV.MESSAGES', route: '/employer/messages' },
+      { labelKey: 'NAV.HELP', route: '/help' },
     ],
     admin: [
       { labelKey: 'ADMIN.NAV.DASHBOARD', route: '/admin/dashboard' },
@@ -53,6 +55,7 @@ export class NavbarComponent {
       { labelKey: 'ADMIN.NAV.USERS', route: '/admin/users' },
       { labelKey: 'ADMIN.NAV.JOBS', route: '/admin/jobs' },
       { labelKey: 'ADMIN.NAV.REPORTS', route: '/admin/reports' },
+      { labelKey: 'NAV.HELP', route: '/help' },
     ],
   }));
 

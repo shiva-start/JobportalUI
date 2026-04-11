@@ -1,5 +1,5 @@
-import { Component, OnInit, inject, signal } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, computed, inject, signal } from '@angular/core';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
@@ -22,10 +22,19 @@ type PostedJob = {
 
 type ApplicantStatus = 'new' | 'reviewed' | 'shortlisted';
 
+type EmployerQuickAction = {
+  route: string;
+  titleKey: string;
+  subtitleKey: string;
+  count: number | null;
+  accentClass: string;
+  iconPath: string;
+};
+
 @Component({
   selector: 'app-employer-dashboard',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, BadgeComponent, TranslatePipe],
+  imports: [CommonModule, ReactiveFormsModule, BadgeComponent, TranslatePipe, RouterLink],
   templateUrl: './employer-dashboard.component.html'
 })
 export class EmployerDashboardComponent implements OnInit {
@@ -72,6 +81,52 @@ export class EmployerDashboardComponent implements OnInit {
     { avatar: 'TK', name: 'Tarek Khalil', title: 'DevOps Engineer', job: 'DevOps Engineer', status: 'reviewed' as ApplicantStatus },
     { avatar: 'RI', name: 'Rana Ibrahim', title: 'UI/UX Designer', job: 'Product Designer', status: 'new' as ApplicantStatus },
   ];
+
+  readonly homeHeroStats = computed(() => [
+    { value: this.postedJobs.length, labelKey: 'EMPLOYER.HOME.HERO_STATS.TOTAL_POSTS' },
+    { value: this.activeJobsCount(), labelKey: 'EMPLOYER.HOME.HERO_STATS.ACTIVE_JOBS' },
+    { value: this.totalApplicants(), labelKey: 'EMPLOYER.HOME.HERO_STATS.TOTAL_APPLICANTS' },
+  ]);
+
+  readonly homeQuickActions = computed<EmployerQuickAction[]>(() => [
+    {
+      route: '/employer/post-job',
+      titleKey: 'EMPLOYER.HOME.ACTIONS.POST_JOB.TITLE',
+      subtitleKey: 'EMPLOYER.HOME.ACTIONS.POST_JOB.SUBTITLE',
+      count: null,
+      accentClass: 'bg-gradient-to-br from-blue-100 to-cyan-100 text-blue-700',
+      iconPath: 'M12 4v16m8-8H4',
+    },
+    {
+      route: '/employer/manage-jobs',
+      titleKey: 'EMPLOYER.HOME.ACTIONS.MANAGE_JOBS.TITLE',
+      subtitleKey: 'EMPLOYER.HOME.ACTIONS.MANAGE_JOBS.SUBTITLE',
+      count: this.activeJobsCount(),
+      accentClass: 'bg-gradient-to-br from-emerald-100 to-teal-100 text-emerald-700',
+      iconPath: 'M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
+    },
+    {
+      route: '/employer/candidates',
+      titleKey: 'EMPLOYER.HOME.ACTIONS.VIEW_APPLICANTS.TITLE',
+      subtitleKey: 'EMPLOYER.HOME.ACTIONS.VIEW_APPLICANTS.SUBTITLE',
+      count: this.totalApplicants(),
+      accentClass: 'bg-gradient-to-br from-amber-100 to-orange-100 text-amber-700',
+      iconPath: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z',
+    },
+  ]);
+
+  readonly pipelineStats = computed(() => [
+    { labelKey: 'EMPLOYER.STATUS.NEW', value: this.recentApplicants.filter(applicant => applicant.status === 'new').length, accentClass: 'bg-blue-50 text-blue-700 ring-blue-200' },
+    { labelKey: 'EMPLOYER.STATUS.REVIEWED', value: this.recentApplicants.filter(applicant => applicant.status === 'reviewed').length, accentClass: 'bg-slate-100 text-slate-700 ring-slate-200' },
+    { labelKey: 'EMPLOYER.STATUS.SHORTLISTED', value: this.recentApplicants.filter(applicant => applicant.status === 'shortlisted').length, accentClass: 'bg-emerald-50 text-emerald-700 ring-emerald-200' },
+  ]);
+
+  readonly performanceCards = computed(() => [
+    { value: this.stats[0].value, labelKey: this.stats[0].labelKey, toneClass: 'from-blue-100 to-cyan-100 text-blue-700' },
+    { value: this.stats[1].value, labelKey: this.stats[1].labelKey, toneClass: 'from-emerald-100 to-teal-100 text-emerald-700' },
+    { value: this.stats[2].value, labelKey: this.stats[2].labelKey, toneClass: 'from-amber-100 to-orange-100 text-amber-700' },
+    { value: this.stats[3].value, labelKey: this.stats[3].labelKey, toneClass: 'from-fuchsia-100 to-pink-100 text-fuchsia-700' },
+  ]);
 
   jobForm = this.fb.group({
     title: ['', Validators.required],
@@ -125,6 +180,45 @@ export class EmployerDashboardComponent implements OnInit {
 
   jobStatusKey(active: boolean): string {
     return active ? 'EMPLOYER.STATUS.ACTIVE' : 'EMPLOYER.STATUS.CLOSED';
+  }
+
+  companyDisplayName(): string {
+    return this.auth.currentUser()?.company || this.translate.instant('EMPLOYER.COMPANY_PROFILE.EMPTY_COMPANY');
+  }
+
+  ownerDisplayName(): string {
+    return this.auth.currentUser()?.name || this.translate.instant('EMPLOYER.COMPANY_PROFILE.EMPTY_OWNER');
+  }
+
+  totalApplicants(): number {
+    return this.postedJobs.reduce((sum, job) => sum + job.applicants, 0);
+  }
+
+  activeJobsCount(): number {
+    return this.postedJobs.filter(job => job.active).length;
+  }
+
+  hiringHealthPercent(): number {
+    const applicants = this.totalApplicants();
+    if (!applicants) {
+      return 0;
+    }
+
+    const shortlisted = this.recentApplicants.filter(applicant => applicant.status === 'shortlisted').length;
+    return Math.round((shortlisted / applicants) * 100);
+  }
+
+  translateJobTitle(title: string): string {
+    const titleMap: Record<string, string> = {
+      'Senior Frontend Developer': 'JOBS.CARD.TITLES.SENIOR_FRONTEND_DEVELOPER',
+      'Product Designer': 'EMPLOYER.HOME.JOB_TITLES.PRODUCT_DESIGNER',
+      'Backend Engineer': 'EMPLOYER.HOME.JOB_TITLES.BACKEND_ENGINEER',
+      'Data Analyst': 'FREELANCERS.CARD.ROLES.DATA_ANALYST',
+      'DevOps Engineer': 'JOBS.CARD.TITLES.DEVOPS_ENGINEER',
+    };
+
+    const key = titleMap[title];
+    return key ? this.translate.instant(key) : title;
   }
 
   isArabic(): boolean {
