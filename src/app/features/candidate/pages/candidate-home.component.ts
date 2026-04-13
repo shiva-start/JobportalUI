@@ -103,8 +103,8 @@ import { JobCardComponent } from '../../../shared/components/job-card/job-card.c
             <div class="rounded-[1.75rem] border border-white/10 bg-white/5 p-5 backdrop-blur-sm">
               <div class="flex items-center justify-between gap-3 rtl:flex-row-reverse">
                 <div>
-                  <p class="text-sm font-semibold text-white rtl:text-right">Priority next steps</p>
-                  <p class="mt-1 text-sm text-slate-300 rtl:text-right">Small actions that improve your visibility this week.</p>
+                  <p class="text-sm font-semibold text-white rtl:text-right">{{ 'CANDIDATE.HOME.PRIORITY_STEPS.TITLE' | translate }}</p>
+                  <p class="mt-1 text-sm text-slate-300 rtl:text-right">{{ 'CANDIDATE.HOME.PRIORITY_STEPS.SUBTITLE' | translate }}</p>
                 </div>
                 <span class="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-slate-200">{{ priorityActions().length }}</span>
               </div>
@@ -204,8 +204,8 @@ import { JobCardComponent } from '../../../shared/components/job-card/job-card.c
             <div class="rounded-[1.8rem] border border-amber-200/70 bg-[linear-gradient(180deg,#fffaf0_0%,#ffffff_100%)] p-5 shadow-[0_20px_45px_-35px_rgba(180,83,9,0.28)]">
               <div class="flex items-center justify-between gap-3 rtl:flex-row-reverse">
                 <div>
-                  <h2 class="text-lg font-semibold text-slate-900 rtl:text-right">Career accelerator</h2>
-                  <p class="mt-1 text-sm text-slate-500 rtl:text-right">Keep your profile discoverable and application-ready.</p>
+                  <h2 class="text-lg font-semibold text-slate-900 rtl:text-right">{{ 'CANDIDATE.HOME.CAREER_ACCELERATOR.TITLE' | translate }}</h2>
+                  <p class="mt-1 text-sm text-slate-500 rtl:text-right">{{ 'CANDIDATE.HOME.CAREER_ACCELERATOR.SUBTITLE' | translate }}</p>
                 </div>
                 <span class="rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-700">{{ completedChecklistCount() }}/{{ candidate.profileChecklist().length }}</span>
               </div>
@@ -233,7 +233,7 @@ import { JobCardComponent } from '../../../shared/components/job-card/job-card.c
                       <span class="text-sm font-medium text-slate-700 rtl:text-right">{{ item.labelKey | translate }}</span>
                     </div>
                     <span class="text-xs font-semibold uppercase tracking-[0.16em]" [class.text-emerald-600]="item.done" [class.text-slate-400]="!item.done">
-                      {{ item.done ? 'Done' : 'Next' }}
+                      {{ item.done ? ('CANDIDATE.HOME.CAREER_ACCELERATOR.DONE' | translate) : ('CANDIDATE.HOME.CAREER_ACCELERATOR.NEXT' | translate) }}
                     </span>
                   </a>
                 }
@@ -253,11 +253,11 @@ import { JobCardComponent } from '../../../shared/components/job-card/job-card.c
           <div class="rounded-[1.8rem] border border-slate-200/70 bg-white p-5 shadow-[0_20px_45px_-35px_rgba(15,23,42,0.25)]">
             <div class="mb-4 flex items-center justify-between gap-3 rtl:flex-row-reverse">
               <div>
-                <h2 class="text-lg font-semibold text-slate-900 rtl:text-right">Inbox highlights</h2>
-                <p class="mt-1 text-sm text-slate-500 rtl:text-right">Recruiter and platform updates that need attention.</p>
+                <h2 class="text-lg font-semibold text-slate-900 rtl:text-right">{{ 'CANDIDATE.HOME.INBOX.TITLE' | translate }}</h2>
+                <p class="mt-1 text-sm text-slate-500 rtl:text-right">{{ 'CANDIDATE.HOME.INBOX.SUBTITLE' | translate }}</p>
               </div>
               <a routerLink="/candidate/messages" class="text-sm font-semibold text-blue-600 hover:text-blue-700">
-                View all
+                {{ 'CANDIDATE.OVERVIEW.SEE_ALL' | translate }}
               </a>
             </div>
 
@@ -270,7 +270,7 @@ import { JobCardComponent } from '../../../shared/components/job-card/job-card.c
                       <p class="text-xs uppercase tracking-[0.18em] text-slate-400 rtl:text-right">{{ message.company }}</p>
                     </div>
                     @if (!message.read) {
-                      <span class="rounded-full bg-blue-100 px-2.5 py-1 text-xs font-semibold text-blue-700">New</span>
+                      <span class="rounded-full bg-blue-100 px-2.5 py-1 text-xs font-semibold text-blue-700">{{ 'CANDIDATE.NOTIFICATIONS.NEW_BADGE' | translate }}</span>
                     }
                   </div>
                   <p class="mt-3 text-sm font-medium text-slate-800 rtl:text-right">{{ message.subject }}</p>
@@ -284,8 +284,8 @@ import { JobCardComponent } from '../../../shared/components/job-card/job-card.c
           <div class="rounded-[1.8rem] border border-slate-200/70 bg-white p-5 shadow-[0_20px_45px_-35px_rgba(15,23,42,0.25)]">
             <div class="mb-4 flex items-center justify-between gap-3 rtl:flex-row-reverse">
               <div>
-                <h2 class="text-lg font-semibold text-slate-900 rtl:text-right">Opportunity signals</h2>
-                <p class="mt-1 text-sm text-slate-500 rtl:text-right">Live indicators from your applications and alerts.</p>
+                <h2 class="text-lg font-semibold text-slate-900 rtl:text-right">{{ 'CANDIDATE.HOME.OPPORTUNITY_SIGNALS.TITLE' | translate }}</h2>
+                <p class="mt-1 text-sm text-slate-500 rtl:text-right">{{ 'CANDIDATE.HOME.OPPORTUNITY_SIGNALS.SUBTITLE' | translate }}</p>
               </div>
               <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600">{{ candidate.localizedNotifications().length }}</span>
             </div>
@@ -299,7 +299,7 @@ import { JobCardComponent } from '../../../shared/components/job-card/job-card.c
                   <div class="flex items-center justify-between gap-3 rtl:flex-row-reverse">
                     <p class="text-sm font-semibold text-slate-900 rtl:text-right">{{ notification.title }}</p>
                     @if (!notification.read) {
-                      <span class="rounded-full bg-emerald-100 px-2.5 py-1 text-xs font-semibold text-emerald-700">Active</span>
+                      <span class="rounded-full bg-emerald-100 px-2.5 py-1 text-xs font-semibold text-emerald-700">{{ 'CANDIDATE.HOME.OPPORTUNITY_SIGNALS.ACTIVE' | translate }}</span>
                     }
                   </div>
                   <p class="mt-2 text-sm leading-6 text-slate-500 rtl:text-right">{{ notification.message }}</p>
@@ -334,7 +334,7 @@ export class CandidateHomeComponent {
 
     const currentUserName = this.auth.currentUser()?.name;
     if (!currentUserName) {
-      return 'Candidate';
+      return this.translate.instant('CANDIDATE.HEADER.ROLE');
     }
 
     const key = this.userNameKeys[currentUserName];
@@ -393,7 +393,7 @@ export class CandidateHomeComponent {
       },
       {
         value: this.candidate.unreadMessageCount() + this.candidate.unreadNotificationCount(),
-        label: 'Unread updates',
+        label: this.translate.instant('CANDIDATE.HOME.STATS.UNREAD_UPDATES'),
       },
     ];
   });
@@ -402,20 +402,20 @@ export class CandidateHomeComponent {
     const profile = this.candidate.profile();
     return [
       {
-        label: 'Headline',
-        value: profile.headline || 'Add your headline',
+        label: this.translate.instant('CANDIDATE.HOME.PROFILE_HIGHLIGHTS.HEADLINE'),
+        value: profile.headline || this.translate.instant('CANDIDATE.HOME.PROFILE_HIGHLIGHTS.ADD_HEADLINE'),
       },
       {
-        label: 'Location',
-        value: profile.location || 'Add your location',
+        label: this.translate.instant('CANDIDATE.HOME.PROFILE_HIGHLIGHTS.LOCATION'),
+        value: profile.location || this.translate.instant('CANDIDATE.HOME.PROFILE_HIGHLIGHTS.ADD_LOCATION'),
       },
       {
-        label: 'Skills',
-        value: `${profile.skills.length} listed`,
+        label: this.translate.instant('CANDIDATE.HOME.PROFILE_HIGHLIGHTS.SKILLS'),
+        value: this.translate.instant('CANDIDATE.HOME.PROFILE_HIGHLIGHTS.SKILLS_LISTED', { count: profile.skills.length }),
       },
       {
-        label: 'Resume',
-        value: profile.resume?.name || 'Upload resume',
+        label: this.translate.instant('CANDIDATE.HOME.PROFILE_HIGHLIGHTS.RESUME'),
+        value: profile.resume?.name || this.translate.instant('CANDIDATE.HOME.PROFILE_HIGHLIGHTS.UPLOAD_RESUME'),
       },
     ];
   });
@@ -425,8 +425,8 @@ export class CandidateHomeComponent {
     const pendingChecklist = checklist.filter(item => !item.done).slice(0, 2).map(item => ({
       route: item.route,
       title: this.translate.instant(item.labelKey),
-      description: 'Complete this profile step to improve discoverability.',
-      badge: 'Profile',
+      description: this.translate.instant('CANDIDATE.HOME.PRIORITY_STEPS.PROFILE_DESCRIPTION'),
+      badge: this.translate.instant('CANDIDATE.HOME.PRIORITY_STEPS.PROFILE_BADGE'),
     }));
 
     const updates = this.candidate.localizedNotifications()
@@ -436,7 +436,11 @@ export class CandidateHomeComponent {
         route: notification.actionRoute || '/candidate/applications',
         title: notification.title,
         description: notification.message,
-        badge: notification.category === 'message' ? 'Inbox' : 'Alert',
+        badge: this.translate.instant(
+          notification.category === 'message'
+            ? 'CANDIDATE.HOME.PRIORITY_STEPS.INBOX_BADGE'
+            : 'CANDIDATE.HOME.PRIORITY_STEPS.ALERT_BADGE'
+        ),
       }));
 
     return [...pendingChecklist, ...updates].slice(0, 3);
@@ -472,8 +476,13 @@ export class CandidateHomeComponent {
     const profile = this.candidate.profile();
     const unreadUpdates = this.candidate.unreadMessageCount() + this.candidate.unreadNotificationCount();
 
+    // Keep the sentence translatable while still injecting live profile and activity data.
     return profile.about
-      ? `${profile.about} You have ${unreadUpdates} active update${unreadUpdates === 1 ? '' : 's'} and ${this.candidate.recommendedJobs().length} recommended role${this.candidate.recommendedJobs().length === 1 ? '' : 's'} waiting.`
+      ? this.translate.instant('CANDIDATE.HOME.WELCOME_SUBTITLE_WITH_ABOUT', {
+          about: profile.about,
+          updates: unreadUpdates,
+          roles: this.candidate.recommendedJobs().length
+        })
       : this.translate.instant('CANDIDATE.HOME.WELCOME_SUBTITLE');
   }
 
@@ -481,13 +490,13 @@ export class CandidateHomeComponent {
     const completion = this.candidate.profileCompletion();
 
     if (completion >= 80) {
-      return 'Strong';
+      return this.translate.instant('CANDIDATE.HOME.PROFILE_STRENGTH_TONE.STRONG');
     }
 
     if (completion >= 50) {
-      return 'Growing';
+      return this.translate.instant('CANDIDATE.HOME.PROFILE_STRENGTH_TONE.GROWING');
     }
 
-    return 'Starter';
+    return this.translate.instant('CANDIDATE.HOME.PROFILE_STRENGTH_TONE.STARTER');
   }
 }

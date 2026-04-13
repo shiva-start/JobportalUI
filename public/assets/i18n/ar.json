@@ -1,1297 +1,1492 @@
 {
   "COMMON": {
-    "SEARCH": "Ø¨Ø­Ø«",
-    "APPLY": "ØªØ·Ø¨ÙŠÙ‚",
-    "PREVIOUS": "Ø§Ù„Ø³Ø§Ø¨Ù‚",
-    "NEXT": "Ø§Ù„ØªØ§Ù„ÙŠ",
-    "CLEAR_ALL": "Ù…Ø³Ø­ Ø§Ù„ÙƒÙ„",
+    "SEARCH": "بحث",
+    "APPLY": "تقديم",
+    "PREVIOUS": "السابق",
+    "NEXT": "التالي",
+    "CLEAR_ALL": "مسح الكل",
     "TIME": {
-      "TODAY": "Ø§Ù„ÙŠÙˆÙ…",
-      "DAY_AGO": "Ù…Ù†Ø° ÙŠÙˆÙ…",
-      "DAYS_AGO": "Ù…Ù†Ø° {{count}} Ø£ÙŠØ§Ù…",
-      "WEEKS_AGO": "Ù…Ù†Ø° {{count}} Ø£Ø³Ø¨ÙˆØ¹",
-      "MONTHS_AGO": "Ù…Ù†Ø° {{count}} Ø´Ù‡Ø±"
+      "TODAY": "اليوم",
+      "DAY_AGO": "منذ يوم",
+      "DAYS_AGO": "منذ {{count}} أيام",
+      "WEEKS_AGO": "منذ {{count}} أسبوع",
+      "MONTHS_AGO": "منذ {{count}} شهر"
     },
-    "HOME": "Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ©",
-    "FREE": "Ù…Ø¬Ø§Ù†ÙŠ"
+    "HOME": "الرئيسية",
+    "FREE": "مجاني"
   },
   "NAV": {
-    "JOBSEEKERS": "Ø§Ù„Ø¨Ø§Ø­Ø«ÙˆÙ† Ø¹Ù† Ø¹Ù…Ù„",
-    "COMPANIES": "Ø§Ù„Ø´Ø±ÙƒØ§Øª",
-    "FREELANCERS": "Ø§Ù„Ù…Ø³ØªÙ‚Ù„ÙˆÙ†",
-    "RESOURCES": "Ø§Ù„Ù…ÙˆØ§Ø±Ø¯",
-    "HELP": "Ø§Ù„Ù…Ø³Ø§Ø¹Ø¯Ø©",
-    "BLOG": "Ø§Ù„Ù…Ø¯ÙˆÙ†Ø©",
-    "COURSES": "Ø§Ù„Ø¯ÙˆØ±Ø§Øª",
-    "INTERNSHIPS": "Ø§Ù„ØªØ¯Ø±ÙŠØ¨",
-    "LOGIN": "ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø¯Ø®ÙˆÙ„",
-    "REGISTER": "Ø¥Ù†Ø´Ø§Ø¡ Ø­Ø³Ø§Ø¨",
-    "GO_HOME": "Ø§Ù„Ø§Ù†ØªÙ‚Ø§Ù„ Ø¥Ù„Ù‰ Ø§Ù„ØµÙØ­Ø© Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ©",
-    "CHANGE_LANGUAGE": "ØªØºÙŠÙŠØ± Ø§Ù„Ù„ØºØ©",
-    "TOGGLE_MENU": "ÙØªØ­ Ø£Ùˆ Ø¥ØºÙ„Ø§Ù‚ Ø§Ù„Ù‚Ø§Ø¦Ù…Ø©"
+    "JOBSEEKERS": "الباحثون عن عمل",
+    "COMPANIES": "أصحاب العمل",
+    "FREELANCERS": "المستقلون",
+    "RESOURCES": "الموارد",
+    "HELP": "المساعدة",
+    "BLOG": "المدونة",
+    "COURSES": "الدورات",
+    "INTERNSHIPS": "التدريب",
+    "LOGIN": "تسجيل الدخول",
+    "REGISTER": "إنشاء حساب",
+    "GO_HOME": "الانتقال إلى الرئيسية",
+    "CHANGE_LANGUAGE": "تغيير اللغة",
+    "TOGGLE_MENU": "فتح أو إغلاق القائمة"
+  },
+  "NAVBAR": {
+    "WORKSPACE": "Workspace",
+    "OPEN_PROFILE_MENU": "Open profile menu",
+    "PROFILE": "Profile",
+    "SETTINGS": "Settings",
+    "CANDIDATE_ACCOUNT": "Candidate account",
+    "EMPLOYER_ACCOUNT": "Employer account",
+    "ADMIN_ACCOUNT": "Administrator"
   },
   "HOME": {
     "HERO": {
-      "ARIA_REGION": "Ù‚Ø³Ù… Ø§Ù„Ø¨Ø­Ø« Ø¹Ù† Ø§Ù„ÙˆØ¸Ø§Ø¦Ù",
-      "ARIA_IMAGE": "Ù…Ø­ØªØ±ÙÙˆÙ† ÙŠØ¹Ù…Ù„ÙˆÙ† Ù…Ø¹Ù‹Ø§ ÙÙŠ Ø§Ù„Ù…ÙƒØªØ¨",
-      "TITLE_LEAD": "Ø§Ø¹Ø«Ø± Ø¹Ù„Ù‰ Ø¹Ù…Ù„",
-      "TITLE_HIGHLIGHT": "ÙŠØ¯ÙØ¹Ùƒ Ø¥Ù„Ù‰ Ø§Ù„Ø£Ù…Ø§Ù…",
-      "DESCRIPTION": "ØªÙˆØ§ØµÙ„ Ù…Ø¹ Ø´Ø±ÙƒØ§Øª Ø±Ø§Ø¦Ø¯Ø© ØªÙˆØ¸Ù Ø§Ù„Ø¢Ù†. Ø§Ø¨Ø­Ø« ÙÙŠ Ø¢Ù„Ø§Ù Ø§Ù„ÙˆØ¸Ø§Ø¦Ù Ø¹Ø¨Ø± Ù…Ø®ØªÙ„Ù Ø§Ù„Ù…Ø¬Ø§Ù„Ø§Øª ÙˆØ§Ù„Ù…Ø³ØªÙˆÙŠØ§Øª.",
-      "TITLE_HIGHLIGHT": "ÙŠØ¯Ù Ø¹Ùƒ Ø¥Ù„Ù‰ Ø§Ù„Ø£Ù…Ø§Ù…",
-      "DESCRIPTION": "ØªÙˆØ§ØµÙ„ Ù…Ø¹ Ø´Ø±ÙƒØ§Øª Ø±Ø§Ø¦Ø¯Ø© ØªÙˆØ¸Ù  Ø§Ù„Ø¢Ù†. Ø§Ø¨Ø­Ø« Ù ÙŠ Ø¢Ù„Ø§Ù  Ø§Ù„ÙˆØ¸Ø§Ø¦Ù  Ø¹Ø¨Ø± Ù…Ø®ØªÙ„Ù  Ø§Ù„Ù…Ø¬Ø§Ù„Ø§Øª ÙˆØ§Ù„Ù…Ø³ØªÙˆÙŠØ§Øª.",
-      "SEARCH_KEYWORD_LABEL": "Ø§Ù„Ù…Ø³Ù…Ù‰ Ø§Ù„ÙˆØ¸ÙŠÙ ÙŠ Ø£Ùˆ Ø§Ù„ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ù ØªØ§Ø­ÙŠØ©",
-      "SEARCH_KEYWORD_PLACEHOLDER": "Ø§Ù„Ù…Ø³Ù…Ù‰ Ø§Ù„ÙˆØ¸ÙŠÙ ÙŠ Ø£Ùˆ Ø§Ù„ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ù ØªØ§Ø­ÙŠØ©",
-      "SEARCH_LOCATION_LABEL": "Ø§Ù„Ù…ÙˆÙ‚Ø¹",
-      "SEARCH_LOCATION_PLACEHOLDER": "Ø§Ù„Ù…ÙˆÙ‚Ø¹",
+      "ARIA_REGION": "بطل البحث عن وظيفة",
+      "ARIA_IMAGE": "المهنيين في المكتب يتعاونون",
+      "TITLE_LEAD": "ابحث عن العمل الذي",
+      "TITLE_HIGHLIGHT": "يدفعك إلى الأمام",
+      "DESCRIPTION": "تواصل مع الشركات الرائدة في الصناعة التي توظف الآن. ابحث في آلاف الأدوار عبر كل المجالات والمستويات.",
+      "SEARCH_KEYWORD_LABEL": "المسمى الوظيفي أو الكلمة الرئيسية",
+      "SEARCH_KEYWORD_PLACEHOLDER": "المسمى الوظيفي أو الكلمة الرئيسية",
+      "SEARCH_LOCATION_LABEL": "المكان",
+      "SEARCH_LOCATION_PLACEHOLDER": "المكان",
       "STATS": {
-        "LIVE_JOBS": "ÙˆØ¸Ø§Ø¦Ù  Ù…ØªØ§Ø­Ø©",
+        "LIVE_JOBS": "وظائف متاحة",
         "COMPANIES": "أصحاب العمل",
-        "CANDIDATES": "Ù…Ø±Ø´Ø­",
-        "NEW_JOBS": "ÙˆØ¸Ø§Ø¦Ù  Ø¬Ø¯ÙŠØ¯Ø©"
+        "CANDIDATES": "مرشحين",
+        "NEW_JOBS": "وظائف جديدة"
       },
       "POPULAR_SEARCHES": {
-        "REACT_DEVELOPER": "Ù…Ø·ÙˆØ± React",
-        "PRODUCT_MANAGER": "Ù…Ø¯ÙŠØ± Ù…Ù†ØªØ¬",
-        "UI_DESIGNER": "Ù…ØµÙ…Ù… ÙˆØ§Ø¬Ù‡Ø§Øª",
-        "REMOTE": "Ø¹Ù† Ø¨Ø¹Ø¯",
-        "DATA_ANALYST": "Ù…Ø­Ù„Ù„ Ø¨ÙŠØ§Ù†Ø§Øª"
+        "REACT_DEVELOPER": "مطور React",
+        "PRODUCT_MANAGER": "مدير منتج",
+        "UI_DESIGNER": "مصمم واجهة المستخدم",
+        "REMOTE": "عن بُعد",
+        "DATA_ANALYST": "محلل بيانات"
       }
     },
     "CATEGORIES": {
-      "EYEBROW": "ØªØµÙØ­ Ø­Ø³Ø¨ Ø§Ù„Ù…Ø¬Ø§Ù„",
-      "TITLE": "Ø§Ø³ØªÙƒØ´Ù ÙØ¦Ø§Øª Ø§Ù„ÙˆØ¸Ø§Ø¦Ù",
-      "DESCRIPTION": "Ø§ÙƒØªØ´Ù Ø§Ù„ÙˆØ¸Ø§Ø¦Ù ÙÙŠ Ù…Ø®ØªÙ„Ù Ø§Ù„Ù‚Ø·Ø§Ø¹Ø§Øª Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ©. ØµÙÙÙ‘ Ø­Ø³Ø¨ Ø®Ø¨Ø±ØªÙƒ Ù„ØªØ¬Ø¯ Ø§Ù„ÙØ±ØµØ© Ø§Ù„Ù…Ù†Ø§Ø³Ø¨Ø©.",
-      "OPEN_ROLES": "{{count}} ÙˆØ¸ÙŠÙØ© Ù…ØªØ§Ø­Ø©",
+      "EYEBROW": "Browse by field",
+      "TITLE": "Explore Job Categories",
+      "DESCRIPTION": "Discover roles across every major industry. Filter by your expertise to find the right fit.",
+      "OPEN_ROLES": "{{count}} open roles",
       "ITEMS": {
-        "TECHNOLOGY": "Ø§Ù„ØªÙ‚Ù†ÙŠØ©",
-        "DESIGN": "Ø§Ù„ØªØµÙ…ÙŠÙ…",
-        "MARKETING": "Ø§Ù„ØªØ³ÙˆÙŠÙ‚",
-        "SALES": "Ø§Ù„Ù…Ø¨ÙŠØ¹Ø§Øª",
-        "DATA_AI": "Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª ÙˆØ§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ",
-        "PRODUCT": "Ø§Ù„Ù…Ù†ØªØ¬",
-        "HUMAN_RESOURCES": "Ø§Ù„Ù…ÙˆØ§Ø±Ø¯ Ø§Ù„Ø¨Ø´Ø±ÙŠØ©",
-        "FINANCE": "Ø§Ù„Ù…Ø§Ù„ÙŠØ©"
+        "TECHNOLOGY": "Technology",
+        "DESIGN": "Design",
+        "MARKETING": "Marketing",
+        "SALES": "Sales",
+        "DATA_AI": "Data & AI",
+        "PRODUCT": "Product",
+        "HUMAN_RESOURCES": "Human Resources",
+        "FINANCE": "Finance"
       }
     },
     "HOW_IT_WORKS": {
-      "TITLE": "ÙƒÙŠÙ ÙŠØ¹Ù…Ù„ Ø§Ù„Ù…ÙˆÙ‚Ø¹",
-      "DESCRIPTION": "Ø§Ø­ØµÙ„ Ø¹Ù„Ù‰ ÙˆØ¸ÙŠÙØ© ÙÙŠ 3 Ø®Ø·ÙˆØ§Øª Ø³Ù‡Ù„Ø©",
+      "TITLE": "How It Works",
+      "DESCRIPTION": "Get hired in 3 easy steps",
       "STEPS": {
         "CREATE_ACCOUNT": {
-          "TITLE": "Ø£Ù†Ø´Ø¦ Ø­Ø³Ø§Ø¨Ù‹Ø§",
-          "DESCRIPTION": "Ø³Ø¬Ù„ ÙˆØ£Ù†Ø´Ø¦ Ù…Ù„ÙÙƒ Ø§Ù„Ø´Ø®ØµÙŠ Ø®Ù„Ø§Ù„ Ø¯Ù‚Ø§Ø¦Ù‚"
+          "TITLE": "أ شئ حساب9ا",
+          "DESCRIPTION": "Sign up and create your profile in minutes"
         },
         "SEARCH_JOBS": {
-          "TITLE": "Ø§Ø¨Ø­Ø« Ø¹Ù† Ø§Ù„ÙˆØ¸Ø§Ø¦Ù",
-          "DESCRIPTION": "ØªØµÙØ­ Ø¢Ù„Ø§Ù Ø§Ù„ÙˆØ¸Ø§Ø¦Ù Ø§Ù„ØªÙŠ ØªÙ†Ø§Ø³Ø¨ Ù…Ù‡Ø§Ø±Ø§ØªÙƒ"
+          "TITLE": "Search Jobs",
+          "DESCRIPTION": "Browse thousands of jobs that match your skills"
         },
         "GET_HIRED": {
-          "TITLE": "Ø§Ø­ØµÙ„ Ø¹Ù„Ù‰ Ø§Ù„ØªÙˆØ¸ÙŠÙ Ø¨Ø³Ø±Ø¹Ø©",
-          "DESCRIPTION": "Ù‚Ø¯Ù‘Ù… Ø¨Ø¶ØºØ·Ø© ÙˆØ§Ø­Ø¯Ø© ÙˆØ§Ø­ØµÙ„ Ø¹Ù„Ù‰ ÙˆØ¸ÙŠÙØ© Ø£Ø­Ù„Ø§Ù…Ùƒ"
+          "TITLE": "Get Hired Faster",
+          "DESCRIPTION": "Apply with one click and land your dream job"
         }
       }
     },
     "CTA": {
       "JOB_SEEKERS": {
-        "IMAGE_ALT": "Ø§Ù„Ø¨Ø­Ø« Ø¹Ù† ÙˆØ¸ÙŠÙØ©",
-        "TITLE": "Ø§Ø¹Ø«Ø± Ø¹Ù„Ù‰ ÙˆØ¸ÙŠÙØªÙƒ Ø§Ù„ØªØ§Ù„ÙŠØ©",
-        "DESCRIPTION": "Ø§ÙƒØªØ´Ù Ø§Ù„ÙˆØ¸Ø§Ø¦Ù Ø§Ù„ØªÙŠ ØªÙ†Ø§Ø³Ø¨ Ù…Ù‡Ø§Ø±Ø§ØªÙƒ ÙˆÙ‚Ø¯Ù‘Ù… Ø®Ù„Ø§Ù„ Ø«ÙˆØ§Ù†Ù.",
-        "BUTTON": "Ø§Ø¨Ø¯Ø£ Ø§Ù„Ø¢Ù†"
+        "IMAGE_ALT": "Job search",
+        "TITLE": "Find Your Next Job",
+        "DESCRIPTION": "Discover jobs that match your skills and apply in seconds.",
+        "BUTTON": "Get Started"
       },
       "EMPLOYERS": {
-        "IMAGE_ALT": "ÙØ±ÙŠÙ‚ ØªÙˆØ¸ÙŠÙ",
-        "TITLE": "ÙˆØ¸Ù‘Ù Ø£ÙØ¶Ù„ Ø§Ù„Ù…ÙˆØ§Ù‡Ø¨",
-        "DESCRIPTION": "Ø§Ù†Ø´Ø± Ø§Ù„ÙˆØ¸Ø§Ø¦Ù ÙˆØªÙˆØ§ØµÙ„ Ù…Ø¹ Ø§Ù„Ù…Ø±Ø´Ø­ÙŠÙ† Ø§Ù„Ù…Ø¤Ù‡Ù„ÙŠÙ† Ø¨Ø´ÙƒÙ„ Ø£Ø³Ø±Ø¹.",
-        "BUTTON": "Ø§Ù†Ø´Ø± ÙˆØ¸ÙŠÙØ©"
+        "IMAGE_ALT": "Hiring team",
+        "TITLE": "Hire Top Talent",
+        "DESCRIPTION": "Post jobs and connect with qualified candidates faster.",
+        "BUTTON": "Post a Job"
       }
     },
     "TESTIMONIALS": {
-      "EYEBROW": "Ø¢Ø±Ø§Ø¡ Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù…ÙŠÙ†",
-      "TITLE": "Ù…Ø§Ø°Ø§ ÙŠÙ‚ÙˆÙ„ Ù…Ø³ØªØ®Ø¯Ù…ÙˆÙ†Ø§",
+      "EYEBROW": "Testimonials",
+      "TITLE": "What Our Users Say",
       "ITEMS": {
         "MOHAMED": {
-          "ROLE": "Ù…Ø·ÙˆØ± ÙˆØ§Ø¬Ù‡Ø§Øª Ø£Ù…Ø§Ù…ÙŠØ© ÙÙŠ TechCorp",
-          "QUOTE": "Ø¹Ø«Ø±Øª Ø¹Ù„Ù‰ ÙˆØ¸ÙŠÙØ© Ø£Ø­Ù„Ø§Ù…ÙŠ Ø®Ù„Ø§Ù„ Ø£Ø³Ø¨ÙˆØ¹ÙŠÙ† ÙÙ‚Ø· Ù…Ù† Ø§Ù„ØªØ³Ø¬ÙŠÙ„. Ø¬Ø¹Ù„Øª Ø§Ù„Ù…Ù†ØµØ© Ø§Ù„Ø¹Ù…Ù„ÙŠØ© ÙƒÙ„Ù‡Ø§ Ø³Ù‡Ù„Ø© ÙˆÙ…Ø±ÙŠØ­Ø© Ù„Ù„ØºØ§ÙŠØ©."
+          "ROLE": "Frontend Developer at TechCorp",
+          "QUOTE": "Found my dream job within 2 weeks of signing up. The platform made the entire process incredibly smooth and stress-free."
         },
         "RANA": {
-          "ROLE": "Ù…Ø¯ÙŠØ±Ø© Ù…ÙˆØ§Ø±Ø¯ Ø¨Ø´Ø±ÙŠØ© ÙÙŠ BuildScale",
-          "QUOTE": "Ù‚Ù…Ù†Ø§ Ø¨ØªÙˆØ¸ÙŠÙ 5 Ù…Ù‡Ù†Ø¯Ø³ÙŠÙ† Ù…ØªÙ…ÙŠØ²ÙŠÙ† Ø¹Ø¨Ø± JobPortal. Ø¬ÙˆØ¯Ø© Ø§Ù„Ù…Ø±Ø´Ø­ÙŠÙ† ÙˆÙ…Ù„Ø§Ø¡Ù…ØªÙ‡Ù… ÙƒØ§Ù†Øª Ø±Ø§Ø¦Ø¹Ø© Ø¨Ø§Ø³ØªÙ…Ø±Ø§Ø±."
+          "ROLE": "HR Manager at BuildScale",
+          "QUOTE": "We have hired 5 exceptional engineers through JobPortal. The quality and relevance of candidates is consistently impressive."
         },
         "TAREK": {
-          "ROLE": "Ù…Ø¯ÙŠØ± Ù…Ù†ØªØ¬ Ø£ÙˆÙ„",
-          "QUOTE": "Ù…ÙŠØ²Ø© Ø§Ù„ØªÙ†Ø¨ÙŠÙ‡Ø§Øª Ø§Ù„ÙˆØ¸ÙŠÙÙŠØ© Ø£Ø­Ø¯Ø«Øª ÙØ±Ù‚Ù‹Ø§ ÙƒØ¨ÙŠØ±Ù‹Ø§. ÙˆØµÙ„Ù†ÙŠ Ø¥Ø´Ø¹Ø§Ø± Ø¨Ø´Ø£Ù† ÙˆØ¸ÙŠÙØªÙŠ Ø§Ù„Ø­Ø§Ù„ÙŠØ© Ù‚Ø¨Ù„ Ø£Ù† ØªØ¸Ù‡Ø± ÙÙŠ Ø£ÙŠ Ù…ÙƒØ§Ù† Ø¢Ø®Ø±."
+          "ROLE": "Senior Product Manager",
+          "QUOTE": "The job alerts feature is a game changer. I received a notification about my current role before it appeared anywhere else."
         }
       }
     },
     "GET_STARTED": {
-      "TITLE": "Ù‡Ù„ Ø£Ù†Øª Ù…Ø³ØªØ¹Ø¯ Ù„ÙØ±ØµØªÙƒ Ø§Ù„ØªØ§Ù„ÙŠØ©ØŸ",
-      "DESCRIPTION": "Ø§Ù†Ø¶Ù… Ø¥Ù„Ù‰ Ø¢Ù„Ø§Ù Ø§Ù„Ù…Ø­ØªØ±ÙÙŠÙ† Ø§Ù„Ø°ÙŠÙ† ÙˆØ¬Ø¯ÙˆØ§ ÙˆØ¸Ø§Ø¦Ù Ø£Ø­Ù„Ø§Ù…Ù‡Ù…",
-      "BUTTON": "Ø§Ø¨Ø¯Ø£ Ø§Ù„Ø¢Ù†"
+      "TITLE": "Ready to Find Your Next Opportunity?",
+      "DESCRIPTION": "Join thousands of professionals who found their dream jobs",
+      "BUTTON": "Get Started Now"
     }
   },
   "JOBS": {
     "LIST": {
-      "TITLE": "Ø§Ø¹Ø«Ø± Ø¹Ù„Ù‰ Ø§Ù„ÙØ±Øµ Ø§Ù„ØªÙŠ ØªÙ†Ø§Ø³Ø¨ Ø·Ù…ÙˆØ­Ùƒ",
-      "SUBTITLE": "Ø§Ø¨Ø­Ø« ÙÙŠ Ø§Ù„ÙˆØ¸Ø§Ø¦Ù Ø§Ù„Ù…ØªØ§Ø­Ø©ØŒ ÙˆØµÙÙÙ‘ Ø­Ø³Ø¨ Ø§Ù„Ù…Ø¬Ø§Ù„ ÙˆØ§Ù„Ù…ÙˆÙ‚Ø¹ØŒ ÙˆØ§Ø³ØªÙƒØ´Ù Ø§Ù„ÙˆØ¸Ø§Ø¦Ù Ø§Ù„Ù…Ù†Ø§Ø³Ø¨Ø© Ù„Ø®Ø·ÙˆØªÙƒ Ø§Ù„ØªØ§Ù„ÙŠØ©.",
-      "BADGE": "Ø§Ù„ÙˆØ¸Ø§Ø¦Ù ÙˆØ§Ù„Ù†Ù…Ùˆ Ø§Ù„Ù…Ù‡Ù†ÙŠ"
+      "TITLE": "Find Opportunities That Match Your Ambition",
+      "SUBTITLE": "Search active openings, refine by role and location, and explore jobs tailored to your next move.",
+      "BADGE": "Jobs & Career Growth"
     },
     "FILTER": {
-      "LABEL": "ØªØµÙÙŠØ©:",
-      "SEARCH_PLACEHOLDER": "Ø§Ù„Ù…Ø³Ù…Ù‰ Ø§Ù„ÙˆØ¸ÙŠÙÙŠ Ø£Ùˆ Ø§Ù„Ù…Ù‡Ø§Ø±Ø§Øª Ø£Ùˆ Ø§Ù„Ø´Ø±ÙƒØ©",
-      "LOCATION_PLACEHOLDER": "Ø§Ù„Ù…ÙˆÙ‚Ø¹",
-      "ALL_CATEGORIES": "Ø¬Ù…ÙŠØ¹ Ø§Ù„ÙØ¦Ø§Øª",
-      "SORT_BY": "ØªØ±ØªÙŠØ¨ Ø­Ø³Ø¨",
-      "SORT_RECENT": "Ø§Ù„Ø£Ø­Ø¯Ø«",
-      "SORT_SALARY": "Ø£Ø¹Ù„Ù‰ Ø±Ø§ØªØ¨",
-      "CATEGORY": "Ø§Ù„ÙØ¦Ø©",
-      "EXPERIENCE_LEVEL": "Ù…Ø³ØªÙˆÙ‰ Ø§Ù„Ø®Ø¨Ø±Ø©",
-      "ALL_LEVELS": "Ø¬Ù…ÙŠØ¹ Ø§Ù„Ù…Ø³ØªÙˆÙŠØ§Øª",
-      "JOB_TYPE": "Ù†ÙˆØ¹ Ø§Ù„ÙˆØ¸ÙŠÙØ©",
-      "ALL_TYPES": "Ø¬Ù…ÙŠØ¹ Ø§Ù„Ø£Ù†ÙˆØ§Ø¹",
-      "FILTERS": "Ø§Ù„ÙÙ„Ø§ØªØ±",
-      "JOBS_FOUND": "{{count}} ÙˆØ¸ÙŠÙØ© Ù…ØªØ§Ø­Ø©",
-      "CLEAR": "Ù…Ø³Ø­ Ø§Ù„ÙÙ„Ø§ØªØ±",
-      "CLEAR_ALL": "Ù…Ø³Ø­ Ø§Ù„ÙƒÙ„"
+      "LABEL": "Filter:",
+      "SEARCH_PLACEHOLDER": "Job title, skills, or company",
+      "LOCATION_PLACEHOLDER": "Location",
+      "ALL_CATEGORIES": "All Categories",
+      "SORT_BY": "Sort By",
+      "SORT_RECENT": "Most Recent",
+      "SORT_SALARY": "Highest Salary",
+      "CATEGORY": "Category",
+      "EXPERIENCE_LEVEL": "Experience Level",
+      "ALL_LEVELS": "All Levels",
+      "JOB_TYPE": "Job Type",
+      "ALL_TYPES": "All Types",
+      "FILTERS": "Filters",
+      "JOBS_FOUND": "{{count}} jobs found",
+      "CLEAR": "Clear filters",
+      "CLEAR_ALL": "Clear All"
     },
     "EMPTY": {
-      "TITLE": "Ù„Ø§ ØªÙˆØ¬Ø¯ ÙˆØ¸Ø§Ø¦Ù",
-      "DESCRIPTION": "Ø­Ø§ÙˆÙ„ ØªØ¹Ø¯ÙŠÙ„ Ø§Ù„ÙÙ„Ø§ØªØ± Ø£Ùˆ Ù…ØµØ·Ù„Ø­Ø§Øª Ø§Ù„Ø¨Ø­Ø«",
-      "CLEAR_FILTERS": "Ù…Ø³Ø­ Ø¬Ù…ÙŠØ¹ Ø§Ù„ÙÙ„Ø§ØªØ±"
+      "TITLE": "No jobs found",
+      "DESCRIPTION": "Try adjusting your filters or search terms",
+      "CLEAR_FILTERS": "Clear all filters"
     },
     "CARD": {
-      "FEATURED": "Ù…Ù…ÙŠØ²",
-      "VIEW_DETAILS": "Ø¹Ø±Ø¶ Ø§Ù„ØªÙØ§ØµÙŠÙ„",
-      "SAVE": "Ø­ÙØ¸ Ø§Ù„ÙˆØ¸ÙŠÙØ©",
-      "REMOVE_SAVED": "Ø¥Ø²Ø§Ù„Ø© Ù…Ù† Ø§Ù„Ù…Ø­ÙÙˆØ¸Ø§Øª",
+      "FEATURED": "Featured",
+      "VIEW_DETAILS": "View Details",
+      "SAVE": "Save job",
+      "REMOVE_SAVED": "Remove from saved",
       "TITLES": {
-        "SENIOR_FRONTEND_DEVELOPER": "Ù…Ø·ÙˆØ± ÙˆØ§Ø¬Ù‡Ø§Øª Ø£Ù…Ø§Ù…ÙŠØ© Ø£ÙˆÙ„",
-        "PRODUCT_MANAGER": "Ù…Ø¯ÙŠØ± Ù…Ù†ØªØ¬",
-        "UI_UX_DESIGNER": "Ù…ØµÙ…Ù… UI/UX",
-        "BACKEND_ENGINEER_NODE": "Ù…Ù‡Ù†Ø¯Ø³ Backend â€(Node.js)",
-        "DIGITAL_MARKETING_SPECIALIST": "Ø£Ø®ØµØ§Ø¦ÙŠ ØªØ³ÙˆÙŠÙ‚ Ø±Ù‚Ù…ÙŠ",
-        "DATA_SCIENTIST": "Ø¹Ø§Ù„Ù… Ø¨ÙŠØ§Ù†Ø§Øª",
-        "DEVOPS_ENGINEER": "Ù…Ù‡Ù†Ø¯Ø³ DevOps",
-        "SALES_EXECUTIVE": "ØªÙ†ÙÙŠØ°ÙŠ Ù…Ø¨ÙŠØ¹Ø§Øª",
-        "ANDROID_DEVELOPER": "Ù…Ø·ÙˆØ± Ø£Ù†Ø¯Ø±ÙˆÙŠØ¯",
-        "HR_BUSINESS_PARTNER": "Ø´Ø±ÙŠÙƒ Ø£Ø¹Ù…Ø§Ù„ Ø§Ù„Ù…ÙˆØ§Ø±Ø¯ Ø§Ù„Ø¨Ø´Ø±ÙŠØ©",
-        "FRONTEND_DEVELOPER_ANGULAR": "Ù…Ø·ÙˆØ± ÙˆØ§Ø¬Ù‡Ø§Øª Ø£Ù…Ø§Ù…ÙŠØ© (Angular)",
-        "CONTENT_WRITER": "ÙƒØ§ØªØ¨ Ù…Ø­ØªÙˆÙ‰"
+        "SENIOR_FRONTEND_DEVELOPER": "Senior Frontend Developer",
+        "PRODUCT_MANAGER": "Product Manager",
+        "UI_UX_DESIGNER": "UI/UX Designer",
+        "BACKEND_ENGINEER_NODE": "Backend Engineer (Node.js)",
+        "DIGITAL_MARKETING_SPECIALIST": "Digital Marketing Specialist",
+        "DATA_SCIENTIST": "Data Scientist",
+        "DEVOPS_ENGINEER": "DevOps Engineer",
+        "SALES_EXECUTIVE": "Sales Executive",
+        "ANDROID_DEVELOPER": "Android Developer",
+        "HR_BUSINESS_PARTNER": "HR Business Partner",
+        "FRONTEND_DEVELOPER_ANGULAR": "Frontend Developer (Angular)",
+        "CONTENT_WRITER": "Content Writer"
       },
       "COMPANIES": {
-        "TECHNOVA_SOLUTIONS": "ØªÙƒ Ù†ÙˆÙØ§ Ø³ÙˆÙ„ÙŠÙˆØ´Ù†Ø²",
-        "FINEDGE_CORP": "ÙØ§ÙŠÙ† Ø¥ÙŠØ¯Ø¬ ÙƒÙˆØ±Ø¨",
-        "CREATIVEHUB_AGENCY": "ÙƒØ±ÙŠÙŠØªÙ Ù‡Ø¨ Ø¥ÙŠØ¬Ù†Ø³ÙŠ",
-        "CLOUDSTACK_LTD": "ÙƒÙ„Ø§ÙˆØ¯ Ø³ØªØ§Ùƒ Ø§Ù„Ù…Ø­Ø¯ÙˆØ¯Ø©",
-        "GROWTHBOX": "Ø¬Ø±ÙˆØ« Ø¨ÙˆÙƒØ³",
-        "INSIGHT_AI": "Ø¥Ù†Ø³Ø§ÙŠØª AI",
-        "INFRABASE": "Ø¥Ù†ÙØ±Ø§ Ø¨ÙŠØ³",
-        "TRADELINK": "ØªØ±ÙŠØ¯ Ù„ÙŠÙ†Ùƒ",
-        "MOBILEFIRST": "Ù…ÙˆØ¨Ø§ÙŠÙ„ ÙÙŠØ±Ø³Øª",
-        "PEOPLEFIRST": "Ø¨ÙŠØ¨ÙˆÙ„ ÙÙŠØ±Ø³Øª",
-        "PIXELCRAFT": "Ø¨ÙŠÙƒØ³Ù„ ÙƒØ±Ø§ÙØª",
-        "MEDIASPHERE": "Ù…ÙŠØ¯ÙŠØ§ Ø³ÙÙŠØ±"
+        "TECHNOVA_SOLUTIONS": "TechNova Solutions",
+        "FINEDGE_CORP": "FinEdge Corp",
+        "CREATIVEHUB_AGENCY": "CreativeHub Agency",
+        "CLOUDSTACK_LTD": "CloudStack Ltd",
+        "GROWTHBOX": "جرث بْس",
+        "INSIGHT_AI": "InsightAI",
+        "INFRABASE": "InfraBase",
+        "TRADELINK": "TradeLink",
+        "MOBILEFIRST": "MobileFirst",
+        "PEOPLEFIRST": "PeopleFirst",
+        "PIXELCRAFT": "PixelCraft",
+        "MEDIASPHERE": "MediaSphere"
       },
       "LOCATIONS": {
-        "CAIRO_EGYPT": "Ø§Ù„Ù‚Ø§Ù‡Ø±Ø©ØŒ Ù…ØµØ±",
-        "ALEXANDRIA_EGYPT": "Ø§Ù„Ø¥Ø³ÙƒÙ†Ø¯Ø±ÙŠØ©ØŒ Ù…ØµØ±",
-        "REMOTE": "Ø¹Ù† Ø¨ÙØ¹Ø¯",
-        "GIZA_EGYPT": "Ø§Ù„Ø¬ÙŠØ²Ø©ØŒ Ù…ØµØ±"
+        "CAIRO_EGYPT": "Cairo, Egypt",
+        "ALEXANDRIA_EGYPT": "Alexandria, Egypt",
+        "REMOTE": "ع بُعد",
+        "GIZA_EGYPT": "Giza, Egypt"
       }
     },
     "TYPES": {
-      "FULL_TIME": "Ø¯ÙˆØ§Ù… ÙƒØ§Ù…Ù„",
-      "PART_TIME": "Ø¯ÙˆØ§Ù… Ø¬Ø²Ø¦ÙŠ",
-      "CONTRACT": "Ø¹Ù‚Ø¯",
-      "REMOTE": "Ø¹Ù† Ø¨Ø¹Ø¯",
-      "INTERNSHIP": "ØªØ¯Ø±ÙŠØ¨"
+      "FULL_TIME": "Full Time",
+      "PART_TIME": "Part Time",
+      "CONTRACT": "Contract",
+      "REMOTE": "ع بعد",
+      "INTERNSHIP": "Internship"
     },
     "LEVELS": {
-      "ENTRY": "Ù…Ø³ØªÙˆÙ‰ Ù…Ø¨ØªØ¯Ø¦",
-      "MID": "Ù…Ø³ØªÙˆÙ‰ Ù…ØªÙˆØ³Ø·",
-      "SENIOR": "Ù…Ø³ØªÙˆÙ‰ Ø®Ø¨ÙŠØ±",
-      "LEAD": "Ù‚ÙŠØ§Ø¯ÙŠ",
-      "EXECUTIVE": "ØªÙ†ÙÙŠØ°ÙŠ"
+      "ENTRY": "Entry Level",
+      "MID": "Mid Level",
+      "SENIOR": "Senior",
+      "LEAD": "Lead",
+      "EXECUTIVE": "Executive"
     },
     "TOASTS": {
-      "SAVED": "ØªÙ… Ø­ÙØ¸ Ø§Ù„ÙˆØ¸ÙŠÙØ© ÙÙŠ Ù‚Ø§Ø¦Ù…ØªÙƒ.",
-      "REMOVED": "ØªÙ…Øª Ø¥Ø²Ø§Ù„Ø© Ø§Ù„ÙˆØ¸ÙŠÙØ© Ù…Ù† Ø§Ù„Ù…Ø­ÙÙˆØ¸Ø§Øª.",
-      "SAVED_SHORT": "ØªÙ… Ø­ÙØ¸ Ø§Ù„ÙˆØ¸ÙŠÙØ©!",
-      "REMOVED_SHORT": "ØªÙ…Øª Ø§Ù„Ø¥Ø²Ø§Ù„Ø©."
+      "SAVED": "Job saved to your list.",
+      "REMOVED": "Job removed from saved.",
+      "SAVED_SHORT": "Job saved!",
+      "REMOVED_SHORT": "Job removed."
+    },
+    "DETAIL": {
+      "NOT_FOUND": {
+        "TITLE": "Job not found",
+        "DESCRIPTION": "This role may have been removed or is no longer available.",
+        "BROWSE": "Browse all jobs"
+      },
+      "STATS": {
+        "APPLICANTS": "Applicants",
+        "VIEWS": "Views",
+        "SKILLS": "Skills"
+      },
+      "ABOUT_ROLE": "About the role",
+      "REQUIREMENTS": "Requirements",
+      "REQUIRED_SKILLS": "Required skills",
+      "SIMILAR_JOBS": "Similar jobs",
+      "APPLICATION_SUBMITTED": "Application submitted",
+      "APPLY_NOW": "Apply now",
+      "SAVE": "Save",
+      "SAVED": "Saved",
+      "SHARE": "Share",
+      "OVERVIEW": {
+        "TITLE": "Job overview",
+        "CATEGORY": "Category",
+        "POSTED": "Posted",
+        "JOB_TYPE": "Job type",
+        "EXPERIENCE": "Experience",
+        "SALARY": "Salary"
+      },
+      "TOASTS": {
+        "LOGIN_REQUIRED": "Please sign in to apply.",
+        "APPLIED": "Application submitted successfully.",
+        "LINK_COPIED": "Link copied to clipboard."
+      },
+      "BREADCRUMB": {
+        "JOBS": "Jobs"
+      }
     }
   },
   "AUTH": {
     "LOGIN": {
-      "TITLE": "Ù…Ø±Ø­Ø¨Ù‹Ø§ Ø¨Ø¹ÙˆØ¯ØªÙƒ",
-      "SUBTITLE": "Ø³Ø¬Ù‘Ù„ Ø¯Ø®ÙˆÙ„Ùƒ Ø¥Ù„Ù‰ Ø­Ø³Ø§Ø¨Ùƒ Ù„Ù„Ù…ØªØ§Ø¨Ø¹Ø©",
-      "DEMO_CANDIDATE": "Ù…Ø±Ø´Ø­",
-      "DEMO_EMPLOYER": "ØµØ§Ø­Ø¨ Ø¹Ù…Ù„",
-      "DEMO_ADMIN": "Ù…Ø³Ø¤ÙˆÙ„",
-      "OR_EMAIL": "Ø£Ùˆ Ø³Ø¬Ù‘Ù„ Ø§Ù„Ø¯Ø®ÙˆÙ„ Ø¨Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ",
-      "FORGOT_PASSWORD": "Ù†Ø³ÙŠØª ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ø±ÙˆØ±ØŸ",
-      "SUBMIT": "ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø¯Ø®ÙˆÙ„",
-      "SUBMITTING": "Ø¬Ø§Ø±Ù ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø¯Ø®ÙˆÙ„...",
-      "NO_ACCOUNT": "Ù„ÙŠØ³ Ù„Ø¯ÙŠÙƒ Ø­Ø³Ø§Ø¨ØŸ",
-      "CREATE_ACCOUNT": "Ø£Ù†Ø´Ø¦ Ø­Ø³Ø§Ø¨Ù‹Ø§ Ù…Ø¬Ø§Ù†Ù‹Ø§",
-      "WELCOME_TOAST": "Ù…Ø±Ø­Ø¨Ù‹Ø§ Ø¨Ø¹ÙˆØ¯ØªÙƒ!",
-      "ERROR_TOAST": "Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„Ø¯Ø®ÙˆÙ„ ØºÙŠØ± ØµØ­ÙŠØ­Ø©",
-      "CANDIDATE_TOAST": "ØªÙ… ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø¯Ø®ÙˆÙ„ ÙƒÙ…Ø±Ø´Ø­!",
-      "EMPLOYER_TOAST": "ØªÙ… ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø¯Ø®ÙˆÙ„ ÙƒØµØ§Ø­Ø¨ Ø¹Ù…Ù„!",
-      "ADMIN_TOAST": "ØªÙ… ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø¯Ø®ÙˆÙ„ ÙƒÙ…Ø³Ø¤ÙˆÙ„!"
+      "TITLE": "Welcome back",
+      "SUBTITLE": "Sign in to your account to continue",
+      "DEMO_CANDIDATE": "Candidate",
+      "DEMO_EMPLOYER": "Employer",
+      "DEMO_ADMIN": "Admin",
+      "OR_EMAIL": "or sign in with email",
+      "FORGOT_PASSWORD": "Forgot password?",
+      "SUBMIT": "Sign In",
+      "SUBMITTING": "Signing in...",
+      "NO_ACCOUNT": "Don't have an account?",
+      "CREATE_ACCOUNT": "Create one free",
+      "WELCOME_TOAST": "Welcome back!",
+      "ERROR_TOAST": "Invalid credentials",
+      "CANDIDATE_TOAST": "Logged in as candidate!",
+      "EMPLOYER_TOAST": "Logged in as employer!",
+      "ADMIN_TOAST": "Logged in as admin!"
     },
     "REGISTER": {
-      "TITLE": "Ø£Ù†Ø´Ø¦ Ø­Ø³Ø§Ø¨Ùƒ",
-      "SUBTITLE": "Ø§Ù†Ø¶Ù… Ø¥Ù„Ù‰ Ø¢Ù„Ø§Ù Ø§Ù„Ø£Ø´Ø®Ø§Øµ Ø§Ù„Ø°ÙŠÙ† ÙŠØ¨Ø­Ø«ÙˆÙ† Ø¹Ù† ÙØ±ØµØªÙ‡Ù… Ø§Ù„Ù‚Ø§Ø¯Ù…Ø©",
-      "ROLE_LABEL": "Ø£Ù†Ø§...",
-      "ROLE_SEEKER": "Ø¨Ø§Ø­Ø« Ø¹Ù† Ø¹Ù…Ù„",
-      "ROLE_EMPLOYER": "ØµØ§Ø­Ø¨ Ø¹Ù…Ù„",
-      "TERMS_TEXT": "Ø£ÙˆØ§ÙÙ‚ Ø¹Ù„Ù‰",
-      "TERMS_LINK": "Ø´Ø±ÙˆØ· Ø§Ù„Ø®Ø¯Ù…Ø©",
-      "TERMS_AND": "Ùˆ",
-      "PRIVACY_LINK": "Ø³ÙŠØ§Ø³Ø© Ø§Ù„Ø®ØµÙˆØµÙŠØ©",
-      "SUBMIT": "Ø¥Ù†Ø´Ø§Ø¡ Ø­Ø³Ø§Ø¨",
-      "SUBMITTING": "Ø¬Ø§Ø±Ù Ø¥Ù†Ø´Ø§Ø¡ Ø§Ù„Ø­Ø³Ø§Ø¨...",
-      "HAVE_ACCOUNT": "Ù„Ø¯ÙŠÙƒ Ø­Ø³Ø§Ø¨ Ø¨Ø§Ù„ÙØ¹Ù„ØŸ",
-      "SIGN_IN": "ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø¯Ø®ÙˆÙ„",
-      "SUCCESS_TOAST": "ØªÙ… Ø¥Ù†Ø´Ø§Ø¡ Ø§Ù„Ø­Ø³Ø§Ø¨ Ø¨Ù†Ø¬Ø§Ø­! Ø£Ù‡Ù„Ù‹Ø§ Ø¨Ùƒ."
+      "TITLE": "أنشئ حسابًا",
+      "SUBTITLE": "Join thousands of people finding their next opportunity",
+      "ROLE_LABEL": "أنا...",
+      "ROLE_SEEKER": "Job Seeker",
+      "ROLE_EMPLOYER": "Employer",
+      "TERMS_TEXT": "I agree to the",
+      "TERMS_LINK": "Terms of Service",
+      "TERMS_AND": "and",
+      "PRIVACY_LINK": "Privacy Policy",
+      "SUBMIT": "إنشاء حساب",
+      "SUBMITTING": "Creating account...",
+      "HAVE_ACCOUNT": "Already have an account?",
+      "SIGN_IN": "Sign in",
+      "SUCCESS_TOAST": "Account created successfully! Welcome aboard."
     },
     "FORM": {
-      "EMAIL_LABEL": "Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ",
+      "EMAIL_LABEL": "Email address",
       "EMAIL_PLACEHOLDER": "you@example.com",
-      "EMAIL_REQUIRED": "Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ Ù…Ø·Ù„ÙˆØ¨",
-      "EMAIL_INVALID": "ÙŠØ±Ø¬Ù‰ Ø¥Ø¯Ø®Ø§Ù„ Ø¨Ø±ÙŠØ¯ Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ ØµØ­ÙŠØ­",
-      "PASSWORD_LABEL": "ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ø±ÙˆØ±",
-      "PASSWORD_PLACEHOLDER": "â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢",
-      "PASSWORD_MIN_PLACEHOLDER": "8 Ø£Ø­Ø±Ù Ø¹Ù„Ù‰ Ø§Ù„Ø£Ù‚Ù„",
-      "PASSWORD_REQUIRED": "ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ø±ÙˆØ± Ù…Ø·Ù„ÙˆØ¨Ø©",
-      "PASSWORD_MIN_LENGTH": "ÙŠØ¬Ø¨ Ø£Ù† ØªÙƒÙˆÙ† ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ø±ÙˆØ± 8 Ø£Ø­Ø±Ù Ø¹Ù„Ù‰ Ø§Ù„Ø£Ù‚Ù„",
-      "FULL_NAME_LABEL": "Ø§Ù„Ø§Ø³Ù… Ø§Ù„ÙƒØ§Ù…Ù„",
-      "FULL_NAME_PLACEHOLDER": "Ù…Ø­Ù…Ø¯ Ø£Ø­Ù…Ø¯",
-      "NAME_REQUIRED": "Ø§Ù„Ø§Ø³Ù… Ù…Ø·Ù„ÙˆØ¨",
-      "NAME_MIN_LENGTH": "ÙŠØ¬Ø¨ Ø£Ù† ÙŠÙƒÙˆÙ† Ø§Ù„Ø§Ø³Ù… Ø­Ø±ÙÙŠÙ† Ø¹Ù„Ù‰ Ø§Ù„Ø£Ù‚Ù„",
-      "COMPANY_NAME_LABEL": "Ø§Ø³Ù… Ø§Ù„Ø´Ø±ÙƒØ©",
-      "COMPANY_NAME_PLACEHOLDER": "Ø´Ø±ÙƒØªÙƒ",
-      "COMPANY_REQUIRED": "Ø§Ø³Ù… Ø§Ù„Ø´Ø±ÙƒØ© Ù…Ø·Ù„ÙˆØ¨ Ù„Ø£ØµØ­Ø§Ø¨ Ø§Ù„Ø¹Ù…Ù„",
-      "INDUSTRY_LABEL": "Ø§Ù„Ù…Ø¬Ø§Ù„ / Ø§Ù„Ù‚Ø·Ø§Ø¹",
-      "INDUSTRY_PLACEHOLDER": "Ù…Ø«Ù„: Ø§Ù„Ø¨Ø±Ù…Ø¬ÙŠØ§ØªØŒ Ø§Ù„ØªØ³ÙˆÙŠÙ‚",
-      "INDUSTRY_REQUIRED": "Ø§Ù„Ù…Ø¬Ø§Ù„ Ù…Ø·Ù„ÙˆØ¨ Ù„Ø£ØµØ­Ø§Ø¨ Ø§Ù„Ø¹Ù…Ù„",
-      "TERMS_REQUIRED": "ÙŠØ¬Ø¨ Ø§Ù„Ù…ÙˆØ§ÙÙ‚Ø© Ø¹Ù„Ù‰ Ø§Ù„Ø´Ø±ÙˆØ·",
-      "STRENGTH_WEAK": "Ø¶Ø¹ÙŠÙØ©",
-      "STRENGTH_FAIR": "Ù…Ù‚Ø¨ÙˆÙ„Ø©",
-      "STRENGTH_GOOD": "Ø¬ÙŠØ¯Ø©",
-      "STRENGTH_STRONG": "Ù‚ÙˆÙŠØ©"
+      "EMAIL_REQUIRED": "Email is required",
+      "EMAIL_INVALID": "Please enter a valid email",
+      "PASSWORD_LABEL": "Password",
+      "PASSWORD_PLACEHOLDER": "••••••••",
+      "PASSWORD_MIN_PLACEHOLDER": "Min 8 characters",
+      "PASSWORD_REQUIRED": "Password is required",
+      "PASSWORD_MIN_LENGTH": "Password must be at least 8 characters",
+      "FULL_NAME_LABEL": "Full Name",
+      "FULL_NAME_PLACEHOLDER": "John Doe",
+      "NAME_REQUIRED": "Name is required",
+      "NAME_MIN_LENGTH": "Name must be at least 2 characters",
+      "COMPANY_NAME_LABEL": "Company Name",
+      "COMPANY_NAME_PLACEHOLDER": "شرْتْ",
+      "COMPANY_REQUIRED": "Company name is required for employers",
+      "INDUSTRY_LABEL": "Industry / Sector",
+      "INDUSTRY_PLACEHOLDER": "e.g. Software, Marketing",
+      "INDUSTRY_REQUIRED": "Industry is required for employers",
+      "TERMS_REQUIRED": "You must agree to the terms",
+      "STRENGTH_WEAK": "Weak",
+      "STRENGTH_FAIR": "Fair",
+      "STRENGTH_GOOD": "Good",
+      "STRENGTH_STRONG": "Strong"
+    },
+    "TESTIMONIALS": {
+      "ITEMS": {
+        "AISHA_KHAN": "عائشة خان"
+      }
     }
   },
   "FREELANCERS": {
     "FEATURED": {
-      "TITLE": "Ù…Ø³ØªÙ‚Ù„ÙˆÙ† Ù…Ù…ÙŠØ²ÙˆÙ†",
-      "DESCRIPTION": "ØªÙˆØ§ØµÙ„ Ù…Ø¹ Ù…Ø­ØªØ±ÙÙŠÙ† Ù…Ù‡Ø±Ø© Ø¬Ø§Ù‡Ø²ÙŠÙ† Ù„ØªÙ†ÙÙŠØ° Ù…Ø´Ø§Ø±ÙŠØ¹Ùƒ",
-      "EMPTY": "Ù„Ø§ ÙŠÙˆØ¬Ø¯ Ù…Ø³ØªÙ‚Ù„ÙˆÙ† Ù…Ù…ÙŠØ²ÙˆÙ† Ø­Ø§Ù„ÙŠÙ‹Ø§.",
-      "BROWSE_ALL": "ØªØµÙØ­ Ø¬Ù…ÙŠØ¹ Ø§Ù„Ù…Ø³ØªÙ‚Ù„ÙŠÙ†"
+      "TITLE": "Featured Freelancers",
+      "DESCRIPTION": "Connect with skilled professionals ready to bring your projects to life",
+      "EMPTY": "No featured freelancers available.",
+      "BROWSE_ALL": "Browse All Freelancers"
     },
     "CARD": {
-      "REQUEST": "Ø·Ù„Ø¨ Ù…Ø³ØªÙ‚Ù„",
+      "REQUEST": "Request Freelancer",
       "NAMES": {
-        "AISHA_KHAN": "Ø¹Ø§Ø¦Ø´Ø© Ø®Ø§Ù†",
-        "OMAR_RIZVI": "Ø¹Ù…Ø± Ø±Ø¶ÙˆÙŠ",
-        "LINA_AHMED": "Ù„ÙŠÙ†Ø§ Ø£Ø­Ù…Ø¯",
-        "SAMIR_PATEL": "Ø³Ù…ÙŠØ± Ø¨Ø§ØªÙŠÙ„",
-        "PRIYA_SHARMA": "Ø¨Ø±ÙŠØ§ Ø´Ø§Ø±Ù…Ø§",
-        "ZAID_HASSAN": "Ø²ÙŠØ¯ Ø­Ø³Ù†"
+        "AISHA_KHAN": "عائشة خا",
+        "OMAR_RIZVI": "Omar Rizvi",
+        "LINA_AHMED": "Lina Ahmed",
+        "SAMIR_PATEL": "Samir Patel",
+        "PRIYA_SHARMA": "Priya Sharma",
+        "ZAID_HASSAN": "Zaid Hassan"
       },
       "ROLES": {
-        "FRONTEND_DEVELOPER": "Ù…Ø·ÙˆØ± ÙˆØ§Ø¬Ù‡Ø§Øª Ø£Ù…Ø§Ù…ÙŠØ©",
-        "DOTNET_DEVELOPER": "Ù…Ø·ÙˆØ± .NET",
-        "UX_UI_DESIGNER": "Ù…ØµÙ…Ù… UX/UI",
-        "FULL_STACK_DEVELOPER": "Ù…Ø·ÙˆØ± ÙÙ„ Ø³ØªØ§Ùƒ",
-        "DATA_ANALYST": "Ù…Ø­Ù„Ù„ Ø¨ÙŠØ§Ù†Ø§Øª",
-        "MOBILE_DEVELOPER": "Ù…Ø·ÙˆØ± ØªØ·Ø¨ÙŠÙ‚Ø§Øª Ø§Ù„Ø¬ÙˆØ§Ù„"
+        "FRONTEND_DEVELOPER": "Frontend Developer",
+        "DOTNET_DEVELOPER": ".NET Developer",
+        "UX_UI_DESIGNER": "UX/UI Designer",
+        "FULL_STACK_DEVELOPER": "Full-Stack Developer",
+        "DATA_ANALYST": "Data Analyst",
+        "MOBILE_DEVELOPER": "Mobile Developer"
       },
       "TYPES": {
-        "FREELANCER": "Ù…Ø³ØªÙ‚Ù„"
+        "FREELANCER": "Freelancer"
       },
       "DESCRIPTIONS": {
-        "FRONTEND_DEVELOPER": "ÙŠØ¨Ù†ÙŠ ÙˆØ§Ø¬Ù‡Ø§Øª Ù…ØªØ¬Ø§ÙˆØ¨Ø© ÙˆØ³Ù‡Ù„Ø© Ø§Ù„ÙˆØµÙˆÙ„ Ø¨Ø§Ø³ØªØ®Ø¯Ø§Ù… Ø£Ø­Ø¯Ø« Ø§Ù„Ø£Ø·Ø±.",
-        "DOTNET_DEVELOPER": "ÙŠØ·ÙˆØ± ÙˆØ§Ø¬Ù‡Ø§Øª API Ù‚ÙˆÙŠØ© ÙˆØ­Ù„ÙˆÙ„Ù‹Ø§ Ø®Ù„ÙÙŠØ© Ù‚Ø§Ø¨Ù„Ø© Ù„Ù„ØªÙˆØ³Ø¹.",
-        "UX_UI_DESIGNER": "ÙŠØµÙ…Ù… ØªØ¬Ø§Ø±Ø¨ Ù…Ù†ØªØ¬Ø§Øª Ø¨Ø¯ÙŠÙ‡ÙŠØ© ØªÙ…Ù†Ø­ Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù…ÙŠÙ† ØªØ¬Ø±Ø¨Ø© Ù…Ù…ØªØ¹Ø©.",
-        "FULL_STACK_DEVELOPER": "ÙŠØ·ÙˆØ± ØªØ·Ø¨ÙŠÙ‚Ø§Øª ÙˆÙŠØ¨ Ù…ØªÙƒØ§Ù…Ù„Ø© Ù…Ù† Ù‚Ø§Ø¹Ø¯Ø© Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª Ø­ØªÙ‰ Ø§Ù„Ù†Ø´Ø±.",
-        "DATA_ANALYST": "ÙŠØ­ÙˆÙ‘Ù„ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„Ø®Ø§Ù… Ø¥Ù„Ù‰ Ø±Ø¤Ù‰ Ø¹Ù…Ù„ÙŠØ© Ù‚Ø§Ø¨Ù„Ø© Ù„Ù„ØªÙ†ÙÙŠØ°.",
-        "MOBILE_DEVELOPER": "ÙŠØ¨Ù†ÙŠ ØªØ·Ø¨ÙŠÙ‚Ø§Øª Ø¬ÙˆØ§Ù„ Ù…ØªØ¹Ø¯Ø¯Ø© Ø§Ù„Ù…Ù†ØµØ§Øª Ù„Ù†Ø¸Ø§Ù…ÙŠ iOS ÙˆAndroid."
+        "FRONTEND_DEVELOPER": "Building responsive, accessible UIs with modern frameworks.",
+        "DOTNET_DEVELOPER": "Robust API development and scalable backend solutions.",
+        "UX_UI_DESIGNER": "Designing intuitive product experiences that delight users.",
+        "FULL_STACK_DEVELOPER": "End-to-end web applications from database to deployment.",
+        "DATA_ANALYST": "Turning raw data into actionable business insights.",
+        "MOBILE_DEVELOPER": "Cross-platform mobile apps for iOS and Android."
       },
       "SKILLS": {
-        "ANGULAR": "Ø£Ù†Ø¬ÙˆÙ„Ø§Ø±",
-        "TYPESCRIPT": "ØªØ§ÙŠØ¨ Ø³ÙƒØ±ÙŠØ¨Øª",
-        "UI_DESIGN": "ØªØµÙ…ÙŠÙ… Ø§Ù„ÙˆØ§Ø¬Ù‡Ø§Øª",
+        "ANGULAR": "Angular",
+        "TYPESCRIPT": "TypeScript",
+        "UI_DESIGN": "UI Design",
         "DOTNET": ".NET",
         "C_SHARP": "C#",
-        "REST_APIS": "ÙˆØ§Ø¬Ù‡Ø§Øª REST",
-        "FIGMA": "ÙÙŠØ¬Ù…Ø§",
-        "UX_RESEARCH": "Ø¨Ø­Ø« ØªØ¬Ø±Ø¨Ø© Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù…",
-        "PROTOTYPING": "Ø§Ù„Ù†Ù…Ø°Ø¬Ø© Ø§Ù„Ø£ÙˆÙ„ÙŠØ©",
+        "REST_APIS": "اج!ات REST",
+        "FIGMA": "Figma",
+        "UX_RESEARCH": "UX Research",
+        "PROTOTYPING": "Prototyping",
         "NODE_JS": "Node.js",
         "POSTGRESQL": "PostgreSQL",
-        "PYTHON": "Ø¨Ø§ÙŠØ«ÙˆÙ†",
-        "POWER_BI": "Ø¨Ø§ÙˆØ± BI",
+        "PYTHON": "Python",
+        "POWER_BI": "بار BI",
         "SQL": "SQL",
-        "FLUTTER": "ÙÙ„Ø§ØªØ±",
-        "DART": "Ø¯Ø§Ø±Øª",
-        "FIREBASE": "ÙØ§ÙŠØ±Ø¨ÙŠØ²"
+        "FLUTTER": "Flutter",
+        "DART": "دارت",
+        "FIREBASE": "Firebase"
       }
     },
     "PAGE": {
-      "TITLE": "ÙˆØ¸Ù‘Ù Ù…Ø³ØªÙ‚Ù„ÙŠÙ† Ù…ÙˆØ«ÙˆÙ‚ÙŠÙ† Ø¨Ø³Ø±Ø¹Ø© Ø£ÙƒØ¨Ø±",
-      "SUBTITLE": "ØªØµÙØ­ Ø§Ù„Ù…ØªØ®ØµØµÙŠÙ† Ø§Ù„Ù…Ø¹ØªÙ…Ø¯ÙŠÙ†ØŒ ÙˆØµÙÙ‘Ù Ø­Ø³Ø¨ Ø§Ù„Ù…Ù‡Ø§Ø±Ø§Øª ÙˆØ§Ù„Ù…ÙˆÙ‚Ø¹ØŒ ÙˆØ§Ø¹Ø«Ø± Ø¹Ù„Ù‰ Ø§Ù„Ù…ÙˆØ§Ù‡Ø¨ Ø§Ù„Ø¬Ø§Ù‡Ø²Ø© Ù„Ù„Ù…Ø³Ø§Ù‡Ù…Ø©.",
-      "BADGE": "Ø§Ù„Ù…Ø³ØªÙ‚Ù„ÙˆÙ† ÙˆØ§Ù„Ù…ØªØ®ØµØµÙˆÙ†"
+      "TITLE": "Hire Proven Freelancers Faster",
+      "SUBTITLE": "Browse approved specialists, filter by skill set and location, and find talent ready to contribute.",
+      "BADGE": "Freelancers & Specialists"
     },
     "FILTER": {
-      "SEARCH_PLACEHOLDER": "Ø§Ø¨Ø­Ø« Ø¨Ø§Ù„Ù…Ù‡Ø§Ø±Ø§Øª Ø£Ùˆ Ø§Ù„Ø¯ÙˆØ±",
-      "LOCATION_PLACEHOLDER": "Ø§Ù„Ù…ÙˆÙ‚Ø¹",
-      "LABEL": "ØªØµÙÙŠØ©:",
-      "EXPERIENCE_LEVEL": "Ù…Ø³ØªÙˆÙ‰ Ø§Ù„Ø®Ø¨Ø±Ø©",
+      "SEARCH_PLACEHOLDER": "Search skills or role",
+      "LOCATION_PLACEHOLDER": "Location",
+      "LABEL": "Filter:",
+      "EXPERIENCE_LEVEL": "Experience Level",
       "EXPERIENCE_OPTIONS": {
-        "BEGINNER": "Ù…Ø¨ØªØ¯Ø¦",
-        "INTERMEDIATE": "Ù…ØªÙˆØ³Ø·",
-        "EXPERT": "Ø®Ø¨ÙŠØ±"
+        "BEGINNER": "Beginner",
+        "INTERMEDIATE": "Intermediate",
+        "EXPERT": "Expert"
       },
-      "AVAILABILITY": "Ø§Ù„ØªÙˆÙØ±",
+      "AVAILABILITY": "Availability",
       "AVAILABILITY_OPTIONS": {
-        "AVAILABLE_NOW": "Ù…ØªØ§Ø­ Ø§Ù„Ø¢Ù†",
-        "PART_TIME": "Ø¯ÙˆØ§Ù… Ø¬Ø²Ø¦ÙŠ",
-        "CONTRACT": "Ø¹Ù‚Ø¯"
+        "AVAILABLE_NOW": "Available Now",
+        "PART_TIME": "Part-time",
+        "CONTRACT": "Contract"
       },
-      "RESULTS": "{{count}} Ù…Ø³ØªÙ‚Ù„",
-      "CLEAR": "Ù…Ø³Ø­ Ø§Ù„ÙÙ„Ø§ØªØ±"
+      "RESULTS": "{{count}} freelancers",
+      "CLEAR": "Clear filters"
     },
-    "EMPTY": "Ù„Ø§ ÙŠÙˆØ¬Ø¯ Ù…Ø³ØªÙ‚Ù„ÙˆÙ† Ù…Ø·Ø§Ø¨Ù‚ÙˆÙ† Ù„Ø¨Ø­Ø«Ùƒ."
+    "EMPTY": "No freelancers match your search.",
+    "HEADER": {
+      "RESULTS": "عرض {{count}} نتيجة"
+    }
   },
   "COMPANIES": {
     "PAGE": {
-      "TITLE": "Ø§Ø³ØªÙƒØ´Ù Ø§Ù„Ø´Ø±ÙƒØ§Øª Ø§Ù„ØªÙŠ ØªØ³ØªØ­Ù‚ Ø£Ù† ØªØ¨Ù†ÙŠ Ù…Ø³ØªÙ‚Ø¨Ù„Ùƒ Ù…Ø¹Ù‡Ø§",
-      "SUBTITLE": "ØªØ¹Ø±Ù‘Ù Ø¹Ù„Ù‰ Ø§Ù„ÙØ±Ù‚ØŒ ÙˆØ§ÙƒØªØ´Ù Ø§Ù„ÙˆØ¸Ø§Ø¦Ù Ø§Ù„Ù…ÙØªÙˆØ­Ø©ØŒ ÙˆÙ‚Ø§Ø±Ù† Ø¨ÙŠÙ† Ø£ØµØ­Ø§Ø¨ Ø§Ù„Ø¹Ù…Ù„ Ø§Ù„Ø°ÙŠÙ† ÙŠÙ†Ø³Ø¬Ù…ÙˆÙ† Ù…Ø¹ Ø£Ù‡Ø¯Ø§ÙÙƒ.",
-      "BADGE": "Ø§Ù„Ø´Ø±ÙƒØ§Øª ÙˆØ£ØµØ­Ø§Ø¨ Ø§Ù„Ø¹Ù…Ù„"
+      "TITLE": "Explore Companies Worth Building With",
+      "SUBTITLE": "Research teams, discover open roles, and compare employers that align with your goals.",
+      "BADGE": "Companies & Employers"
     },
     "FILTER": {
-      "SEARCH_PLACEHOLDER": "Ø§Ø¨Ø­Ø« Ø¨Ø§Ø³Ù… Ø§Ù„Ø´Ø±ÙƒØ© Ø£Ùˆ Ø§Ù„Ù…Ø¬Ø§Ù„...",
-      "LABEL": "ØªØµÙÙŠØ©:",
-      "ALL_INDUSTRIES": "ÙƒÙ„ Ø§Ù„Ù…Ø¬Ø§Ù„Ø§Øª",
-      "ALL_LOCATIONS": "ÙƒÙ„ Ø§Ù„Ù…ÙˆØ§Ù‚Ø¹",
-      "RESULTS": "{{count}} Ø´Ø±ÙƒØ©",
-      "CLEAR": "Ù…Ø³Ø­ Ø§Ù„ÙÙ„Ø§ØªØ±"
+      "SEARCH_PLACEHOLDER": "Search by company name or industry...",
+      "LABEL": "Filter:",
+      "ALL_INDUSTRIES": "All Industries",
+      "ALL_LOCATIONS": "All Locations",
+      "RESULTS": "{{count}} شرْة",
+      "CLEAR": "Clear filters"
     },
     "CARD": {
-      "OPEN_JOBS": "{{count}} ÙˆØ¸ÙŠÙØ© Ù…ÙØªÙˆØ­Ø©",
-      "VIEW": "Ø¹Ø±Ø¶"
+      "OPEN_JOBS": "{{count}} Open Jobs",
+      "VIEW": "عرض"
     },
     "NAMES": {
-      "TECHFLOW": "ØªÙƒ ÙÙ„Ùˆ",
-      "GLOBAL_HEALTH": "Ø¬Ù„ÙˆØ¨Ø§Ù„ Ù‡ÙŠÙ„Ø«",
-      "FINTRUST": "ÙÙŠÙ† ØªØ±Ø³Øª",
-      "CLOUDSCALE": "ÙƒÙ„Ø§ÙˆØ¯ Ø³ÙƒÙŠÙ„",
-      "DESIGNHUB": "Ø¯ÙŠØ²Ø§ÙŠÙ† Ù‡Ø¨",
-      "EDUSPHERE": "Ø¥ÙŠØ¯ÙŠÙˆ Ø³ÙÙŠØ±",
-      "AUTODRIVE_AI": "Ø£ÙˆØªÙˆ Ø¯Ø±Ø§ÙŠÙ AI",
-      "GREENENERGY": "Ø¬Ø±ÙŠÙ† Ø¥Ù†Ø±Ø¬ÙŠ"
+      "TECHFLOW": "TechFlow",
+      "GLOBAL_HEALTH": "Global Health",
+      "FINTRUST": "FinTrust",
+      "CLOUDSCALE": "CloudScale",
+      "DESIGNHUB": "DesignHub",
+      "EDUSPHERE": "EduSphere",
+      "AUTODRIVE_AI": "AutoDrive AI",
+      "GREENENERGY": "GreenEnergy"
     },
     "LOCATIONS": {
-      "SAN_FRANCISCO_CA": "Ø³Ø§Ù† ÙØ±Ø§Ù†Ø³ÙŠØ³ÙƒÙˆØŒ ÙƒØ§Ù„ÙŠÙÙˆØ±Ù†ÙŠØ§",
-      "NEW_YORK_NY": "Ù†ÙŠÙˆÙŠÙˆØ±ÙƒØŒ Ù†ÙŠÙˆÙŠÙˆØ±Ùƒ",
-      "LONDON_UK": "Ù„Ù†Ø¯Ù†ØŒ Ø§Ù„Ù…Ù…Ù„ÙƒØ© Ø§Ù„Ù…ØªØ­Ø¯Ø©",
-      "AUSTIN_TX": "Ø£ÙˆØ³ØªÙ†ØŒ ØªÙƒØ³Ø§Ø³",
-      "BERLIN_DE": "Ø¨Ø±Ù„ÙŠÙ†ØŒ Ø£Ù„Ù…Ø§Ù†ÙŠØ§",
-      "REMOTE": "Ø¹Ù† Ø¨ÙØ¹Ø¯",
-      "DETROIT_MI": "Ø¯ÙŠØªØ±ÙˆÙŠØªØŒ Ù…ÙŠØ´ÙŠØºØ§Ù†",
-      "DENVER_CO": "Ø¯Ù†ÙØ±ØŒ ÙƒÙˆÙ„ÙˆØ±Ø§Ø¯Ùˆ"
+      "SAN_FRANCISCO_CA": "San Francisco, CA",
+      "NEW_YORK_NY": "New York, NY",
+      "LONDON_UK": "London, UK",
+      "AUSTIN_TX": "أست R تْساس",
+      "BERLIN_DE": "Berlin, DE",
+      "REMOTE": "ع بُعد",
+      "DETROIT_MI": "Detroit, MI",
+      "DENVER_CO": "Denver, CO"
     },
     "DESCRIPTIONS": {
-      "TECHFLOW": "Ù†Ø¨Ù†ÙŠ Ø§Ù„Ø¬ÙŠÙ„ Ø§Ù„Ù‚Ø§Ø¯Ù… Ù…Ù† Ø£Ø¯ÙˆØ§Øª Ø£ØªÙ…ØªØ© Ø³ÙŠØ± Ø§Ù„Ø¹Ù…Ù„ Ø§Ù„Ø³Ù„Ø³Ø© Ù„Ù„ÙØ±Ù‚ Ø§Ù„Ø­Ø¯ÙŠØ«Ø©.",
-      "GLOBAL_HEALTH": "Ø­Ù„ÙˆÙ„ ØµØ­ÙŠØ© ØªÙ‚Ù†ÙŠØ© Ù…Ø¨ØªÙƒØ±Ø© ØªØ±Ø¨Ø· Ø¨ÙŠÙ† Ø§Ù„Ù…Ø±Ø¶Ù‰ ÙˆØ§Ù„Ù…ØªØ®ØµØµÙŠÙ† Ø§Ù„Ø·Ø¨ÙŠÙŠÙ†.",
-      "FINTRUST": "Ù†Ø¬Ø¹Ù„ Ø§Ù„ØªØ¯Ø§ÙˆÙ„ Ø§Ù„Ø®ÙˆØ§Ø±Ø²Ù…ÙŠ ÙˆØ¥Ø¯Ø§Ø±Ø© Ø§Ù„Ø£ØµÙˆÙ„ Ø§Ù„Ø¢Ù…Ù†Ø© ÙÙŠ Ù…ØªÙ†Ø§ÙˆÙ„ Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù…ÙŠÙ† Ø§Ù„ÙŠÙˆÙ…ÙŠÙŠÙ†.",
-      "CLOUDSCALE": "Ù†Ø¨Ø³Ù‘Ø· Ø§Ù„Ø¨Ù†ÙŠØ© Ø§Ù„ØªØ­ØªÙŠØ© Ø§Ù„Ø³Ø­Ø§Ø¨ÙŠØ© Ù„Ù„Ù…Ø¤Ø³Ø³Ø§Øª ÙˆÙ†Ø³Ø§Ø¹Ø¯ Ø§Ù„Ø´Ø±ÙƒØ§Øª Ø¹Ù„Ù‰ Ø§Ù„ØªÙˆØ³Ø¹ Ø¨Ø£Ù…Ø§Ù†.",
-      "DESIGNHUB": "ÙˆÙƒØ§Ù„Ø© Ø¥Ø¨Ø¯Ø§Ø¹ÙŠØ© Ø­Ø§Ø¦Ø²Ø© Ø¹Ù„Ù‰ Ø¬ÙˆØ§Ø¦Ø² ØªØ±ÙƒÙ‘Ø² Ø¹Ù„Ù‰ Ø§Ù„ØªØ¬Ø§Ø±Ø¨ Ø§Ù„Ø±Ù‚Ù…ÙŠØ© ÙˆÙ‡ÙˆÙŠØ© Ø§Ù„Ø¹Ù„Ø§Ù…Ø© Ø§Ù„ØªØ¬Ø§Ø±ÙŠØ©.",
-      "EDUSPHERE": "Ù…Ù†ØµØ§Øª ØªØ¹Ù„ÙŠÙ… Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ Ø³Ù‡Ù„Ø© Ø§Ù„ÙˆØµÙˆÙ„ ØªÙ…ÙƒÙ‘Ù† Ø§Ù„Ø·Ù„Ø§Ø¨ Ø­ÙˆÙ„ Ø§Ù„Ø¹Ø§Ù„Ù….",
-      "AUTODRIVE_AI": "Ù†Ø·ÙˆÙ‘Ø± Ø¨Ø±Ù…Ø¬ÙŠØ§Øª Ø§Ù„Ù…Ø±ÙƒØ¨Ø§Øª Ø§Ù„Ø°Ø§ØªÙŠØ© Ø§Ù„Ù‚ÙŠØ§Ø¯Ø© Ø¨Ø§Ø³ØªØ®Ø¯Ø§Ù… Ø§Ù„Ø´Ø¨ÙƒØ§Øª Ø§Ù„Ø¹ØµØ¨ÙŠØ© Ø§Ù„Ù…ØªÙ‚Ø¯Ù…Ø©.",
-      "GREENENERGY": "Ø­Ù„ÙˆÙ„ Ø·Ø§Ù‚Ø© Ù…ØªØ¬Ø¯Ø¯Ø© ØªØ±ÙƒÙ‘Ø² Ø¹Ù„Ù‰ ØªØ­Ø³ÙŠÙ† Ø§Ù„Ø´Ø¨ÙƒØ§Øª Ø§Ù„Ø°ÙƒÙŠØ© ÙˆØ¯Ù…Ø¬ Ø§Ù„Ø·Ø§Ù‚Ø© Ø§Ù„Ø´Ù…Ø³ÙŠØ©."
+      "TECHFLOW": "Building the next generation of seamless workflow automation tools for modern teams.",
+      "GLOBAL_HEALTH": "Innovative health tech solutions bridging the gap between patients and medical professionals.",
+      "FINTRUST": "Democratizing algorithmic trading and secure asset management for everyday users.",
+      "CLOUDSCALE": "Enterprise cloud infrastructure simplified. We help scale businesses securely.",
+      "DESIGNHUB": "Award-winning creative agency focused on digital experiences and brand identity.",
+      "EDUSPHERE": "Accessible online learning platforms that empower students globally.",
+      "AUTODRIVE_AI": "Pioneering autonomous vehicle software using advanced neural networks.",
+      "GREENENERGY": "Renewable energy solutions focusing on smart grid optimization and solar integration."
     },
     "EMPTY": {
-      "TITLE": "Ù„Ù… ÙŠØªÙ… Ø§Ù„Ø¹Ø«ÙˆØ± Ø¹Ù„Ù‰ Ø´Ø±ÙƒØ§Øª",
-      "MESSAGE": "Ø¬Ø±Ù‘Ø¨ ØªØ¹Ø¯ÙŠÙ„ Ø§Ù„Ø¨Ø­Ø« Ù„Ù„ÙˆØµÙˆÙ„ Ø¥Ù„Ù‰ Ù…Ø§ ØªØ¨Ø­Ø« Ø¹Ù†Ù‡."
+      "TITLE": "No companies found",
+      "MESSAGE": "Try adjusting your search to find what you're looking for."
     },
     "INDUSTRIES": {
-      "SOFTWARE": "Ø§Ù„Ø¨Ø±Ù…Ø¬ÙŠØ§Øª",
-      "HEALTHCARE": "Ø§Ù„Ø±Ø¹Ø§ÙŠØ© Ø§Ù„ØµØ­ÙŠØ©",
-      "FINTECH": "Ø§Ù„ØªÙ‚Ù†ÙŠØ© Ø§Ù„Ù…Ø§Ù„ÙŠØ©",
-      "CLOUD_OPS": "Ø¹Ù…Ù„ÙŠØ§Øª Ø§Ù„Ø³Ø­Ø§Ø¨Ø©",
-      "AGENCY": "ÙˆÙƒØ§Ù„Ø©",
-      "EDTECH": "ØªÙ‚Ù†ÙŠØ§Øª Ø§Ù„ØªØ¹Ù„ÙŠÙ…",
-      "AUTOMOTIVE": "Ø§Ù„Ø³ÙŠØ§Ø±Ø§Øª",
-      "CLEANTECH": "Ø§Ù„ØªÙ‚Ù†ÙŠØ§Øª Ø§Ù„Ù†Ø¸ÙŠÙØ©"
+      "SOFTWARE": "Software",
+      "HEALTHCARE": "Healthcare",
+      "FINTECH": "Fintech",
+      "CLOUD_OPS": "Cloud Ops",
+      "AGENCY": "Agency",
+      "EDTECH": "EdTech",
+      "AUTOMOTIVE": "Automotive",
+      "CLEANTECH": "Cleantech"
     }
   },
   "FOOTER": {
-    "DESCRIPTION": "Ø§Ù„Ø·Ø±ÙŠÙ‚Ø© Ø§Ù„Ø£Ø°ÙƒÙ‰ Ù„Ù„Ø¹Ø«ÙˆØ± Ø¹Ù„Ù‰ ÙˆØ¸ÙŠÙØªÙƒ Ø§Ù„Ù‚Ø§Ø¯Ù…Ø© Ø£Ùˆ ØªÙˆØ¸ÙŠÙ Ø£ÙØ¶Ù„ Ø§Ù„Ù…ÙˆØ§Ù‡Ø¨. Ù†Ø±Ø¨Ø· Ø§Ù„Ù†Ø§Ø³ Ø¨ÙØ±Øµ Ø°Ø§Øª Ù‚ÙŠÙ…Ø© Ù…Ù†Ø° 2026.",
+    "DESCRIPTION": "أذكى طريقة للعثور على وظيفتك القادمة أو توظيف أفضل المواهب. نربط الأشخاص بالفرص الهادفة منذ عام 2026.",
     "SOCIAL": {
-      "TWITTER": "ØªÙˆÙŠØªØ±",
-      "LINKEDIN": "Ù„ÙŠÙ†ÙƒØ¯Ø¥Ù†",
-      "GITHUB": "Ø¬ÙŠØª Ù‡Ø¨"
+      "TWITTER": "تويتر",
+      "LINKEDIN": "لينكد إن",
+      "GITHUB": "جيت هاب"
     },
     "HEADINGS": {
-      "JOB_SEEKERS": "Ù„Ù„Ø¨Ø§Ø­Ø«ÙŠÙ† Ø¹Ù† Ø¹Ù…Ù„",
-      "EMPLOYERS": "Ù„Ø£ØµØ­Ø§Ø¨ Ø§Ù„Ø¹Ù…Ù„",
-      "COMPANY": "Ø§Ù„Ø´Ø±ÙƒØ©"
+      "JOB_SEEKERS": "للباحثين عن عمل",
+      "EMPLOYERS": "لأصحاب العمل",
+      "COMPANY": "الشركة"
     },
     "LINKS": {
       "SEEKERS": {
-        "BROWSE_JOBS": "ØªØµÙØ­ Ø§Ù„ÙˆØ¸Ø§Ø¦Ù",
-        "INTERNSHIPS": "Ø§Ù„ØªØ¯Ø±ÙŠØ¨",
-        "COURSES": "Ø§Ù„Ø¯ÙˆØ±Ø§Øª",
-        "CAREER_BLOG": "Ù…Ø¯ÙˆÙ†Ø© Ø§Ù„Ù…Ø³Ø§Ø± Ø§Ù„Ù…Ù‡Ù†ÙŠ",
-        "RESUME_BUILDER": "Ù…Ù†Ø´Ø¦ Ø§Ù„Ø³ÙŠØ±Ø© Ø§Ù„Ø°Ø§ØªÙŠØ©"
+        "BROWSE_JOBS": "تصفح الوظائف",
+        "INTERNSHIPS": "التدريب الداخلي",
+        "COURSES": "الدورات",
+        "CAREER_BLOG": "المدونة المهنية",
+        "RESUME_BUILDER": "أداة بناء السيرة الذاتية"
       },
       "EMPLOYERS": {
-        "POST_A_JOB": "Ø§Ù†Ø´Ø± ÙˆØ¸ÙŠÙØ©",
-        "BROWSE_CANDIDATES": "ØªØµÙØ­ Ø§Ù„Ù…Ø±Ø´Ø­ÙŠÙ†",
-        "BROWSE_FREELANCERS": "ØªØµÙØ­ Ø§Ù„Ù…Ø³ØªÙ‚Ù„ÙŠÙ†",
-        "COMPANIES": "Ø§Ù„Ø´Ø±ÙƒØ§Øª"
+        "POST_A_JOB": "نشر وظيفة",
+        "BROWSE_CANDIDATES": "تصفح المرشحين",
+        "BROWSE_FREELANCERS": "تصفح المستقلين",
+        "COMPANIES": "الشركات"
       },
       "COMPANY": {
-        "ABOUT_US": "Ù…Ù† Ù†Ø­Ù†",
-        "HELP_SUPPORT": "Ø§Ù„Ù…Ø³Ø§Ø¹Ø¯Ø© ÙˆØ§Ù„Ø¯Ø¹Ù…",
-        "PRIVACY_POLICY": "Ø³ÙŠØ§Ø³Ø© Ø§Ù„Ø®ØµÙˆØµÙŠØ©",
-        "TERMS_OF_SERVICE": "Ø´Ø±ÙˆØ· Ø§Ù„Ø®Ø¯Ù…Ø©"
+        "ABOUT_US": "معلومات عنا",
+        "HELP_SUPPORT": "المساعدة والدعم",
+        "PRIVACY_POLICY": "سياسة الخصوصية",
+        "TERMS_OF_SERVICE": "شروط الخدمة"
       }
     },
-    "COPYRIGHT": "Â© 2026 JobPortal. Ø¬Ù…ÙŠØ¹ Ø§Ù„Ø­Ù‚ÙˆÙ‚ Ù…Ø­ÙÙˆØ¸Ø©.",
+    "COPYRIGHT": "© 2026 JobPortal. جميع الحقوق محفوظة.",
     "BOTTOM": {
-      "PRIVACY_POLICY": "Ø³ÙŠØ§Ø³Ø© Ø§Ù„Ø®ØµÙˆØµÙŠØ©",
-      "TERMS_OF_SERVICE": "Ø´Ø±ÙˆØ· Ø§Ù„Ø®Ø¯Ù…Ø©",
-      "COOKIE_POLICY": "Ø³ÙŠØ§Ø³Ø© Ù…Ù„ÙØ§Øª ØªØ¹Ø±ÙŠÙ Ø§Ù„Ø§Ø±ØªØ¨Ø§Ø·"
+      "PRIVACY_POLICY": "سياسة الخصوصية",
+      "TERMS_OF_SERVICE": "شروط الخدمة",
+      "COOKIE_POLICY": "سياسة ملفات تعريف الارتباط"
     }
   },
   "EMPLOYER": {
     "NAV": {
-      "OVERVIEW": "Ù†Ø¸Ø±Ø© Ø¹Ø§Ù…Ø©",
-      "POST_JOB": "Ù†Ø´Ø± ÙˆØ¸ÙŠÙØ©",
-      "MANAGE_JOBS": "Ø¥Ø¯Ø§Ø±Ø© Ø§Ù„ÙˆØ¸Ø§Ø¦Ù",
-      "APPLICANTS": "Ø§Ù„Ù…ØªÙ‚Ø¯Ù…ÙˆÙ†",
-      "MESSAGES": "Ø§Ù„Ø±Ø³Ø§Ø¦Ù„"
+      "OVERVIEW": "Overview",
+      "POST_JOB": "Post a Job",
+      "MANAGE_JOBS": "Manage Jobs",
+      "APPLICANTS": "Applicants",
+      "MESSAGES": "Messages"
     },
     "STATUS": {
-      "ACTIVE": "Ù†Ø´Ø·Ø©",
-      "CLOSED": "Ù…ØºÙ„Ù‚Ø©",
-      "NEW": "Ø¬Ø¯ÙŠØ¯",
-      "REVIEWED": "ØªÙ…Øª Ø§Ù„Ù…Ø±Ø§Ø¬Ø¹Ø©",
-      "SHORTLISTED": "ÙÙŠ Ø§Ù„Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ù…Ø®ØªØµØ±Ø©",
-      "REJECTED": "Ù…Ø±ÙÙˆØ¶"
+      "ACTIVE": "شطة",
+      "CLOSED": "Closed",
+      "NEW": "New",
+      "REVIEWED": "Reviewed",
+      "SHORTLISTED": "Shortlisted",
+      "REJECTED": "Rejected"
     },
     "CTA": {
-      "TITLE": "Ø§Ù†Ø´Ø± ÙˆØ¸ÙŠÙØ© Ø¬Ø¯ÙŠØ¯Ø©",
-      "SUBTITLE": "ØµÙ„ Ø¥Ù„Ù‰ Ø£ÙƒØ«Ø± Ù…Ù† 50,000 Ù…Ø±Ø´Ø­ Ù†Ø´Ø· Ø§Ù„ÙŠÙˆÙ…",
-      "BUTTON": "Ø§Ù†Ø´Ø± Ø§Ù„ÙˆØ¸ÙŠÙØ© Ø§Ù„Ø¢Ù†"
+      "TITLE": "Post a New Job",
+      "SUBTITLE": "Reach 50,000+ active candidates today",
+      "BUTTON": "Post Job Now"
     },
     "OVERVIEW": {
-      "TITLE": "Ù†Ø¸Ø±Ø© Ø¹Ø§Ù…Ø© Ø¹Ù„Ù‰ Ù„ÙˆØ­Ø© Ø§Ù„ØªØ­ÙƒÙ…",
-      "VERIFIED_COMPANY": "Ø´Ø±ÙƒØ© Ù…ÙˆØ«Ù‚Ø©",
-      "ACTIVE_POSTINGS": "Ø§Ù„ÙˆØ¸Ø§Ø¦Ù Ø§Ù„Ù†Ø´Ø·Ø©",
-      "POST_JOB": "Ù†Ø´Ø± ÙˆØ¸ÙŠÙØ©",
-      "RECENT_APPLICANTS": "Ø£Ø­Ø¯Ø« Ø§Ù„Ù…ØªÙ‚Ø¯Ù…ÙŠÙ†",
-      "VIEW_ALL": "Ø¹Ø±Ø¶ Ø§Ù„ÙƒÙ„",
-      "APPLIED_FOR": "ØªÙ‚Ø¯Ù… Ø¥Ù„Ù‰"
+      "TITLE": "Dashboard Overview",
+      "VERIFIED_COMPANY": "Verified Company",
+      "ACTIVE_POSTINGS": "Active Job Postings",
+      "POST_JOB": "Post Job",
+      "RECENT_APPLICANTS": "Recent Applicants",
+      "VIEW_ALL": "View all",
+      "APPLIED_FOR": "Applied for"
     },
     "STATS": {
-      "ACTIVE_POSTINGS": "Ø§Ù„ÙˆØ¸Ø§Ø¦Ù Ø§Ù„Ù†Ø´Ø·Ø©",
-      "TOTAL_APPLICANTS": "Ø¥Ø¬Ù…Ø§Ù„ÙŠ Ø§Ù„Ù…ØªÙ‚Ø¯Ù…ÙŠÙ†",
-      "TOTAL_VIEWS": "Ø¥Ø¬Ù…Ø§Ù„ÙŠ Ø§Ù„Ù…Ø´Ø§Ù‡Ø¯Ø§Øª",
-      "HIRES_MADE": "Ø¹Ù…Ù„ÙŠØ§Øª Ø§Ù„ØªÙˆØ¸ÙŠÙ",
-      "CHANGE_THIS_MONTH": "+2 Ù‡Ø°Ø§ Ø§Ù„Ø´Ù‡Ø±",
-      "CHANGE_THIS_WEEK": "+28 Ù‡Ø°Ø§ Ø§Ù„Ø£Ø³Ø¨ÙˆØ¹",
+      "ACTIVE_POSTINGS": "Active Postings",
+      "TOTAL_APPLICANTS": "Total Applicants",
+      "TOTAL_VIEWS": "Total Views",
+      "HIRES_MADE": "Hires Made",
+      "CHANGE_THIS_MONTH": "+2 this month",
+      "CHANGE_THIS_WEEK": "+28 this week",
       "CHANGE_PERCENT": "+12%"
     },
     "TABLE": {
-      "JOB_TITLE": "Ø§Ù„Ù…Ø³Ù…Ù‰ Ø§Ù„ÙˆØ¸ÙŠÙÙŠ",
-      "APPLICANTS": "Ø§Ù„Ù…ØªÙ‚Ø¯Ù…ÙˆÙ†",
-      "VIEWS": "Ø§Ù„Ù…Ø´Ø§Ù‡Ø¯Ø§Øª",
-      "STATUS": "Ø§Ù„Ø­Ø§Ù„Ø©",
-      "APPLICANTS_LABEL": "Ù…ØªÙ‚Ø¯Ù…"
+      "JOB_TITLE": "Job Title",
+      "APPLICANTS": "Applicants",
+      "VIEWS": "Views",
+      "STATUS": "Status",
+      "APPLICANTS_LABEL": "applicants"
     },
     "POSTED": {
-      "THREE_DAYS_AGO": "Ù…Ù†Ø° 3 Ø£ÙŠØ§Ù…",
-      "ONE_WEEK_AGO": "Ù…Ù†Ø° Ø£Ø³Ø¨ÙˆØ¹",
-      "TWO_WEEKS_AGO": "Ù…Ù†Ø° Ø£Ø³Ø¨ÙˆØ¹ÙŠÙ†",
-      "THREE_WEEKS_AGO": "Ù…Ù†Ø° 3 Ø£Ø³Ø§Ø¨ÙŠØ¹",
-      "ONE_MONTH_AGO": "Ù…Ù†Ø° Ø´Ù‡Ø±"
+      "THREE_DAYS_AGO": "3 days ago",
+      "ONE_WEEK_AGO": "1 week ago",
+      "TWO_WEEKS_AGO": "2 weeks ago",
+      "THREE_WEEKS_AGO": "3 weeks ago",
+      "ONE_MONTH_AGO": "1 month ago"
     },
     "POST_JOB": {
-      "TITLE": "Ø§Ù†Ø´Ø± ÙˆØ¸ÙŠÙØ© Ø¬Ø¯ÙŠØ¯Ø©",
-      "DETAILS": "ØªÙØ§ØµÙŠÙ„ Ø§Ù„ÙˆØ¸ÙŠÙØ©",
-      "SAVE_DRAFT": "Ø­ÙØ¸ ÙƒÙ…Ø³ÙˆØ¯Ø©",
-      "PUBLISHING": "Ø¬Ø§Ø±Ù Ø§Ù„Ù†Ø´Ø±...",
-      "PUBLISH": "Ù†Ø´Ø± Ø§Ù„ÙˆØ¸ÙŠÙØ©",
-      "SKILLS_HELP": "Ø§ÙØµÙ„ Ø¨ÙŠÙ† Ø§Ù„Ù…Ù‡Ø§Ø±Ø§Øª Ø¨ÙÙˆØ§ØµÙ„",
+      "TITLE": "Post a New Job",
+      "DETAILS": "Job Details",
+      "SAVE_DRAFT": "Save Draft",
+      "PUBLISHING": "Publishing...",
+      "PUBLISH": "Publish Job",
+      "SKILLS_HELP": "Separate skills with commas",
       "FIELDS": {
-        "TITLE": "Ø§Ù„Ù…Ø³Ù…Ù‰ Ø§Ù„ÙˆØ¸ÙŠÙÙŠ *",
-        "CATEGORY": "Ø§Ù„ÙØ¦Ø© *",
-        "TYPE": "Ù†ÙˆØ¹ Ø§Ù„ÙˆØ¸ÙŠÙØ© *",
-        "LOCATION": "Ø§Ù„Ù…ÙˆÙ‚Ø¹ *",
-        "EXPERIENCE": "Ù…Ø³ØªÙˆÙ‰ Ø§Ù„Ø®Ø¨Ø±Ø© *",
-        "SALARY": "Ù†Ø·Ø§Ù‚ Ø§Ù„Ø±Ø§ØªØ¨ (Ø§Ø®ØªÙŠØ§Ø±ÙŠ)",
-        "DESCRIPTION": "ÙˆØµÙ Ø§Ù„ÙˆØ¸ÙŠÙØ© *",
-        "SKILLS": "Ø§Ù„Ù…Ù‡Ø§Ø±Ø§Øª Ø§Ù„Ù…Ø·Ù„ÙˆØ¨Ø©"
+        "TITLE": "Job Title *",
+        "CATEGORY": "Category *",
+        "TYPE": "Job Type *",
+        "LOCATION": "Location *",
+        "EXPERIENCE": "Experience Level *",
+        "SALARY": "Salary Range (optional)",
+        "DESCRIPTION": "Job Description *",
+        "SKILLS": "Required Skills"
       },
       "PLACEHOLDERS": {
-        "TITLE": "Ù…Ø«Ø§Ù„: Ù…Ø·ÙˆØ± ÙˆØ§Ø¬Ù‡Ø§Øª Ø£Ù…Ø§Ù…ÙŠØ© Ø£ÙˆÙ„",
-        "CATEGORY": "Ø§Ø®ØªØ± ÙØ¦Ø©",
-        "TYPE": "Ø§Ø®ØªØ± Ø§Ù„Ù†ÙˆØ¹",
-        "LOCATION": "Ù…Ø«Ø§Ù„: Ø§Ù„Ù‚Ø§Ù‡Ø±Ø©ØŒ Ù…ØµØ± Ø£Ùˆ Ø¹Ù† Ø¨ÙØ¹Ø¯",
-        "EXPERIENCE": "Ø§Ø®ØªØ± Ø§Ù„Ù…Ø³ØªÙˆÙ‰",
-        "SALARY": "Ù…Ø«Ø§Ù„: â€Ž$3,000 - $5,000",
-        "DESCRIPTION": "Ø§Ø´Ø±Ø­ Ø·Ø¨ÙŠØ¹Ø© Ø§Ù„Ø¯ÙˆØ± ÙˆØ§Ù„Ù…Ø³Ø¤ÙˆÙ„ÙŠØ§Øª ÙˆÙ…Ø§ ØªØ¨Ø­Ø« Ø¹Ù†Ù‡...",
-        "SKILLS": "Ù…Ø«Ø§Ù„: React, TypeScript, Node.js (Ù…ÙØµÙˆÙ„Ø© Ø¨ÙÙˆØ§ØµÙ„)"
+        "TITLE": "e.g. Senior Frontend Developer",
+        "CATEGORY": "اختر فئة",
+        "TYPE": "Select type",
+        "LOCATION": "e.g. Cairo, Egypt or Remote",
+        "EXPERIENCE": "Select level",
+        "SALARY": "e.g. $3,000 - $5,000",
+        "DESCRIPTION": "Describe the role, responsibilities, and what you're looking for...",
+        "SKILLS": "e.g. React, TypeScript, Node.js (comma separated)"
       },
       "ERRORS": {
-        "TITLE_REQUIRED": "Ø§Ù„Ù…Ø³Ù…Ù‰ Ø§Ù„ÙˆØ¸ÙŠÙÙŠ Ù…Ø·Ù„ÙˆØ¨",
-        "DESCRIPTION_REQUIRED": "Ø§Ù„ÙˆØµÙ Ù…Ø·Ù„ÙˆØ¨"
+        "TITLE_REQUIRED": "Job title is required",
+        "DESCRIPTION_REQUIRED": "Description is required"
       }
     },
     "MANAGE": {
-      "TITLE": "Ø¥Ø¯Ø§Ø±Ø© Ø§Ù„ÙˆØ¸Ø§Ø¦Ù",
-      "POST_NEW": "Ù†Ø´Ø± ÙˆØ¸ÙŠÙØ© Ø¬Ø¯ÙŠØ¯Ø©",
-      "POSITION": "Ø§Ù„Ù…Ù†ØµØ¨",
-      "APPLICATIONS": "Ø§Ù„Ø·Ù„Ø¨Ø§Øª",
-      "POSTED": "ØªØ§Ø±ÙŠØ® Ø§Ù„Ù†Ø´Ø±",
-      "STATUS": "Ø§Ù„Ø­Ø§Ù„Ø©",
-      "ACTIONS": "Ø§Ù„Ø¥Ø¬Ø±Ø§Ø¡Ø§Øª",
-      "EDIT": "ØªØ¹Ø¯ÙŠÙ„",
-      "CLOSE": "Ø¥ØºÙ„Ø§Ù‚"
+      "TITLE": "Manage Jobs",
+      "POST_NEW": "Post New Job",
+      "POSITION": "Position",
+      "APPLICATIONS": "Applications",
+      "POSTED": "Posted",
+      "STATUS": "Status",
+      "ACTIONS": "Actions",
+      "EDIT": "Edit",
+      "CLOSE": "Close"
     },
     "APPLICANTS": {
-      "TITLE": "Ø¬Ù…ÙŠØ¹ Ø§Ù„Ù…ØªÙ‚Ø¯Ù…ÙŠÙ†",
-      "SEARCH": "Ø§Ø¨Ø­Ø« ÙÙŠ Ø§Ù„Ù…ØªÙ‚Ø¯Ù…ÙŠÙ†...",
-      "ALL_STATUS": "ÙƒÙ„ Ø§Ù„Ø­Ø§Ù„Ø§Øª",
-      "APPLIED_FOR": "ØªÙ‚Ø¯Ù… Ø¥Ù„Ù‰",
-      "REVIEW": "Ù…Ø±Ø§Ø¬Ø¹Ø©",
-      "SHORTLIST": "Ø¥Ø¶Ø§ÙØ© Ø¥Ù„Ù‰ Ø§Ù„Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ù…Ø®ØªØµØ±Ø©"
+      "TITLE": "All Applicants",
+      "SEARCH": "Search applicants...",
+      "ALL_STATUS": "All Status",
+      "APPLIED_FOR": "Applied for",
+      "REVIEW": "Review",
+      "SHORTLIST": "Shortlist"
     },
     "COMPANY_PROFILE": {
-      "TITLE": "Ù…Ù„Ù Ø§Ù„Ø´Ø±ÙƒØ©",
-      "SUBTITLE": "Ø£Ø¯Ø± Ø§Ù„ØªÙØ§ØµÙŠÙ„ Ø§Ù„Ø¹Ø§Ù…Ø© Ø§Ù„ØªÙŠ ÙŠØ±Ø§Ù‡Ø§ Ø§Ù„Ù…Ø±Ø´Ø­ÙˆÙ† Ù‚Ø¨Ù„ Ø§Ù„ØªÙ‚Ø¯ÙŠÙ….",
-      "COMPANY": "Ø§Ù„Ø´Ø±ÙƒØ©",
-      "OWNER": "ØµØ§Ø­Ø¨ Ø§Ù„Ø­Ø³Ø§Ø¨",
-      "EMPTY_COMPANY": "Ù„Ù… ÙŠØªÙ… ØªØ­Ø¯ÙŠØ¯ Ø§Ø³Ù… Ø§Ù„Ø´Ø±ÙƒØ©",
-      "EMPTY_OWNER": "Ù…Ø³ØªØ®Ø¯Ù… ØµØ§Ø­Ø¨ Ø¹Ù…Ù„"
+      "TITLE": "Company Profile",
+      "SUBTITLE": "Manage the public details candidates see before they apply.",
+      "COMPANY": "Company",
+      "OWNER": "Account Owner",
+      "EMPTY_COMPANY": "Company name not set",
+      "EMPTY_OWNER": "Employer user"
     },
     "MESSAGES": {
-      "TITLE": "Ø§Ù„Ø±Ø³Ø§Ø¦Ù„",
-      "SUBTITLE": "Ø³ØªØ¸Ù‡Ø± Ù‡Ù†Ø§ Ù…Ø­Ø§Ø¯Ø«Ø§Øª Ø§Ù„ØªÙˆØ¸ÙŠÙ ÙˆØ£Ø¯ÙˆØ§Øª ØµÙ†Ø¯ÙˆÙ‚ Ø§Ù„ÙˆØ§Ø±Ø¯ Ø§Ù„Ø®Ø§ØµØ© Ø¨Ø§Ù„Ù…ÙØ¬Ù†Ø¯ÙŠÙ†.",
-      "OUTREACH_TITLE": "Ø§Ù„ØªÙˆØ§ØµÙ„ Ù…Ø¹ Ø§Ù„Ù…Ø±Ø´Ø­ÙŠÙ†",
-      "EMPTY": "Ù„Ø§ ØªÙˆØ¬Ø¯ Ø±Ø³Ø§Ø¦Ù„ Ù…ØªØ§Ø­Ø© Ø¨Ø¹Ø¯."
+      "TITLE": "Messages",
+      "SUBTITLE": "Hiring conversations and recruiter inbox tools will appear here.",
+      "OUTREACH_TITLE": "Candidate outreach",
+      "EMPTY": "No messages available yet."
     },
     "SETTINGS": {
-      "TITLE": "Ø§Ù„Ø¥Ø¹Ø¯Ø§Ø¯Ø§Øª",
-      "SUBTITLE": "Ø¹Ù†Ø§ØµØ± Ø§Ù„ØªØ­ÙƒÙ… ÙÙŠ Ø­Ø³Ø§Ø¨ ØµØ§Ø­Ø¨ Ø§Ù„Ø¹Ù…Ù„ Ø¶Ù…Ù† Ù…Ø³Ø§Ø­Ø© Ø§Ù„ØªÙˆØ¸ÙŠÙ Ø§Ù„Ø®Ø§ØµØ© Ø¨Ùƒ.",
-      "PASSWORD_PLACEHOLDER": "Ø£Ø¯Ø®Ù„ ÙƒÙ„Ù…Ø© Ù…Ø±ÙˆØ± Ø¬Ø¯ÙŠØ¯Ø©",
-      "UPDATE_PASSWORD": "ØªØ­Ø¯ÙŠØ« ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ø±ÙˆØ±",
-      "WORKSPACE": "Ù…Ø³Ø§Ø­Ø© Ø§Ù„Ø¹Ù…Ù„",
-      "WORKSPACE_NOTE": "ÙŠÙ…ÙƒÙ† Ø¥Ø¶Ø§ÙØ© Ø¥Ø¹Ø¯Ø§Ø¯Ø§Øª Ø§Ù„Ø¥Ø´Ø¹Ø§Ø±Ø§Øª ÙˆØ§Ù„ÙØ±ÙŠÙ‚ Ù‡Ù†Ø§ Ù…Ø¹ ØªÙˆØ³Ø¹ ÙˆØ­Ø¯Ø© ØµØ§Ø­Ø¨ Ø§Ù„Ø¹Ù…Ù„."
+      "TITLE": "Settings",
+      "SUBTITLE": "Employer account controls for your hiring workspace.",
+      "PASSWORD_PLACEHOLDER": "Enter a new password",
+      "UPDATE_PASSWORD": "Update Password",
+      "WORKSPACE": "Workspace",
+      "WORKSPACE_NOTE": "Notifications and team settings can be added here as the employer module grows."
     },
     "TOASTS": {
-      "JOB_POSTED": "ØªÙ… Ù†Ø´Ø± Ø§Ù„ÙˆØ¸ÙŠÙØ© Ø¨Ù†Ø¬Ø§Ø­.",
-      "PASSWORD_REQUIRED": "ÙŠØ±Ø¬Ù‰ Ø¥Ø¯Ø®Ø§Ù„ ÙƒÙ„Ù…Ø© Ù…Ø±ÙˆØ± Ø¬Ø¯ÙŠØ¯Ø©.",
-      "PASSWORD_UPDATED": "ØªÙ… ØªØ­Ø¯ÙŠØ« ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ø±ÙˆØ±."
+      "JOB_POSTED": "Job posted successfully.",
+      "PASSWORD_REQUIRED": "Please enter a new password.",
+      "PASSWORD_UPDATED": "Password updated."
     },
     "HOME": {
-      "WELCOME_LABEL": "\u0645\u0633\u0627\u062d\u0629 \u0639\u0645\u0644 \u0635\u0627\u062d\u0628 \u0627\u0644\u0639\u0645\u0644",
-      "WELCOME_TITLE": "\u0646\u0638\u0631\u0629 \u0639\u0627\u0645\u0629 \u0639\u0644\u0649 \u0627\u0644\u062a\u0648\u0638\u064a\u0641 \u0641\u064a {{company}}",
-      "WELCOME_SUBTITLE": "{{owner}}\u060c \u0644\u062f\u064a\u0643 \u062d\u0627\u0644\u064a\u064b\u0627 {{activeJobs}} \u0648\u0638\u0627\u0626\u0641 \u0646\u0634\u0637\u0629 \u062a\u0633\u062a\u0642\u0637\u0628 {{applicants}} \u0645\u062a\u0642\u062f\u0645\u064b\u0627 \u0639\u0628\u0631 \u0645\u0633\u0627\u0631 \u0627\u0644\u062a\u0648\u0638\u064a\u0641.",
+      "WELCOME_LABEL": "مساحة عمل صاحب العمل",
+      "WELCOME_TITLE": "نظرة عامة على التوظيف في {{company}}",
+      "WELCOME_SUBTITLE": "{{owner}}، لديك حاليًا {{activeJobs}} وظائف نشطة تستقطب {{applicants}} متقدمًا عبر مسار التوظيف.",
       "HERO_STATS": {
-        "TOTAL_POSTS": "\u0625\u062c\u0645\u0627\u0644\u064a \u0627\u0644\u0645\u0646\u0634\u0648\u0631\u0627\u062a",
-        "ACTIVE_JOBS": "\u0627\u0644\u0648\u0638\u0627\u0626\u0641 \u0627\u0644\u0646\u0634\u0637\u0629",
-        "TOTAL_APPLICANTS": "\u0627\u0644\u0645\u062a\u0642\u062f\u0645\u0648\u0646"
+        "TOTAL_POSTS": "إجمالي المنشورات",
+        "ACTIVE_JOBS": "الوظائف النشطة",
+        "TOTAL_APPLICANTS": "المتقدمون"
       },
-      "PROGRESS_TITLE": "\u0632\u062e\u0645 \u0627\u0644\u062a\u0648\u0638\u064a\u0641",
-      "PROGRESS_BADGE": "\u0645\u0633\u0627\u0631 \u0646\u0634\u0637",
-      "PROGRESS_SUBTITLE": "\u0645\u0624\u0634\u0631 \u0633\u0631\u064a\u0639 \u064a\u0639\u0631\u0636 \u0645\u062f\u0649 \u062a\u0642\u062f\u0645 \u0627\u0644\u0645\u0631\u0634\u062d\u064a\u0646 \u0646\u062d\u0648 \u0627\u0644\u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u0645\u062e\u062a\u0635\u0631\u0629.",
-      "PERFORMANCE_TITLE": "\u0644\u0642\u0637\u0629 \u0623\u062f\u0627\u0621",
-      "PERFORMANCE_SUBTITLE": "\u0645\u0624\u0634\u0631\u0627\u062a \u0639\u0627\u0645\u0629 \u0633\u0631\u064a\u0639\u0629 \u0645\u0646 \u0645\u0633\u0627\u062d\u0629 \u0627\u0644\u062a\u0648\u0638\u064a\u0641 \u0627\u0644\u062d\u0627\u0644\u064a\u0629.",
-      "RECENT_POSTINGS_TITLE": "\u0623\u062d\u062f\u062b \u0627\u0644\u0648\u0638\u0627\u0626\u0641 \u0627\u0644\u0645\u0646\u0634\u0648\u0631\u0629",
-      "RECENT_POSTINGS_SUBTITLE": "\u0631\u0627\u0642\u0628 \u0627\u0644\u0648\u0638\u0627\u0626\u0641 \u0627\u0644\u062a\u064a \u062a\u0633\u062a\u0642\u0637\u0628 \u0627\u0644\u0627\u0647\u062a\u0645\u0627\u0645 \u062d\u0627\u0644\u064a\u064b\u0627.",
-      "RECENT_APPLICANTS_TITLE": "\u0623\u062d\u062f\u062b \u0627\u0644\u0645\u062a\u0642\u062f\u0645\u064a\u0646",
-      "RECENT_APPLICANTS_SUBTITLE": "\u0631\u0627\u062c\u0639 \u0623\u062d\u062f\u062b \u0627\u0644\u0645\u0631\u0634\u062d\u064a\u0646 \u0627\u0644\u0630\u064a\u0646 \u062f\u062e\u0644\u0648\u0627 \u0645\u0633\u0627\u0631 \u0627\u0644\u062a\u0648\u0638\u064a\u0641.",
-      "PIPELINE_TITLE": "\u0645\u0633\u0627\u0631 \u0627\u0644\u0645\u0631\u0634\u062d\u064a\u0646",
-      "PIPELINE_SUBTITLE": "\u062a\u0648\u0632\u064a\u0639 \u0628\u0633\u064a\u0637 \u064a\u0648\u0636\u062d \u0645\u0631\u0627\u062d\u0644 \u0623\u062d\u062f\u062b \u0627\u0644\u0645\u062a\u0642\u062f\u0645\u064a\u0646.",
+      "PROGRESS_TITLE": "زخم التوظيف",
+      "PROGRESS_BADGE": "مسار نشط",
+      "PROGRESS_SUBTITLE": "مؤشر سريع يعرض مدى تقدم المرشحين نحو القائمة المختصرة.",
+      "PERFORMANCE_TITLE": "لقطة أداء",
+      "PERFORMANCE_SUBTITLE": "مؤشرات عامة سريعة من مساحة التوظيف الحالية.",
+      "RECENT_POSTINGS_TITLE": "أحدث الوظائف المنشورة",
+      "RECENT_POSTINGS_SUBTITLE": "راقب الوظائف التي تستقطب الاهتمام حاليًا.",
+      "RECENT_APPLICANTS_TITLE": "أحدث المتقدمين",
+      "RECENT_APPLICANTS_SUBTITLE": "راجع أحدث المرشحين الذين دخلوا مسار التوظيف.",
+      "PIPELINE_TITLE": "مسار المرشحين",
+      "PIPELINE_SUBTITLE": "توزيع بسيط يوضح مراحل أحدث المتقدمين.",
       "ACTIONS": {
         "POST_JOB": {
-          "TITLE": "\u0646\u0634\u0631 \u0648\u0638\u064a\u0641\u0629",
-          "SUBTITLE": "\u0623\u0637\u0644\u0642 \u0641\u0631\u0635\u0629 \u062c\u062f\u064a\u062f\u0629 \u0628\u0627\u0633\u062a\u062e\u062f\u0627\u0645 \u062a\u062f\u0641\u0642 \u0627\u0644\u062a\u0648\u0638\u064a\u0641 \u0627\u0644\u062d\u0627\u0644\u064a."
+          "TITLE": "نشر وظيفة",
+          "SUBTITLE": "أطلق فرصة جديدة باستخدام تدفق التوظيف الحالي."
         },
         "MANAGE_JOBS": {
-          "TITLE": "\u0625\u062f\u0627\u0631\u0629 \u0627\u0644\u0648\u0638\u0627\u0626\u0641",
-          "SUBTITLE": "\u0631\u0627\u062c\u0639 \u0627\u0644\u0625\u0639\u0644\u0627\u0646\u0627\u062a \u0627\u0644\u0646\u0634\u0637\u0629 \u0648\u0623\u062f\u0627\u0621\u0647\u0627 \u0648\u062d\u0627\u0644\u0629 \u0627\u0644\u0638\u0647\u0648\u0631."
+          "TITLE": "إدارة الوظائف",
+          "SUBTITLE": "راجع الإعلانات النشطة وأداءها وحالة الظهور."
         },
         "VIEW_APPLICANTS": {
-          "TITLE": "\u0639\u0631\u0636 \u0627\u0644\u0645\u062a\u0642\u062f\u0645\u064a\u0646",
-          "SUBTITLE": "\u0627\u0641\u0631\u0632 \u0627\u0644\u0645\u0631\u0634\u062d\u064a\u0646 \u0648\u062d\u0631\u0651\u0643 \u0623\u0641\u0636\u0644 \u0627\u0644\u0645\u0644\u0627\u0621\u0645\u0627\u062a \u0642\u062f\u0645\u064b\u0627."
+          "TITLE": "عرض المتقدمين",
+          "SUBTITLE": "افرز المرشحين وحرّك أفضل الملاءمات قدمًا."
         }
       },
       "JOB_TITLES": {
-        "PRODUCT_DESIGNER": "\u0645\u0635\u0645\u0645 \u0645\u0646\u062a\u062c",
-        "BACKEND_ENGINEER": "\u0645\u0647\u0646\u062f\u0633 Backend"
+        "PRODUCT_DESIGNER": "مصمم منتج",
+        "BACKEND_ENGINEER": "مهندس Backend"
       }
     }
   },
   "CANDIDATE": {
-    "NO_DATA": "Ù„Ø§ ØªÙˆØ¬Ø¯ Ø¨ÙŠØ§Ù†Ø§Øª Ù…ØªØ§Ø­Ø©",
+    "NO_DATA": "No data available",
     "HEADER": {
-      "LOGOUT": "ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø®Ø±ÙˆØ¬"
+      "LOGOUT": "Log out"
     },
     "NAV": {
-      "DASHBOARD": "Ù„ÙˆØ­Ø© Ø§Ù„ØªØ­ÙƒÙ…",
-      "PROFILE": "Ø§Ù„Ù…Ù„Ù Ø§Ù„Ø´Ø®ØµÙŠ",
-      "JOBS": "Ø§Ù„ÙˆØ¸Ø§Ø¦Ù",
-      "APPLICATIONS": "Ø§Ù„Ø·Ù„Ø¨Ø§Øª",
-      "SAVED_JOBS": "Ø§Ù„ÙˆØ¸Ø§Ø¦Ù Ø§Ù„Ù…Ø­ÙÙˆØ¸Ø©",
-      "MESSAGES": "Ø§Ù„Ø±Ø³Ø§Ø¦Ù„",
-      "NOTIFICATIONS": "Ø§Ù„Ø¥Ø´Ø¹Ø§Ø±Ø§Øª"
+      "DASHBOARD": "Dashboard",
+      "PROFILE": "Profile",
+      "JOBS": "Jobs",
+      "APPLICATIONS": "Applications",
+      "SAVED_JOBS": "Saved Jobs",
+      "MESSAGES": "Messages",
+      "NOTIFICATIONS": "Notifications"
     },
     "SHELL": {
-      "PROFILE_COMPLETION": "Ø§ÙƒØªÙ…Ø§Ù„ Ø§Ù„Ù…Ù„Ù Ø§Ù„Ø´Ø®ØµÙŠ",
-      "COMPLETE_PROFILE": "Ø£ÙƒÙ…Ù„ Ù…Ù„ÙÙƒ Ø§Ù„Ø´Ø®ØµÙŠ",
+      "PROFILE_COMPLETION": "Profile completion",
+      "COMPLETE_PROFILE": "Complete Your Profile",
       "CHECKLIST": {
-        "ADD_SKILLS": "Ø£Ø¶Ù Ø§Ù„Ù…Ù‡Ø§Ø±Ø§Øª",
-        "ADD_EXPERIENCE": "Ø£Ø¶Ù Ø§Ù„Ø®Ø¨Ø±Ø§Øª",
-        "UPLOAD_RESUME": "Ø§Ø±ÙØ¹ Ø§Ù„Ø³ÙŠØ±Ø© Ø§Ù„Ø°Ø§ØªÙŠØ©"
+        "ADD_SKILLS": "Add Skills",
+        "ADD_EXPERIENCE": "Add Experience",
+        "UPLOAD_RESUME": "Upload Resume"
       },
-      "DONE": "ØªÙ…",
-      "OPEN": "Ø§ÙØªØ­",
-      "PROFILE_OVERVIEW": "Ø¨Ø·Ø§Ù‚Ø© Ù†Ø¸Ø±Ø© Ø¹Ø§Ù…Ø© Ø¹Ù„Ù‰ Ø§Ù„Ù…Ù„Ù Ø§Ù„Ø´Ø®ØµÙŠ",
-      "PROFILE_TIP": "Ø­Ø§ÙØ¸ Ø¹Ù„Ù‰ ØªØ­Ø¯ÙŠØ« Ù…Ù„ÙÙƒ Ø§Ù„Ø´Ø®ØµÙŠ Ø­ØªÙ‰ ÙŠØªÙ…ÙƒÙ† Ø§Ù„Ù…Ø³Ø¤ÙˆÙ„ÙˆÙ† Ø¹Ù† Ø§Ù„ØªÙˆØ¸ÙŠÙ Ù…Ù† Ø§ÙƒØªØ´Ø§ÙÙƒ Ø¨Ø´ÙƒÙ„ Ø£Ø³Ø±Ø¹.",
-      "BECOME_FREELANCER": "ÙƒÙ† Ù…Ø³ØªÙ‚Ù„Ø§Ù‹",
-      "FREELANCER_PENDING": "Ø·Ù„Ø¨ Ø§Ù„Ø¹Ù…Ù„ Ø§Ù„Ø­Ø± Ù‚ÙŠØ¯ Ø§Ù„Ù…Ø±Ø§Ø¬Ø¹Ø©",
-      "VIEW_FREELANCER_PROFILE": "Ø¹Ø±Ø¶ Ù…Ù„Ù Ø§Ù„Ù…Ø³ØªÙ‚Ù„",
-      "FREELANCER_REQUEST_SUBMITTED": "ØªÙ… Ø¥Ø±Ø³Ø§Ù„ Ø·Ù„Ø¨ Ø§Ù„Ø¹Ù…Ù„ Ø§Ù„Ø­Ø± Ù„Ù„Ù…Ø±Ø§Ø¬Ø¹Ø©."
+      "DONE": "Done",
+      "OPEN": "افتح",
+      "PROFILE_OVERVIEW": "Profile Overview Card",
+      "PROFILE_TIP": "Keep your profile current so recruiters can discover you faster.",
+      "BECOME_FREELANCER": "Become a Freelancer",
+      "FREELANCER_REQUEST_SUBMITTED": "Freelancer request submitted for review.",
+      "FREELANCER_PENDING": "Freelancer request pending",
+      "VIEW_FREELANCER_PROFILE": "View Freelancer Profile"
     },
     "OVERVIEW": {
-      "WELCOME": "Ù…Ø±Ø­Ø¨Ø§Ù‹ Ø¨Ø¹ÙˆØ¯ØªÙƒ",
-      "TITLE": "Ù„ÙˆØ­Ø© Ø§Ù„ØªØ­ÙƒÙ… Ø§Ù„Ø®Ø§ØµØ© Ø¨Ùƒ Ø¬Ø§Ù‡Ø²Ø©",
-      "SUBTITLE": "ØªØ§Ø¨Ø¹ Ø·Ù„Ø¨Ø§ØªÙƒØŒ ÙˆØ£ÙƒÙ…Ù„ Ù…Ù„ÙÙƒ Ø§Ù„Ø´Ø®ØµÙŠØŒ ÙˆØ§Ø¨Ù‚ÙŽ Ø¹Ù„Ù‰ Ø§Ø·Ù„Ø§Ø¹ Ø¨Ù†Ø´Ø§Ø· Ø§Ù„Ù…Ø³Ø¤ÙˆÙ„ÙŠÙ† Ø¹Ù† Ø§Ù„ØªÙˆØ¸ÙŠÙ.",
+      "WELCOME": "Welcome back",
+      "TITLE": "Your candidate dashboard is ready",
+      "SUBTITLE": "Track your applications, complete your profile, and stay on top of recruiter activity.",
+      "RECENT_ACTIVITY_TITLE": "Recent Activity",
       "STATS": {
-        "TOTAL_APPLICATIONS": "Ø¥Ø¬Ù…Ø§Ù„ÙŠ Ø§Ù„Ø·Ù„Ø¨Ø§Øª",
-        "SHORTLISTED": "Ø§Ù„Ù…Ù‚Ø¨ÙˆÙ„ÙˆÙ† Ù…Ø¨Ø¯Ø¦ÙŠØ§Ù‹",
-        "INTERVIEWS": "Ø§Ù„Ù…Ù‚Ø§Ø¨Ù„Ø§Øª"
+        "TOTAL_APPLICATIONS": "Total Applications",
+        "SHORTLISTED": "Shortlisted",
+        "INTERVIEWS": "Interviews"
       },
-      "RECOMMENDED_JOBS": "Ø§Ù„ÙˆØ¸Ø§Ø¦Ù Ø§Ù„Ù…ÙˆØµÙ‰ Ø¨Ù‡Ø§",
-      "SEE_ALL": "Ø¹Ø±Ø¶ Ø§Ù„ÙƒÙ„",
-      "RECENT_ACTIVITY": "Ø§Ù„Ù†Ø´Ø§Ø· Ø§Ù„Ø£Ø®ÙŠØ±",
-      "APPLICATIONS_LINK": "Ø§Ù„Ø·Ù„Ø¨Ø§Øª",
-      "LATEST_UPDATES": "Ø¢Ø®Ø± Ø§Ù„ØªØ­Ø¯ÙŠØ«Ø§Øª",
-      "NOTIFICATIONS_LINK": "Ø§Ù„Ø¥Ø´Ø¹Ø§Ø±Ø§Øª",
-      "NEW_BADGE": "Ø¬Ø¯ÙŠØ¯",
-      "RECENT_ACTIVITY_TITLE": "Ø§Ù„Ù†Ø´Ø§Ø· Ø§Ù„Ø£Ø®ÙŠØ±",
-      "RECENT_ACTIVITY_SUBTITLE": "ØªØ§Ø¨Ø¹ Ø¢Ø®Ø± Ø§Ù„ØªØ­Ø¯ÙŠØ«Ø§Øª Ø§Ù„Ø®Ø§ØµØ© Ø¨Ùƒ",
-      "LATEST_UPDATES_SUBTITLE": "Ø§Ø·Ù„Ø¹ Ø¹Ù„Ù‰ Ø§Ù„ÙˆØ¸Ø§Ø¦Ù Ø§Ù„Ù…Ø·Ø§Ø¨Ù‚Ø© Ø§Ù„Ø¬Ø¯ÙŠØ¯Ø© ÙˆÙ†Ø´Ø§Ø· Ù…Ø³Ø¤ÙˆÙ„ÙŠ Ø§Ù„ØªÙˆØ¸ÙŠÙ ÙˆØªØ°ÙƒÙŠØ±Ø§Øª ØªØ­Ø³ÙŠÙ† Ø§Ù„Ù…Ù„Ù Ø§Ù„Ø´Ø®ØµÙŠ."
+      "RECOMMENDED_JOBS": "Recommended jobs",
+      "SEE_ALL": "See all",
+      "RECENT_ACTIVITY": "Recent activity",
+      "RECENT_ACTIVITY_SUBTITLE": "Track your latest job-related updates",
+      "APPLICATIONS_LINK": "Applications",
+      "LATEST_UPDATES": "Latest updates",
+      "LATEST_UPDATES_SUBTITLE": "Follow fresh job matches, recruiter activity, and profile reminders.",
+      "NOTIFICATIONS_LINK": "Notifications",
+      "NEW_BADGE": "New"
     },
     "HOME": {
-      "WELCOME_LABEL": "Ø§Ù„ØµÙØ­Ø© Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ© Ù„Ù„Ù…Ø±Ø´Ø­",
-      "WELCOME_TITLE": "Ù…Ø±Ø­Ø¨Ø§Ù‹ØŒ {{name}}",
-      "WELCOME_SUBTITLE": "Ù†Ù‚Ø·Ø© Ø¨Ø¯Ø§ÙŠØ© Ø£Ø®Ù Ù„Ø±Ø­Ù„Ø© Ø¨Ø­Ø«Ùƒ Ø¹Ù† Ø§Ù„Ø¹Ù…Ù„ØŒ Ù…Ø¹ ÙˆØµÙˆÙ„ Ø³Ø±ÙŠØ¹ Ø¥Ù„Ù‰ Ø§Ù„ÙˆØ¸Ø§Ø¦Ù ÙˆØªÙ‚Ø¯Ù… Ù…Ù„ÙÙƒ Ø§Ù„Ø´Ø®ØµÙŠ ÙˆØ¢Ø®Ø± Ø§Ù„Ø£Ù†Ø´Ø·Ø©.",
-      "BROWSE_JOBS": "ØªØµÙØ­ Ø§Ù„ÙˆØ¸Ø§Ø¦Ù",
-      "COMPLETE_PROFILE": "Ø£ÙƒÙ…Ù„ Ø§Ù„Ù…Ù„Ù Ø§Ù„Ø´Ø®ØµÙŠ",
-      "RECOMMENDED_TITLE": "Ù…ÙˆØµÙ‰ Ø¨Ù‡ Ù„Ùƒ",
-      "RECOMMENDED_SUBTITLE": "ÙØ±Øµ Ø¬Ø¯ÙŠØ¯Ø© ØªÙ†Ø§Ø³Ø¨ Ù…Ù„ÙÙƒ Ø§Ù„Ø´Ø®ØµÙŠ Ø§Ù„Ø­Ø§Ù„ÙŠ ÙˆÙ†Ø´Ø§Ø·Ùƒ.",
-      "PROFILE_STRENGTH": "Ù‚ÙˆØ© Ø§Ù„Ù…Ù„Ù Ø§Ù„Ø´Ø®ØµÙŠ",
-      "PROFILE_STRENGTH_SUBTITLE": "Ø§Ù„Ù…Ù„Ù Ø§Ù„Ø´Ø®ØµÙŠ Ø§Ù„Ø£Ù‚ÙˆÙ‰ ÙŠØ³Ø§Ø¹Ø¯ Ù…Ø³Ø¤ÙˆÙ„ÙŠ Ø§Ù„ØªÙˆØ¸ÙŠÙ Ø¹Ù„Ù‰ Ø§Ù„Ø¹Ø«ÙˆØ± Ø¹Ù„ÙŠÙƒ Ø¨Ø´ÙƒÙ„ Ø£Ø³Ø±Ø¹.",
-      "IMPROVE_PROFILE": "Ø­Ø³Ù‘Ù† Ø§Ù„Ù…Ù„Ù Ø§Ù„Ø´Ø®ØµÙŠ",
-      "RECENT_ACTIVITY": "Ø§Ù„Ù†Ø´Ø§Ø· Ø§Ù„Ø£Ø®ÙŠØ±",
-      "RECENT_ACTIVITY_SUBTITLE": "ØªØ§Ø¨Ø¹ Ø£Ø­Ø¯Ø« Ø§Ù„Ø£Ù†Ø´Ø·Ø© Ø§Ù„Ù…ØªØ¹Ù„Ù‚Ø© Ø¨Ø¨Ø­Ø«Ùƒ Ø¹Ù† Ø¹Ù…Ù„.",
+      "WELCOME_LABEL": "Candidate Home",
+      "WELCOME_TITLE": "Welcome, {{name}}",
+      "WELCOME_SUBTITLE": "A lighter starting point for your job search, with quick access to jobs, profile momentum, and the latest activity.",
+      "BROWSE_JOBS": "Browse Jobs",
+      "COMPLETE_PROFILE": "Complete Profile",
+      "RECOMMENDED_TITLE": "Recommended for you",
+      "RECOMMENDED_SUBTITLE": "Fresh matches based on your current profile and activity.",
+      "PROFILE_STRENGTH": "Profile Strength",
+      "PROFILE_STRENGTH_SUBTITLE": "A stronger profile helps recruiters discover you faster.",
+      "IMPROVE_PROFILE": "Improve Profile",
+      "RECENT_ACTIVITY": "Recent Activity",
+      "RECENT_ACTIVITY_SUBTITLE": "Keep track of the latest actions around your job search.",
       "PROFILE_STRENGTH_MESSAGES": {
-        "STRONG": "Ù…Ù„ÙÙƒ Ø§Ù„Ø´Ø®ØµÙŠ ÙÙŠ Ø­Ø§Ù„Ø© Ù…Ù…ØªØ§Ø²Ø©. Ø¨Ø¹Ø¶ Ø§Ù„ØªØ­Ø¯ÙŠØ«Ø§Øª Ø§Ù„Ø¨Ø³ÙŠØ·Ø© Ù‚Ø¯ ØªØ¬Ø¹Ù„Ù‡ Ø£Ù‚ÙˆÙ‰.",
-        "GROWING": "Ù„Ø¯ÙŠÙƒ Ø¨Ø¯Ø§ÙŠØ© Ø¬ÙŠØ¯Ø©. Ø£Ø¶Ù Ø¨Ø¹Ø¶ Ø§Ù„ØªÙØ§ØµÙŠÙ„ Ø§Ù„Ø¥Ø¶Ø§ÙÙŠØ© Ù„Ø²ÙŠØ§Ø¯Ø© Ø§Ù„Ø¸Ù‡ÙˆØ±.",
-        "START": "Ø£ÙƒÙ…Ù„ Ø§Ù„Ø£Ø³Ø§Ø³ÙŠØ§Øª Ù„Ù„Ø­ØµÙˆÙ„ Ø¹Ù„Ù‰ ÙˆØ¸Ø§Ø¦Ù Ø£ÙƒØ«Ø± Ù…Ù„Ø§Ø¡Ù…Ø© ÙˆØ¬Ø°Ø¨ Ø§Ù‡ØªÙ…Ø§Ù… Ù…Ø³Ø¤ÙˆÙ„ÙŠ Ø§Ù„ØªÙˆØ¸ÙŠÙ."
+        "STRONG": "Your profile is in great shape. A few small updates can make it even stronger.",
+        "GROWING": "You have a solid start. Add a few more details to boost visibility.",
+        "START": "Complete the basics to unlock better job matches and recruiter interest."
       },
       "ACTIONS": {
         "BROWSE_JOBS": {
-          "TITLE": "ØªØµÙØ­ Ø§Ù„ÙˆØ¸Ø§Ø¦Ù",
-          "SUBTITLE": "Ø§Ø³ØªÙƒØ´Ù Ø§Ù„ÙØ±Øµ Ø§Ù„Ø¬Ø¯ÙŠØ¯Ø©"
+          "TITLE": "Browse Jobs",
+          "SUBTITLE": "Explore new openings"
         },
         "APPLICATIONS": {
-          "TITLE": "Ø·Ù„Ø¨Ø§ØªÙŠ",
-          "SUBTITLE": "ØªØ§Ø¨Ø¹ Ø§Ù„ÙˆØ¸Ø§Ø¦Ù Ø§Ù„ØªÙŠ Ù‚Ø¯Ù…Øª Ø¹Ù„ÙŠÙ‡Ø§"
+          "TITLE": "My Applications",
+          "SUBTITLE": "Track submitted roles"
         },
         "PROFILE": {
-          "TITLE": "Ø§Ù„Ù…Ù„Ù Ø§Ù„Ø´Ø®ØµÙŠ",
-          "SUBTITLE": "Ø¹Ø²Ù‘Ø² Ù‚ÙˆØ© Ù…Ù„ÙÙƒ Ø§Ù„Ø´Ø®ØµÙŠ"
+          "TITLE": "Profile",
+          "SUBTITLE": "Strengthen your profile"
         },
         "SAVED": {
-          "TITLE": "Ø§Ù„ÙˆØ¸Ø§Ø¦Ù Ø§Ù„Ù…Ø­ÙÙˆØ¸Ø©",
-          "SUBTITLE": "Ø§Ø±Ø¬Ø¹ Ø¥Ù„Ù‰ Ø§Ù„ÙˆØ¸Ø§Ø¦Ù Ø§Ù„Ù…Ø­ÙÙˆØ¸Ø©"
+          "TITLE": "Saved Jobs",
+          "SUBTITLE": "Revisit bookmarked roles"
         }
+      },
+      "WELCOME_SUBTITLE_WITH_ABOUT": "{{about}} You have {{updates}} active updates and {{roles}} recommended roles waiting.",
+      "STATS": {
+        "UNREAD_UPDATES": "Unread updates"
+      },
+      "PROFILE_HIGHLIGHTS": {
+        "HEADLINE": "Headline",
+        "ADD_HEADLINE": "Add your headline",
+        "LOCATION": "Location",
+        "ADD_LOCATION": "Add your location",
+        "SKILLS": "Skills",
+        "SKILLS_LISTED": "{{count}} listed",
+        "RESUME": "Resume",
+        "UPLOAD_RESUME": "Upload resume"
+      },
+      "PRIORITY_STEPS": {
+        "TITLE": "Priority next steps",
+        "SUBTITLE": "Small actions that improve your visibility this week.",
+        "PROFILE_DESCRIPTION": "Complete this profile step to improve discoverability.",
+        "PROFILE_BADGE": "Profile",
+        "INBOX_BADGE": "Inbox",
+        "ALERT_BADGE": "Alert"
+      },
+      "CAREER_ACCELERATOR": {
+        "TITLE": "Career accelerator",
+        "SUBTITLE": "Keep your profile discoverable and application-ready.",
+        "DONE": "Done",
+        "NEXT": "Next"
+      },
+      "INBOX": {
+        "TITLE": "Inbox highlights",
+        "SUBTITLE": "Recruiter and platform updates that need attention."
+      },
+      "OPPORTUNITY_SIGNALS": {
+        "TITLE": "Opportunity signals",
+        "SUBTITLE": "Live indicators from your applications and alerts.",
+        "ACTIVE": "Active"
+      },
+      "PROFILE_STRENGTH_TONE": {
+        "STRONG": "Strong",
+        "GROWING": "Growing",
+        "STARTER": "Starter"
       }
     },
     "USER": {
       "NAME": {
-        "AHMED_HASSAN": "Ø£Ø­Ù…Ø¯ Ø­Ø³Ù†"
+        "AHMED_HASSAN": "Ahmed Hassan"
       }
     },
     "APPLICATIONS": {
-      "TITLE": "Ø§Ù„Ø·Ù„Ø¨Ø§Øª",
-      "SUBTITLE": "ØªØ§Ø¨Ø¹ Ø·Ù„Ø¨Ø§ØªÙƒ Ø§Ù„Ù…Ù‚Ø¯Ù…Ø© ÙˆØ§Ø·Ù‘Ù„Ø¹ Ø¹Ù„Ù‰ Ø¢Ø®Ø± ØªØ­Ø¯ÙŠØ«Ø§Øª Ø§Ù„Ø­Ø§Ù„Ø© Ù…Ù† Ø£ØµØ­Ø§Ø¨ Ø§Ù„Ø¹Ù…Ù„.",
-      "JOB_TITLE": "Ø§Ù„Ù…Ø³Ù…Ù‰ Ø§Ù„ÙˆØ¸ÙŠÙÙŠ",
-      "COMPANY": "Ø§Ù„Ø´Ø±ÙƒØ©",
-      "APPLIED_DATE": "ØªØ§Ø±ÙŠØ® Ø§Ù„ØªÙ‚Ø¯ÙŠÙ…",
-      "STATUS": "Ø§Ù„Ø­Ø§Ù„Ø©"
+      "TITLE": "Applications",
+      "SUBTITLE": "Track your submitted applications and review the latest status updates from employers.",
+      "JOB_TITLE": "Job Title",
+      "COMPANY": "Company",
+      "APPLIED_DATE": "Applied Date",
+      "STATUS": "Status"
     },
     "MESSAGES": {
-      "TITLE": "Ø§Ù„Ø±Ø³Ø§Ø¦Ù„",
-      "SUBTITLE": "ØªÙˆØ§ØµÙ„ Ø§Ù„Ù…Ø³Ø¤ÙˆÙ„ÙŠÙ† Ø¹Ù† Ø§Ù„ØªÙˆØ¸ÙŠÙ Ø¬Ø§Ù‡Ø² Ù…Ø¹ ØªØ¬Ø±Ø¨Ø© ØªØ¬Ø±ÙŠØ¨ÙŠØ© Ù†Ø¸ÙŠÙØ©.",
-      "AT": "ÙÙŠ",
+      "TITLE": "Messages",
+      "SUBTITLE": "Recruiter communication is ready with a clean placeholder experience.",
+      "AT": "at",
       "CONTACTS": {
-        "NEHA_KAPOOR": "Ù†ÙŠÙ‡Ø§ ÙƒØ§Ø¨ÙˆØ±",
-        "RAHUL_MENON": "Ø±Ø§Ù‡ÙˆÙ„ Ù…ÙŠÙ†ÙˆÙ†",
-        "PRIYA_DESAI": "Ø¨Ø±ÙŠØ§ Ø¯ÙŠØ³Ø§ÙŠ"
+        "NEHA_KAPOOR": "Neha Kapoor",
+        "RAHUL_MENON": "Rahul Menon",
+        "PRIYA_DESAI": "Priya Desai"
       },
       "COMPANIES": {
-        "HIREWAVE": "Ù‡Ø§ÙŠØ± ÙˆÙŠÙ",
-        "PEOPLEMESH": "Ø¨ÙŠØ¨ÙˆÙ„ Ù…ÙŠØ´",
-        "CLOUDORBIT": "ÙƒÙ„Ø§ÙˆØ¯ Ø£ÙˆØ±Ø¨Øª"
+        "HIREWAVE": "HireWave",
+        "PEOPLEMESH": "PeopleMesh",
+        "CLOUDORBIT": "CloudOrbit"
       },
       "SUBJECTS": {
-        "INTERVIEW_AVAILABILITY": "Ø·Ù„Ø¨ ØªØ­Ø¯ÙŠØ¯ Ù…ÙˆØ¹Ø¯ Ù…Ù‚Ø§Ø¨Ù„Ø©",
-        "QUICK_FOLLOW_UP": "Ù…ØªØ§Ø¨Ø¹Ø© Ø³Ø±ÙŠØ¹Ø© Ù…Ù† Ø§Ù„Ù…Ø³Ø¤ÙˆÙ„",
-        "APPLICATION_UPDATE": "ØªØ­Ø¯ÙŠØ« Ø§Ù„Ø·Ù„Ø¨"
+        "INTERVIEW_AVAILABILITY": "Interview availability request",
+        "QUICK_FOLLOW_UP": "Quick follow-up from recruiter",
+        "APPLICATION_UPDATE": "Application update"
       },
       "PREVIEWS": {
-        "INTERVIEW_AVAILABILITY": "Ù„ÙØª Ù…Ù„ÙÙƒ Ø§Ù„Ø´Ø®ØµÙŠ Ø§Ù†ØªØ¨Ø§Ù‡ Ø§Ù„ÙØ±ÙŠÙ‚. Ù‡Ù„ Ø£Ù†Øª Ù…ØªØ§Ø­ Ù„Ù…Ø­Ø§Ø¯Ø«Ø© Ø£ÙˆÙ„ÙŠØ© Ù‡Ø°Ø§ Ø§Ù„Ø£Ø³Ø¨ÙˆØ¹ØŸ",
-        "APPLICATION_FOLLOW_UP": "Ù†Ù†Ù‚Ù„ Ø·Ù„Ø¨Ùƒ Ø¥Ù„Ù‰ Ø§Ù„Ù…Ø±Ø­Ù„Ø© Ø§Ù„ØªØ§Ù„ÙŠØ© ÙˆÙ†ÙˆØ¯ ØªØ£ÙƒÙŠØ¯ ÙØªØ±Ø© Ø§Ù„Ø¥Ø´Ø¹Ø§Ø± Ø§Ù„Ø®Ø§ØµØ© Ø¨Ùƒ.",
-        "APPLICATION_CLOSED": "Ø´ÙƒØ±Ø§Ù‹ Ù„ØªÙ‚Ø¯ÙŠÙ…Ùƒ. ØªÙ… Ø´ØºÙ„ Ø§Ù„ÙˆØ¸ÙŠÙØ© Ø­Ø§Ù„ÙŠØ§Ù‹ØŒ Ù„ÙƒÙ†Ù†Ø§ Ù†ÙˆØ¯ Ø§Ù„Ø§Ø­ØªÙØ§Ø¸ Ø¨Ù…Ù„ÙÙƒ Ø§Ù„Ø´Ø®ØµÙŠ Ù„Ù„ÙØ±Øµ Ø§Ù„Ù‚Ø§Ø¯Ù…Ø©."
+        "INTERVIEW_AVAILABILITY": "Your profile stood out to the team. Are you available for a first-round discussion this week?",
+        "APPLICATION_FOLLOW_UP": "We are moving your application forward and would like to confirm your notice period.",
+        "APPLICATION_CLOSED": "Thanks again for applying. We have filled the role but would like to keep your profile on file."
       }
     },
     "NOTIFICATIONS": {
-      "TITLE": "Ø§Ù„Ø¥Ø´Ø¹Ø§Ø±Ø§Øª",
-      "SUBTITLE": "ØªÙ†Ø¨ÙŠÙ‡Ø§Øª Ø§Ù„ÙˆØ¸Ø§Ø¦Ù ÙˆØªØ­Ø¯ÙŠØ«Ø§Øª Ø§Ù„Ø·Ù„Ø¨Ø§Øª ØªØ¸Ù‡Ø± Ù‡Ù†Ø§.",
-      "NEW_BADGE": "Ø¬Ø¯ÙŠØ¯",
-      "MARK_READ": "ÙˆØ¶Ø¹ Ø¹Ù„Ø§Ù…Ø© Ù…Ù‚Ø±ÙˆØ¡",
+      "TITLE": "Notifications",
+      "SUBTITLE": "Job alerts and application updates appear here.",
+      "NEW_BADGE": "New",
+      "MARK_READ": "Mark as read",
       "ITEMS": {
         "NEW_JOB_MATCH": {
-          "TITLE": "ÙˆØ¸ÙŠÙØ© Ø¬Ø¯ÙŠØ¯Ø© Ù…Ø·Ø§Ø¨Ù‚Ø©",
-          "MESSAGE": "Ù‡Ù†Ø§Ùƒ 3 ÙˆØ¸Ø§Ø¦Ù ÙˆØ§Ø¬Ù‡Ø§Øª Ø£Ù…Ø§Ù…ÙŠØ© ØªØ·Ø§Ø¨Ù‚ Ù…Ù‡Ø§Ø±Ø§ØªÙƒ ÙÙŠ Angular ÙˆTailwind."
+          "TITLE": "New job match",
+          "MESSAGE": "3 frontend jobs match your Angular and Tailwind skills."
         },
         "APPLICATION_MOVED": {
-          "TITLE": "ØªÙ… Ù†Ù‚Ù„ Ø§Ù„Ø·Ù„Ø¨ Ø¥Ù„Ù‰ Ù…Ø±Ø­Ù„Ø© Ø§Ù„Ù…Ù‚Ø§Ø¨Ù„Ø©",
-          "MESSAGE": "Ù‚Ø§Ù…Øª PeopleMesh Ø¨Ù†Ù‚Ù„ Ø·Ù„Ø¨Ùƒ Ø¥Ù„Ù‰ Ù…Ø±Ø­Ù„Ø© Ø§Ù„Ù…Ù‚Ø§Ø¨Ù„Ø©."
+          "TITLE": "Application moved to interview",
+          "MESSAGE": "PeopleMesh advanced your application to the interview stage."
         },
         "RECRUITER_MESSAGE": {
-          "TITLE": "ØªÙ… Ø§Ø³ØªÙ„Ø§Ù… Ø±Ø³Ø§Ù„Ø© Ù…Ù† Ù…Ø³Ø¤ÙˆÙ„ ØªÙˆØ¸ÙŠÙ",
-          "MESSAGE": "Ø£Ø±Ø³Ù„ {{sender}} Ø±Ø³Ø§Ù„Ø© Ø¬Ø¯ÙŠØ¯Ø© Ø¨Ø®ØµÙˆØµ ØªÙ†Ø³ÙŠÙ‚ Ù…ÙˆØ¹Ø¯ Ø§Ù„Ù…Ù‚Ø§Ø¨Ù„Ø©."
+          "TITLE": "Recruiter message received",
+          "MESSAGE": "{{sender}} sent you a new message about interview scheduling."
         },
         "COMPLETE_PROFILE": {
-          "TITLE": "Ø£ÙƒÙ…Ù„ Ù…Ù„ÙÙƒ Ø§Ù„Ø´Ø®ØµÙŠ",
-          "MESSAGE": "Ø¥Ø¶Ø§ÙØ© Ù…Ø´Ø±ÙˆØ¹ Ø¢Ø®Ø± Ø£Ùˆ Ø´Ù‡Ø§Ø¯Ø© Ø¬Ø¯ÙŠØ¯Ø© Ù‚Ø¯ ØªØ­Ø³Ù† Ø¸Ù‡ÙˆØ±Ùƒ Ù„Ø¯Ù‰ Ù…Ø³Ø¤ÙˆÙ„ÙŠ Ø§Ù„ØªÙˆØ¸ÙŠÙ."
+          "TITLE": "Complete your profile",
+          "MESSAGE": "Adding one more project or certification can improve recruiter visibility."
         },
         "ACTIONS": {
-          "VIEW_JOBS": "Ø¹Ø±Ø¶ Ø§Ù„ÙˆØ¸Ø§Ø¦Ù",
-          "VIEW_APPLICATIONS": "Ø¹Ø±Ø¶ Ø§Ù„Ø·Ù„Ø¨Ø§Øª",
-          "OPEN_MESSAGES": "ÙØªØ­ Ø§Ù„Ø±Ø³Ø§Ø¦Ù„",
-          "OPEN_PROFILE": "ÙØªØ­ Ø§Ù„Ù…Ù„Ù Ø§Ù„Ø´Ø®ØµÙŠ"
+          "VIEW_JOBS": "View jobs",
+          "VIEW_APPLICATIONS": "View applications",
+          "OPEN_MESSAGES": "Open messages",
+          "OPEN_PROFILE": "Open profile"
         }
       }
     },
     "SAVED_JOBS": {
-      "TITLE": "Ø§Ù„ÙˆØ¸Ø§Ø¦Ù Ø§Ù„Ù…Ø­ÙÙˆØ¸Ø©",
-      "SUBTITLE": "Ø§Ø­ÙØ¸ Ø§Ù„ÙˆØ¸Ø§Ø¦Ù Ù„Ù…Ù‚Ø§Ø±Ù†ØªÙ‡Ø§ Ù„Ø§Ø­Ù‚Ø§Ù‹ ÙˆØ§Ù„ØªÙ‚Ø¯ÙŠÙ… Ø¹Ù„ÙŠÙ‡Ø§ Ø¹Ù†Ø¯Ù…Ø§ ØªÙƒÙˆÙ† Ù…Ø³ØªØ¹Ø¯Ø§Ù‹.",
-      "BROWSE_JOBS": "ØªØµÙØ­ Ø§Ù„ÙˆØ¸Ø§Ø¦Ù"
+      "TITLE": "Saved Jobs",
+      "SUBTITLE": "Bookmark roles to compare them later and apply when you are ready.",
+      "BROWSE_JOBS": "Browse jobs"
     },
     "JOBS": {
-      "TITLE": "Ø§Ù„ÙˆØ¸Ø§Ø¦Ù",
-      "SUBTITLE": "Ø§Ø¨Ø­Ø« Ø¨Ø§Ù„ÙƒÙ„Ù…Ø© Ø§Ù„Ù…ÙØªØ§Ø­ÙŠØ© Ø£Ùˆ Ø§Ù„Ù…ÙˆÙ‚Ø¹ ÙˆØ§Ø­ÙØ¸ Ø§Ù„ÙˆØ¸Ø§Ø¦Ù Ø§Ù„ØªÙŠ ØªØ±ÙŠØ¯ Ù…Ø±Ø§Ø¬Ø¹ØªÙ‡Ø§ Ù„Ø§Ø­Ù‚Ø§Ù‹.",
-      "SEARCH_PLACEHOLDER": "Ø§Ø¨Ø­Ø« Ø¹Ù† ÙˆØ¸Ø§Ø¦Ù Ø£Ùˆ Ù…Ù‡Ø§Ø±Ø§Øª Ø£Ùˆ Ø´Ø±ÙƒØ©",
-      "LOCATION_PLACEHOLDER": "ØªØµÙÙŠØ© Ø­Ø³Ø¨ Ø§Ù„Ù…ÙˆÙ‚Ø¹",
-      "RESET_FILTERS": "Ø¥Ø¹Ø§Ø¯Ø© Ø¶Ø¨Ø· Ø§Ù„ÙÙ„Ø§ØªØ±"
+      "TITLE": "Jobs",
+      "SUBTITLE": "Search by keyword or location and save the roles you want to revisit.",
+      "SEARCH_PLACEHOLDER": "Search jobs, skills, or company",
+      "LOCATION_PLACEHOLDER": "Filter by location",
+      "RESET_FILTERS": "Reset filters"
     },
     "STATUS": {
-      "APPLIED": "ØªÙ… Ø§Ù„ØªÙ‚Ø¯ÙŠÙ…",
-      "UNDER_REVIEW": "Ù‚ÙŠØ¯ Ø§Ù„Ù…Ø±Ø§Ø¬Ø¹Ø©",
-      "SHORTLISTED": "ÙÙŠ Ø§Ù„Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ù…Ø®ØªØµØ±Ø©",
-      "INTERVIEW_SCHEDULED": "ØªÙ…Øª Ø¬Ø¯ÙˆÙ„Ø© Ø§Ù„Ù…Ù‚Ø§Ø¨Ù„Ø©",
-      "REJECTED": "Ù…Ø±ÙÙˆØ¶",
-      "SELECTED": "ØªÙ… Ø§Ø®ØªÙŠØ§Ø±Ùƒ"
+      "APPLIED": "Applied",
+      "UNDER_REVIEW": "Under review",
+      "SHORTLISTED": "Shortlisted",
+      "INTERVIEW_SCHEDULED": "Interview scheduled",
+      "REJECTED": "Rejected",
+      "SELECTED": "Selected"
     },
     "ACTIVITY": {
-      "MESSAGE_FROM": "Ø±Ø³Ø§Ù„Ø© Ù…Ù† {{sender}}",
-      "APPLICATION_UPDATE_TITLE": "ØªØ­Ø¯ÙŠØ« Ø§Ù„Ø·Ù„Ø¨ Ù„ÙˆØ¸ÙŠÙØ© {{jobTitle}}",
-      "APPLICATION_UPDATE_DESCRIPTION": "Ø£ØµØ¨Ø­Øª Ø­Ø§Ù„Ø© Ø·Ù„Ø¨Ùƒ Ø§Ù„Ø¢Ù† {{status}} Ù„Ø¯Ù‰ {{company}}.",
-      "OPEN_MESSAGE": "Ø¹Ø±Ø¶ Ø§Ù„Ø±Ø³Ø§Ù„Ø©",
-      "VIEW_APPLICATION": "Ø¹Ø±Ø¶ Ø§Ù„Ø·Ù„Ø¨",
-      "ROLE_FALLBACK": "Ù‡Ø°Ù‡ Ø§Ù„ÙˆØ¸ÙŠÙØ©",
-      "EMPLOYER_FALLBACK": "ØµØ§Ø­Ø¨ Ø§Ù„Ø¹Ù…Ù„"
+      "MESSAGE_FROM": "Message from {{sender}}",
+      "APPLICATION_UPDATE_TITLE": "Application update for {{jobTitle}}",
+      "APPLICATION_UPDATE_DESCRIPTION": "Your application is now {{status}} at {{company}}.",
+      "OPEN_MESSAGE": "Open Message",
+      "VIEW_APPLICATION": "View Application",
+      "ROLE_FALLBACK": "this role",
+      "EMPLOYER_FALLBACK": "the employer"
     },
     "PROFILE": {
-      "EMAIL": "Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ",
-      "PHONE": "Ø§Ù„Ù‡Ø§ØªÙ",
-      "ABOUT": "Ù†Ø¨Ø°Ø©",
-      "READ_ONLY_PREVIEW": "Ù…Ø¹Ø§ÙŠÙ†Ø© Ù„Ù„Ù‚Ø±Ø§Ø¡Ø© ÙÙ‚Ø·",
-      "SKILLS": "Ø§Ù„Ù…Ù‡Ø§Ø±Ø§Øª",
-      "ADD_SKILL": "+ Ø¥Ø¶Ø§ÙØ© Ù…Ù‡Ø§Ø±Ø©",
-      "EXPERIENCE": "Ø§Ù„Ø®Ø¨Ø±Ø§Øª",
-      "EDUCATION": "Ø§Ù„ØªØ¹Ù„ÙŠÙ…",
-      "CERTIFICATIONS": "Ø§Ù„Ø´Ù‡Ø§Ø¯Ø§Øª",
-      "RESUME": "Ø§Ù„Ø³ÙŠØ±Ø© Ø§Ù„Ø°Ø§ØªÙŠØ©",
-      "VIEW": "Ø¹Ø±Ø¶",
-      "UPLOAD_RESUME": "Ø±ÙØ¹ Ø§Ù„Ø³ÙŠØ±Ø© Ø§Ù„Ø°Ø§ØªÙŠØ©",
-      "UPLOADED": "ØªÙ… Ø§Ù„Ø±ÙØ¹",
-      "ISSUED": "ØµØ§Ø¯Ø±Ø© ÙÙŠ",
-      "EXPIRES": "ØªÙ†ØªÙ‡ÙŠ ÙÙŠ",
-      "CURRENT": "Ø­Ø§Ù„ÙŠ",
-      "GRADE": "Ø§Ù„ØªÙ‚Ø¯ÙŠØ±",
-      "IN": "ÙÙŠ",
-      "ADD": "+ Ø¥Ø¶Ø§ÙØ©"
+      "EMAIL": "Email",
+      "PHONE": "Phone",
+      "ABOUT": "بذة",
+      "READ_ONLY_PREVIEW": "Read-only preview",
+      "SKILLS": "Skills",
+      "ADD_SKILL": "+ Add Skill",
+      "EXPERIENCE": "Experience",
+      "EDUCATION": "Education",
+      "CERTIFICATIONS": "Certifications",
+      "RESUME": "Resume",
+      "VIEW": "عرض",
+      "UPLOAD_RESUME": "Upload Resume",
+      "UPLOADED": "Uploaded",
+      "ISSUED": "Issued",
+      "EXPIRES": "Expires",
+      "CURRENT": "Current",
+      "GRADE": "Grade",
+      "IN": "in",
+      "ADD": "+ إضافة"
+    },
+    "SETTINGS": {
+      "TITLE": "Settings",
+      "SUBTITLE": "Manage account security and recruiter visibility.",
+      "CHANGE_PASSWORD": "Change password",
+      "PASSWORD_PLACEHOLDER": "Enter a new password",
+      "UPDATE_PASSWORD": "Update password",
+      "PROFILE_VISIBILITY": "Profile visibility",
+      "PROFILE_VISIBILITY_DESCRIPTION": "Allow recruiters to discover your candidate profile.",
+      "VISIBILITY_VISIBLE": "Recruiters can view your profile.",
+      "VISIBILITY_HIDDEN": "Your profile is hidden from recruiter search.",
+      "TOASTS": {
+        "PASSWORD_REQUIRED": "Please enter a new password.",
+        "PASSWORD_UPDATED": "Password updated.",
+        "VISIBILITY_VISIBLE": "Profile is now visible.",
+        "VISIBILITY_UPDATED": "Profile visibility updated."
+      }
     }
   },
   "ADMIN": {
     "NAV": {
-      "DASHBOARD": "Ù„ÙˆØ­Ø© Ø§Ù„ØªØ­ÙƒÙ…",
-      "REQUESTS": "Ø§Ù„Ø·Ù„Ø¨Ø§Øª",
-      "USERS": "Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù…ÙˆÙ†",
-      "JOBS": "Ø§Ù„ÙˆØ¸Ø§Ø¦Ù",
-      "REPORTS": "Ø§Ù„ØªÙ‚Ø§Ø±ÙŠØ±",
-      "SETTINGS": "Ø§Ù„Ø¥Ø¹Ø¯Ø§Ø¯Ø§Øª"
+      "DASHBOARD": "Dashboard",
+      "REQUESTS": "Requests",
+      "USERS": "Users",
+      "JOBS": "Jobs",
+      "REPORTS": "Reports",
+      "SETTINGS": "Settings"
     },
     "SHELL": {
-      "ROLE": "Ù…Ø³Ø¤ÙˆÙ„ Ø§Ù„Ù…Ù†ØµØ©",
-      "PENDING_APPROVALS": "Ø§Ù„Ù…ÙˆØ§ÙÙ‚Ø§Øª Ø§Ù„Ù…Ø¹Ù„Ù‘Ù‚Ø©"
+      "ROLE": "Platform Administrator",
+      "PENDING_APPROVALS": "Pending approvals"
     },
     "DASHBOARD": {
-      "TITLE": "Ù„ÙˆØ­Ø© ØªØ­ÙƒÙ… Ø§Ù„Ù…Ø³Ø¤ÙˆÙ„",
-      "SUBTITLE": "ØªØ­ÙƒÙ… Ù…Ø±ÙƒØ²ÙŠ ÙÙŠ Ø§Ù„Ù…Ù†ØµØ© ÙˆØ§Ù„Ø¥Ø´Ø±Ø§Ù ÙˆØ§Ù„ÙˆØ³Ø§Ø·Ø© Ø¨ÙŠÙ† Ø£ØµØ­Ø§Ø¨ Ø§Ù„Ø¹Ù…Ù„ ÙˆØ§Ù„Ù…Ø³ØªÙ‚Ù„ÙŠÙ†.",
-      "REQUEST_STATUS": "Ø§Ù„Ø­Ø§Ù„Ø©",
+      "TITLE": "Admin Dashboard",
+      "SUBTITLE": "Centralized platform control, moderation, and freelancer mediation.",
+      "REQUEST_STATUS": "Status",
       "SECTIONS": {
-        "PLATFORM_OVERVIEW": "Ù†Ø¸Ø±Ø© Ø¹Ø§Ù…Ø© Ø¹Ù„Ù‰ Ø§Ù„Ù…Ù†ØµØ©",
-        "FREELANCER_MEDIATION": "ÙˆØ³Ø§Ø·Ø© Ø§Ù„Ù…Ø³ØªÙ‚Ù„ÙŠÙ†",
-        "REPORTS": "Ø§Ù„Ø¨Ù„Ø§ØºØ§Øª ÙˆØ§Ù„Ø´ÙƒØ§ÙˆÙ‰"
+        "PLATFORM_OVERVIEW": "Platform Overview",
+        "FREELANCER_MEDIATION": "Freelancer Mediation",
+        "REPORTS": "Reports & Complaints"
       },
       "STATS": {
-        "TOTAL_USERS": "Ø¥Ø¬Ù…Ø§Ù„ÙŠ Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù…ÙŠÙ†",
-        "TOTAL_JOBS": "Ø¥Ø¬Ù…Ø§Ù„ÙŠ Ø§Ù„ÙˆØ¸Ø§Ø¦Ù",
-        "TOTAL_APPLICATIONS": "Ø¥Ø¬Ù…Ø§Ù„ÙŠ Ø§Ù„Ø·Ù„Ø¨Ø§Øª",
-        "ACTIVE_FREELANCERS": "Ø§Ù„Ù…Ø³ØªÙ‚Ù„ÙˆÙ† Ø§Ù„Ù†Ø´Ø·ÙˆÙ†",
-        "PENDING_REQUESTS": "Ø§Ù„Ø·Ù„Ø¨Ø§Øª Ø§Ù„Ù…Ø¹Ù„Ù‘Ù‚Ø©"
+        "TOTAL_USERS": "Total Users",
+        "TOTAL_JOBS": "Total Jobs",
+        "TOTAL_APPLICATIONS": "Total Applications",
+        "ACTIVE_FREELANCERS": "Active Freelancers",
+        "PENDING_REQUESTS": "Pending Requests",
+        "QUIZZES_EXAMS": "Quizzes / Exams",
+        "PLATFORM_ACTIVITY": "Platform activity"
       },
       "ANALYTICS": {
-        "CANDIDATE_GROWTH": "Ù†Ù…Ùˆ Ø§Ù„Ù…Ø±Ø´Ø­ÙŠÙ†",
-        "CANDIDATE_GROWTH_DETAIL": "Ù…Ù‚Ø§Ø±Ù†Ø© Ø¨Ø§Ù„Ø´Ù‡Ø± Ø§Ù„Ù…Ø§Ø¶ÙŠ",
-        "HIRING_COMPANIES": "Ø§Ù„Ø´Ø±ÙƒØ§Øª Ø§Ù„ØªÙŠ ØªÙˆØ¸Ù",
-        "HIRING_COMPANIES_DETAIL": "Ø­Ø³Ø§Ø¨Ø§Øª Ø£ØµØ­Ø§Ø¨ Ø§Ù„Ø¹Ù…Ù„ Ø§Ù„Ù†Ø´Ø·Ø©",
-        "APPROVED_JOBS": "Ø§Ù„ÙˆØ¸Ø§Ø¦Ù Ø§Ù„Ù…Ø¹ØªÙ…Ø¯Ø©",
-        "APPROVED_JOBS_DETAIL": "Ù…Ø±Ø¦ÙŠØ© Ø¹Ù„Ù‰ Ø§Ù„Ù…Ù†ØµØ©",
-        "OPEN_REPORTS": "Ø§Ù„Ø¨Ù„Ø§ØºØ§Øª Ø§Ù„Ù…ÙØªÙˆØ­Ø©",
-        "OPEN_REPORTS_DETAIL": "ØªØªØ·Ù„Ø¨ Ø¥Ø´Ø±Ø§ÙÙ‹Ø§"
+        "CANDIDATE_GROWTH": "Candidate Growth",
+        "CANDIDATE_GROWTH_DETAIL": "Compared to last month",
+        "HIRING_COMPANIES": "Hiring Companies",
+        "HIRING_COMPANIES_DETAIL": "Active employer accounts",
+        "APPROVED_JOBS": "Approved Jobs",
+        "APPROVED_JOBS_DETAIL": "Visible on platform",
+        "OPEN_REPORTS": "Open Reports",
+        "OPEN_REPORTS_DETAIL": "Require moderation"
       },
       "REPORT_TYPES": {
-        "JOB": "ÙˆØ¸ÙŠÙØ©",
-        "USER": "Ù…Ø³ØªØ®Ø¯Ù…",
-        "CONTENT": "Ù…Ø­ØªÙˆÙ‰"
+        "JOB": "job",
+        "USER": "user",
+        "CONTENT": "content"
       },
       "REPORT_STATUS": {
-        "OPEN": "Ù…ÙØªÙˆØ­",
-        "REVIEWED": "ØªÙ…Øª Ù…Ø±Ø§Ø¬Ø¹ØªÙ‡",
-        "RESOLVED": "ØªÙ… Ø­Ù„Ù‡"
+        "OPEN": "open",
+        "REVIEWED": "reviewed",
+        "RESOLVED": "resolved"
       },
       "REPORT_SUBJECTS": {
-        "SALARY_MISMATCH": "Ø§Ø´ØªØ¨Ø§Ù‡ ÙÙŠ Ø¹Ø¯Ù… ØªØ·Ø§Ø¨Ù‚ Ø§Ù„Ø±Ø§ØªØ¨ ÙÙŠ Ø¥Ø¹Ù„Ø§Ù† ÙˆØ¸ÙŠÙØ© Ù…Ù‡Ù†Ø¯Ø³ Backend",
-        "SPAM_OUTREACH": "Ø£Ø¨Ù„Øº Ø£Ø­Ø¯ Ø§Ù„Ù…Ø±Ø´Ø­ÙŠÙ† Ø¹Ù† Ø±Ø³Ø§Ø¦Ù„ Ù…Ø²Ø¹Ø¬Ø© Ù…Ù† Ù…Ø³Ø¤ÙˆÙ„ ØªÙˆØ¸ÙŠÙ",
-        "INAPPROPRIATE_WORDING": "ØªÙ… Ø§Ù„Ø¥Ø¨Ù„Ø§Øº Ø¹Ù† ØµÙŠØ§ØºØ© ØºÙŠØ± Ù…Ù†Ø§Ø³Ø¨Ø© ÙÙŠ ÙˆØµÙ ÙˆØ¸ÙŠÙØ© Ø§Ù„Ù…Ø¨ÙŠØ¹Ø§Øª"
+        "SALARY_MISMATCH": "Suspicious salary mismatch in Backend Engineer posting",
+        "SPAM_OUTREACH": "Candidate reported spam outreach from recruiter",
+        "INAPPROPRIATE_WORDING": "Inappropriate wording flagged in sales job description"
+      },
+      "PLATFORM_INSIGHTS_NOTE": "User engagement is growing steadily across regions.",
+      "ACTIVITY_LEVEL": {
+        "HIGH": "High"
+      },
+      "QUICK_ACTIONS": {
+        "MANAGE_USERS": {
+          "TITLE": "Manage users",
+          "SUBTITLE": "Review and manage candidates."
+        },
+        "MANAGE_JOBS": {
+          "TITLE": "Manage jobs",
+          "SUBTITLE": "Oversee and moderate jobs."
+        },
+        "QUIZZES_EXAMS": {
+          "TITLE": "Quizzes / Exams",
+          "SUBTITLE": "Review assessments."
+        },
+        "VIEW_REPORTS": {
+          "TITLE": "View reports",
+          "SUBTITLE": "Resolve content securely."
+        }
+      },
+      "RECENT_ACTIVITY": {
+        "TITLE": "Recent activity",
+        "SUBTITLE": "Platform updates covering registrations, jobs, and exams.",
+        "EMPTY": "No recent activity detected.",
+        "DATES": {
+          "YESTERDAY": "Yesterday"
+        },
+        "ITEMS": {
+          "NEW_USER_REGISTRATION": {
+            "TITLE": "New user registration",
+            "DESCRIPTION_1": "Omar requested freelancer approval.",
+            "DESCRIPTION_2": "Aisha created an employer account."
+          },
+          "RECENT_JOB_POSTING": {
+            "TITLE": "Recent job posting",
+            "DESCRIPTION_1": "TechCorp posted Senior Developer.",
+            "DESCRIPTION_2": "FinEdge Corp posted Data Analyst."
+          },
+          "EXAM_ACTIVITY": {
+            "TITLE": "Exam activity",
+            "DESCRIPTION_1": "3 candidates passed the Frontend Quiz."
+          }
+        }
+      },
+      "SYSTEM_ALERTS": {
+        "TITLE": "System alerts",
+        "SUBTITLE": "Critical platform health reports."
       }
     },
     "REQUESTS": {
-      "TITLE": "Ø·Ù„Ø¨Ø§Øª Ø§Ù„Ù…Ø³ØªÙ‚Ù„ÙŠÙ†",
-      "SUBTITLE": "Ù‡Ø°Ù‡ Ù‡ÙŠ Ø³ÙŠØ± Ø§Ù„Ø¹Ù…Ù„ Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ© Ù„Ù„Ù…Ø³Ø¤ÙˆÙ„: Ù…Ø±Ø§Ø¬Ø¹Ø© Ø·Ù„Ø¨Ø§Øª Ø£ØµØ­Ø§Ø¨ Ø§Ù„Ø¹Ù…Ù„ Ù„Ù„Ù…Ø³ØªÙ‚Ù„ÙŠÙ† ÙˆØ§Ù„ØªØ­ÙƒÙ… ÙÙŠ Ø§Ù„ÙˆØµÙˆÙ„.",
-      "PENDING_EMPLOYER_REQUESTS": "Ø·Ù„Ø¨Ø§Øª Ø£ØµØ­Ø§Ø¨ Ø§Ù„Ø¹Ù…Ù„ Ø§Ù„Ù…Ø¹Ù„Ù‘Ù‚Ø©",
-      "FREELANCER_DIRECTORY": "Ø¯Ù„ÙŠÙ„ Ø§Ù„Ù…Ø³ØªÙ‚Ù„ÙŠÙ†",
-      "CANDIDATE_FREELANCER_APPLICATIONS": "Ø·Ù„Ø¨Ø§Øª Ø§Ù„Ù…Ø±Ø´Ø­ÙŠÙ† Ù„Ù„Ø¹Ù…Ù„ Ø§Ù„Ù…Ø³ØªÙ‚Ù„",
-      "NO_DATA": "Ù„Ø§ ØªÙˆØ¬Ø¯ Ø¨ÙŠØ§Ù†Ø§Øª Ù…ØªØ§Ø­Ø©",
-      "SKILLS": "Ø§Ù„Ù…Ù‡Ø§Ø±Ø§Øª",
-      "STATUS": "Ø§Ù„Ø­Ø§Ù„Ø©",
-      "ASSIGNED": "ØªÙ… Ø§Ù„ØªØ¹ÙŠÙŠÙ† Ù„Ù€",
-      "SUBMITTED": "ØªØ§Ø±ÙŠØ® Ø§Ù„ØªÙ‚Ø¯ÙŠÙ…",
-      "ASSIGN_FREELANCER": "ØªØ¹ÙŠÙŠÙ† Ù…Ø³ØªÙ‚Ù„",
-      "APPROVE": "Ù…ÙˆØ§ÙÙ‚Ø©",
-      "REJECT": "Ø±ÙØ¶"
+      "TITLE": "Freelancer Requests",
+      "SUBTITLE": "This is the main admin workflow: review employer freelancer requests and control access.",
+      "PENDING_EMPLOYER_REQUESTS": "Pending Employer Requests",
+      "FREELANCER_DIRECTORY": "Freelancer Directory",
+      "CANDIDATE_FREELANCER_APPLICATIONS": "Candidate Freelancer Applications",
+      "NO_DATA": "No data available",
+      "SKILLS": "Skills",
+      "STATUS": "Status",
+      "ASSIGNED": "Assigned",
+      "SUBMITTED": "Submitted",
+      "ASSIGN_FREELANCER": "Assign freelancer",
+      "APPROVE": "Approve",
+      "REJECT": "رفض"
     },
     "USERS": {
-      "CANDIDATES": "Ø§Ù„Ù…Ø±Ø´Ø­ÙˆÙ†",
-      "EMPLOYERS": "Ø£ØµØ­Ø§Ø¨ Ø§Ù„Ø¹Ù…Ù„",
-      "DEACTIVATE": "Ø¥Ù„ØºØ§Ø¡ Ø§Ù„ØªÙØ¹ÙŠÙ„",
-      "BLOCK": "Ø­Ø¸Ø±",
+      "CANDIDATES": "Candidates",
+      "EMPLOYERS": "Employers",
+      "DEACTIVATE": "Deactivate",
+      "BLOCK": "حظر",
       "STATUS": {
-        "ACTIVE": "Ù†Ø´Ø·",
-        "INACTIVE": "ØºÙŠØ± Ù†Ø´Ø·",
-        "BLOCKED": "Ù…Ø­Ø¸ÙˆØ±"
+        "ACTIVE": "شط",
+        "INACTIVE": "inactive",
+        "BLOCKED": "blocked"
       },
       "TITLES": {
-        "HR_MANAGER": "Ù…Ø¯ÙŠØ± Ø§Ù„Ù…ÙˆØ§Ø±Ø¯ Ø§Ù„Ø¨Ø´Ø±ÙŠØ©"
+        "HR_MANAGER": "HR Manager"
       }
     },
     "JOBS": {
-      "TITLE": "Ø§Ù„ÙˆØ¸Ø§Ø¦Ù",
-      "SUBTITLE": "Ø±Ø§Ù‚Ø¨ Ø§Ù„Ø¥Ø¹Ù„Ø§Ù†Ø§Øª ÙˆØ§Ø­Ø°Ù ÙÙ‚Ø· Ø§Ù„ÙˆØ¸Ø§Ø¦Ù Ø§Ù„Ù…Ø²Ø¹Ø¬Ø© Ø£Ùˆ Ø§Ù„ÙˆÙ‡Ù…ÙŠØ© Ø£Ùˆ Ø§Ù„Ù…Ø³ÙŠØ¦Ø© Ø¹Ù†Ø¯ Ø§Ù„Ø­Ø§Ø¬Ø©.",
-      "FLAG": "ÙˆØ¶Ø¹ Ø¹Ù„Ø§Ù…Ø©",
-      "REMOVE": "Ø¥Ø²Ø§Ù„Ø©",
+      "TITLE": "Jobs",
+      "SUBTITLE": "Monitor postings and remove only spam, fake, or offensive jobs when needed.",
+      "FLAG": "Flag",
+      "REMOVE": "Remove",
       "STATUS": {
-        "APPROVED": "Ù…Ù‚Ø¨ÙˆÙ„",
-        "PENDING": "Ù…Ø¹Ù„Ù‘Ù‚",
-        "REJECTED": "Ù…Ø±ÙÙˆØ¶"
+        "APPROVED": "approved",
+        "PENDING": "pending",
+        "REJECTED": "rejected"
       }
     },
     "REPORTS": {
-      "TITLE": "Ø§Ù„ØªÙ‚Ø§Ø±ÙŠØ± ÙˆØ§Ù„ØªØ­Ù„ÙŠÙ„Ø§Øª",
-      "SUBTITLE": "ØªØ§Ø¨Ø¹ Ø§Ù„Ø¥Ø´Ø±Ø§Ù ÙˆØ§Ù„Ø§ØªØ¬Ø§Ù‡Ø§Øª ÙˆØµØ­Ø© Ø§Ù„Ù†Ø¸Ø§Ù….",
-      "MODERATION_REPORTS": "ØªÙ‚Ø§Ø±ÙŠØ± Ø§Ù„Ø¥Ø´Ø±Ø§Ù",
-      "RESOLVE": "Ø­Ù„"
+      "TITLE": "Reports & Analytics",
+      "SUBTITLE": "Track moderation, trends, and system health.",
+      "MODERATION_REPORTS": "Moderation Reports",
+      "RESOLVE": "Resolve"
     },
     "SETTINGS": {
       "PLATFORM_CONFIGURATION": {
-        "TITLE": "Ø¥Ø¹Ø¯Ø§Ø¯Ø§Øª Ø§Ù„Ù…Ù†ØµØ©",
-        "DESCRIPTION": "Ø£Ø¯Ø± Ø³Ù„ÙˆÙƒ Ø§Ù„Ù…Ù†ØµØ© ÙˆØ§Ù„Ù…ÙˆØ§ÙÙ‚Ø§Øª ÙˆØ¹Ù†Ø§ØµØ± Ø§Ù„ØªØ­ÙƒÙ… Ø§Ù„ØªØ´ØºÙŠÙ„ÙŠØ©."
+        "TITLE": "Platform Configuration",
+        "DESCRIPTION": "Manage platform behavior, approvals, and operational controls."
       },
       "JOB_CATEGORIES": {
-        "TITLE": "ÙØ¦Ø§Øª Ø§Ù„ÙˆØ¸Ø§Ø¦Ù",
-        "DESCRIPTION": "Ø¹Ù†ØµØ± Ù†Ø§Ø¦Ø¨ Ù„Ø¥Ø¯Ø§Ø±Ø© Ø§Ù„ÙØ¦Ø§Øª ÙˆØ§Ù„ØªØµÙ†ÙŠÙØ§Øª."
+        "TITLE": "Job Categories",
+        "DESCRIPTION": "Category and taxonomy management placeholder."
       },
       "SKILL_LIBRARY": {
-        "TITLE": "Ù…ÙƒØªØ¨Ø© Ø§Ù„Ù…Ù‡Ø§Ø±Ø§Øª",
-        "DESCRIPTION": "Ø¹Ù†ØµØ± Ù†Ø§Ø¦Ø¨ Ù„Ø¥Ø¯Ø§Ø±Ø© Ø§Ù„Ù…Ù‡Ø§Ø±Ø§Øª Ø¨Ø´ÙƒÙ„ Ù…Ø±ÙƒØ²ÙŠ."
+        "TITLE": "Skill Library",
+        "DESCRIPTION": "Centralized skill management placeholder."
       }
     }
   },
   "BLOG": {
     "LIST": {
-      "TITLE": "Ù…Ø¯ÙˆÙ†Ø© JobPortal",
-      "SUBTITLE": "Ù†ØµØ§Ø¦Ø­ Ù…Ù‡Ù†ÙŠØ© ÙˆØ±Ø¤Ù‰ ØªÙ‚Ù†ÙŠØ© ÙˆØ£Ø®Ø¨Ø§Ø± Ù‚Ø·Ø§Ø¹ Ø§Ù„Ø¹Ù…Ù„ Ù„Ù…Ø³Ø§Ø¹Ø¯ØªÙƒ Ø¹Ù„Ù‰ Ø§Ù„ØªØ·ÙˆØ± Ù…Ù‡Ù†ÙŠÙ‹Ø§.",
-      "BADGE": "Ù…Ù‚Ø§Ù„Ø§Øª ÙˆØ±Ø¤Ù‰",
-      "SEARCH_PLACEHOLDER": "Ø§Ø¨Ø­Ø« ÙÙŠ Ø§Ù„Ù…Ù‚Ø§Ù„Ø§Øª...",
-      "RESULTS": "{{count}} Ù…Ù‚Ø§Ù„"
+      "TITLE": "JOBPORTAL Blogs",
+      "SUBTITLE": "Career advice, tech insights, and industry news to help you grow professionally.",
+      "BADGE": "Articles & Insights",
+      "SEARCH_PLACEHOLDER": "Search articles...",
+      "RESULTS": "{{count}} articles"
     },
     "FEATURED": {
-      "BADGE": "Ù…Ù…ÙŠØ²",
-      "EDITOR_PICK": "Ø§Ø®ØªÙŠØ§Ø± Ø§Ù„Ù…Ø­Ø±Ø±",
-      "TITLE": "Ù…Ù‚Ø§Ù„ Ù…Ù…ÙŠØ²",
-      "READ_ARTICLE": "Ù‚Ø±Ø§Ø¡Ø© Ø§Ù„Ù…Ù‚Ø§Ù„"
+      "BADGE": "Featured",
+      "EDITOR_PICK": "Editor's Pick",
+      "TITLE": "Featured Article",
+      "READ_ARTICLE": "Read Article"
     },
     "FILTER": {
-      "ALL": "Ø§Ù„ÙƒÙ„"
+      "ALL": "All"
     },
     "CARD": {
-      "MIN_READ": "{{count}} Ø¯Ù‚Ø§Ø¦Ù‚ Ù‚Ø±Ø§Ø¡Ø©",
-      "READ": "Ù‚Ø±Ø§Ø¡Ø©"
+      "MIN_READ": "{{count}} min read",
+      "READ": "Read"
     },
     "EMPTY": {
-      "TITLE": "Ù„Ø§ ØªÙˆØ¬Ø¯ Ù…Ù‚Ø§Ù„Ø§Øª Ù…Ø·Ø§Ø¨Ù‚Ø©",
-      "MESSAGE": "Ø¬Ø±Ù‘Ø¨ ÙØ¦Ø© Ù…Ø®ØªÙ„ÙØ© Ø£Ùˆ Ø§Ù…Ø³Ø­ Ø§Ù„Ø¨Ø­Ø«.",
-      "ACTION": "Ø¹Ø±Ø¶ Ø¬Ù…ÙŠØ¹ Ø§Ù„Ù…Ù‚Ø§Ù„Ø§Øª"
+      "TITLE": "No articles found",
+      "MESSAGE": "Try a different category or clear your search.",
+      "ACTION": "Show All Articles"
     },
     "NEWSLETTER": {
-      "TITLE": "Ø§Ø¨Ù‚ÙŽ Ø¹Ù„Ù‰ Ø§Ø·Ù„Ø§Ø¹",
-      "SUBTITLE": "Ø§Ø­ØµÙ„ Ø¹Ù„Ù‰ Ø£Ø­Ø¯Ø« Ø§Ù„Ù†ØµØ§Ø¦Ø­ Ø§Ù„Ù…Ù‡Ù†ÙŠØ© ÙˆØ±Ø¤Ù‰ Ø³ÙˆÙ‚ Ø§Ù„Ø¹Ù…Ù„ ÙˆØ§Ù„Ù…Ù‚Ø§Ù„Ø§Øª Ø§Ù„ØªÙ‚Ù†ÙŠØ© ÙÙŠ Ø¨Ø±ÙŠØ¯Ùƒ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ Ø£Ø³Ø¨ÙˆØ¹ÙŠÙ‹Ø§.",
+      "TITLE": "Stay in the Loop",
+      "SUBTITLE": "Get the latest career tips, job market insights, and tech articles delivered to your inbox weekly.",
       "PLACEHOLDER": "your@email.com",
-      "SUBMIT": "Ø§Ø´ØªØ±Ø§Ùƒ"
+      "SUBMIT": "اشتراْ"
     },
     "DETAIL": {
-      "BACK": "Ø§Ù„Ø¹ÙˆØ¯Ø© Ø¥Ù„Ù‰ Ø§Ù„Ù…Ø¯ÙˆÙ†Ø©",
-      "RELATED": "Ù…Ù‚Ø§Ù„Ø§Øª Ø°Ø§Øª ØµÙ„Ø©",
-      "NOT_FOUND": "Ø§Ù„Ù…Ù‚Ø§Ù„ ØºÙŠØ± Ù…ÙˆØ¬ÙˆØ¯."
+      "BACK": "Back to Blog",
+      "RELATED": "Related Articles",
+      "NOT_FOUND": "Article not found."
     },
     "CATEGORIES": {
-      "CAREER_TIPS": "Ù†ØµØ§Ø¦Ø­ Ù…Ù‡Ù†ÙŠØ©",
-      "TECH": "ØªÙ‚Ù†ÙŠØ©",
-      "INDUSTRY_NEWS": "Ø£Ø®Ø¨Ø§Ø± Ø§Ù„ØµÙ†Ø§Ø¹Ø©",
-      "INTERVIEWS": "Ù…Ù‚Ø§Ø¨Ù„Ø§Øª",
-      "FREELANCING": "Ø§Ù„Ø¹Ù…Ù„ Ø§Ù„Ø­Ø±"
+      "CAREER_TIPS": "Career Tips",
+      "TECH": "Tech",
+      "INDUSTRY_NEWS": "Industry News",
+      "INTERVIEWS": "Interviews",
+      "FREELANCING": "Freelancing"
     }
   },
   "COURSES": {
     "LIST": {
-      "TITLE": "Ø·ÙˆÙ‘Ø± Ù…Ù‡Ø§Ø±Ø§ØªÙƒ",
-      "SUBTITLE": "Ø¯ÙˆØ±Ø§Øª Ù…ØµÙ…Ù…Ø© Ø¨Ø§Ø­ØªØ±Ø§Ù Ù„Ù…Ø³Ø§Ø¹Ø¯ØªÙƒ Ø¹Ù„Ù‰ Ø§Ù„Ø­ØµÙˆÙ„ Ø¹Ù„Ù‰ ÙˆØ¸ÙŠÙØªÙƒ Ø§Ù„Ù‚Ø§Ø¯Ù…Ø© Ø£Ùˆ Ø§Ù„ØªÙ‚Ø¯Ù… ÙÙŠ Ø¯ÙˆØ±Ùƒ Ø§Ù„Ø­Ø§Ù„ÙŠ.",
-      "BADGE": "Ø§Ù„Ø¯ÙˆØ±Ø§Øª ÙˆØ§Ù„ØªØ¹Ù„Ù…",
-      "RESULTS": "Ø¹Ø±Ø¶ {{count}} Ø¯ÙˆØ±Ø©"
+      "TITLE": "Level Up Your Skills",
+      "SUBTITLE": "Expertly crafted courses to help you land your next role or grow in your current one.",
+      "BADGE": "Courses & Learning",
+      "RESULTS": "عرض {{count}} درة"
     },
     "FILTER": {
-      "SEARCH_PLACEHOLDER": "Ø§Ø¨Ø­Ø« ÙÙŠ Ø§Ù„Ø¯ÙˆØ±Ø§Øª...",
-      "ALL_LEVELS": "ÙƒÙ„ Ø§Ù„Ù…Ø³ØªÙˆÙŠØ§Øª",
-      "ALL_CATEGORIES": "ÙƒÙ„ Ø§Ù„ÙØ¦Ø§Øª",
-      "ANY_PRICE": "Ø£ÙŠ Ø³Ø¹Ø±",
-      "CLEAR": "Ù…Ø³Ø­",
+      "SEARCH_PLACEHOLDER": "Search courses...",
+      "ALL_LEVELS": "All Levels",
+      "ALL_CATEGORIES": "All Categories",
+      "ANY_PRICE": "Any Price",
+      "CLEAR": "Clear",
       "PRICE_OPTIONS": {
-        "FREE": "Ù…Ø¬Ø§Ù†ÙŠ",
-        "PAID": "Ù…Ø¯ÙÙˆØ¹"
+        "FREE": "Free",
+        "PAID": "Paid"
       }
     },
     "LEVELS": {
-      "BEGINNER": "Ù…Ø¨ØªØ¯Ø¦",
-      "INTERMEDIATE": "Ù…ØªÙˆØ³Ø·",
-      "ADVANCED": "Ù…ØªÙ‚Ø¯Ù…"
+      "BEGINNER": "Beginner",
+      "INTERMEDIATE": "Intermediate",
+      "ADVANCED": "Advanced"
     },
     "STATS": {
-      "COURSES": "Ø§Ù„Ø¯ÙˆØ±Ø§Øª",
-      "STUDENTS": "Ø§Ù„Ø·Ù„Ø§Ø¨",
-      "AVG_RATING": "Ù…ØªÙˆØ³Ø· Ø§Ù„ØªÙ‚ÙŠÙŠÙ…",
-      "CERTIFICATES": "Ø§Ù„Ø´Ù‡Ø§Ø¯Ø§Øª"
+      "COURSES": "Courses",
+      "STUDENTS": "Students",
+      "AVG_RATING": "Avg Rating",
+      "CERTIFICATES": "Certificates"
     },
     "EMPTY": {
-      "TITLE": "Ù„Ù… ÙŠØªÙ… Ø§Ù„Ø¹Ø«ÙˆØ± Ø¹Ù„Ù‰ Ø¯ÙˆØ±Ø§Øª",
-      "MESSAGE": "Ø¬Ø±Ù‘Ø¨ Ø¨Ø­Ø«Ø§ Ù…Ø®ØªÙ„ÙØ§ Ø£Ùˆ Ø§Ù…Ø³Ø­ Ø¹ÙˆØ§Ù…Ù„ Ø§Ù„ØªØµÙÙŠØ©.",
-      "ACTION": "Ù…Ø³Ø­ Ø§Ù„ÙÙ„Ø§ØªØ±"
+      "TITLE": "No courses found",
+      "MESSAGE": "Try a different search or clear your filters.",
+      "ACTION": "Clear Filters"
     },
     "CTA": {
-      "TITLE": "Ù„Ù… ØªØ¬Ø¯ Ø§Ù„Ø¯ÙˆØ±Ø© Ø§Ù„Ù…Ù†Ø§Ø³Ø¨Ø©ØŸ",
-      "SUBTITLE": "Ø£Ø®Ø¨Ø±Ù†Ø§ Ø¨Ù…Ø§ ØªØ±ØºØ¨ ÙÙŠ ØªØ¹Ù„Ù…Ù‡ ÙˆØ³Ù†Ø®Ø¨Ø±Ùƒ Ø¹Ù†Ø¯ ØªÙˆÙØ±Ù‡.",
-      "BUTTON": "Ø§Ø·Ù„Ø¨ Ø¯ÙˆØ±Ø©"
+      "TITLE": "Can't find the right course?",
+      "SUBTITLE": "Tell us what you'd like to learn and we'll notify you when it's available.",
+      "BUTTON": "Request a Course"
     },
     "CARD": {
-      "CERTIFICATE": "Ø´Ù‡Ø§Ø¯Ø©",
-      "ENROLL_FREE": "Ø³Ø¬Ù„ Ù…Ø¬Ø§Ù†Ø§",
-      "ENROLL_FOR_FREE": "Ø³Ø¬Ù„ Ù…Ø¬Ø§Ù†Ø§",
-      "ENROLL_NOW": "Ø³Ø¬Ù„ Ø§Ù„Ø¢Ù†"
+      "CERTIFICATE": "ش!ادة",
+      "ENROLL_FREE": "Enroll Free",
+      "ENROLL_FOR_FREE": "Enroll for Free",
+      "ENROLL_NOW": "Enroll Now"
     },
     "DETAIL": {
-      "STUDENTS": "({{count}} Ø·Ø§Ù„Ø¨)",
-      "DURATION": "Ø§Ù„Ù…Ø¯Ø©",
-      "CERTIFICATE": "Ø´Ù‡Ø§Ø¯Ø© Ù…ØªØ§Ø­Ø©",
-      "INSTRUCTOR": "Ø§Ù„Ù…Ø¯Ø±Ø¨",
-      "EXPERT_INSTRUCTOR": "Ù…Ø¯Ø±Ø¨ Ø®Ø¨ÙŠØ± ÙÙŠ {{category}}",
-      "SKILLS": "Ø§Ù„Ù…Ù‡Ø§Ø±Ø§Øª Ø§Ù„ØªÙŠ Ø³ØªØªØ¹Ù„Ù…Ù‡Ø§",
-      "PAYMENT_NOTE": "Ø¯ÙØ¹Ø© ÙˆØ§Ø­Ø¯Ø© Ù…Ø¹ ÙˆØµÙˆÙ„ Ù…Ø¯Ù‰ Ø§Ù„Ø­ÙŠØ§Ø©",
-      "PREVIEW": "Ù…Ø¹Ø§ÙŠÙ†Ø© Ø§Ù„Ø¯ÙˆØ±Ø©",
-      "BACK": "Ø§Ù„Ø¹ÙˆØ¯Ø© Ø¥Ù„Ù‰ ÙƒÙ„ Ø§Ù„Ø¯ÙˆØ±Ø§Øª",
-      "NOT_FOUND": "Ù„Ù… ÙŠØªÙ… Ø§Ù„Ø¹Ø«ÙˆØ± Ø¹Ù„Ù‰ Ø§Ù„Ø¯ÙˆØ±Ø©.",
-      "BROWSE": "ØªØµÙØ­ ÙƒÙ„ Ø§Ù„Ø¯ÙˆØ±Ø§Øª",
+      "STUDENTS": "({{count}} students)",
+      "DURATION": "Duration",
+      "CERTIFICATE": "Certificate Offered",
+      "INSTRUCTOR": "Your Instructor",
+      "EXPERT_INSTRUCTOR": "Expert {{category}} Instructor",
+      "SKILLS": "Skills You'll Learn",
+      "PAYMENT_NOTE": "One-time payment ? Lifetime access",
+      "PREVIEW": "Preview Course",
+      "BACK": "Back to all courses",
+      "NOT_FOUND": "Course not found.",
+      "BROWSE": "Browse all courses",
       "FEATURES": {
-        "LIFETIME_ACCESS": "ÙˆØµÙˆÙ„ Ù…Ø¯Ù‰ Ø§Ù„Ø­ÙŠØ§Ø©",
-        "MOBILE_DESKTOP": "Ø§Ù„ÙˆØµÙˆÙ„ Ø¹Ø¨Ø± Ø§Ù„Ù‡Ø§ØªÙ ÙˆØ³Ø·Ø­ Ø§Ù„Ù…ÙƒØªØ¨",
-        "COMMUNITY_SUPPORT": "Ø¯Ø¹Ù… Ø§Ù„Ù…Ø¬ØªÙ…Ø¹",
-        "CERTIFICATE": "Ø´Ù‡Ø§Ø¯Ø© Ø¥ØªÙ…Ø§Ù…"
+        "LIFETIME_ACCESS": "Lifetime access",
+        "MOBILE_DESKTOP": "Access on mobile & desktop",
+        "COMMUNITY_SUPPORT": "Community support",
+        "CERTIFICATE": "Certificate of completion"
       }
     }
   },
   "INTERNSHIPS": {
     "LIST": {
-      "TITLE": "Ø§Ø¹Ø«Ø± Ø¹Ù„Ù‰ Ø§Ù„ØªØ¯Ø±ÙŠØ¨ Ø§Ù„Ù…Ø«Ø§Ù„ÙŠ Ù„Ùƒ",
-      "SUBTITLE": "Ø§Ø¨Ø¯Ø£ Ù…Ø³ÙŠØ±ØªÙƒ Ø§Ù„Ù…Ù‡Ù†ÙŠØ© Ø¨Ø®Ø¨Ø±Ø© Ø¹Ù…Ù„ÙŠØ© Ù…Ø¨Ø§Ø´Ø±Ø© ÙÙŠ Ø£ÙØ¶Ù„ Ø§Ù„Ø´Ø±ÙƒØ§Øª.",
-      "BADGE": "Ø§Ù„ØªØ¯Ø±ÙŠØ¨ ÙˆØ§Ù„ØªØ£Ù‡ÙŠÙ„",
-      "RESULTS": "Ø¹Ø±Ø¶ {{count}} ÙØ±ØµØ© ØªØ¯Ø±ÙŠØ¨"
+      "TITLE": "Find Your Perfect Internship",
+      "SUBTITLE": "Kickstart your career with hands-on experience at top companies.",
+      "BADGE": "Internships & Training",
+      "RESULTS": "Showing {{count}} internships"
     },
     "FILTER": {
-      "SEARCH_PLACEHOLDER": "Ø§Ø¨Ø­Ø« ÙÙŠ ÙØ±Øµ Ø§Ù„ØªØ¯Ø±ÙŠØ¨ Ø£Ùˆ Ø§Ù„Ø´Ø±ÙƒØ§Øª...",
-      "LABEL": "ØªØµÙÙŠØ©:",
-      "ALL_LOCATIONS": "ÙƒÙ„ Ø§Ù„Ù…ÙˆØ§Ù‚Ø¹",
-      "ANY_DURATION": "Ø£ÙŠ Ù…Ø¯Ø©",
-      "ANY_STIPEND": "Ø£ÙŠ Ù…ÙƒØ§ÙØ£Ø©",
-      "ALL_CATEGORIES": "ÙƒÙ„ Ø§Ù„ÙØ¦Ø§Øª",
-      "CLEAR": "Ù…Ø³Ø­ Ø§Ù„ÙÙ„Ø§ØªØ±",
+      "SEARCH_PLACEHOLDER": "Search internships or companies...",
+      "LABEL": "Filter:",
+      "ALL_LOCATIONS": "All Locations",
+      "ANY_DURATION": "Any Duration",
+      "ANY_STIPEND": "Any Stipend",
+      "ALL_CATEGORIES": "All Categories",
+      "CLEAR": "Clear filters",
       "LOCATION_OPTIONS": {
-        "REMOTE": "Ø¹Ù† Ø¨Ø¹Ø¯",
-        "ONSITE": "Ø­Ø¶ÙˆØ±ÙŠ",
-        "HYBRID": "Ù‡Ø¬ÙŠÙ†"
+        "REMOTE": "ع بعد",
+        "ONSITE": "Onsite",
+        "HYBRID": "Hybrid"
       },
       "DURATION_OPTIONS": {
-        "THREE_MONTHS": "3 Ø£Ø´Ù‡Ø±",
-        "SIX_MONTHS": "6 Ø£Ø´Ù‡Ø±"
+        "THREE_MONTHS": "3 أش!ر",
+        "SIX_MONTHS": "6 أش!ر"
       },
       "STIPEND_OPTIONS": {
-        "PAID_ONLY": "Ù…Ø¯ÙÙˆØ¹ ÙÙ‚Ø·",
-        "UNPAID": "ØºÙŠØ± Ù…Ø¯ÙÙˆØ¹"
+        "PAID_ONLY": "Paid Only",
+        "UNPAID": "Unpaid"
       }
     },
     "EMPTY": {
-      "TITLE": "Ù„Ù… ÙŠØªÙ… Ø§Ù„Ø¹Ø«ÙˆØ± Ø¹Ù„Ù‰ ÙØ±Øµ ØªØ¯Ø±ÙŠØ¨",
-      "MESSAGE": "Ø¬Ø±Ù‘Ø¨ ØªØ¹Ø¯ÙŠÙ„ Ø§Ù„ÙÙ„Ø§ØªØ± Ø£Ùˆ Ø¹Ø¨Ø§Ø±Ø© Ø§Ù„Ø¨Ø­Ø«.",
-      "ACTION": "Ù…Ø³Ø­ Ø§Ù„ÙÙ„Ø§ØªØ±"
+      "TITLE": "No internships found",
+      "MESSAGE": "Try adjusting your filters or search query.",
+      "ACTION": "Clear Filters"
     },
     "CARD": {
-      "BADGE": "ØªØ¯Ø±ÙŠØ¨",
-      "MONTH": "Ø´Ù‡Ø±",
-      "UNPAID": "ØºÙŠØ± Ù…Ø¯ÙÙˆØ¹",
-      "DEADLINE": "Ø¢Ø®Ø± Ù…ÙˆØ¹Ø¯"
+      "BADGE": "Internship",
+      "MONTH": "ش!ر",
+      "UNPAID": "Unpaid",
+      "DEADLINE": "Deadline"
     },
     "DETAIL": {
-      "ABOUT": "?? ???????",
-      "REQUIREMENTS": "?????????",
-      "SKILLS": "???????? ????????",
-      "STIPEND": "????????",
-      "UNPAID": "????? ??? ?????",
-      "APPLY": "???? ????",
-      "SAVE": "???? ???????",
-      "OPENINGS": "????? ???????",
-      "START_DATE": "????? ?????",
-      "APPLY_BY": "??????? ???",
-      "CATEGORY": "?????",
-      "BACK": "?????? ??? ?? ??? ???????",
-      "NOT_FOUND": "???? ??????? ??? ??????.",
-      "BROWSE": "???? ?? ??? ???????",
+      "ABOUT": "About the Internship",
+      "REQUIREMENTS": "Requirements",
+      "SKILLS": "Skills Required",
+      "STIPEND": "Stipend",
+      "UNPAID": "Unpaid Internship",
+      "APPLY": "Apply Now",
+      "SAVE": "Save Internship",
+      "OPENINGS": "Openings",
+      "START_DATE": "Start Date",
+      "APPLY_BY": "Apply by",
+      "CATEGORY": "Category",
+      "BACK": "Back to all internships",
+      "NOT_FOUND": "Internship not found.",
+      "BROWSE": "Browse all internships",
       "META": {
-        "DURATION": "?????",
-        "LOCATION": "??????",
-        "START_DATE": "????? ?????",
-        "OPENINGS": "????? ???????"
+        "DURATION": "Duration",
+        "LOCATION": "Location",
+        "START_DATE": "Start Date",
+        "OPENINGS": "Openings"
       }
     },
     "LOCATION_TYPES": {
-      "REMOTE": "Ø¹Ù† Ø¨Ø¹Ø¯",
-      "ONSITE": "ÙÙŠ Ø§Ù„Ù…ÙˆÙ‚Ø¹",
-      "HYBRID": "Ù‡Ø¬ÙŠÙ†"
+      "REMOTE": "ع بعد",
+      "ONSITE": "Onsite",
+      "HYBRID": "Hybrid"
     },
     "DURATIONS": {
-      "THREE_MONTHS": "3 Ø£Ø´Ù‡Ø±",
-      "SIX_MONTHS": "6 Ø£Ø´Ù‡Ø±"
+      "THREE_MONTHS": "3 أش!ر",
+      "SIX_MONTHS": "6 أش!ر"
     },
     "CATEGORIES": {
-      "ENGINEERING": "Ø§Ù„Ù‡Ù†Ø¯Ø³Ø©",
-      "DATA_SCIENCE": "Ø¹Ù„ÙˆÙ… Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª",
-      "DESIGN": "Ø§Ù„ØªØµÙ…ÙŠÙ…",
-      "MARKETING": "Ø§Ù„ØªØ³ÙˆÙŠÙ‚",
-      "PRODUCT": "Ø¥Ø¯Ø§Ø±Ø© Ø§Ù„Ù…Ù†ØªØ¬Ø§Øª"
+      "ENGINEERING": "Engineering",
+      "DATA_SCIENCE": "Data Science",
+      "DESIGN": "Design",
+      "MARKETING": "Marketing",
+      "PRODUCT": "Product"
     }
   },
   "HELP": {
     "PAGE": {
-      "TITLE": "ÙƒÙŠÙ ÙŠÙ…ÙƒÙ†Ù†Ø§ Ù…Ø³Ø§Ø¹Ø¯ØªÙƒØŸ",
-      "SUBTITLE": "Ø§Ø¨Ø­Ø« ÙÙŠ Ù‚Ø§Ø¹Ø¯Ø© Ø§Ù„Ù…Ø¹Ø±ÙØ© Ø£Ùˆ ØªØµÙØ­ Ø­Ø³Ø¨ Ø§Ù„ÙØ¦Ø© Ø£Ø¯Ù†Ø§Ù‡.",
-      "BADGE": "Ø§Ù„Ù…Ø³Ø§Ø¹Ø¯Ø© ÙˆØ§Ù„Ø¯Ø¹Ù…",
-      "SEARCH_PLACEHOLDER": "Ø§Ø¨Ø­Ø« ÙÙŠ Ø§Ù„Ø£Ø³Ø¦Ù„Ø© Ø§Ù„Ø´Ø§Ø¦Ø¹Ø©...",
-      "BROWSE_BY_TOPIC": "ØªØµÙØ­ Ø­Ø³Ø¨ Ø§Ù„Ù…ÙˆØ¶ÙˆØ¹",
-      "ALL_QUESTIONS": "ÙƒÙ„ Ø§Ù„Ø£Ø³Ø¦Ù„Ø©",
-      "QUESTIONS_COUNT": "{{count}} Ø³Ø¤Ø§Ù„",
-      "CLEAR_FILTER": "Ù…Ø³Ø­ Ø§Ù„ØªØµÙÙŠØ©",
-      "NO_RESULTS": "Ù„Ø§ ØªÙˆØ¬Ø¯ Ù†ØªØ§Ø¦Ø¬ Ù…Ø·Ø§Ø¨Ù‚Ø© Ù„Ù€ \"{{query}}\"",
-      "CLEAR_SEARCH": "Ù…Ø³Ø­ Ø§Ù„Ø¨Ø­Ø«"
+      "TITLE": "How can we help you?",
+      "SUBTITLE": "Search our knowledge base or browse by category below.",
+      "BADGE": "Help & Support",
+      "SEARCH_PLACEHOLDER": "Search FAQs...",
+      "BROWSE_BY_TOPIC": "Browse by topic",
+      "ALL_QUESTIONS": "All Questions",
+      "QUESTIONS_COUNT": "{{count}} questions",
+      "CLEAR_FILTER": "Clear filter",
+      "NO_RESULTS": "No results found for \"{{query}}\"",
+      "CLEAR_SEARCH": "Clear search"
     },
     "CATEGORIES": {
-      "CANDIDATES": "Ø§Ù„Ù…Ø±Ø´Ø­ÙˆÙ†",
-      "EMPLOYERS": "Ø£ØµØ­Ø§Ø¨ Ø§Ù„Ø¹Ù…Ù„",
-      "GENERAL": "Ø¹Ø§Ù…",
-      "BILLING": "Ø§Ù„ÙÙˆØªØ±Ø©"
+      "CANDIDATES": "Candidates",
+      "EMPLOYERS": "Employers",
+      "GENERAL": "General",
+      "BILLING": "Billing"
     },
     "QUICK_LINKS": {
-      "CANDIDATES": "Ù„Ù„Ù…Ø±Ø´Ø­ÙŠÙ†",
-      "EMPLOYERS": "Ù„Ø£ØµØ­Ø§Ø¨ Ø§Ù„Ø¹Ù…Ù„",
-      "GENERAL": "Ø¹Ø§Ù…",
-      "BILLING": "Ø§Ù„ÙÙˆØªØ±Ø©"
+      "CANDIDATES": "For Candidates",
+      "EMPLOYERS": "For Employers",
+      "GENERAL": "General",
+      "BILLING": "Billing"
     },
     "CONTACT": {
-      "LABEL": "Ù…Ø§ Ø²Ù„Øª Ø¨Ø­Ø§Ø¬Ø© Ø¥Ù„Ù‰ Ù…Ø³Ø§Ø¹Ø¯Ø©ØŸ",
-      "TITLE": "ØªÙˆØ§ØµÙ„ Ù…Ø¹ ÙØ±ÙŠÙ‚ Ø§Ù„Ø¯Ø¹Ù…",
-      "SUBTITLE": "Ø¥Ù† Ù„Ù… ØªØ¬Ø¯ Ù…Ø§ ØªØ¨Ø­Ø« Ø¹Ù†Ù‡ØŒ Ø£Ø±Ø³Ù„ Ù„Ù†Ø§ Ø±Ø³Ø§Ù„Ø© ÙˆØ³Ù†Ø±Ø¯ Ø¹Ù„ÙŠÙƒ ÙÙŠ Ø£Ù‚Ø±Ø¨ ÙˆÙ‚Øª Ù…Ù…ÙƒÙ†.",
+      "LABEL": "Still need help?",
+      "TITLE": "Contact our support team",
+      "SUBTITLE": "Can't find what you're looking for? Send us a message and we'll get back to you as soon as possible.",
       "INFO": {
         "EMAIL": {
-          "LABEL": "Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ",
-          "NOTE": "Ù†Ø±Ø¯ Ø®Ù„Ø§Ù„ 24 Ø³Ø§Ø¹Ø©"
+          "LABEL": "Email",
+          "NOTE": "We reply within 24 hours"
         },
         "LIVE_CHAT": {
-          "LABEL": "Ø§Ù„Ø¯Ø±Ø¯Ø´Ø© Ø§Ù„Ù…Ø¨Ø§Ø´Ø±Ø©",
-          "VALUE": "Ù…ØªØ§Ø­Ø© Ù…Ù† Ø§Ù„Ø¥Ø«Ù†ÙŠÙ† Ø¥Ù„Ù‰ Ø§Ù„Ø¬Ù…Ø¹Ø©ØŒ 9 ØµØ¨Ø§Ø­Ù‹Ø§ - 6 Ù…Ø³Ø§Ø¡Ù‹ Ø¨ØªÙˆÙ‚ÙŠØª Ø§Ù„Ù‡Ù†Ø¯",
-          "NOTE": "Ø£Ø³Ø±Ø¹ ÙˆØ³ÙŠÙ„Ø© Ù„Ù„Ø±Ø¯"
+          "LABEL": "Live Chat",
+          "VALUE": "Available Mon-Fri, 9am-6pm IST",
+          "NOTE": "Fastest response"
         },
         "RESPONSE_TIME": {
-          "LABEL": "ÙˆÙ‚Øª Ø§Ù„Ø§Ø³ØªØ¬Ø§Ø¨Ø©",
-          "VALUE": "Ø¹Ø§Ø¯Ø© Ø®Ù„Ø§Ù„ 2 Ø¥Ù„Ù‰ 4 Ø³Ø§Ø¹Ø§Øª",
-          "NOTE": "Ø®Ù„Ø§Ù„ Ø³Ø§Ø¹Ø§Øª Ø§Ù„Ø¹Ù…Ù„"
+          "LABEL": "Response Time",
+          "VALUE": "Usually within 2-4 hours",
+          "NOTE": "During business hours"
         }
       }
     },
     "SUPPORT_FORM": {
-      "TITLE": "ØªÙˆØ§ØµÙ„ Ù…Ø¹ Ø§Ù„Ø¯Ø¹Ù…",
-      "SUBTITLE": "Ù†Ø±Ø¯ Ø¹Ø§Ø¯Ø© Ø®Ù„Ø§Ù„ 24 Ø³Ø§Ø¹Ø©.",
-      "SUCCESS_TITLE": "ØªÙ… Ø¥Ø±Ø³Ø§Ù„ Ø§Ù„Ø±Ø³Ø§Ù„Ø©!",
-      "SUCCESS_MESSAGE": "Ø³ÙŠØªÙˆØ§ØµÙ„ ÙØ±ÙŠÙ‚Ù†Ø§ Ù…Ø¹Ùƒ Ø¹Ø¨Ø± {{email}} Ø®Ù„Ø§Ù„ 24 Ø³Ø§Ø¹Ø©.",
-      "RESET": "Ø¥Ø±Ø³Ø§Ù„ Ø±Ø³Ø§Ù„Ø© Ø£Ø®Ø±Ù‰",
-      "SENDING": "Ø¬Ø§Ø±Ù Ø§Ù„Ø¥Ø±Ø³Ø§Ù„...",
-      "SUBMIT": "Ø¥Ø±Ø³Ø§Ù„ Ø§Ù„Ø±Ø³Ø§Ù„Ø©",
+      "TITLE": "Contact Support",
+      "SUBTITLE": "We typically respond within 24 hours.",
+      "SUCCESS_TITLE": "Message sent!",
+      "SUCCESS_MESSAGE": "Our team will get back to you at {{email}} within 24 hours.",
+      "RESET": "Send another message",
+      "SENDING": "Sending...",
+      "SUBMIT": "Send Message",
       "FIELDS": {
-        "NAME": "Ø§Ù„Ø§Ø³Ù… Ø§Ù„ÙƒØ§Ù…Ù„ *",
-        "EMAIL": "Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ *",
-        "CATEGORY": "Ø§Ù„ÙØ¦Ø© *",
-        "SUBJECT": "Ø§Ù„Ù…ÙˆØ¶ÙˆØ¹ *",
-        "MESSAGE": "Ø§Ù„Ø±Ø³Ø§Ù„Ø© *"
+        "NAME": "Full Name *",
+        "EMAIL": "Email Address *",
+        "CATEGORY": "Category *",
+        "SUBJECT": "Subject *",
+        "MESSAGE": "Message *"
       },
       "PLACEHOLDERS": {
-        "NAME": "Ù…Ø­Ù…Ø¯ Ø£Ø­Ù…Ø¯",
+        "NAME": "John Doe",
         "EMAIL": "you@example.com",
-        "CATEGORY": "Ø§Ø®ØªØ± ÙØ¦Ø©",
-        "SUBJECT": "ÙˆØµÙ Ù…Ø®ØªØµØ± Ù„Ù„Ù…Ø´ÙƒÙ„Ø©",
-        "MESSAGE": "Ø§Ø´Ø±Ø­ Ù…Ø´ÙƒÙ„ØªÙƒ Ø¨Ø§Ù„ØªÙØµÙŠÙ„..."
+        "CATEGORY": "اختر فئة",
+        "SUBJECT": "Brief description of your issue",
+        "MESSAGE": "Describe your issue in detail..."
       },
       "CATEGORIES": {
-        "ACCOUNT": "Ø§Ù„Ø­Ø³Ø§Ø¨",
-        "JOBS": "Ø§Ù„ÙˆØ¸Ø§Ø¦Ù ÙˆØ§Ù„Ø·Ù„Ø¨Ø§Øª",
-        "BILLING": "Ø§Ù„ÙÙˆØªØ±Ø©",
-        "TECHNICAL": "Ù…Ø´ÙƒÙ„Ø© ØªÙ‚Ù†ÙŠØ©",
-        "OTHER": "Ø£Ø®Ø±Ù‰"
+        "ACCOUNT": "Account",
+        "JOBS": "Jobs & Applications",
+        "BILLING": "Billing",
+        "TECHNICAL": "Technical Issue",
+        "OTHER": "أخر0"
       }
     },
     "FAQ": {
       "CANDIDATES": {
         "CREATE_PROFILE": {
-          "Q": "ÙƒÙŠÙ Ø£Ù†Ø´Ø¦ Ù…Ù„ÙÙ‹Ø§ Ø´Ø®ØµÙŠÙ‹Ø§ ÙƒÙ…Ø±Ø´Ø­ØŸ",
-          "A": "Ø§Ø¶ØºØ· Ø¹Ù„Ù‰ \"Ø§Ø¨Ø¯Ø£ Ø§Ù„Ø¢Ù†\" ÙˆØ³Ø¬Ù‘Ù„ Ø¨Ø§Ø³ØªØ®Ø¯Ø§Ù… Ø¨Ø±ÙŠØ¯Ùƒ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ. Ø¨Ø¹Ø¯ Ø§Ù„ØªØ­Ù‚Ù‚ØŒ Ø§Ù†ØªÙ‚Ù„ Ø¥Ù„Ù‰ ØµÙØ­Ø© Ù…Ù„ÙÙƒ Ø§Ù„Ø´Ø®ØµÙŠ Ù„Ø¥Ø¶Ø§ÙØ© Ø§Ù„Ø®Ø¨Ø±Ø§Øª ÙˆØ§Ù„Ù…Ù‡Ø§Ø±Ø§Øª ÙˆØ§Ù„ØªØ¹Ù„ÙŠÙ…."
+          "Q": "How do I create a candidate profile?",
+          "A": "Click \"Get Started\" and register with your email. Once verified, navigate to your profile page to fill in your experience, skills, and education details."
         },
         "MULTIPLE_APPLICATIONS": {
-          "Q": "Ù‡Ù„ ÙŠÙ…ÙƒÙ†Ù†ÙŠ Ø§Ù„ØªÙ‚Ø¯ÙŠÙ… Ø¹Ù„Ù‰ Ø¹Ø¯Ø© ÙˆØ¸Ø§Ø¦Ù ÙÙŠ Ø§Ù„ÙˆÙ‚Øª Ù†ÙØ³Ù‡ØŸ",
-          "A": "Ù†Ø¹Ù…. ØªØµÙØ­ Ø§Ù„ÙˆØ¸Ø§Ø¦Ù ÙˆØ§Ø¶ØºØ· Ø¹Ù„Ù‰ \"ØªÙ‚Ø¯ÙŠÙ…\" ÙÙŠ ÙƒÙ„ Ø¥Ø¹Ù„Ø§Ù†. ÙŠÙ…ÙƒÙ†Ùƒ Ù…ØªØ§Ø¨Ø¹Ø© Ø¬Ù…ÙŠØ¹ Ø·Ù„Ø¨Ø§ØªÙƒ Ù…Ù† Ù‚Ø³Ù… Ø§Ù„Ø·Ù„Ø¨Ø§Øª ÙÙŠ Ù„ÙˆØ­Ø© Ø§Ù„ØªØ­ÙƒÙ…."
+          "Q": "Can I apply to multiple jobs at once?",
+          "A": "Yes. Browse jobs and click \"Apply\" on each listing. You can track all your applications from the Applications section in your dashboard."
         },
         "UPLOAD_RESUME": {
-          "Q": "ÙƒÙŠÙ Ø£Ø±ÙØ¹ Ø³ÙŠØ±ØªÙŠ Ø§Ù„Ø°Ø§ØªÙŠØ©ØŸ",
-          "A": "Ø§Ø°Ù‡Ø¨ Ø¥Ù„Ù‰ ØµÙØ­Ø© Ø§Ù„Ù…Ù„Ù Ø§Ù„Ø´Ø®ØµÙŠ Ø«Ù… Ù…Ø±Ø± Ø¥Ù„Ù‰ Ù‚Ø³Ù… Ø§Ù„Ø³ÙŠØ±Ø© Ø§Ù„Ø°Ø§ØªÙŠØ©. Ø§Ø¶ØºØ· Ø¹Ù„Ù‰ \"Ø±ÙØ¹ Ø§Ù„Ø³ÙŠØ±Ø© Ø§Ù„Ø°Ø§ØªÙŠØ©\" ÙˆØ§Ø®ØªØ± Ù…Ù„Ù PDF Ø¨Ø­Ø¬Ù… ÙŠØµÙ„ Ø¥Ù„Ù‰ 5 Ù…ÙŠØ¬Ø§Ø¨Ø§ÙŠØª."
+          "Q": "How do I upload my resume?",
+          "A": "Go to your Profile page and scroll to the Resume section. Click \"Upload Resume\" and select a PDF file up to 5MB."
         },
         "PROFILE_VISIBILITY": {
-          "Q": "Ù‡Ù„ ÙŠÙ…ÙƒÙ† Ù„Ø£ØµØ­Ø§Ø¨ Ø§Ù„Ø¹Ù…Ù„ Ø±Ø¤ÙŠØ© Ù…Ù„ÙÙŠ Ù‚Ø¨Ù„ Ø£Ù† Ø£ØªÙ‚Ø¯Ù…ØŸ",
-          "A": "ÙÙ‚Ø· Ø¥Ø°Ø§ ÙƒØ§Ù†Øª Ø±Ø¤ÙŠØ© Ø§Ù„Ù…Ù„Ù Ø§Ù„Ø´Ø®ØµÙŠ Ù…Ø¶Ø¨ÙˆØ·Ø© Ø¹Ù„Ù‰ Ø¹Ø§Ù…. ÙŠÙ…ÙƒÙ†Ùƒ ØªØºÙŠÙŠØ± Ø°Ù„Ùƒ Ù…Ù† Ø§Ù„Ø¥Ø¹Ø¯Ø§Ø¯Ø§Øª Ø¶Ù…Ù† Ø§Ù„Ø®ØµÙˆØµÙŠØ©."
+          "Q": "Will employers see my profile before I apply?",
+          "A": "Only if your profile visibility is set to Public. You can toggle this in Settings under Privacy."
         }
       },
       "EMPLOYERS": {
         "POST_JOB": {
-          "Q": "ÙƒÙŠÙ Ø£Ù†Ø´Ø± ÙˆØ¸ÙŠÙØ©ØŸ",
-          "A": "Ø³Ø¬Ù‘Ù„ Ø§Ù„Ø¯Ø®ÙˆÙ„ ÙƒØµØ§Ø­Ø¨ Ø¹Ù…Ù„ØŒ Ø«Ù… Ø§Ù†ØªÙ‚Ù„ Ø¥Ù„Ù‰ \"Ù†Ø´Ø± ÙˆØ¸ÙŠÙØ©\" Ù…Ù† Ù„ÙˆØ­Ø© Ø§Ù„ØªØ­ÙƒÙ…ØŒ ÙˆØ§Ù…Ù„Ø£ ØªÙØ§ØµÙŠÙ„ Ø§Ù„ÙˆØ¸ÙŠÙØ© Ø«Ù… Ø£Ø±Ø³Ù„Ù‡Ø§. Ø³ÙŠØ¸Ù‡Ø± Ø§Ù„Ø¥Ø¹Ù„Ø§Ù† Ø¨Ø¹Ø¯ Ù…Ø±Ø§Ø¬Ø¹Ø© Ø³Ø±ÙŠØ¹Ø©."
+          "Q": "How do I post a job listing?",
+          "A": "Log in as an employer, navigate to \"Post Job\" from your dashboard, fill in the job details, and submit. Your listing will go live after a quick review."
         },
         "FREE_JOBS": {
-          "Q": "ÙƒÙ… Ø¹Ø¯Ø¯ Ø§Ù„ÙˆØ¸Ø§Ø¦Ù Ø§Ù„ØªÙŠ ÙŠÙ…ÙƒÙ†Ù†ÙŠ Ù†Ø´Ø±Ù‡Ø§ Ù…Ø¬Ø§Ù†Ù‹Ø§ØŸ",
-          "A": "ØªØªÙŠØ­ Ø§Ù„Ø®Ø·Ø© Ø§Ù„Ù…Ø¬Ø§Ù†ÙŠØ© Ù†Ø´Ø± Ø­ØªÙ‰ 3 ÙˆØ¸Ø§Ø¦Ù Ù†Ø´Ø·Ø©. ÙŠÙ…ÙƒÙ†Ùƒ Ø§Ù„ØªØ±Ù‚ÙŠØ© Ø¥Ù„Ù‰ Ø®Ø·Ø© Ù…Ø¯ÙÙˆØ¹Ø© Ù„Ù†Ø´Ø± ÙˆØ¸Ø§Ø¦Ù ØºÙŠØ± Ù…Ø­Ø¯ÙˆØ¯Ø© ÙˆØ§Ù„Ø­ØµÙˆÙ„ Ø¹Ù„Ù‰ Ù…Ø²Ø§ÙŠØ§ Ø¥Ø¶Ø§ÙÙŠØ©."
+          "Q": "How many jobs can I post for free?",
+          "A": "The free plan allows up to 3 active job listings. Upgrade to a paid plan to post unlimited listings and access premium features."
         },
         "EDIT_JOB": {
-          "Q": "Ù‡Ù„ ÙŠÙ…ÙƒÙ†Ù†ÙŠ ØªØ¹Ø¯ÙŠÙ„ Ø§Ù„ÙˆØ¸ÙŠÙØ© Ø¨Ø¹Ø¯ Ù†Ø´Ø±Ù‡Ø§ØŸ",
-          "A": "Ù†Ø¹Ù…. Ø§Ù†ØªÙ‚Ù„ Ø¥Ù„Ù‰ Ø¥Ø¯Ø§Ø±Ø© Ø§Ù„ÙˆØ¸Ø§Ø¦Ù Ù…Ù† Ù„ÙˆØ­Ø© Ø§Ù„ØªØ­ÙƒÙ…ØŒ ÙˆØ§Ø¨Ø­Ø« Ø¹Ù† Ø§Ù„Ø¥Ø¹Ù„Ø§Ù† Ø«Ù… Ø§Ø¶ØºØ· Ø¹Ù„Ù‰ ØªØ¹Ø¯ÙŠÙ„. Ø³ØªØ¸Ù‡Ø± Ø§Ù„ØªØºÙŠÙŠØ±Ø§Øª Ù…Ø¨Ø§Ø´Ø±Ø©."
+          "Q": "Can I edit a job post after publishing?",
+          "A": "Yes. Go to Manage Jobs in your dashboard, find the listing, and click Edit. Changes are reflected immediately."
         }
       },
       "GENERAL": {
         "FREE_TO_USE": {
-          "Q": "Ù‡Ù„ JobPortal Ù…Ø¬Ø§Ù†ÙŠ Ø§Ù„Ø§Ø³ØªØ®Ø¯Ø§Ù…ØŸ",
-          "A": "JobPortal Ù…Ø¬Ø§Ù†ÙŠ Ù„Ù„Ù…Ø±Ø´Ø­ÙŠÙ†. ÙŠÙ…ÙƒÙ† Ù„Ø£ØµØ­Ø§Ø¨ Ø§Ù„Ø¹Ù…Ù„ Ù†Ø´Ø± Ø­ØªÙ‰ 3 ÙˆØ¸Ø§Ø¦Ù Ù…Ø¬Ø§Ù†Ù‹Ø§. ÙˆØªØªÙˆÙØ± Ø®Ø·Ø· Ù…Ø¯ÙÙˆØ¹Ø© Ù„Ù…ÙŠØ²Ø§Øª ØªÙˆØ¸ÙŠÙ Ù…ØªÙ‚Ø¯Ù…Ø©."
+          "Q": "Is JobPortal free to use?",
+          "A": "JobPortal is free for candidates. Employers can post up to 3 jobs for free. Premium plans are available for advanced hiring features."
         },
         "RESET_PASSWORD": {
-          "Q": "ÙƒÙŠÙ Ø£Ø¹ÙŠØ¯ ØªØ¹ÙŠÙŠÙ† ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ø±ÙˆØ±ØŸ",
-          "A": "Ø§Ø¶ØºØ· Ø¹Ù„Ù‰ \"ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø¯Ø®ÙˆÙ„\" Ø«Ù… \"Ù†Ø³ÙŠØª ÙƒÙ„Ù…Ø© Ø§Ù„Ù…Ø±ÙˆØ±ØŸ\". Ø£Ø¯Ø®Ù„ Ø¨Ø±ÙŠØ¯Ùƒ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ Ø§Ù„Ù…Ø³Ø¬Ù„ ÙˆØ³Ù†Ø±Ø³Ù„ Ù„Ùƒ Ø±Ø§Ø¨Ø· Ø¥Ø¹Ø§Ø¯Ø© Ø§Ù„ØªØ¹ÙŠÙŠÙ† Ø®Ù„Ø§Ù„ 5 Ø¯Ù‚Ø§Ø¦Ù‚."
+          "Q": "How do I reset my password?",
+          "A": "Click \"Sign in\" then \"Forgot password\". Enter your registered email and we will send you a reset link within 5 minutes."
         },
         "AVAILABILITY": {
-          "Q": "ÙÙŠ Ø£ÙŠ Ø§Ù„Ø¯ÙˆÙ„ ÙŠØªÙˆÙØ± JobPortalØŸ",
-          "A": "JobPortal Ù…ØªØ§Ø­ Ø¹Ø§Ù„Ù…ÙŠÙ‹Ø§. Ø§Ù„ÙˆØ¸Ø§Ø¦Ù Ø¹Ù† Ø¨ÙØ¹Ø¯ ÙŠÙ…ÙƒÙ† Ø§Ù„ÙˆØµÙˆÙ„ Ø¥Ù„ÙŠÙ‡Ø§ Ù…Ù† Ø£ÙŠ Ù…ÙƒØ§Ù†ØŒ Ø¨ÙŠÙ†Ù…Ø§ ÙŠØªÙ… ØªØµÙÙŠØ© Ø§Ù„ÙˆØ¸Ø§Ø¦Ù Ø§Ù„Ø­Ø¶ÙˆØ±ÙŠØ© Ø­Ø³Ø¨ Ø§Ù„Ù…ÙˆÙ‚Ø¹."
+          "Q": "Which countries is JobPortal available in?",
+          "A": "JobPortal is available worldwide. Remote jobs are accessible globally, while on-site listings are filtered by location."
         }
       },
       "BILLING": {
         "PAYMENT_METHODS": {
-          "Q": "Ù…Ø§ ÙˆØ³Ø§Ø¦Ù„ Ø§Ù„Ø¯ÙØ¹ Ø§Ù„Ù…Ù‚Ø¨ÙˆÙ„Ø©ØŸ",
-          "A": "Ù†Ù‚Ø¨Ù„ Ø¬Ù…ÙŠØ¹ Ø¨Ø·Ø§Ù‚Ø§Øª Ø§Ù„Ø§Ø¦ØªÙ…Ø§Ù† ÙˆØ§Ù„Ø®ØµÙ… Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ© Ù…Ø«Ù„ Visa ÙˆMastercard ÙˆAmexØŒ Ø¨Ø§Ù„Ø¥Ø¶Ø§ÙØ© Ø¥Ù„Ù‰ Ù…Ø¯ÙÙˆØ¹Ø§Øª UPI."
+          "Q": "What payment methods are accepted?",
+          "A": "We accept all major credit/debit cards (Visa, Mastercard, Amex) and UPI payments."
         },
         "CANCEL_SUBSCRIPTION": {
-          "Q": "Ù‡Ù„ ÙŠÙ…ÙƒÙ†Ù†ÙŠ Ø¥Ù„ØºØ§Ø¡ Ø§Ù„Ø§Ø´ØªØ±Ø§Ùƒ ÙÙŠ Ø£ÙŠ ÙˆÙ‚ØªØŸ",
-          "A": "Ù†Ø¹Ù…. ÙŠÙ…ÙƒÙ†Ùƒ Ø§Ù„Ø¥Ù„ØºØ§Ø¡ ÙÙŠ Ø£ÙŠ ÙˆÙ‚Øª Ù…Ù† Ø¥Ø¹Ø¯Ø§Ø¯Ø§Øª Ø§Ù„ÙÙˆØªØ±Ø©. Ø³ØªØ¸Ù„ Ø®Ø·ØªÙƒ ÙØ¹Ø§Ù„Ø© Ø­ØªÙ‰ Ù†Ù‡Ø§ÙŠØ© Ø¯ÙˆØ±Ø© Ø§Ù„ÙÙˆØªØ±Ø© Ø§Ù„Ø­Ø§Ù„ÙŠØ©."
+          "Q": "Can I cancel my subscription at any time?",
+          "A": "Yes. You can cancel anytime from your billing settings. Your plan remains active until the end of the current billing cycle."
         }
       }
     }
   },
-  "NAVBAR": {
-    "WORKSPACE": "Ù…Ø³Ø§Ø­Ø© Ø§Ù„Ø¹Ù…Ù„",
-    "OPEN_PROFILE_MENU": "ÙØªØ­ Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ù…Ù„Ù Ø§Ù„Ø´Ø®ØµÙŠ",
-    "PROFILE": "Ø§Ù„Ù…Ù„Ù Ø§Ù„Ø´Ø®ØµÙŠ",
-    "SETTINGS": "Ø§Ù„Ø¥Ø¹Ø¯Ø§Ø¯Ø§Øª",
-    "CANDIDATE_ACCOUNT": "Ø­Ø³Ø§Ø¨ Ù…Ø±Ø´Ø­",
-    "EMPLOYER_ACCOUNT": "Ø­Ø³Ø§Ø¨ ØµØ§Ø­Ø¨ Ø¹Ù…Ù„",
-    "ADMIN_ACCOUNT": "Ø­Ø³Ø§Ø¨ Ø§Ù„Ù…Ø³Ø¤ÙˆÙ„"
+  "FREELANCER_REQUEST": {
+    "TITLE": "Request Freelancer",
+    "SUBTITLE": "Submit your requirement and our admin team will review and assign the right freelancer.",
+    "DEFAULT_EMPLOYER": "Employer",
+    "FORM": {
+      "PROJECT_DESCRIPTION": "Project description",
+      "REQUIRED_SKILLS": "Required skills (comma separated)",
+      "DURATION": "Duration (optional)",
+      "DURATION_PLACEHOLDER": "e.g. 3 months",
+      "SUBMIT": "Submit request",
+      "CANCEL": "Cancel"
+    },
+    "TOASTS": {
+      "LOGIN_REQUIRED": "Please sign in as an employer to request a freelancer.",
+      "EMPLOYER_ONLY": "Only employers can request freelancers.",
+      "SUBMITTED": "Request submitted. Admin will review and assign a freelancer."
+    }
+  },
+  "PROFILE": {
+    "LOCATIONS": {
+      "AUSTIN_TX": "أوستن، تكساس"
+    },
+    "WORK_STATUS": {
+      "ACTIVE": "نشطة"
+    },
+    "ABOUT": "نبذة"
+  },
+  "FILTERS": {
+    "WORKPLACE": {
+      "REMOTE": "عن بُعد"
+    },
+    "EXPERIENCE": {
+      "THREE_MONTHS": "3 أشهر",
+      "SIX_MONTHS": "6 أشهر"
+    }
+  },
+  "PAYMENT": {
+    "MONTH": "شهر"
+  },
+  "SETTINGS": {
+    "OTHER": "أخرى"
   }
 }
-
