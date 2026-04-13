@@ -224,6 +224,43 @@
       "REMOVED": "Job removed from saved.",
       "SAVED_SHORT": "Job saved!",
       "REMOVED_SHORT": "Job removed."
+    },
+    "DETAIL": {
+      "NOT_FOUND": {
+        "TITLE": "Job not found",
+        "DESCRIPTION": "This role may have been removed or is no longer available.",
+        "BROWSE": "Browse all jobs"
+      },
+      "STATS": {
+        "APPLICANTS": "Applicants",
+        "VIEWS": "Views",
+        "SKILLS": "Skills"
+      },
+      "ABOUT_ROLE": "About the role",
+      "REQUIREMENTS": "Requirements",
+      "REQUIRED_SKILLS": "Required skills",
+      "SIMILAR_JOBS": "Similar jobs",
+      "APPLICATION_SUBMITTED": "Application submitted",
+      "APPLY_NOW": "Apply now",
+      "SAVE": "Save",
+      "SAVED": "Saved",
+      "SHARE": "Share",
+      "OVERVIEW": {
+        "TITLE": "Job overview",
+        "CATEGORY": "Category",
+        "POSTED": "Posted",
+        "JOB_TYPE": "Job type",
+        "EXPERIENCE": "Experience",
+        "SALARY": "Salary"
+      },
+      "TOASTS": {
+        "LOGIN_REQUIRED": "Please sign in to apply.",
+        "APPLIED": "Application submitted successfully.",
+        "LINK_COPIED": "Link copied to clipboard."
+      },
+      "BREADCRUMB": {
+        "JOBS": "Jobs"
+      }
     }
   },
   "AUTH": {
@@ -730,6 +767,48 @@
           "TITLE": "Saved Jobs",
           "SUBTITLE": "Revisit bookmarked roles"
         }
+      },
+      "WELCOME_SUBTITLE_WITH_ABOUT": "{{about}} You have {{updates}} active updates and {{roles}} recommended roles waiting.",
+      "STATS": {
+        "UNREAD_UPDATES": "Unread updates"
+      },
+      "PROFILE_HIGHLIGHTS": {
+        "HEADLINE": "Headline",
+        "ADD_HEADLINE": "Add your headline",
+        "LOCATION": "Location",
+        "ADD_LOCATION": "Add your location",
+        "SKILLS": "Skills",
+        "SKILLS_LISTED": "{{count}} listed",
+        "RESUME": "Resume",
+        "UPLOAD_RESUME": "Upload resume"
+      },
+      "PRIORITY_STEPS": {
+        "TITLE": "Priority next steps",
+        "SUBTITLE": "Small actions that improve your visibility this week.",
+        "PROFILE_DESCRIPTION": "Complete this profile step to improve discoverability.",
+        "PROFILE_BADGE": "Profile",
+        "INBOX_BADGE": "Inbox",
+        "ALERT_BADGE": "Alert"
+      },
+      "CAREER_ACCELERATOR": {
+        "TITLE": "Career accelerator",
+        "SUBTITLE": "Keep your profile discoverable and application-ready.",
+        "DONE": "Done",
+        "NEXT": "Next"
+      },
+      "INBOX": {
+        "TITLE": "Inbox highlights",
+        "SUBTITLE": "Recruiter and platform updates that need attention."
+      },
+      "OPPORTUNITY_SIGNALS": {
+        "TITLE": "Opportunity signals",
+        "SUBTITLE": "Live indicators from your applications and alerts.",
+        "ACTIVE": "Active"
+      },
+      "PROFILE_STRENGTH_TONE": {
+        "STRONG": "Strong",
+        "GROWING": "Growing",
+        "STARTER": "Starter"
       }
     },
     "USER": {
@@ -849,6 +928,23 @@
       "GRADE": "Grade",
       "IN": "in",
       "ADD": "+ Add"
+    },
+    "SETTINGS": {
+      "TITLE": "Settings",
+      "SUBTITLE": "Manage account security and recruiter visibility.",
+      "CHANGE_PASSWORD": "Change password",
+      "PASSWORD_PLACEHOLDER": "Enter a new password",
+      "UPDATE_PASSWORD": "Update password",
+      "PROFILE_VISIBILITY": "Profile visibility",
+      "PROFILE_VISIBILITY_DESCRIPTION": "Allow recruiters to discover your candidate profile.",
+      "VISIBILITY_VISIBLE": "Recruiters can view your profile.",
+      "VISIBILITY_HIDDEN": "Your profile is hidden from recruiter search.",
+      "TOASTS": {
+        "PASSWORD_REQUIRED": "Please enter a new password.",
+        "PASSWORD_UPDATED": "Password updated.",
+        "VISIBILITY_VISIBLE": "Profile is now visible.",
+        "VISIBILITY_UPDATED": "Profile visibility updated."
+      }
     }
   },
   "ADMIN": {
@@ -878,7 +974,9 @@
         "TOTAL_JOBS": "Total Jobs",
         "TOTAL_APPLICATIONS": "Total Applications",
         "ACTIVE_FREELANCERS": "Active Freelancers",
-        "PENDING_REQUESTS": "Pending Requests"
+        "PENDING_REQUESTS": "Pending Requests",
+        "QUIZZES_EXAMS": "Quizzes / Exams",
+        "PLATFORM_ACTIVITY": "Platform activity"
       },
       "ANALYTICS": {
         "CANDIDATE_GROWTH": "Candidate Growth",
@@ -904,6 +1002,56 @@
         "SALARY_MISMATCH": "Suspicious salary mismatch in Backend Engineer posting",
         "SPAM_OUTREACH": "Candidate reported spam outreach from recruiter",
         "INAPPROPRIATE_WORDING": "Inappropriate wording flagged in sales job description"
+      },
+      "PLATFORM_INSIGHTS_NOTE": "User engagement is growing steadily across regions.",
+      "ACTIVITY_LEVEL": {
+        "HIGH": "High"
+      },
+      "QUICK_ACTIONS": {
+        "MANAGE_USERS": {
+          "TITLE": "Manage users",
+          "SUBTITLE": "Review and manage candidates."
+        },
+        "MANAGE_JOBS": {
+          "TITLE": "Manage jobs",
+          "SUBTITLE": "Oversee and moderate jobs."
+        },
+        "QUIZZES_EXAMS": {
+          "TITLE": "Quizzes / Exams",
+          "SUBTITLE": "Review assessments."
+        },
+        "VIEW_REPORTS": {
+          "TITLE": "View reports",
+          "SUBTITLE": "Resolve content securely."
+        }
+      },
+      "RECENT_ACTIVITY": {
+        "TITLE": "Recent activity",
+        "SUBTITLE": "Platform updates covering registrations, jobs, and exams.",
+        "EMPTY": "No recent activity detected.",
+        "DATES": {
+          "YESTERDAY": "Yesterday"
+        },
+        "ITEMS": {
+          "NEW_USER_REGISTRATION": {
+            "TITLE": "New user registration",
+            "DESCRIPTION_1": "Omar requested freelancer approval.",
+            "DESCRIPTION_2": "Aisha created an employer account."
+          },
+          "RECENT_JOB_POSTING": {
+            "TITLE": "Recent job posting",
+            "DESCRIPTION_1": "TechCorp posted Senior Developer.",
+            "DESCRIPTION_2": "FinEdge Corp posted Data Analyst."
+          },
+          "EXAM_ACTIVITY": {
+            "TITLE": "Exam activity",
+            "DESCRIPTION_1": "3 candidates passed the Frontend Quiz."
+          }
+        }
+      },
+      "SYSTEM_ALERTS": {
+        "TITLE": "System alerts",
+        "SUBTITLE": "Critical platform health reports."
       }
     },
     "REQUESTS": {
@@ -1289,6 +1437,24 @@
           "A": "Yes. You can cancel anytime from your billing settings. Your plan remains active until the end of the current billing cycle."
         }
       }
+    }
+  },
+  "FREELANCER_REQUEST": {
+    "TITLE": "Request Freelancer",
+    "SUBTITLE": "Submit your requirement and our admin team will review and assign the right freelancer.",
+    "DEFAULT_EMPLOYER": "Employer",
+    "FORM": {
+      "PROJECT_DESCRIPTION": "Project description",
+      "REQUIRED_SKILLS": "Required skills (comma separated)",
+      "DURATION": "Duration (optional)",
+      "DURATION_PLACEHOLDER": "e.g. 3 months",
+      "SUBMIT": "Submit request",
+      "CANCEL": "Cancel"
+    },
+    "TOASTS": {
+      "LOGIN_REQUIRED": "Please sign in as an employer to request a freelancer.",
+      "EMPLOYER_ONLY": "Only employers can request freelancers.",
+      "SUBMITTED": "Request submitted. Admin will review and assign a freelancer."
     }
   }
 }

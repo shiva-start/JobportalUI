@@ -22,15 +22,15 @@ import { AuthService } from '../../../core/services/auth.service';
             <div class="space-y-4">
               <div class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.24em] text-cyan-100 rtl:flex-row-reverse">
                 <span class="h-2 w-2 rounded-full bg-emerald-300"></span>
-                Admin Workspace
+                {{ 'ADMIN.SHELL.ROLE' | translate }}
               </div>
 
               <div class="space-y-3">
                 <h1 class="max-w-3xl text-3xl font-semibold leading-tight sm:text-4xl lg:text-[2.7rem] rtl:text-right">
-                  Welcome to the Admin Dashboard
+                  {{ 'ADMIN.DASHBOARD.TITLE' | translate }}
                 </h1>
                 <p class="max-w-2xl text-sm leading-7 text-slate-200 sm:text-base rtl:text-right">
-                  Manage platform operations, review platform activity, and oversee comprehensive usage trends perfectly configured for administrators.
+                  {{ 'ADMIN.DASHBOARD.SUBTITLE' | translate }}
                 </p>
               </div>
             </div>
@@ -49,19 +49,19 @@ import { AuthService } from '../../../core/services/auth.service';
                 routerLink="/admin/users"
                 class="inline-flex items-center justify-center rounded-xl bg-white px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-100"
               >
-                Manage Users
+                {{ 'ADMIN.DASHBOARD.QUICK_ACTIONS.MANAGE_USERS.TITLE' | translate }}
               </a>
               <a
                 routerLink="/admin/jobs"
                 class="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/15"
               >
-                Manage Jobs
+                {{ 'ADMIN.DASHBOARD.QUICK_ACTIONS.MANAGE_JOBS.TITLE' | translate }}
               </a>
               <a
                 routerLink="/admin/reports"
                 class="inline-flex items-center justify-center rounded-xl border border-transparent px-5 py-3 text-sm font-semibold text-cyan-100 transition hover:text-white"
               >
-                View Reports
+                {{ 'ADMIN.DASHBOARD.QUICK_ACTIONS.VIEW_REPORTS.TITLE' | translate }}
               </a>
             </div>
           </div>
@@ -71,12 +71,12 @@ import { AuthService } from '../../../core/services/auth.service';
               <div class="flex items-start justify-between gap-4 rtl:flex-row-reverse">
                 <div>
                   <p class="text-xs font-semibold uppercase tracking-[0.22em] text-slate-300 rtl:text-right">
-                    Platform Insights
+                    {{ 'ADMIN.DASHBOARD.SECTIONS.PLATFORM_OVERVIEW' | translate }}
                   </p>
                   <p class="mt-2 text-4xl font-semibold text-white">{{ admin.users().length }}</p>
                 </div>
                 <div class="rounded-2xl bg-blue-400/15 px-3 py-2 text-sm font-semibold text-blue-200">
-                  Total Users
+                  {{ 'ADMIN.DASHBOARD.STATS.TOTAL_USERS' | translate }}
                 </div>
               </div>
 
@@ -85,7 +85,7 @@ import { AuthService } from '../../../core/services/auth.service';
               </div>
 
               <p class="mt-4 text-sm leading-6 text-slate-200 rtl:text-right">
-                User engagement is growing steadily across regions.
+                {{ 'ADMIN.DASHBOARD.PLATFORM_INSIGHTS_NOTE' | translate }}
               </p>
 
               <div class="mt-5 grid gap-3 sm:grid-cols-2">
@@ -128,8 +128,8 @@ import { AuthService } from '../../../core/services/auth.service';
           <div class="overflow-hidden rounded-[1.8rem] border border-slate-200/70 bg-white shadow-[0_20px_45px_-35px_rgba(15,23,42,0.3)]">
             <div class="flex flex-col gap-4 border-b border-slate-100 px-5 py-5 sm:flex-row sm:items-center sm:justify-between rtl:sm:flex-row-reverse">
               <div>
-                <h2 class="text-xl font-semibold text-slate-900 rtl:text-right">Recent Activity</h2>
-                <p class="mt-1 text-sm text-slate-500 rtl:text-right">Platform updates encompassing registrations, jobs, and exams.</p>
+                <h2 class="text-xl font-semibold text-slate-900 rtl:text-right">{{ 'ADMIN.DASHBOARD.RECENT_ACTIVITY.TITLE' | translate }}</h2>
+                <p class="mt-1 text-sm text-slate-500 rtl:text-right">{{ 'ADMIN.DASHBOARD.RECENT_ACTIVITY.SUBTITLE' | translate }}</p>
               </div>
             </div>
 
@@ -144,7 +144,7 @@ import { AuthService } from '../../../core/services/auth.service';
                 }
               </div>
             } @else {
-              <p class="px-5 py-8 text-sm text-slate-400 rtl:text-right">No recent activity detected.</p>
+              <p class="px-5 py-8 text-sm text-slate-400 rtl:text-right">{{ 'ADMIN.DASHBOARD.RECENT_ACTIVITY.EMPTY' | translate }}</p>
             }
           </div>
         </div>
@@ -153,8 +153,8 @@ import { AuthService } from '../../../core/services/auth.service';
           <div class="rounded-[1.8rem] border border-slate-200/70 bg-white p-5 shadow-[0_20px_45px_-35px_rgba(15,23,42,0.25)]">
             <div class="mb-4 flex items-center justify-between gap-3 rtl:flex-row-reverse">
               <div>
-                <h2 class="text-lg font-semibold text-slate-900 rtl:text-right">System Alerts</h2>
-                <p class="mt-1 text-sm text-slate-500 rtl:text-right">Critical platform health reports.</p>
+                <h2 class="text-lg font-semibold text-slate-900 rtl:text-right">{{ 'ADMIN.DASHBOARD.SYSTEM_ALERTS.TITLE' | translate }}</h2>
+                <p class="mt-1 text-sm text-slate-500 rtl:text-right">{{ 'ADMIN.DASHBOARD.SYSTEM_ALERTS.SUBTITLE' | translate }}</p>
               </div>
             </div>
 
@@ -182,47 +182,49 @@ export class AdminDashboardPageComponent {
   readonly auth = inject(AuthService);
   readonly admin = inject(AdminDashboardService);
   readonly languageService = inject(LanguageService);
+  private readonly translate = inject(TranslateService);
 
   readonly isArabic = computed(() => this.languageService.currentLanguage() === 'ar');
 
   readonly dashboardCards = computed(() => {
+    // Metrics are runtime values; only labels come from i18n keys.
     return [
-      { label: 'Total Users', value: this.admin.users().length.toString() },
-      { label: 'Total Jobs', value: this.admin.jobsList().length.toString() },
-      { label: 'Quizzes / Exams', value: '42' }, 
-      { label: 'Platform Activity', value: 'High' }
+      { label: this.translate.instant('ADMIN.DASHBOARD.STATS.TOTAL_USERS'), value: this.admin.users().length.toString() },
+      { label: this.translate.instant('ADMIN.DASHBOARD.STATS.TOTAL_JOBS'), value: this.admin.jobsList().length.toString() },
+      { label: this.translate.instant('ADMIN.DASHBOARD.STATS.QUIZZES_EXAMS'), value: '42' },
+      { label: this.translate.instant('ADMIN.DASHBOARD.STATS.PLATFORM_ACTIVITY'), value: this.translate.instant('ADMIN.DASHBOARD.ACTIVITY_LEVEL.HIGH') }
     ];
   });
 
   readonly quickActions = computed(() => [
     {
       route: '/admin/users',
-      title: 'Manage Users',
-      subtitle: 'Review and manage candidates.',
+      title: this.translate.instant('ADMIN.DASHBOARD.QUICK_ACTIONS.MANAGE_USERS.TITLE'),
+      subtitle: this.translate.instant('ADMIN.DASHBOARD.QUICK_ACTIONS.MANAGE_USERS.SUBTITLE'),
       count: this.admin.users().length,
       accentClass: 'bg-gradient-to-br from-blue-100 to-blue-200',
       iconPath: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z',
     },
     {
       route: '/admin/jobs',
-      title: 'Manage Jobs',
-      subtitle: 'Oversee and moderate jobs.',
+      title: this.translate.instant('ADMIN.DASHBOARD.QUICK_ACTIONS.MANAGE_JOBS.TITLE'),
+      subtitle: this.translate.instant('ADMIN.DASHBOARD.QUICK_ACTIONS.MANAGE_JOBS.SUBTITLE'),
       count: this.admin.jobsList().length,
       accentClass: 'bg-gradient-to-br from-emerald-100 to-emerald-200',
       iconPath: 'M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
     },
     {
       route: '/admin/dashboard',
-      title: 'Quizzes / Exams',
-      subtitle: 'Review assessments.',
+      title: this.translate.instant('ADMIN.DASHBOARD.QUICK_ACTIONS.QUIZZES_EXAMS.TITLE'),
+      subtitle: this.translate.instant('ADMIN.DASHBOARD.QUICK_ACTIONS.QUIZZES_EXAMS.SUBTITLE'),
       count: 42,
       accentClass: 'bg-gradient-to-br from-amber-100 to-orange-200',
       iconPath: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4',
     },
     {
       route: '/admin/reports',
-      title: 'View Reports',
-      subtitle: 'Resolve content securely.',
+      title: this.translate.instant('ADMIN.DASHBOARD.QUICK_ACTIONS.VIEW_REPORTS.TITLE'),
+      subtitle: this.translate.instant('ADMIN.DASHBOARD.QUICK_ACTIONS.VIEW_REPORTS.SUBTITLE'),
       count: this.admin.flaggedContent().length,
       accentClass: 'bg-gradient-to-br from-fuchsia-100 to-pink-200',
       iconPath: 'M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z',
@@ -231,11 +233,36 @@ export class AdminDashboardPageComponent {
 
   readonly recentActivities = computed(() => {
     return [
-      { id: '1', title: 'New User Registration', description: 'Omar requested freelancer approval.', date: 'Today' },
-      { id: '2', title: 'Recent Job Posting', description: 'TechCorp posted Senior Developer.', date: 'Yesterday' },
-      { id: '3', title: 'Exam Activity', description: '3 candidates passed the Frontend Quiz.', date: '2 days ago' },
-      { id: '4', title: 'New User Registration', description: 'Aisha created an employer account.', date: '3 days ago' },
-      { id: '5', title: 'Recent Job Posting', description: 'FinEdge Corp posted Data Analyst.', date: '5 days ago' },
+      {
+        id: '1',
+        title: this.translate.instant('ADMIN.DASHBOARD.RECENT_ACTIVITY.ITEMS.NEW_USER_REGISTRATION.TITLE'),
+        description: this.translate.instant('ADMIN.DASHBOARD.RECENT_ACTIVITY.ITEMS.NEW_USER_REGISTRATION.DESCRIPTION_1'),
+        date: this.translate.instant('COMMON.TIME.TODAY')
+      },
+      {
+        id: '2',
+        title: this.translate.instant('ADMIN.DASHBOARD.RECENT_ACTIVITY.ITEMS.RECENT_JOB_POSTING.TITLE'),
+        description: this.translate.instant('ADMIN.DASHBOARD.RECENT_ACTIVITY.ITEMS.RECENT_JOB_POSTING.DESCRIPTION_1'),
+        date: this.translate.instant('ADMIN.DASHBOARD.RECENT_ACTIVITY.DATES.YESTERDAY')
+      },
+      {
+        id: '3',
+        title: this.translate.instant('ADMIN.DASHBOARD.RECENT_ACTIVITY.ITEMS.EXAM_ACTIVITY.TITLE'),
+        description: this.translate.instant('ADMIN.DASHBOARD.RECENT_ACTIVITY.ITEMS.EXAM_ACTIVITY.DESCRIPTION_1'),
+        date: this.translate.instant('COMMON.TIME.DAYS_AGO', { count: 2 })
+      },
+      {
+        id: '4',
+        title: this.translate.instant('ADMIN.DASHBOARD.RECENT_ACTIVITY.ITEMS.NEW_USER_REGISTRATION.TITLE'),
+        description: this.translate.instant('ADMIN.DASHBOARD.RECENT_ACTIVITY.ITEMS.NEW_USER_REGISTRATION.DESCRIPTION_2'),
+        date: this.translate.instant('COMMON.TIME.DAYS_AGO', { count: 3 })
+      },
+      {
+        id: '5',
+        title: this.translate.instant('ADMIN.DASHBOARD.RECENT_ACTIVITY.ITEMS.RECENT_JOB_POSTING.TITLE'),
+        description: this.translate.instant('ADMIN.DASHBOARD.RECENT_ACTIVITY.ITEMS.RECENT_JOB_POSTING.DESCRIPTION_2'),
+        date: this.translate.instant('COMMON.TIME.DAYS_AGO', { count: 5 })
+      },
     ];
   });
 }

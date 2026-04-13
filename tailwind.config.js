@@ -70,7 +70,7 @@ module.exports = {
         }
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['Cairo', 'Tajawal', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.2s ease-in-out',
