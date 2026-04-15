@@ -5,7 +5,7 @@ import { RevealDirective } from '../../../../shared/directives/reveal.directive'
 
 export interface JobCategory {
   id: string;
-  name: string;
+  filterValue: string;
   labelKey: string;
   count: number;
   bgClass: string;

@@ -122,4 +122,12 @@ export class JobsListComponent implements OnInit {
   categoryKey(category: string): string {
     return `HOME.CATEGORIES.ITEMS.${category.toUpperCase().replace(/[^A-Z0-9]+/g, '_')}`;
   }
+
+  experienceLabelKey(value: string): string {
+    return this.experienceLevels.find(level => level.value === value)?.labelKey ?? value;
+  }
+
+  jobTypeLabelKey(value: string): string {
+    return this.jobTypes.find(type => type.value === value)?.labelKey ?? value;
+  }
 }

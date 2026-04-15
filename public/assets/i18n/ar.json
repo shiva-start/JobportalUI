@@ -65,111 +65,111 @@
       }
     },
     "CATEGORIES": {
-      "EYEBROW": "Browse by field",
-      "TITLE": "Explore Job Categories",
-      "DESCRIPTION": "Discover roles across every major industry. Filter by your expertise to find the right fit.",
-      "OPEN_ROLES": "{{count}} open roles",
+      "EYEBROW": "تصفح حسب المجال",
+      "TITLE": "استكشف فئات الوظائف",
+      "DESCRIPTION": "اكتشف وظائف عبر مختلف القطاعات الرئيسية. صفِّ النتائج حسب خبرتك للعثور على الأنسب لك.",
+      "OPEN_ROLES": "{{count}} وظائف متاحة",
       "ITEMS": {
-        "TECHNOLOGY": "Technology",
-        "DESIGN": "Design",
-        "MARKETING": "Marketing",
-        "SALES": "Sales",
-        "DATA_AI": "Data & AI",
-        "PRODUCT": "Product",
-        "HUMAN_RESOURCES": "Human Resources",
-        "FINANCE": "Finance"
+        "TECHNOLOGY": "التقنية",
+        "DESIGN": "التصميم",
+        "MARKETING": "التسويق",
+        "SALES": "المبيعات",
+        "DATA_AI": "البيانات والذكاء الاصطناعي",
+        "PRODUCT": "المنتج",
+        "HUMAN_RESOURCES": "الموارد البشرية",
+        "FINANCE": "المالية"
       }
     },
     "HOW_IT_WORKS": {
-      "TITLE": "How It Works",
-      "DESCRIPTION": "Get hired in 3 easy steps",
+      "TITLE": "كيف يعمل",
+      "DESCRIPTION": "احصل على وظيفة في 3 خطوات سهلة",
       "STEPS": {
         "CREATE_ACCOUNT": {
-          "TITLE": "أ شئ حساب9ا",
-          "DESCRIPTION": "Sign up and create your profile in minutes"
+          "TITLE": "إنشاء حساب",
+          "DESCRIPTION": "سجّل وأنشئ ملفك الشخصي خلال دقائق"
         },
         "SEARCH_JOBS": {
-          "TITLE": "Search Jobs",
-          "DESCRIPTION": "Browse thousands of jobs that match your skills"
+          "TITLE": "ابحث عن وظائف",
+          "DESCRIPTION": "تصفح آلاف الوظائف التي تناسب مهاراتك"
         },
         "GET_HIRED": {
-          "TITLE": "Get Hired Faster",
-          "DESCRIPTION": "Apply with one click and land your dream job"
+          "TITLE": "احصل على وظيفة أسرع",
+          "DESCRIPTION": "قدّم بنقرة واحدة واحصل على وظيفة أحلامك"
         }
       }
     },
     "CTA": {
       "JOB_SEEKERS": {
-        "IMAGE_ALT": "Job search",
-        "TITLE": "Find Your Next Job",
-        "DESCRIPTION": "Discover jobs that match your skills and apply in seconds.",
-        "BUTTON": "Get Started"
+        "IMAGE_ALT": "البحث عن وظيفة",
+        "TITLE": "اعثر على وظيفتك القادمة",
+        "DESCRIPTION": "اكتشف وظائف تناسب مهاراتك وقدّم في ثوانٍ.",
+        "BUTTON": "ابدأ الآن"
       },
       "EMPLOYERS": {
-        "IMAGE_ALT": "Hiring team",
-        "TITLE": "Hire Top Talent",
-        "DESCRIPTION": "Post jobs and connect with qualified candidates faster.",
-        "BUTTON": "Post a Job"
+        "IMAGE_ALT": "فريق التوظيف",
+        "TITLE": "وظّف أفضل المواهب",
+        "DESCRIPTION": "انشر الوظائف وتواصل مع المرشحين المؤهلين بشكل أسرع.",
+        "BUTTON": "انشر وظيفة"
       }
     },
     "TESTIMONIALS": {
-      "EYEBROW": "Testimonials",
-      "TITLE": "What Our Users Say",
+      "EYEBROW": "آراء المستخدمين",
+      "TITLE": "ماذا يقول مستخدمونا",
       "ITEMS": {
         "MOHAMED": {
-          "ROLE": "Frontend Developer at TechCorp",
-          "QUOTE": "Found my dream job within 2 weeks of signing up. The platform made the entire process incredibly smooth and stress-free."
+          "ROLE": "مطور واجهات أمامية في TechCorp",
+          "QUOTE": "وجدت وظيفة أحلامي خلال أسبوعين من التسجيل. المنصة جعلت العملية كاملة سلسة جدًا وخالية من التوتر."
         },
         "RANA": {
-          "ROLE": "HR Manager at BuildScale",
-          "QUOTE": "We have hired 5 exceptional engineers through JobPortal. The quality and relevance of candidates is consistently impressive."
+          "ROLE": "مديرة موارد بشرية في BuildScale",
+          "QUOTE": "قمنا بتوظيف 5 مهندسين مميزين عبر JobPortal. جودة المرشحين وملاءمتهم ممتازة باستمرار."
         },
         "TAREK": {
-          "ROLE": "Senior Product Manager",
-          "QUOTE": "The job alerts feature is a game changer. I received a notification about my current role before it appeared anywhere else."
+          "ROLE": "مدير منتج أول",
+          "QUOTE": "ميزة تنبيهات الوظائف غيّرت اللعبة. وصلني إشعار عن وظيفتي الحالية قبل أن تظهر في أي مكان آخر."
         }
       }
     },
     "GET_STARTED": {
-      "TITLE": "Ready to Find Your Next Opportunity?",
-      "DESCRIPTION": "Join thousands of professionals who found their dream jobs",
-      "BUTTON": "Get Started Now"
+      "TITLE": "هل أنت مستعد لفرصتك القادمة؟",
+      "DESCRIPTION": "انضم إلى آلاف المحترفين الذين وجدوا وظائف أحلامهم",
+      "BUTTON": "ابدأ الآن"
     }
   },
   "JOBS": {
     "LIST": {
-      "TITLE": "Find Opportunities That Match Your Ambition",
-      "SUBTITLE": "Search active openings, refine by role and location, and explore jobs tailored to your next move.",
-      "BADGE": "Jobs & Career Growth"
+      "TITLE": "اعثر على فرص تناسب طموحك",
+      "SUBTITLE": "ابحث في الوظائف النشطة، وخصص النتائج حسب الدور والموقع، واستكشف فرصًا تناسب خطوتك القادمة.",
+      "BADGE": "الوظائف والنمو المهني"
     },
     "FILTER": {
-      "LABEL": "Filter:",
-      "SEARCH_PLACEHOLDER": "Job title, skills, or company",
-      "LOCATION_PLACEHOLDER": "Location",
-      "ALL_CATEGORIES": "All Categories",
-      "SORT_BY": "Sort By",
-      "SORT_RECENT": "Most Recent",
-      "SORT_SALARY": "Highest Salary",
-      "CATEGORY": "Category",
-      "EXPERIENCE_LEVEL": "Experience Level",
-      "ALL_LEVELS": "All Levels",
-      "JOB_TYPE": "Job Type",
-      "ALL_TYPES": "All Types",
-      "FILTERS": "Filters",
-      "JOBS_FOUND": "{{count}} jobs found",
-      "CLEAR": "Clear filters",
-      "CLEAR_ALL": "Clear All"
+      "LABEL": "تصفية:",
+      "SEARCH_PLACEHOLDER": "المسمى الوظيفي أو المهارات أو الشركة",
+      "LOCATION_PLACEHOLDER": "الموقع",
+      "ALL_CATEGORIES": "كل الفئات",
+      "SORT_BY": "ترتيب حسب",
+      "SORT_RECENT": "الأحدث",
+      "SORT_SALARY": "الأعلى راتبًا",
+      "CATEGORY": "الفئة",
+      "EXPERIENCE_LEVEL": "مستوى الخبرة",
+      "ALL_LEVELS": "كل المستويات",
+      "JOB_TYPE": "نوع الوظيفة",
+      "ALL_TYPES": "كل الأنواع",
+      "FILTERS": "الفلاتر",
+      "JOBS_FOUND": "{{count}} وظيفة",
+      "CLEAR": "مسح الفلاتر",
+      "CLEAR_ALL": "مسح الكل"
     },
     "EMPTY": {
-      "TITLE": "No jobs found",
-      "DESCRIPTION": "Try adjusting your filters or search terms",
-      "CLEAR_FILTERS": "Clear all filters"
+      "TITLE": "لم يتم العثور على وظائف",
+      "DESCRIPTION": "حاول تعديل الفلاتر أو كلمات البحث",
+      "CLEAR_FILTERS": "مسح جميع الفلاتر"
     },
     "CARD": {
-      "FEATURED": "Featured",
-      "VIEW_DETAILS": "View Details",
-      "SAVE": "Save job",
-      "REMOVE_SAVED": "Remove from saved",
+      "FEATURED": "مميز",
+      "VIEW_DETAILS": "عرض التفاصيل",
+      "SAVE": "حفظ الوظيفة",
+      "REMOVE_SAVED": "إزالة من المحفوظة",
       "TITLES": {
         "SENIOR_FRONTEND_DEVELOPER": "Senior Frontend Developer",
         "PRODUCT_MANAGER": "Product Manager",
@@ -206,60 +206,60 @@
       }
     },
     "TYPES": {
-      "FULL_TIME": "Full Time",
-      "PART_TIME": "Part Time",
-      "CONTRACT": "Contract",
-      "REMOTE": "ع بعد",
-      "INTERNSHIP": "Internship"
+      "FULL_TIME": "دوام كامل",
+      "PART_TIME": "دوام جزئي",
+      "CONTRACT": "عقد",
+      "REMOTE": "عن بُعد",
+      "INTERNSHIP": "تدريب"
     },
     "LEVELS": {
-      "ENTRY": "Entry Level",
-      "MID": "Mid Level",
-      "SENIOR": "Senior",
-      "LEAD": "Lead",
-      "EXECUTIVE": "Executive"
+      "ENTRY": "مبتدئ",
+      "MID": "متوسط",
+      "SENIOR": "متقدم",
+      "LEAD": "قائد",
+      "EXECUTIVE": "تنفيذي"
     },
     "TOASTS": {
-      "SAVED": "Job saved to your list.",
-      "REMOVED": "Job removed from saved.",
-      "SAVED_SHORT": "Job saved!",
-      "REMOVED_SHORT": "Job removed."
+      "SAVED": "تم حفظ الوظيفة في قائمتك.",
+      "REMOVED": "تمت إزالة الوظيفة من المحفوظة.",
+      "SAVED_SHORT": "تم حفظ الوظيفة!",
+      "REMOVED_SHORT": "تمت إزالة الوظيفة."
     },
     "DETAIL": {
       "NOT_FOUND": {
-        "TITLE": "Job not found",
-        "DESCRIPTION": "This role may have been removed or is no longer available.",
-        "BROWSE": "Browse all jobs"
+        "TITLE": "الوظيفة غير موجودة",
+        "DESCRIPTION": "قد تكون هذه الوظيفة أزيلت أو لم تعد متاحة.",
+        "BROWSE": "تصفح جميع الوظائف"
       },
       "STATS": {
-        "APPLICANTS": "Applicants",
-        "VIEWS": "Views",
-        "SKILLS": "Skills"
+        "APPLICANTS": "المتقدمون",
+        "VIEWS": "المشاهدات",
+        "SKILLS": "المهارات"
       },
-      "ABOUT_ROLE": "About the role",
-      "REQUIREMENTS": "Requirements",
-      "REQUIRED_SKILLS": "Required skills",
-      "SIMILAR_JOBS": "Similar jobs",
-      "APPLICATION_SUBMITTED": "Application submitted",
-      "APPLY_NOW": "Apply now",
-      "SAVE": "Save",
-      "SAVED": "Saved",
-      "SHARE": "Share",
+      "ABOUT_ROLE": "حول الوظيفة",
+      "REQUIREMENTS": "المتطلبات",
+      "REQUIRED_SKILLS": "المهارات المطلوبة",
+      "SIMILAR_JOBS": "وظائف مشابهة",
+      "APPLICATION_SUBMITTED": "تم إرسال الطلب",
+      "APPLY_NOW": "قدّم الآن",
+      "SAVE": "حفظ",
+      "SAVED": "محفوظة",
+      "SHARE": "مشاركة",
       "OVERVIEW": {
-        "TITLE": "Job overview",
-        "CATEGORY": "Category",
-        "POSTED": "Posted",
-        "JOB_TYPE": "Job type",
-        "EXPERIENCE": "Experience",
-        "SALARY": "Salary"
+        "TITLE": "نظرة عامة على الوظيفة",
+        "CATEGORY": "الفئة",
+        "POSTED": "تاريخ النشر",
+        "JOB_TYPE": "نوع الوظيفة",
+        "EXPERIENCE": "الخبرة",
+        "SALARY": "الراتب"
       },
       "TOASTS": {
-        "LOGIN_REQUIRED": "Please sign in to apply.",
-        "APPLIED": "Application submitted successfully.",
-        "LINK_COPIED": "Link copied to clipboard."
+        "LOGIN_REQUIRED": "يرجى تسجيل الدخول للتقديم.",
+        "APPLIED": "تم إرسال طلب التقديم بنجاح.",
+        "LINK_COPIED": "تم نسخ الرابط إلى الحافظة."
       },
       "BREADCRUMB": {
-        "JOBS": "Jobs"
+        "JOBS": "الوظائف"
       }
     }
   },
@@ -332,54 +332,54 @@
   },
   "FREELANCERS": {
     "FEATURED": {
-      "TITLE": "Featured Freelancers",
-      "DESCRIPTION": "Connect with skilled professionals ready to bring your projects to life",
-      "EMPTY": "No featured freelancers available.",
-      "BROWSE_ALL": "Browse All Freelancers"
+      "TITLE": "أفضل المستقلين",
+      "DESCRIPTION": "تواصل مع محترفين مهرة جاهزين لتحويل مشاريعك إلى واقع",
+      "EMPTY": "لا يوجد مستقلون مميزون حالياً.",
+      "BROWSE_ALL": "تصفح جميع المستقلين"
     },
     "CARD": {
-      "REQUEST": "Request Freelancer",
+      "REQUEST": "طلب مستقل",
       "NAMES": {
-        "AISHA_KHAN": "عائشة خا",
-        "OMAR_RIZVI": "Omar Rizvi",
-        "LINA_AHMED": "Lina Ahmed",
-        "SAMIR_PATEL": "Samir Patel",
-        "PRIYA_SHARMA": "Priya Sharma",
-        "ZAID_HASSAN": "Zaid Hassan"
+        "AISHA_KHAN": "عائشة خان",
+        "OMAR_RIZVI": "عمر رضوي",
+        "LINA_AHMED": "لينا أحمد",
+        "SAMIR_PATEL": "سمير باتيل",
+        "PRIYA_SHARMA": "بريا شارما",
+        "ZAID_HASSAN": "زيد حسن"
       },
       "ROLES": {
-        "FRONTEND_DEVELOPER": "Frontend Developer",
-        "DOTNET_DEVELOPER": ".NET Developer",
-        "UX_UI_DESIGNER": "UX/UI Designer",
-        "FULL_STACK_DEVELOPER": "Full-Stack Developer",
-        "DATA_ANALYST": "Data Analyst",
-        "MOBILE_DEVELOPER": "Mobile Developer"
+        "FRONTEND_DEVELOPER": "مطور واجهات أمامية",
+        "DOTNET_DEVELOPER": "مطور .NET",
+        "UX_UI_DESIGNER": "مصمم UX/UI",
+        "FULL_STACK_DEVELOPER": "مطور متكامل",
+        "DATA_ANALYST": "محلل بيانات",
+        "MOBILE_DEVELOPER": "مطور تطبيقات جوال"
       },
       "TYPES": {
-        "FREELANCER": "Freelancer"
+        "FREELANCER": "مستقل"
       },
       "DESCRIPTIONS": {
-        "FRONTEND_DEVELOPER": "Building responsive, accessible UIs with modern frameworks.",
-        "DOTNET_DEVELOPER": "Robust API development and scalable backend solutions.",
-        "UX_UI_DESIGNER": "Designing intuitive product experiences that delight users.",
-        "FULL_STACK_DEVELOPER": "End-to-end web applications from database to deployment.",
-        "DATA_ANALYST": "Turning raw data into actionable business insights.",
-        "MOBILE_DEVELOPER": "Cross-platform mobile apps for iOS and Android."
+        "FRONTEND_DEVELOPER": "يبني واجهات متجاوبة وسهلة الوصول باستخدام أطر حديثة.",
+        "DOTNET_DEVELOPER": "تطوير واجهات برمجية قوية وحلول خلفية قابلة للتوسع.",
+        "UX_UI_DESIGNER": "تصميم تجارب منتجات بديهية تسعد المستخدمين.",
+        "FULL_STACK_DEVELOPER": "تطوير تطبيقات ويب متكاملة من قاعدة البيانات حتى النشر.",
+        "DATA_ANALYST": "تحويل البيانات الخام إلى رؤى أعمال قابلة للتنفيذ.",
+        "MOBILE_DEVELOPER": "تطبيقات جوال متعددة المنصات لأنظمة iOS وAndroid."
       },
       "SKILLS": {
-        "ANGULAR": "Angular",
-        "TYPESCRIPT": "TypeScript",
-        "UI_DESIGN": "UI Design",
+        "ANGULAR": "أنجولار",
+        "TYPESCRIPT": "تايب سكريبت",
+        "UI_DESIGN": "تصميم واجهات",
         "DOTNET": ".NET",
         "C_SHARP": "C#",
-        "REST_APIS": "اج!ات REST",
-        "FIGMA": "Figma",
-        "UX_RESEARCH": "UX Research",
-        "PROTOTYPING": "Prototyping",
+        "REST_APIS": "واجهات REST",
+        "FIGMA": "فيجما",
+        "UX_RESEARCH": "أبحاث تجربة المستخدم",
+        "PROTOTYPING": "النمذجة الأولية",
         "NODE_JS": "Node.js",
         "POSTGRESQL": "PostgreSQL",
-        "PYTHON": "Python",
-        "POWER_BI": "بار BI",
+        "PYTHON": "بايثون",
+        "POWER_BI": "باور BI",
         "SQL": "SQL",
         "FLUTTER": "Flutter",
         "DART": "دارت",

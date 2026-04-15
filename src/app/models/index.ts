@@ -155,11 +155,16 @@ export interface CandidateActivity {
 export interface FreelancerProfile {
   id: string;
   name: string;
+  nameKey?: string;
   role: string;
+  roleKey?: string;
   type: string;
+  typeKey?: string;
   status: 'pending' | 'approved' | 'rejected';
   skills: string[];
+  skillKeys?: string[];
   description: string;
+  descriptionKey?: string;
   portfolio?: string;
   experience?: string;
   assignedRequest?: string;

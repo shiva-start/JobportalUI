@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { TranslatePipe } from '@ngx-translate/core';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { FreelancerCardComponent } from '../../shared/components/freelancer-card/freelancer-card.component';
 import { PageHeroComponent } from '../../shared/components/page-hero/page-hero.component';
 import { FreelancerService } from '../../core/services/freelancer.service';
@@ -89,6 +89,7 @@ import { FreelancerService } from '../../core/services/freelancer.service';
 })
 export class FreelancersComponent {
   private fs = inject(FreelancerService);
+  private readonly translate = inject(TranslateService);
   freelancers = this.fs.list();
 
   // simple search state
@@ -116,9 +117,19 @@ export class FreelancersComponent {
     return this.approvedFreelancers.filter(f => {
       const kw = this.keyword.toLowerCase();
       if (kw) {
-        const inRole = (f.role || '').toLowerCase().includes(kw);
-        const inSkills = (f.skills || []).join(' ').toLowerCase().includes(kw);
-        if (!inRole && !inSkills) return false;
+        const searchableRole = f.roleKey ? this.translate.instant(f.roleKey) : f.role;
+        const searchableName = f.nameKey ? this.translate.instant(f.nameKey) : f.name;
+        const searchableDescription = f.descriptionKey ? this.translate.instant(f.descriptionKey) : f.description;
+        const searchableSkills = (f.skillKeys?.length
+          ? f.skillKeys.map(key => this.translate.instant(key))
+          : f.skills || []).join(' ');
+
+        const haystack = [searchableRole, searchableName, searchableDescription, searchableSkills]
+          .filter(Boolean)
+          .join(' ')
+          .toLowerCase();
+
+        if (!haystack.includes(kw)) return false;
       }
       if (this.experience) {
         // no experience on mock items; skip

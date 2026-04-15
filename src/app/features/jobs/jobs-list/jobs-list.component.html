@@ -223,13 +223,13 @@
                 }
                 @if (filters.experienceLevel) {
                   <span class="inline-flex items-center gap-1 px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">
-                    {{ filters.experienceLevel }}
+                    {{ experienceLabelKey(filters.experienceLevel) | translate }}
                     <button (click)="filters.experienceLevel=''; applyFilters()" class="hover:text-blue-900">&times;</button>
                   </span>
                 }
                 @if (filters.type) {
                   <span class="inline-flex items-center gap-1 px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">
-                    {{ filters.type }}
+                    {{ jobTypeLabelKey(filters.type) | translate }}
                     <button (click)="filters.type=''; applyFilters()" class="hover:text-blue-900">&times;</button>
                   </span>
                 }
