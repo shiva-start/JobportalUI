@@ -66,7 +66,7 @@ export class HomeComponent {
 
   categories: JobCategory[] = [
     {
-      id: '1', name: 'Technology', labelKey: 'HOME.CATEGORIES.ITEMS.TECHNOLOGY', count: 284,
+      id: '1', value: 'Technology', labelKey: 'HOME.CATEGORIES.ITEMS.TECHNOLOGY', count: 284,
       bgClass: 'bg-blue-100', iconClass: 'text-blue-600',
       svgPath: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
       image: this.createImage('photo-1518770660439-4636190af475', 640, 520, {
@@ -76,7 +76,7 @@ export class HomeComponent {
       })
     },
     {
-      id: '2', name: 'Design', labelKey: 'HOME.CATEGORIES.ITEMS.DESIGN', count: 97,
+      id: '2', value: 'Design', labelKey: 'HOME.CATEGORIES.ITEMS.DESIGN', count: 97,
       bgClass: 'bg-purple-100', iconClass: 'text-purple-600',
       svgPath: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z',
       image: this.createImage('photo-1498050108023-c5249f4df085', 640, 520, {
@@ -86,7 +86,7 @@ export class HomeComponent {
       })
     },
     {
-      id: '3', name: 'Marketing', labelKey: 'HOME.CATEGORIES.ITEMS.MARKETING', count: 156,
+      id: '3', value: 'Marketing', labelKey: 'HOME.CATEGORIES.ITEMS.MARKETING', count: 156,
       bgClass: 'bg-pink-100', iconClass: 'text-pink-600',
       svgPath: 'M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z',
       image: this.createImage('photo-1460925895917-afdab827c52f', 640, 520, {
@@ -96,7 +96,7 @@ export class HomeComponent {
       })
     },
     {
-      id: '4', name: 'Sales', labelKey: 'HOME.CATEGORIES.ITEMS.SALES', count: 213,
+      id: '4', value: 'Sales', labelKey: 'HOME.CATEGORIES.ITEMS.SALES', count: 213,
       bgClass: 'bg-green-100', iconClass: 'text-green-600',
       svgPath: 'M13 7h8m0 0v8m0-8l-8 8-4-4-6 6',
       image: this.createImage('photo-1556740749-887f6717d7e4', 640, 520, {
@@ -106,7 +106,7 @@ export class HomeComponent {
       })
     },
     {
-      id: '5', name: 'Data & AI', labelKey: 'HOME.CATEGORIES.ITEMS.DATA_AI', count: 118,
+      id: '5', value: 'Data & AI', labelKey: 'HOME.CATEGORIES.ITEMS.DATA_AI', count: 118,
       bgClass: 'bg-indigo-100', iconClass: 'text-indigo-600',
       svgPath: 'M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18',
       image: this.createImage('photo-1504384308090-c894fdcc538d', 640, 520, {
@@ -116,7 +116,7 @@ export class HomeComponent {
       })
     },
     {
-      id: '6', name: 'Product', labelKey: 'HOME.CATEGORIES.ITEMS.PRODUCT', count: 74,
+      id: '6', value: 'Product', labelKey: 'HOME.CATEGORIES.ITEMS.PRODUCT', count: 74,
       bgClass: 'bg-orange-100', iconClass: 'text-orange-600',
       svgPath: 'M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4',
       image: this.createImage('photo-1451187580459-43490279c0fa', 640, 520, {
@@ -126,7 +126,7 @@ export class HomeComponent {
       })
     },
     {
-      id: '7', name: 'Human Resources', labelKey: 'HOME.CATEGORIES.ITEMS.HUMAN_RESOURCES', count: 89,
+      id: '7', value: 'Human Resources', labelKey: 'HOME.CATEGORIES.ITEMS.HUMAN_RESOURCES', count: 89,
       bgClass: 'bg-teal-100', iconClass: 'text-teal-600',
       svgPath: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z',
       image: this.createImage('photo-1521737604893-d14cc237f11d', 640, 520, {
@@ -136,7 +136,7 @@ export class HomeComponent {
       })
     },
     {
-      id: '8', name: 'Finance', labelKey: 'HOME.CATEGORIES.ITEMS.FINANCE', count: 132,
+      id: '8', value: 'Finance', labelKey: 'HOME.CATEGORIES.ITEMS.FINANCE', count: 132,
       bgClass: 'bg-yellow-100', iconClass: 'text-yellow-600',
       svgPath: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
       image: this.createImage('photo-1554224155-6726b3ff858f', 640, 520, {
