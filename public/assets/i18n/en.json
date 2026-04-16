@@ -348,7 +348,8 @@
         "UX_UI_DESIGNER": "UX/UI Designer",
         "FULL_STACK_DEVELOPER": "Full-Stack Developer",
         "DATA_ANALYST": "Data Analyst",
-        "MOBILE_DEVELOPER": "Mobile Developer"
+        "MOBILE_DEVELOPER": "Mobile Developer",
+        "UNKNOWN": "Role unavailable"
       },
       "TYPES": {
         "FREELANCER": "Freelancer"
@@ -359,7 +360,8 @@
         "UX_UI_DESIGNER": "Designing intuitive product experiences that delight users.",
         "FULL_STACK_DEVELOPER": "End-to-end web applications from database to deployment.",
         "DATA_ANALYST": "Turning raw data into actionable business insights.",
-        "MOBILE_DEVELOPER": "Cross-platform mobile apps for iOS and Android."
+        "MOBILE_DEVELOPER": "Cross-platform mobile apps for iOS and Android.",
+        "UNKNOWN": "Description unavailable."
       },
       "SKILLS": {
         "ANGULAR": "Angular",

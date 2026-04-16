@@ -1,13 +1,11 @@
 <section class="py-20 bg-slate-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div appReveal class="text-center mb-14">
-      <!-- <p class="text-blue-600 text-sm font-semibold uppercase tracking-widest mb-2">Simple process</p> -->
       <h2 class="text-3xl font-bold text-slate-900 mb-3">{{ 'HOME.HOW_IT_WORKS.TITLE' | translate }}</h2>
       <p class="text-slate-500">{{ 'HOME.HOW_IT_WORKS.DESCRIPTION' | translate }}</p>
     </div>
 
     <div class="relative grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- Connector line (desktop) -->
       <div class="hidden md:block absolute top-10 left-1/3 right-1/3 h-px bg-gradient-to-r from-blue-200 via-blue-300 to-blue-200 -translate-y-1/2 z-0"></div>
 
       @for (step of steps; track step.step; let i = $index) {
@@ -17,9 +15,6 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" [attr.d]="step.svgPath"/>
             </svg>
           </div>
-          <!-- <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-blue-100 border-2 border-blue-300 text-blue-700 text-xs font-bold flex items-center justify-center">
-            {{ step.step }}
-          </div> -->
           <h3 class="font-bold text-slate-900 text-lg mb-2">{{ step.titleKey | translate }}</h3>
           <p class="text-sm text-slate-500 leading-relaxed max-w-xs">{{ step.descriptionKey | translate }}</p>
         </div>

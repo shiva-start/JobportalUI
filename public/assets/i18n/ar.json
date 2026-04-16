@@ -31,13 +31,13 @@
     "TOGGLE_MENU": "فتح أو إغلاق القائمة"
   },
   "NAVBAR": {
-    "WORKSPACE": "Workspace",
-    "OPEN_PROFILE_MENU": "Open profile menu",
-    "PROFILE": "Profile",
-    "SETTINGS": "Settings",
-    "CANDIDATE_ACCOUNT": "Candidate account",
-    "EMPLOYER_ACCOUNT": "Employer account",
-    "ADMIN_ACCOUNT": "Administrator"
+    "WORKSPACE": "مساحة العمل",
+    "OPEN_PROFILE_MENU": "فتح قائمة الملف الشخصي",
+    "PROFILE": "الملف الشخصي",
+    "SETTINGS": "الإعدادات",
+    "CANDIDATE_ACCOUNT": "حساب المرشح",
+    "EMPLOYER_ACCOUNT": "حساب صاحب العمل",
+    "ADMIN_ACCOUNT": "حساب المسؤول"
   },
   "HOME": {
     "HERO": {
@@ -65,265 +65,265 @@
       }
     },
     "CATEGORIES": {
-      "EYEBROW": "Browse by field",
-      "TITLE": "Explore Job Categories",
-      "DESCRIPTION": "Discover roles across every major industry. Filter by your expertise to find the right fit.",
-      "OPEN_ROLES": "{{count}} open roles",
+      "EYEBROW": "تصفح حسب المجال",
+      "TITLE": "استكشف فئات الوظائف",
+      "DESCRIPTION": "اكتشف الوظائف عبر مختلف القطاعات الرئيسية. صفِّ النتائج حسب خبرتك للعثور على الأنسب.",
+      "OPEN_ROLES": "{{count}} وظيفة متاحة",
       "ITEMS": {
-        "TECHNOLOGY": "Technology",
-        "DESIGN": "Design",
-        "MARKETING": "Marketing",
-        "SALES": "Sales",
-        "DATA_AI": "Data & AI",
-        "PRODUCT": "Product",
-        "HUMAN_RESOURCES": "Human Resources",
-        "FINANCE": "Finance"
+        "TECHNOLOGY": "التقنية",
+        "DESIGN": "التصميم",
+        "MARKETING": "التسويق",
+        "SALES": "المبيعات",
+        "DATA_AI": "البيانات والذكاء الاصطناعي",
+        "PRODUCT": "إدارة المنتج",
+        "HUMAN_RESOURCES": "الموارد البشرية",
+        "FINANCE": "المالية"
       }
     },
     "HOW_IT_WORKS": {
-      "TITLE": "How It Works",
-      "DESCRIPTION": "Get hired in 3 easy steps",
+      "TITLE": "كيف يعمل",
+      "DESCRIPTION": "احصل على وظيفة في 3 خطوات سهلة",
       "STEPS": {
         "CREATE_ACCOUNT": {
-          "TITLE": "أ شئ حساب9ا",
-          "DESCRIPTION": "Sign up and create your profile in minutes"
+          "TITLE": "إنشاء حساب",
+          "DESCRIPTION": "سجّل وأنشئ ملفك الشخصي خلال دقائق"
         },
         "SEARCH_JOBS": {
-          "TITLE": "Search Jobs",
-          "DESCRIPTION": "Browse thousands of jobs that match your skills"
+          "TITLE": "البحث عن وظائف",
+          "DESCRIPTION": "تصفح آلاف الوظائف التي تناسب مهاراتك"
         },
         "GET_HIRED": {
-          "TITLE": "Get Hired Faster",
-          "DESCRIPTION": "Apply with one click and land your dream job"
+          "TITLE": "احصل على وظيفة بسرعة",
+          "DESCRIPTION": "قدّم بنقرة واحدة واحصل على وظيفة أحلامك"
         }
       }
     },
-    "CTA": {
-      "JOB_SEEKERS": {
-        "IMAGE_ALT": "Job search",
-        "TITLE": "Find Your Next Job",
-        "DESCRIPTION": "Discover jobs that match your skills and apply in seconds.",
-        "BUTTON": "Get Started"
-      },
-      "EMPLOYERS": {
-        "IMAGE_ALT": "Hiring team",
-        "TITLE": "Hire Top Talent",
-        "DESCRIPTION": "Post jobs and connect with qualified candidates faster.",
-        "BUTTON": "Post a Job"
-      }
+"CTA": {
+  "JOB_SEEKERS": {
+    "IMAGE_ALT": "البحث عن وظيفة",
+    "TITLE": "اعثر على وظيفتك القادمة",
+    "DESCRIPTION": "اكتشف وظائف تناسب مهاراتك وقدّم خلال ثوانٍ.",
+    "BUTTON": "ابدأ الآن"
+  },
+  "EMPLOYERS": {
+    "IMAGE_ALT": "فريق التوظيف",
+    "TITLE": "وظّف أفضل المواهب",
+    "DESCRIPTION": "انشر وظائف وتواصل مع مرشحين مؤهلين بشكل أسرع.",
+    "BUTTON": "نشر وظيفة"
+  }
+},
+"TESTIMONIALS": {
+  "EYEBROW": "آراء المستخدمين",
+  "TITLE": "ماذا يقول مستخدمونا",
+  "ITEMS": {
+    "MOHAMED": {
+      "ROLE": "مطور واجهات أمامية في TechCorp",
+      "QUOTE": "وجدت وظيفة أحلامي خلال أسبوعين من التسجيل. جعلت المنصة العملية بأكملها سهلة وسلسة للغاية."
     },
-    "TESTIMONIALS": {
-      "EYEBROW": "Testimonials",
-      "TITLE": "What Our Users Say",
-      "ITEMS": {
-        "MOHAMED": {
-          "ROLE": "Frontend Developer at TechCorp",
-          "QUOTE": "Found my dream job within 2 weeks of signing up. The platform made the entire process incredibly smooth and stress-free."
-        },
-        "RANA": {
-          "ROLE": "HR Manager at BuildScale",
-          "QUOTE": "We have hired 5 exceptional engineers through JobPortal. The quality and relevance of candidates is consistently impressive."
-        },
-        "TAREK": {
-          "ROLE": "Senior Product Manager",
-          "QUOTE": "The job alerts feature is a game changer. I received a notification about my current role before it appeared anywhere else."
-        }
-      }
+    "RANA": {
+      "ROLE": "مدير الموارد البشرية في BuildScale",
+      "QUOTE": "قمنا بتوظيف 5 مهندسين متميزين عبر JobPortal. جودة المرشحين وملاءمتهم مذهلة باستمرار."
     },
-    "GET_STARTED": {
-      "TITLE": "Ready to Find Your Next Opportunity?",
-      "DESCRIPTION": "Join thousands of professionals who found their dream jobs",
-      "BUTTON": "Get Started Now"
+    "TAREK": {
+      "ROLE": "مدير منتج أول",
+      "QUOTE": "ميزة تنبيهات الوظائف غيّرت كل شيء. تلقيت إشعارًا بوظيفتي الحالية قبل أن تظهر في أي مكان آخر."
+    }
+  }
+},
+"GET_STARTED": {
+  "TITLE": "هل أنت مستعد للعثور على فرصتك التالية؟",
+  "DESCRIPTION": "انضم إلى آلاف المحترفين الذين وجدوا وظائف أحلامهم",
+  "BUTTON": "ابدأ الآن"
+},
+"JOBS": {
+  "LIST": {
+    "TITLE": "اعثر على فرص تناسب طموحك",
+    "SUBTITLE": "ابحث في الوظائف المتاحة، وقم بالتصفية حسب الدور والموقع، واستكشف فرصًا تناسب خطوتك القادمة.",
+    "BADGE": "وظائف ونمو مهني"
+  },
+  "FILTER": {
+    "LABEL": "تصفية:",
+    "SEARCH_PLACEHOLDER": "المسمى الوظيفي أو المهارات أو الشركة",
+    "LOCATION_PLACEHOLDER": "الموقع",
+    "ALL_CATEGORIES": "جميع الفئات",
+    "SORT_BY": "ترتيب حسب",
+    "SORT_RECENT": "الأحدث",
+    "SORT_SALARY": "أعلى راتب",
+    "CATEGORY": "الفئة",
+    "EXPERIENCE_LEVEL": "مستوى الخبرة",
+    "ALL_LEVELS": "جميع المستويات",
+    "JOB_TYPE": "نوع الوظيفة",
+    "ALL_TYPES": "جميع الأنواع",
+    "FILTERS": "عوامل التصفية",
+    "JOBS_FOUND": "تم العثور على {{count}} وظيفة",
+    "CLEAR": "مسح التصفية",
+    "CLEAR_ALL": "مسح الكل"
+  },
+  "EMPTY": {
+    "TITLE": "لم يتم العثور على وظائف",
+    "DESCRIPTION": "حاول تعديل عوامل التصفية أو كلمات البحث",
+    "CLEAR_FILTERS": "مسح جميع عوامل التصفية"
+  },
+  "CARD": {
+    "FEATURED": "مميزة",
+    "VIEW_DETAILS": "عرض التفاصيل",
+    "SAVE": "حفظ الوظيفة",
+    "REMOVE_SAVED": "إزالة من المحفوظات",
+    "TITLES": {
+      "SENIOR_FRONTEND_DEVELOPER": "مطور واجهات أمامية أول",
+      "PRODUCT_MANAGER": "مدير منتج",
+      "UI_UX_DESIGNER": "مصمم واجهة وتجربة المستخدم",
+      "BACKEND_ENGINEER_NODE": "مهندس خلفية (Node.js)",
+      "DIGITAL_MARKETING_SPECIALIST": "أخصائي تسويق رقمي",
+      "DATA_SCIENTIST": "عالم بيانات",
+      "DEVOPS_ENGINEER": "مهندس DevOps",
+      "SALES_EXECUTIVE": "تنفيذي مبيعات",
+      "ANDROID_DEVELOPER": "مطور أندرويد",
+      "HR_BUSINESS_PARTNER": "شريك أعمال الموارد البشرية",
+      "FRONTEND_DEVELOPER_ANGULAR": "مطور واجهات أمامية (Angular)",
+      "CONTENT_WRITER": "كاتب محتوى"
+    },
+    "COMPANIES": {
+      "TECHNOVA_SOLUTIONS": "TechNova Solutions",
+      "FINEDGE_CORP": "FinEdge Corp",
+      "CREATIVEHUB_AGENCY": "CreativeHub Agency",
+      "CLOUDSTACK_LTD": "CloudStack Ltd",
+      "GROWTHBOX": "GrowthBox",
+      "INSIGHT_AI": "InsightAI",
+      "INFRABASE": "InfraBase",
+      "TRADELINK": "TradeLink",
+      "MOBILEFIRST": "MobileFirst",
+      "PEOPLEFIRST": "PeopleFirst",
+      "PIXELCRAFT": "PixelCraft",
+      "MEDIASPHERE": "MediaSphere"
+    },
+    "LOCATIONS": {
+      "CAIRO_EGYPT": "القاهرة، مصر",
+      "ALEXANDRIA_EGYPT": "الإسكندرية، مصر",
+      "REMOTE": "عن بُعد",
+      "GIZA_EGYPT": "الجيزة، مصر"
     }
   },
-  "JOBS": {
-    "LIST": {
-      "TITLE": "Find Opportunities That Match Your Ambition",
-      "SUBTITLE": "Search active openings, refine by role and location, and explore jobs tailored to your next move.",
-      "BADGE": "Jobs & Career Growth"
-    },
-    "FILTER": {
-      "LABEL": "Filter:",
-      "SEARCH_PLACEHOLDER": "Job title, skills, or company",
-      "LOCATION_PLACEHOLDER": "Location",
-      "ALL_CATEGORIES": "All Categories",
-      "SORT_BY": "Sort By",
-      "SORT_RECENT": "Most Recent",
-      "SORT_SALARY": "Highest Salary",
-      "CATEGORY": "Category",
-      "EXPERIENCE_LEVEL": "Experience Level",
-      "ALL_LEVELS": "All Levels",
-      "JOB_TYPE": "Job Type",
-      "ALL_TYPES": "All Types",
-      "FILTERS": "Filters",
-      "JOBS_FOUND": "{{count}} jobs found",
-      "CLEAR": "Clear filters",
-      "CLEAR_ALL": "Clear All"
-    },
-    "EMPTY": {
-      "TITLE": "No jobs found",
-      "DESCRIPTION": "Try adjusting your filters or search terms",
-      "CLEAR_FILTERS": "Clear all filters"
-    },
-    "CARD": {
-      "FEATURED": "Featured",
-      "VIEW_DETAILS": "View Details",
-      "SAVE": "Save job",
-      "REMOVE_SAVED": "Remove from saved",
-      "TITLES": {
-        "SENIOR_FRONTEND_DEVELOPER": "Senior Frontend Developer",
-        "PRODUCT_MANAGER": "Product Manager",
-        "UI_UX_DESIGNER": "UI/UX Designer",
-        "BACKEND_ENGINEER_NODE": "Backend Engineer (Node.js)",
-        "DIGITAL_MARKETING_SPECIALIST": "Digital Marketing Specialist",
-        "DATA_SCIENTIST": "Data Scientist",
-        "DEVOPS_ENGINEER": "DevOps Engineer",
-        "SALES_EXECUTIVE": "Sales Executive",
-        "ANDROID_DEVELOPER": "Android Developer",
-        "HR_BUSINESS_PARTNER": "HR Business Partner",
-        "FRONTEND_DEVELOPER_ANGULAR": "Frontend Developer (Angular)",
-        "CONTENT_WRITER": "Content Writer"
-      },
-      "COMPANIES": {
-        "TECHNOVA_SOLUTIONS": "TechNova Solutions",
-        "FINEDGE_CORP": "FinEdge Corp",
-        "CREATIVEHUB_AGENCY": "CreativeHub Agency",
-        "CLOUDSTACK_LTD": "CloudStack Ltd",
-        "GROWTHBOX": "جرث بْس",
-        "INSIGHT_AI": "InsightAI",
-        "INFRABASE": "InfraBase",
-        "TRADELINK": "TradeLink",
-        "MOBILEFIRST": "MobileFirst",
-        "PEOPLEFIRST": "PeopleFirst",
-        "PIXELCRAFT": "PixelCraft",
-        "MEDIASPHERE": "MediaSphere"
-      },
-      "LOCATIONS": {
-        "CAIRO_EGYPT": "Cairo, Egypt",
-        "ALEXANDRIA_EGYPT": "Alexandria, Egypt",
-        "REMOTE": "ع بُعد",
-        "GIZA_EGYPT": "Giza, Egypt"
-      }
-    },
-    "TYPES": {
-      "FULL_TIME": "Full Time",
-      "PART_TIME": "Part Time",
-      "CONTRACT": "Contract",
-      "REMOTE": "ع بعد",
-      "INTERNSHIP": "Internship"
-    },
-    "LEVELS": {
-      "ENTRY": "Entry Level",
-      "MID": "Mid Level",
-      "SENIOR": "Senior",
-      "LEAD": "Lead",
-      "EXECUTIVE": "Executive"
-    },
-    "TOASTS": {
-      "SAVED": "Job saved to your list.",
-      "REMOVED": "Job removed from saved.",
-      "SAVED_SHORT": "Job saved!",
-      "REMOVED_SHORT": "Job removed."
-    },
-    "DETAIL": {
-      "NOT_FOUND": {
-        "TITLE": "Job not found",
-        "DESCRIPTION": "This role may have been removed or is no longer available.",
-        "BROWSE": "Browse all jobs"
-      },
-      "STATS": {
-        "APPLICANTS": "Applicants",
-        "VIEWS": "Views",
-        "SKILLS": "Skills"
-      },
-      "ABOUT_ROLE": "About the role",
-      "REQUIREMENTS": "Requirements",
-      "REQUIRED_SKILLS": "Required skills",
-      "SIMILAR_JOBS": "Similar jobs",
-      "APPLICATION_SUBMITTED": "Application submitted",
-      "APPLY_NOW": "Apply now",
-      "SAVE": "Save",
-      "SAVED": "Saved",
-      "SHARE": "Share",
-      "OVERVIEW": {
-        "TITLE": "Job overview",
-        "CATEGORY": "Category",
-        "POSTED": "Posted",
-        "JOB_TYPE": "Job type",
-        "EXPERIENCE": "Experience",
-        "SALARY": "Salary"
-      },
-      "TOASTS": {
-        "LOGIN_REQUIRED": "Please sign in to apply.",
-        "APPLIED": "Application submitted successfully.",
-        "LINK_COPIED": "Link copied to clipboard."
-      },
-      "BREADCRUMB": {
-        "JOBS": "Jobs"
-      }
-    }
+  "TYPES": {
+    "FULL_TIME": "دوام كامل",
+    "PART_TIME": "دوام جزئي",
+    "CONTRACT": "عقد",
+    "REMOTE": "عن بُعد",
+    "INTERNSHIP": "تدريب"
+  }
+},
+   "LEVELS": {
+  "ENTRY": "مبتدئ",
+  "MID": "متوسط",
+  "SENIOR": "كبير",
+  "LEAD": "قائد",
+  "EXECUTIVE": "تنفيذي"
+},
+"TOASTS": {
+  "SAVED": "تم حفظ الوظيفة في قائمتك.",
+  "REMOVED": "تمت إزالة الوظيفة من المحفوظات.",
+  "SAVED_SHORT": "تم حفظ الوظيفة!",
+  "REMOVED_SHORT": "تمت إزالة الوظيفة."
+},
+   "DETAIL": {
+  "NOT_FOUND": {
+    "TITLE": "الوظيفة غير موجودة",
+    "DESCRIPTION": "قد تكون هذه الوظيفة قد أُزيلت أو لم تعد متاحة.",
+    "BROWSE": "تصفح جميع الوظائف"
+  },
+  "STATS": {
+    "APPLICANTS": "المتقدمون",
+    "VIEWS": "المشاهدات",
+    "SKILLS": "المهارات"
+  },
+  "ABOUT_ROLE": "حول الوظيفة",
+  "REQUIREMENTS": "المتطلبات",
+  "REQUIRED_SKILLS": "المهارات المطلوبة",
+  "SIMILAR_JOBS": "وظائف مشابهة",
+  "APPLICATION_SUBMITTED": "تم تقديم الطلب",
+  "APPLY_NOW": "قدّم الآن",
+  "SAVE": "حفظ",
+  "SAVED": "تم الحفظ",
+  "SHARE": "مشاركة",
+  "OVERVIEW": {
+    "TITLE": "نظرة عامة على الوظيفة",
+    "CATEGORY": "الفئة",
+    "POSTED": "تاريخ النشر",
+    "JOB_TYPE": "نوع الوظيفة",
+    "EXPERIENCE": "الخبرة",
+    "SALARY": "الراتب"
+  },
+  "TOASTS": {
+    "LOGIN_REQUIRED": "يرجى تسجيل الدخول للتقديم.",
+    "APPLIED": "تم تقديم الطلب بنجاح.",
+    "LINK_COPIED": "تم نسخ الرابط."
+  },
+  "BREADCRUMB": {
+    "JOBS": "الوظائف"
+  }
+}
   },
   "AUTH": {
     "LOGIN": {
-      "TITLE": "Welcome back",
-      "SUBTITLE": "Sign in to your account to continue",
-      "DEMO_CANDIDATE": "Candidate",
-      "DEMO_EMPLOYER": "Employer",
-      "DEMO_ADMIN": "Admin",
-      "OR_EMAIL": "or sign in with email",
-      "FORGOT_PASSWORD": "Forgot password?",
-      "SUBMIT": "Sign In",
-      "SUBMITTING": "Signing in...",
-      "NO_ACCOUNT": "Don't have an account?",
-      "CREATE_ACCOUNT": "Create one free",
-      "WELCOME_TOAST": "Welcome back!",
-      "ERROR_TOAST": "Invalid credentials",
-      "CANDIDATE_TOAST": "Logged in as candidate!",
-      "EMPLOYER_TOAST": "Logged in as employer!",
-      "ADMIN_TOAST": "Logged in as admin!"
-    },
-    "REGISTER": {
-      "TITLE": "أنشئ حسابًا",
-      "SUBTITLE": "Join thousands of people finding their next opportunity",
-      "ROLE_LABEL": "أنا...",
-      "ROLE_SEEKER": "Job Seeker",
-      "ROLE_EMPLOYER": "Employer",
-      "TERMS_TEXT": "I agree to the",
-      "TERMS_LINK": "Terms of Service",
-      "TERMS_AND": "and",
-      "PRIVACY_LINK": "Privacy Policy",
-      "SUBMIT": "إنشاء حساب",
-      "SUBMITTING": "Creating account...",
-      "HAVE_ACCOUNT": "Already have an account?",
-      "SIGN_IN": "Sign in",
-      "SUCCESS_TOAST": "Account created successfully! Welcome aboard."
-    },
-    "FORM": {
-      "EMAIL_LABEL": "Email address",
-      "EMAIL_PLACEHOLDER": "you@example.com",
-      "EMAIL_REQUIRED": "Email is required",
-      "EMAIL_INVALID": "Please enter a valid email",
-      "PASSWORD_LABEL": "Password",
-      "PASSWORD_PLACEHOLDER": "••••••••",
-      "PASSWORD_MIN_PLACEHOLDER": "Min 8 characters",
-      "PASSWORD_REQUIRED": "Password is required",
-      "PASSWORD_MIN_LENGTH": "Password must be at least 8 characters",
-      "FULL_NAME_LABEL": "Full Name",
-      "FULL_NAME_PLACEHOLDER": "John Doe",
-      "NAME_REQUIRED": "Name is required",
-      "NAME_MIN_LENGTH": "Name must be at least 2 characters",
-      "COMPANY_NAME_LABEL": "Company Name",
-      "COMPANY_NAME_PLACEHOLDER": "شرْتْ",
-      "COMPANY_REQUIRED": "Company name is required for employers",
-      "INDUSTRY_LABEL": "Industry / Sector",
-      "INDUSTRY_PLACEHOLDER": "e.g. Software, Marketing",
-      "INDUSTRY_REQUIRED": "Industry is required for employers",
-      "TERMS_REQUIRED": "You must agree to the terms",
-      "STRENGTH_WEAK": "Weak",
-      "STRENGTH_FAIR": "Fair",
-      "STRENGTH_GOOD": "Good",
-      "STRENGTH_STRONG": "Strong"
-    },
+  "TITLE": "مرحبًا بعودتك",
+  "SUBTITLE": "سجّل الدخول إلى حسابك للمتابعة",
+  "DEMO_CANDIDATE": "مرشح",
+  "DEMO_EMPLOYER": "صاحب عمل",
+  "DEMO_ADMIN": "مسؤول",
+  "OR_EMAIL": "أو سجّل الدخول باستخدام البريد الإلكتروني",
+  "FORGOT_PASSWORD": "هل نسيت كلمة المرور؟",
+  "SUBMIT": "تسجيل الدخول",
+  "SUBMITTING": "جارٍ تسجيل الدخول...",
+  "NO_ACCOUNT": "ليس لديك حساب؟",
+  "CREATE_ACCOUNT": "أنشئ حسابًا مجانًا",
+  "WELCOME_TOAST": "مرحبًا بعودتك!",
+  "ERROR_TOAST": "بيانات الدخول غير صحيحة",
+  "CANDIDATE_TOAST": "تم تسجيل الدخول كمرشح!",
+  "EMPLOYER_TOAST": "تم تسجيل الدخول كصاحب عمل!",
+  "ADMIN_TOAST": "تم تسجيل الدخول كمسؤول!"
+},
+"REGISTER": {
+  "TITLE": "أنشئ حسابًا",
+  "SUBTITLE": "انضم إلى آلاف الأشخاص الذين يبحثون عن فرصتهم التالية",
+  "ROLE_LABEL": "أنا...",
+  "ROLE_SEEKER": "باحث عن عمل",
+  "ROLE_EMPLOYER": "صاحب عمل",
+  "TERMS_TEXT": "أوافق على",
+  "TERMS_LINK": "شروط الخدمة",
+  "TERMS_AND": "و",
+  "PRIVACY_LINK": "سياسة الخصوصية",
+  "SUBMIT": "إنشاء حساب",
+  "SUBMITTING": "جارٍ إنشاء الحساب...",
+  "HAVE_ACCOUNT": "لديك حساب بالفعل؟",
+  "SIGN_IN": "تسجيل الدخول",
+  "SUCCESS_TOAST": "تم إنشاء الحساب بنجاح! مرحبًا بك."
+},
+"FORM": {
+  "EMAIL_LABEL": "البريد الإلكتروني",
+  "EMAIL_PLACEHOLDER": "you@example.com",
+  "EMAIL_REQUIRED": "البريد الإلكتروني مطلوب",
+  "EMAIL_INVALID": "يرجى إدخال بريد إلكتروني صالح",
+  "PASSWORD_LABEL": "كلمة المرور",
+  "PASSWORD_PLACEHOLDER": "••••••••",
+  "PASSWORD_MIN_PLACEHOLDER": "8 أحرف على الأقل",
+  "PASSWORD_REQUIRED": "كلمة المرور مطلوبة",
+  "PASSWORD_MIN_LENGTH": "يجب أن تكون كلمة المرور 8 أحرف على الأقل",
+  "FULL_NAME_LABEL": "الاسم الكامل",
+  "FULL_NAME_PLACEHOLDER": "الاسم الكامل",
+  "NAME_REQUIRED": "الاسم مطلوب",
+  "NAME_MIN_LENGTH": "يجب أن يكون الاسم حرفين على الأقل",
+  "COMPANY_NAME_LABEL": "اسم الشركة",
+  "COMPANY_NAME_PLACEHOLDER": "اسم الشركة",
+  "COMPANY_REQUIRED": "اسم الشركة مطلوب لأصحاب العمل",
+  "INDUSTRY_LABEL": "المجال / القطاع",
+  "INDUSTRY_PLACEHOLDER": "مثال: برمجيات، تسويق",
+  "INDUSTRY_REQUIRED": "المجال مطلوب لأصحاب العمل",
+  "TERMS_REQUIRED": "يجب الموافقة على الشروط",
+  "STRENGTH_WEAK": "ضعيف",
+  "STRENGTH_FAIR": "مقبول",
+  "STRENGTH_GOOD": "جيد",
+  "STRENGTH_STRONG": "قوي"
+},
     "TESTIMONIALS": {
       "ITEMS": {
         "AISHA_KHAN": "عائشة خان"
@@ -332,39 +332,41 @@
   },
   "FREELANCERS": {
     "FEATURED": {
-      "TITLE": "Featured Freelancers",
-      "DESCRIPTION": "Connect with skilled professionals ready to bring your projects to life",
-      "EMPTY": "No featured freelancers available.",
-      "BROWSE_ALL": "Browse All Freelancers"
+      "TITLE": "المستقلون المميزون",
+      "DESCRIPTION": "تواصل مع محترفين مهرة جاهزين لتحويل مشاريعك إلى واقع",
+      "EMPTY": "لا يوجد مستقلون مميزون متاحون حالياً.",
+      "BROWSE_ALL": "تصفح جميع المستقلين"
     },
     "CARD": {
-      "REQUEST": "Request Freelancer",
+      "REQUEST": "طلب مستقل",
       "NAMES": {
-        "AISHA_KHAN": "عائشة خا",
-        "OMAR_RIZVI": "Omar Rizvi",
-        "LINA_AHMED": "Lina Ahmed",
-        "SAMIR_PATEL": "Samir Patel",
-        "PRIYA_SHARMA": "Priya Sharma",
-        "ZAID_HASSAN": "Zaid Hassan"
-      },
+  "AISHA_KHAN": "عائشة خان",
+  "OMAR_RIZVI": "عمر رضوي",
+  "LINA_AHMED": "لينا أحمد",
+  "SAMIR_PATEL": "سمير باتيل",
+  "PRIYA_SHARMA": "بريا شارما",
+  "ZAID_HASSAN": "زيد حسن"
+},
       "ROLES": {
-        "FRONTEND_DEVELOPER": "Frontend Developer",
-        "DOTNET_DEVELOPER": ".NET Developer",
-        "UX_UI_DESIGNER": "UX/UI Designer",
-        "FULL_STACK_DEVELOPER": "Full-Stack Developer",
-        "DATA_ANALYST": "Data Analyst",
-        "MOBILE_DEVELOPER": "Mobile Developer"
+        "FRONTEND_DEVELOPER": "مطور واجهات أمامية",
+        "DOTNET_DEVELOPER": "مطور .NET",
+        "UX_UI_DESIGNER": "مصمم UX/UI",
+        "FULL_STACK_DEVELOPER": "مطور متكامل",
+        "DATA_ANALYST": "محلل بيانات",
+        "MOBILE_DEVELOPER": "مطور تطبيقات جوال",
+        "UNKNOWN": "الدور غير متوفر"
       },
       "TYPES": {
-        "FREELANCER": "Freelancer"
+        "FREELANCER": "مستقل"
       },
       "DESCRIPTIONS": {
-        "FRONTEND_DEVELOPER": "Building responsive, accessible UIs with modern frameworks.",
-        "DOTNET_DEVELOPER": "Robust API development and scalable backend solutions.",
-        "UX_UI_DESIGNER": "Designing intuitive product experiences that delight users.",
-        "FULL_STACK_DEVELOPER": "End-to-end web applications from database to deployment.",
-        "DATA_ANALYST": "Turning raw data into actionable business insights.",
-        "MOBILE_DEVELOPER": "Cross-platform mobile apps for iOS and Android."
+        "FRONTEND_DEVELOPER": "بناء واجهات متجاوبة وسهلة الوصول باستخدام أحدث الأطر.",
+        "DOTNET_DEVELOPER": "تطوير واجهات API قوية وحلول خلفية قابلة للتوسع.",
+        "UX_UI_DESIGNER": "تصميم تجارب استخدام بديهية وممتعة للمستخدمين.",
+        "FULL_STACK_DEVELOPER": "تطوير تطبيقات ويب متكاملة من قاعدة البيانات حتى النشر.",
+        "DATA_ANALYST": "تحويل البيانات الخام إلى رؤى عملية تدعم قرارات الأعمال.",
+        "MOBILE_DEVELOPER": "تطوير تطبيقات جوال متعددة المنصات لنظامي iOS وAndroid.",
+        "UNKNOWN": "لا يوجد وصف متاح حالياً."
       },
       "SKILLS": {
         "ANGULAR": "Angular",
@@ -387,86 +389,86 @@
       }
     },
     "PAGE": {
-      "TITLE": "Hire Proven Freelancers Faster",
-      "SUBTITLE": "Browse approved specialists, filter by skill set and location, and find talent ready to contribute.",
-      "BADGE": "Freelancers & Specialists"
-    },
-    "FILTER": {
-      "SEARCH_PLACEHOLDER": "Search skills or role",
-      "LOCATION_PLACEHOLDER": "Location",
-      "LABEL": "Filter:",
-      "EXPERIENCE_LEVEL": "Experience Level",
-      "EXPERIENCE_OPTIONS": {
-        "BEGINNER": "Beginner",
-        "INTERMEDIATE": "Intermediate",
-        "EXPERT": "Expert"
-      },
-      "AVAILABILITY": "Availability",
-      "AVAILABILITY_OPTIONS": {
-        "AVAILABLE_NOW": "Available Now",
-        "PART_TIME": "Part-time",
-        "CONTRACT": "Contract"
-      },
-      "RESULTS": "{{count}} freelancers",
-      "CLEAR": "Clear filters"
-    },
-    "EMPTY": "No freelancers match your search.",
+  "TITLE": "وظّف مستقلين محترفين بسرعة",
+  "SUBTITLE": "تصفح متخصصين معتمدين، وقم بالتصفية حسب المهارات والموقع، واعثر على مواهب جاهزة للعمل.",
+  "BADGE": "المستقلون والمتخصصون"
+},
+"FILTER": {
+  "SEARCH_PLACEHOLDER": "ابحث عن مهارات أو دور وظيفي",
+  "LOCATION_PLACEHOLDER": "الموقع",
+  "LABEL": "تصفية:",
+  "EXPERIENCE_LEVEL": "مستوى الخبرة",
+  "EXPERIENCE_OPTIONS": {
+    "BEGINNER": "مبتدئ",
+    "INTERMEDIATE": "متوسط",
+    "EXPERT": "خبير"
+  },
+  "AVAILABILITY": "التوفر",
+  "AVAILABILITY_OPTIONS": {
+    "AVAILABLE_NOW": "متاح الآن",
+    "PART_TIME": "دوام جزئي",
+    "CONTRACT": "عقد"
+  },
+  "RESULTS": "{{count}} مستقل",
+  "CLEAR": "مسح التصفية"
+},
+"EMPTY": "لا يوجد مستقلون يطابقون بحثك.",
     "HEADER": {
       "RESULTS": "عرض {{count}} نتيجة"
     }
   },
   "COMPANIES": {
     "PAGE": {
-      "TITLE": "Explore Companies Worth Building With",
-      "SUBTITLE": "Research teams, discover open roles, and compare employers that align with your goals.",
-      "BADGE": "Companies & Employers"
-    },
-    "FILTER": {
-      "SEARCH_PLACEHOLDER": "Search by company name or industry...",
-      "LABEL": "Filter:",
-      "ALL_INDUSTRIES": "All Industries",
-      "ALL_LOCATIONS": "All Locations",
-      "RESULTS": "{{count}} شرْة",
-      "CLEAR": "Clear filters"
-    },
-    "CARD": {
-      "OPEN_JOBS": "{{count}} Open Jobs",
-      "VIEW": "عرض"
-    },
+  "TITLE": "استكشف شركات تستحق العمل معها",
+  "SUBTITLE": "ابحث عن الفرق، واكتشف الوظائف المتاحة، وقارن بين أصحاب العمل الذين يتوافقون مع أهدافك.",
+  "BADGE": "الشركات وأصحاب العمل"
+},
+"FILTER": {
+  "SEARCH_PLACEHOLDER": "ابحث باسم الشركة أو المجال...",
+  "LABEL": "تصفية:",
+  "ALL_INDUSTRIES": "جميع المجالات",
+  "ALL_LOCATIONS": "جميع المواقع",
+  "RESULTS": "{{count}} شركة",
+  "CLEAR": "مسح التصفية"
+},
+"CARD": {
+  "OPEN_JOBS": "{{count}} وظيفة متاحة",
+  "VIEW": "عرض"
+},
     "NAMES": {
-      "TECHFLOW": "TechFlow",
-      "GLOBAL_HEALTH": "Global Health",
-      "FINTRUST": "FinTrust",
-      "CLOUDSCALE": "CloudScale",
-      "DESIGNHUB": "DesignHub",
-      "EDUSPHERE": "EduSphere",
-      "AUTODRIVE_AI": "AutoDrive AI",
-      "GREENENERGY": "GreenEnergy"
-    },
-    "LOCATIONS": {
-      "SAN_FRANCISCO_CA": "San Francisco, CA",
-      "NEW_YORK_NY": "New York, NY",
-      "LONDON_UK": "London, UK",
-      "AUSTIN_TX": "أست R تْساس",
-      "BERLIN_DE": "Berlin, DE",
-      "REMOTE": "ع بُعد",
-      "DETROIT_MI": "Detroit, MI",
-      "DENVER_CO": "Denver, CO"
-    },
-    "DESCRIPTIONS": {
-      "TECHFLOW": "Building the next generation of seamless workflow automation tools for modern teams.",
-      "GLOBAL_HEALTH": "Innovative health tech solutions bridging the gap between patients and medical professionals.",
-      "FINTRUST": "Democratizing algorithmic trading and secure asset management for everyday users.",
-      "CLOUDSCALE": "Enterprise cloud infrastructure simplified. We help scale businesses securely.",
-      "DESIGNHUB": "Award-winning creative agency focused on digital experiences and brand identity.",
-      "EDUSPHERE": "Accessible online learning platforms that empower students globally.",
-      "AUTODRIVE_AI": "Pioneering autonomous vehicle software using advanced neural networks.",
-      "GREENENERGY": "Renewable energy solutions focusing on smart grid optimization and solar integration."
-    },
-    "EMPTY": {
-      "TITLE": "No companies found",
-      "MESSAGE": "Try adjusting your search to find what you're looking for."
-    },
+  "TECHFLOW": "TechFlow",
+  "GLOBAL_HEALTH": "Global Health",
+  "FINTRUST": "FinTrust",
+  "CLOUDSCALE": "CloudScale",
+  "DESIGNHUB": "DesignHub",
+  "EDUSPHERE": "EduSphere",
+  "AUTODRIVE_AI": "AutoDrive AI",
+  "GREENENERGY": "GreenEnergy"
+},
+"LOCATIONS": {
+  "SAN_FRANCISCO_CA": "سان فرانسيسكو، كاليفورنيا",
+  "NEW_YORK_NY": "نيويورك، نيويورك",
+  "LONDON_UK": "لندن، المملكة المتحدة",
+  "AUSTIN_TX": "أوستن، تكساس",
+  "BERLIN_DE": "برلين، ألمانيا",
+  "REMOTE": "عن بُعد",
+  "DETROIT_MI": "ديترويت، ميشيغان",
+  "DENVER_CO": "دنفر، كولورادو"
+},
+"DESCRIPTIONS": {
+  "TECHFLOW": "نبني الجيل القادم من أدوات أتمتة سير العمل السلسة للفرق الحديثة.",
+  "GLOBAL_HEALTH": "حلول تقنية صحية مبتكرة تربط بين المرضى والمتخصصين الطبيين.",
+  "FINTRUST": "نجعل التداول الخوارزمي وإدارة الأصول الآمنة متاحة للجميع.",
+  "CLOUDSCALE": "تبسيط البنية التحتية السحابية للمؤسسات ومساعدة الشركات على التوسع بأمان.",
+  "DESIGNHUB": "وكالة إبداعية حائزة على جوائز تركز على التجارب الرقمية وهوية العلامة التجارية.",
+  "EDUSPHERE": "منصات تعليم إلكتروني ميسّرة تمكّن الطلاب حول العالم.",
+  "AUTODRIVE_AI": "نطوّر برمجيات المركبات ذاتية القيادة باستخدام شبكات عصبية متقدمة.",
+  "GREENENERGY": "حلول طاقة متجددة تركز على تحسين الشبكات الذكية ودمج الطاقة الشمسية."
+},
+"EMPTY": {
+  "TITLE": "لم يتم العثور على شركات",
+  "MESSAGE": "حاول تعديل البحث للعثور على ما تبحث عنه."
+},
     "INDUSTRIES": {
       "SOFTWARE": "Software",
       "HEALTHCARE": "Healthcare",
@@ -520,135 +522,135 @@
   },
   "EMPLOYER": {
     "NAV": {
-      "OVERVIEW": "Overview",
-      "POST_JOB": "Post a Job",
-      "MANAGE_JOBS": "Manage Jobs",
-      "APPLICANTS": "Applicants",
-      "MESSAGES": "Messages"
+  "OVERVIEW": "نظرة عامة",
+  "POST_JOB": "نشر وظيفة",
+  "MANAGE_JOBS": "إدارة الوظائف",
+  "APPLICANTS": "المتقدمون",
+  "MESSAGES": "الرسائل"
+},
+"STATUS": {
+  "ACTIVE": "نشط",
+  "CLOSED": "مغلق",
+  "NEW": "جديد",
+  "REVIEWED": "تمت المراجعة",
+  "SHORTLISTED": "تم الاختيار المبدئي",
+  "REJECTED": "مرفوض"
+},
+"CTA": {
+  "TITLE": "نشر وظيفة جديدة",
+  "SUBTITLE": "وصل إلى أكثر من 50,000 مرشح نشط اليوم",
+  "BUTTON": "انشر وظيفة الآن"
+},
+"OVERVIEW": {
+  "TITLE": "نظرة عامة على لوحة التحكم",
+  "VERIFIED_COMPANY": "شركة موثّقة",
+  "ACTIVE_POSTINGS": "الوظائف النشطة",
+  "POST_JOB": "نشر وظيفة",
+  "RECENT_APPLICANTS": "أحدث المتقدمين",
+  "VIEW_ALL": "عرض الكل",
+  "APPLIED_FOR": "تقدم إلى"
+},
+"STATS": {
+  "ACTIVE_POSTINGS": "الإعلانات النشطة",
+  "TOTAL_APPLICANTS": "إجمالي المتقدمين",
+  "TOTAL_VIEWS": "إجمالي المشاهدات",
+  "HIRES_MADE": "عدد التعيينات",
+  "CHANGE_THIS_MONTH": "+2 هذا الشهر",
+  "CHANGE_THIS_WEEK": "+28 هذا الأسبوع",
+  "CHANGE_PERCENT": "+12%"
+},
+"TABLE": {
+  "JOB_TITLE": "المسمى الوظيفي",
+  "APPLICANTS": "المتقدمون",
+  "VIEWS": "المشاهدات",
+  "STATUS": "الحالة",
+  "APPLICANTS_LABEL": "متقدم"
+},
+"POSTED": {
+  "THREE_DAYS_AGO": "منذ 3 أيام",
+  "ONE_WEEK_AGO": "منذ أسبوع",
+  "TWO_WEEKS_AGO": "منذ أسبوعين",
+  "THREE_WEEKS_AGO": "منذ 3 أسابيع",
+  "ONE_MONTH_AGO": "منذ شهر"
+},
+"POST_JOB": {
+  "TITLE": "نشر وظيفة جديدة",
+  "DETAILS": "تفاصيل الوظيفة",
+  "SAVE_DRAFT": "حفظ كمسودة",
+  "PUBLISHING": "جارٍ النشر...",
+  "PUBLISH": "نشر الوظيفة",
+  "SKILLS_HELP": "افصل المهارات بفواصل",
+  "FIELDS": {
+    "TITLE": "المسمى الوظيفي *",
+    "CATEGORY": "الفئة *",
+    "TYPE": "نوع الوظيفة *",
+    "LOCATION": "الموقع *",
+    "EXPERIENCE": "مستوى الخبرة *",
+    "SALARY": "نطاق الراتب (اختياري)",
+    "DESCRIPTION": "وصف الوظيفة *",
+    "SKILLS": "المهارات المطلوبة"
+  },
+  "PLACEHOLDERS": {
+    "TITLE": "مثال: مطور واجهات أمامية أول",
+    "CATEGORY": "اختر فئة",
+    "TYPE": "اختر النوع",
+    "LOCATION": "مثال: القاهرة، مصر أو عن بُعد",
+    "EXPERIENCE": "اختر المستوى",
+    "SALARY": "مثال: 3000$ - 5000$",
+    "DESCRIPTION": "قم بوصف الدور والمسؤوليات وما تبحث عنه...",
+    "SKILLS": "مثال: React, TypeScript, Node.js (مفصولة بفواصل)"
+  },
+  "ERRORS": {
+    "TITLE_REQUIRED": "المسمى الوظيفي مطلوب",
+    "DESCRIPTION_REQUIRED": "الوصف مطلوب"
+  }
     },
-    "STATUS": {
-      "ACTIVE": "شطة",
-      "CLOSED": "Closed",
-      "NEW": "New",
-      "REVIEWED": "Reviewed",
-      "SHORTLISTED": "Shortlisted",
-      "REJECTED": "Rejected"
-    },
-    "CTA": {
-      "TITLE": "Post a New Job",
-      "SUBTITLE": "Reach 50,000+ active candidates today",
-      "BUTTON": "Post Job Now"
-    },
-    "OVERVIEW": {
-      "TITLE": "Dashboard Overview",
-      "VERIFIED_COMPANY": "Verified Company",
-      "ACTIVE_POSTINGS": "Active Job Postings",
-      "POST_JOB": "Post Job",
-      "RECENT_APPLICANTS": "Recent Applicants",
-      "VIEW_ALL": "View all",
-      "APPLIED_FOR": "Applied for"
-    },
-    "STATS": {
-      "ACTIVE_POSTINGS": "Active Postings",
-      "TOTAL_APPLICANTS": "Total Applicants",
-      "TOTAL_VIEWS": "Total Views",
-      "HIRES_MADE": "Hires Made",
-      "CHANGE_THIS_MONTH": "+2 this month",
-      "CHANGE_THIS_WEEK": "+28 this week",
-      "CHANGE_PERCENT": "+12%"
-    },
-    "TABLE": {
-      "JOB_TITLE": "Job Title",
-      "APPLICANTS": "Applicants",
-      "VIEWS": "Views",
-      "STATUS": "Status",
-      "APPLICANTS_LABEL": "applicants"
-    },
-    "POSTED": {
-      "THREE_DAYS_AGO": "3 days ago",
-      "ONE_WEEK_AGO": "1 week ago",
-      "TWO_WEEKS_AGO": "2 weeks ago",
-      "THREE_WEEKS_AGO": "3 weeks ago",
-      "ONE_MONTH_AGO": "1 month ago"
-    },
-    "POST_JOB": {
-      "TITLE": "Post a New Job",
-      "DETAILS": "Job Details",
-      "SAVE_DRAFT": "Save Draft",
-      "PUBLISHING": "Publishing...",
-      "PUBLISH": "Publish Job",
-      "SKILLS_HELP": "Separate skills with commas",
-      "FIELDS": {
-        "TITLE": "Job Title *",
-        "CATEGORY": "Category *",
-        "TYPE": "Job Type *",
-        "LOCATION": "Location *",
-        "EXPERIENCE": "Experience Level *",
-        "SALARY": "Salary Range (optional)",
-        "DESCRIPTION": "Job Description *",
-        "SKILLS": "Required Skills"
-      },
-      "PLACEHOLDERS": {
-        "TITLE": "e.g. Senior Frontend Developer",
-        "CATEGORY": "اختر فئة",
-        "TYPE": "Select type",
-        "LOCATION": "e.g. Cairo, Egypt or Remote",
-        "EXPERIENCE": "Select level",
-        "SALARY": "e.g. $3,000 - $5,000",
-        "DESCRIPTION": "Describe the role, responsibilities, and what you're looking for...",
-        "SKILLS": "e.g. React, TypeScript, Node.js (comma separated)"
-      },
-      "ERRORS": {
-        "TITLE_REQUIRED": "Job title is required",
-        "DESCRIPTION_REQUIRED": "Description is required"
-      }
-    },
-    "MANAGE": {
-      "TITLE": "Manage Jobs",
-      "POST_NEW": "Post New Job",
-      "POSITION": "Position",
-      "APPLICATIONS": "Applications",
-      "POSTED": "Posted",
-      "STATUS": "Status",
-      "ACTIONS": "Actions",
-      "EDIT": "Edit",
-      "CLOSE": "Close"
-    },
-    "APPLICANTS": {
-      "TITLE": "All Applicants",
-      "SEARCH": "Search applicants...",
-      "ALL_STATUS": "All Status",
-      "APPLIED_FOR": "Applied for",
-      "REVIEW": "Review",
-      "SHORTLIST": "Shortlist"
-    },
-    "COMPANY_PROFILE": {
-      "TITLE": "Company Profile",
-      "SUBTITLE": "Manage the public details candidates see before they apply.",
-      "COMPANY": "Company",
-      "OWNER": "Account Owner",
-      "EMPTY_COMPANY": "Company name not set",
-      "EMPTY_OWNER": "Employer user"
-    },
-    "MESSAGES": {
-      "TITLE": "Messages",
-      "SUBTITLE": "Hiring conversations and recruiter inbox tools will appear here.",
-      "OUTREACH_TITLE": "Candidate outreach",
-      "EMPTY": "No messages available yet."
-    },
-    "SETTINGS": {
-      "TITLE": "Settings",
-      "SUBTITLE": "Employer account controls for your hiring workspace.",
-      "PASSWORD_PLACEHOLDER": "Enter a new password",
-      "UPDATE_PASSWORD": "Update Password",
-      "WORKSPACE": "Workspace",
-      "WORKSPACE_NOTE": "Notifications and team settings can be added here as the employer module grows."
-    },
-    "TOASTS": {
-      "JOB_POSTED": "Job posted successfully.",
-      "PASSWORD_REQUIRED": "Please enter a new password.",
-      "PASSWORD_UPDATED": "Password updated."
-    },
+"MANAGE": {
+  "TITLE": "إدارة الوظائف",
+  "POST_NEW": "نشر وظيفة جديدة",
+  "POSITION": "المنصب",
+  "APPLICATIONS": "طلبات التقديم",
+  "POSTED": "تاريخ النشر",
+  "STATUS": "الحالة",
+  "ACTIONS": "الإجراءات",
+  "EDIT": "تعديل",
+  "CLOSE": "إغلاق"
+},
+"APPLICANTS": {
+  "TITLE": "جميع المتقدمين",
+  "SEARCH": "ابحث عن المتقدمين...",
+  "ALL_STATUS": "جميع الحالات",
+  "APPLIED_FOR": "تقدم إلى",
+  "REVIEW": "مراجعة",
+  "SHORTLIST": "إضافة إلى القائمة المختصرة"
+},
+"COMPANY_PROFILE": {
+  "TITLE": "ملف الشركة",
+  "SUBTITLE": "إدارة التفاصيل العامة التي يراها المرشحون قبل التقديم.",
+  "COMPANY": "الشركة",
+  "OWNER": "مالك الحساب",
+  "EMPTY_COMPANY": "لم يتم تحديد اسم الشركة",
+  "EMPTY_OWNER": "مستخدم صاحب العمل"
+},
+"MESSAGES": {
+  "TITLE": "الرسائل",
+  "SUBTITLE": "ستظهر هنا محادثات التوظيف وأدوات صندوق الوارد الخاصة بالمجندين.",
+  "OUTREACH_TITLE": "التواصل مع المرشحين",
+  "EMPTY": "لا توجد رسائل حتى الآن."
+},
+"SETTINGS": {
+  "TITLE": "الإعدادات",
+  "SUBTITLE": "إعدادات حساب صاحب العمل لإدارة مساحة العمل الخاصة بك.",
+  "PASSWORD_PLACEHOLDER": "أدخل كلمة مرور جديدة",
+  "UPDATE_PASSWORD": "تحديث كلمة المرور",
+  "WORKSPACE": "مساحة العمل",
+  "WORKSPACE_NOTE": "يمكن إضافة الإشعارات وإعدادات الفريق هنا مع تطوير وحدة صاحب العمل."
+},
+"TOASTS": {
+  "JOB_POSTED": "تم نشر الوظيفة بنجاح.",
+  "PASSWORD_REQUIRED": "يرجى إدخال كلمة مرور جديدة.",
+  "PASSWORD_UPDATED": "تم تحديث كلمة المرور."
+},
     "HOME": {
       "WELCOME_LABEL": "مساحة عمل صاحب العمل",
       "WELCOME_TITLE": "نظرة عامة على التوظيف في {{company}}",
@@ -690,781 +692,781 @@
     }
   },
   "CANDIDATE": {
-    "NO_DATA": "No data available",
-    "HEADER": {
-      "LOGOUT": "Log out"
+  "NO_DATA": "لا توجد بيانات متاحة",
+  "HEADER": {
+    "LOGOUT": "تسجيل الخروج"
+  },
+  "NAV": {
+    "DASHBOARD": "لوحة التحكم",
+    "PROFILE": "الملف الشخصي",
+    "JOBS": "الوظائف",
+    "APPLICATIONS": "طلبات التقديم",
+    "SAVED_JOBS": "الوظائف المحفوظة",
+    "MESSAGES": "الرسائل",
+    "NOTIFICATIONS": "الإشعارات"
+  },
+  "SHELL": {
+    "PROFILE_COMPLETION": "اكتمال الملف الشخصي",
+    "COMPLETE_PROFILE": "أكمل ملفك الشخصي",
+    "CHECKLIST": {
+      "ADD_SKILLS": "إضافة المهارات",
+      "ADD_EXPERIENCE": "إضافة الخبرة",
+      "UPLOAD_RESUME": "رفع السيرة الذاتية"
     },
-    "NAV": {
-      "DASHBOARD": "Dashboard",
-      "PROFILE": "Profile",
-      "JOBS": "Jobs",
-      "APPLICATIONS": "Applications",
-      "SAVED_JOBS": "Saved Jobs",
-      "MESSAGES": "Messages",
-      "NOTIFICATIONS": "Notifications"
+    "DONE": "تم",
+    "OPEN": "فتح",
+    "PROFILE_OVERVIEW": "نظرة عامة على الملف الشخصي",
+    "PROFILE_TIP": "حافظ على تحديث ملفك الشخصي ليتمكن أصحاب العمل من العثور عليك بشكل أسرع.",
+    "BECOME_FREELANCER": "كن مستقلاً",
+    "FREELANCER_REQUEST_SUBMITTED": "تم إرسال طلب العمل كمستقل للمراجعة.",
+    "FREELANCER_PENDING": "طلب العمل كمستقل قيد المراجعة",
+    "VIEW_FREELANCER_PROFILE": "عرض ملف المستقل"
+  },
+  "OVERVIEW": {
+    "WELCOME": "مرحبًا بعودتك",
+    "TITLE": "لوحة تحكم المرشح الخاصة بك جاهزة",
+    "SUBTITLE": "تابع طلبات التقديم الخاصة بك، وأكمل ملفك الشخصي، وابقَ على اطلاع بأنشطة التوظيف.",
+    "RECENT_ACTIVITY_TITLE": "النشاط الأخير",
+    "STATS": {
+      "TOTAL_APPLICATIONS": "إجمالي طلبات التقديم",
+      "SHORTLISTED": "تم اختيارك مبدئيًا",
+      "INTERVIEWS": "المقابلات"
     },
-    "SHELL": {
-      "PROFILE_COMPLETION": "Profile completion",
-      "COMPLETE_PROFILE": "Complete Your Profile",
-      "CHECKLIST": {
-        "ADD_SKILLS": "Add Skills",
-        "ADD_EXPERIENCE": "Add Experience",
-        "UPLOAD_RESUME": "Upload Resume"
-      },
-      "DONE": "Done",
-      "OPEN": "افتح",
-      "PROFILE_OVERVIEW": "Profile Overview Card",
-      "PROFILE_TIP": "Keep your profile current so recruiters can discover you faster.",
-      "BECOME_FREELANCER": "Become a Freelancer",
-      "FREELANCER_REQUEST_SUBMITTED": "Freelancer request submitted for review.",
-      "FREELANCER_PENDING": "Freelancer request pending",
-      "VIEW_FREELANCER_PROFILE": "View Freelancer Profile"
-    },
-    "OVERVIEW": {
-      "WELCOME": "Welcome back",
-      "TITLE": "Your candidate dashboard is ready",
-      "SUBTITLE": "Track your applications, complete your profile, and stay on top of recruiter activity.",
-      "RECENT_ACTIVITY_TITLE": "Recent Activity",
-      "STATS": {
-        "TOTAL_APPLICATIONS": "Total Applications",
-        "SHORTLISTED": "Shortlisted",
-        "INTERVIEWS": "Interviews"
-      },
-      "RECOMMENDED_JOBS": "Recommended jobs",
-      "SEE_ALL": "See all",
-      "RECENT_ACTIVITY": "Recent activity",
-      "RECENT_ACTIVITY_SUBTITLE": "Track your latest job-related updates",
-      "APPLICATIONS_LINK": "Applications",
-      "LATEST_UPDATES": "Latest updates",
-      "LATEST_UPDATES_SUBTITLE": "Follow fresh job matches, recruiter activity, and profile reminders.",
-      "NOTIFICATIONS_LINK": "Notifications",
-      "NEW_BADGE": "New"
-    },
+    "RECOMMENDED_JOBS": "وظائف موصى بها",
+    "SEE_ALL": "عرض الكل",
+    "RECENT_ACTIVITY": "النشاط الأخير",
+    "RECENT_ACTIVITY_SUBTITLE": "تابع آخر التحديثات المتعلقة بالوظائف",
+    "APPLICATIONS_LINK": "طلبات التقديم",
+    "LATEST_UPDATES": "أحدث التحديثات",
+    "LATEST_UPDATES_SUBTITLE": "تابع أحدث الوظائف المناسبة، وأنشطة أصحاب العمل، وتذكيرات الملف الشخصي.",
+    "NOTIFICATIONS_LINK": "الإشعارات",
+    "NEW_BADGE": "جديد"
+  },
     "HOME": {
-      "WELCOME_LABEL": "Candidate Home",
-      "WELCOME_TITLE": "Welcome, {{name}}",
-      "WELCOME_SUBTITLE": "A lighter starting point for your job search, with quick access to jobs, profile momentum, and the latest activity.",
-      "BROWSE_JOBS": "Browse Jobs",
-      "COMPLETE_PROFILE": "Complete Profile",
-      "RECOMMENDED_TITLE": "Recommended for you",
-      "RECOMMENDED_SUBTITLE": "Fresh matches based on your current profile and activity.",
-      "PROFILE_STRENGTH": "Profile Strength",
-      "PROFILE_STRENGTH_SUBTITLE": "A stronger profile helps recruiters discover you faster.",
-      "IMPROVE_PROFILE": "Improve Profile",
-      "RECENT_ACTIVITY": "Recent Activity",
-      "RECENT_ACTIVITY_SUBTITLE": "Keep track of the latest actions around your job search.",
-      "PROFILE_STRENGTH_MESSAGES": {
-        "STRONG": "Your profile is in great shape. A few small updates can make it even stronger.",
-        "GROWING": "You have a solid start. Add a few more details to boost visibility.",
-        "START": "Complete the basics to unlock better job matches and recruiter interest."
-      },
-      "ACTIONS": {
-        "BROWSE_JOBS": {
-          "TITLE": "Browse Jobs",
-          "SUBTITLE": "Explore new openings"
-        },
-        "APPLICATIONS": {
-          "TITLE": "My Applications",
-          "SUBTITLE": "Track submitted roles"
-        },
-        "PROFILE": {
-          "TITLE": "Profile",
-          "SUBTITLE": "Strengthen your profile"
-        },
-        "SAVED": {
-          "TITLE": "Saved Jobs",
-          "SUBTITLE": "Revisit bookmarked roles"
-        }
-      },
-      "WELCOME_SUBTITLE_WITH_ABOUT": "{{about}} You have {{updates}} active updates and {{roles}} recommended roles waiting.",
-      "STATS": {
-        "UNREAD_UPDATES": "Unread updates"
-      },
-      "PROFILE_HIGHLIGHTS": {
-        "HEADLINE": "Headline",
-        "ADD_HEADLINE": "Add your headline",
-        "LOCATION": "Location",
-        "ADD_LOCATION": "Add your location",
-        "SKILLS": "Skills",
-        "SKILLS_LISTED": "{{count}} listed",
-        "RESUME": "Resume",
-        "UPLOAD_RESUME": "Upload resume"
-      },
-      "PRIORITY_STEPS": {
-        "TITLE": "Priority next steps",
-        "SUBTITLE": "Small actions that improve your visibility this week.",
-        "PROFILE_DESCRIPTION": "Complete this profile step to improve discoverability.",
-        "PROFILE_BADGE": "Profile",
-        "INBOX_BADGE": "Inbox",
-        "ALERT_BADGE": "Alert"
-      },
-      "CAREER_ACCELERATOR": {
-        "TITLE": "Career accelerator",
-        "SUBTITLE": "Keep your profile discoverable and application-ready.",
-        "DONE": "Done",
-        "NEXT": "Next"
-      },
-      "INBOX": {
-        "TITLE": "Inbox highlights",
-        "SUBTITLE": "Recruiter and platform updates that need attention."
-      },
-      "OPPORTUNITY_SIGNALS": {
-        "TITLE": "Opportunity signals",
-        "SUBTITLE": "Live indicators from your applications and alerts.",
-        "ACTIVE": "Active"
-      },
-      "PROFILE_STRENGTH_TONE": {
-        "STRONG": "Strong",
-        "GROWING": "Growing",
-        "STARTER": "Starter"
-      }
-    },
-    "USER": {
-      "NAME": {
-        "AHMED_HASSAN": "Ahmed Hassan"
-      }
+  "WELCOME_LABEL": "الصفحة الرئيسية للمرشح",
+  "WELCOME_TITLE": "مرحبًا، {{name}}",
+  "WELCOME_SUBTITLE": "نقطة بداية بسيطة لبحثك عن وظيفة، مع وصول سريع إلى الوظائف، وتقدم ملفك الشخصي، وأحدث الأنشطة.",
+  "BROWSE_JOBS": "تصفح الوظائف",
+  "COMPLETE_PROFILE": "أكمل الملف الشخصي",
+  "RECOMMENDED_TITLE": "موصى به لك",
+  "RECOMMENDED_SUBTITLE": "وظائف جديدة بناءً على ملفك الشخصي ونشاطك الحالي.",
+  "PROFILE_STRENGTH": "قوة الملف الشخصي",
+  "PROFILE_STRENGTH_SUBTITLE": "كلما كان ملفك أقوى، زادت فرص ظهورك لأصحاب العمل.",
+  "IMPROVE_PROFILE": "تحسين الملف الشخصي",
+  "RECENT_ACTIVITY": "النشاط الأخير",
+  "RECENT_ACTIVITY_SUBTITLE": "تابع أحدث الأنشطة المتعلقة ببحثك عن وظيفة.",
+  "PROFILE_STRENGTH_MESSAGES": {
+    "STRONG": "ملفك الشخصي ممتاز. بعض التحديثات البسيطة قد تجعله أفضل.",
+    "GROWING": "لديك بداية جيدة. أضف بعض التفاصيل لتعزيز ظهورك.",
+    "START": "أكمل الأساسيات للحصول على فرص أفضل وجذب انتباه أصحاب العمل."
+  },
+  "ACTIONS": {
+    "BROWSE_JOBS": {
+      "TITLE": "تصفح الوظائف",
+      "SUBTITLE": "استكشف فرصًا جديدة"
     },
     "APPLICATIONS": {
-      "TITLE": "Applications",
-      "SUBTITLE": "Track your submitted applications and review the latest status updates from employers.",
-      "JOB_TITLE": "Job Title",
-      "COMPANY": "Company",
-      "APPLIED_DATE": "Applied Date",
-      "STATUS": "Status"
-    },
-    "MESSAGES": {
-      "TITLE": "Messages",
-      "SUBTITLE": "Recruiter communication is ready with a clean placeholder experience.",
-      "AT": "at",
-      "CONTACTS": {
-        "NEHA_KAPOOR": "Neha Kapoor",
-        "RAHUL_MENON": "Rahul Menon",
-        "PRIYA_DESAI": "Priya Desai"
-      },
-      "COMPANIES": {
-        "HIREWAVE": "HireWave",
-        "PEOPLEMESH": "PeopleMesh",
-        "CLOUDORBIT": "CloudOrbit"
-      },
-      "SUBJECTS": {
-        "INTERVIEW_AVAILABILITY": "Interview availability request",
-        "QUICK_FOLLOW_UP": "Quick follow-up from recruiter",
-        "APPLICATION_UPDATE": "Application update"
-      },
-      "PREVIEWS": {
-        "INTERVIEW_AVAILABILITY": "Your profile stood out to the team. Are you available for a first-round discussion this week?",
-        "APPLICATION_FOLLOW_UP": "We are moving your application forward and would like to confirm your notice period.",
-        "APPLICATION_CLOSED": "Thanks again for applying. We have filled the role but would like to keep your profile on file."
-      }
-    },
-    "NOTIFICATIONS": {
-      "TITLE": "Notifications",
-      "SUBTITLE": "Job alerts and application updates appear here.",
-      "NEW_BADGE": "New",
-      "MARK_READ": "Mark as read",
-      "ITEMS": {
-        "NEW_JOB_MATCH": {
-          "TITLE": "New job match",
-          "MESSAGE": "3 frontend jobs match your Angular and Tailwind skills."
-        },
-        "APPLICATION_MOVED": {
-          "TITLE": "Application moved to interview",
-          "MESSAGE": "PeopleMesh advanced your application to the interview stage."
-        },
-        "RECRUITER_MESSAGE": {
-          "TITLE": "Recruiter message received",
-          "MESSAGE": "{{sender}} sent you a new message about interview scheduling."
-        },
-        "COMPLETE_PROFILE": {
-          "TITLE": "Complete your profile",
-          "MESSAGE": "Adding one more project or certification can improve recruiter visibility."
-        },
-        "ACTIONS": {
-          "VIEW_JOBS": "View jobs",
-          "VIEW_APPLICATIONS": "View applications",
-          "OPEN_MESSAGES": "Open messages",
-          "OPEN_PROFILE": "Open profile"
-        }
-      }
-    },
-    "SAVED_JOBS": {
-      "TITLE": "Saved Jobs",
-      "SUBTITLE": "Bookmark roles to compare them later and apply when you are ready.",
-      "BROWSE_JOBS": "Browse jobs"
-    },
-    "JOBS": {
-      "TITLE": "Jobs",
-      "SUBTITLE": "Search by keyword or location and save the roles you want to revisit.",
-      "SEARCH_PLACEHOLDER": "Search jobs, skills, or company",
-      "LOCATION_PLACEHOLDER": "Filter by location",
-      "RESET_FILTERS": "Reset filters"
-    },
-    "STATUS": {
-      "APPLIED": "Applied",
-      "UNDER_REVIEW": "Under review",
-      "SHORTLISTED": "Shortlisted",
-      "INTERVIEW_SCHEDULED": "Interview scheduled",
-      "REJECTED": "Rejected",
-      "SELECTED": "Selected"
-    },
-    "ACTIVITY": {
-      "MESSAGE_FROM": "Message from {{sender}}",
-      "APPLICATION_UPDATE_TITLE": "Application update for {{jobTitle}}",
-      "APPLICATION_UPDATE_DESCRIPTION": "Your application is now {{status}} at {{company}}.",
-      "OPEN_MESSAGE": "Open Message",
-      "VIEW_APPLICATION": "View Application",
-      "ROLE_FALLBACK": "this role",
-      "EMPLOYER_FALLBACK": "the employer"
+      "TITLE": "طلباتي",
+      "SUBTITLE": "تابع الوظائف التي تقدمت لها"
     },
     "PROFILE": {
-      "EMAIL": "Email",
-      "PHONE": "Phone",
-      "ABOUT": "بذة",
-      "READ_ONLY_PREVIEW": "Read-only preview",
-      "SKILLS": "Skills",
-      "ADD_SKILL": "+ Add Skill",
-      "EXPERIENCE": "Experience",
-      "EDUCATION": "Education",
-      "CERTIFICATIONS": "Certifications",
-      "RESUME": "Resume",
-      "VIEW": "عرض",
-      "UPLOAD_RESUME": "Upload Resume",
-      "UPLOADED": "Uploaded",
-      "ISSUED": "Issued",
-      "EXPIRES": "Expires",
-      "CURRENT": "Current",
-      "GRADE": "Grade",
-      "IN": "in",
-      "ADD": "+ إضافة"
+      "TITLE": "الملف الشخصي",
+      "SUBTITLE": "عزّز ملفك الشخصي"
     },
-    "SETTINGS": {
-      "TITLE": "Settings",
-      "SUBTITLE": "Manage account security and recruiter visibility.",
-      "CHANGE_PASSWORD": "Change password",
-      "PASSWORD_PLACEHOLDER": "Enter a new password",
-      "UPDATE_PASSWORD": "Update password",
-      "PROFILE_VISIBILITY": "Profile visibility",
-      "PROFILE_VISIBILITY_DESCRIPTION": "Allow recruiters to discover your candidate profile.",
-      "VISIBILITY_VISIBLE": "Recruiters can view your profile.",
-      "VISIBILITY_HIDDEN": "Your profile is hidden from recruiter search.",
-      "TOASTS": {
-        "PASSWORD_REQUIRED": "Please enter a new password.",
-        "PASSWORD_UPDATED": "Password updated.",
-        "VISIBILITY_VISIBLE": "Profile is now visible.",
-        "VISIBILITY_UPDATED": "Profile visibility updated."
-      }
+    "SAVED": {
+      "TITLE": "الوظائف المحفوظة",
+      "SUBTITLE": "راجع الوظائف التي حفظتها"
     }
   },
-  "ADMIN": {
-    "NAV": {
-      "DASHBOARD": "Dashboard",
-      "REQUESTS": "Requests",
-      "USERS": "Users",
-      "JOBS": "Jobs",
-      "REPORTS": "Reports",
-      "SETTINGS": "Settings"
-    },
-    "SHELL": {
-      "ROLE": "Platform Administrator",
-      "PENDING_APPROVALS": "Pending approvals"
-    },
-    "DASHBOARD": {
-      "TITLE": "Admin Dashboard",
-      "SUBTITLE": "Centralized platform control, moderation, and freelancer mediation.",
-      "REQUEST_STATUS": "Status",
-      "SECTIONS": {
-        "PLATFORM_OVERVIEW": "Platform Overview",
-        "FREELANCER_MEDIATION": "Freelancer Mediation",
-        "REPORTS": "Reports & Complaints"
-      },
-      "STATS": {
-        "TOTAL_USERS": "Total Users",
-        "TOTAL_JOBS": "Total Jobs",
-        "TOTAL_APPLICATIONS": "Total Applications",
-        "ACTIVE_FREELANCERS": "Active Freelancers",
-        "PENDING_REQUESTS": "Pending Requests",
-        "QUIZZES_EXAMS": "Quizzes / Exams",
-        "PLATFORM_ACTIVITY": "Platform activity"
-      },
-      "ANALYTICS": {
-        "CANDIDATE_GROWTH": "Candidate Growth",
-        "CANDIDATE_GROWTH_DETAIL": "Compared to last month",
-        "HIRING_COMPANIES": "Hiring Companies",
-        "HIRING_COMPANIES_DETAIL": "Active employer accounts",
-        "APPROVED_JOBS": "Approved Jobs",
-        "APPROVED_JOBS_DETAIL": "Visible on platform",
-        "OPEN_REPORTS": "Open Reports",
-        "OPEN_REPORTS_DETAIL": "Require moderation"
-      },
-      "REPORT_TYPES": {
-        "JOB": "job",
-        "USER": "user",
-        "CONTENT": "content"
-      },
-      "REPORT_STATUS": {
-        "OPEN": "open",
-        "REVIEWED": "reviewed",
-        "RESOLVED": "resolved"
-      },
-      "REPORT_SUBJECTS": {
-        "SALARY_MISMATCH": "Suspicious salary mismatch in Backend Engineer posting",
-        "SPAM_OUTREACH": "Candidate reported spam outreach from recruiter",
-        "INAPPROPRIATE_WORDING": "Inappropriate wording flagged in sales job description"
-      },
-      "PLATFORM_INSIGHTS_NOTE": "User engagement is growing steadily across regions.",
-      "ACTIVITY_LEVEL": {
-        "HIGH": "High"
-      },
-      "QUICK_ACTIONS": {
-        "MANAGE_USERS": {
-          "TITLE": "Manage users",
-          "SUBTITLE": "Review and manage candidates."
-        },
-        "MANAGE_JOBS": {
-          "TITLE": "Manage jobs",
-          "SUBTITLE": "Oversee and moderate jobs."
-        },
-        "QUIZZES_EXAMS": {
-          "TITLE": "Quizzes / Exams",
-          "SUBTITLE": "Review assessments."
-        },
-        "VIEW_REPORTS": {
-          "TITLE": "View reports",
-          "SUBTITLE": "Resolve content securely."
-        }
-      },
-      "RECENT_ACTIVITY": {
-        "TITLE": "Recent activity",
-        "SUBTITLE": "Platform updates covering registrations, jobs, and exams.",
-        "EMPTY": "No recent activity detected.",
-        "DATES": {
-          "YESTERDAY": "Yesterday"
-        },
-        "ITEMS": {
-          "NEW_USER_REGISTRATION": {
-            "TITLE": "New user registration",
-            "DESCRIPTION_1": "Omar requested freelancer approval.",
-            "DESCRIPTION_2": "Aisha created an employer account."
-          },
-          "RECENT_JOB_POSTING": {
-            "TITLE": "Recent job posting",
-            "DESCRIPTION_1": "TechCorp posted Senior Developer.",
-            "DESCRIPTION_2": "FinEdge Corp posted Data Analyst."
-          },
-          "EXAM_ACTIVITY": {
-            "TITLE": "Exam activity",
-            "DESCRIPTION_1": "3 candidates passed the Frontend Quiz."
-          }
-        }
-      },
-      "SYSTEM_ALERTS": {
-        "TITLE": "System alerts",
-        "SUBTITLE": "Critical platform health reports."
-      }
-    },
-    "REQUESTS": {
-      "TITLE": "Freelancer Requests",
-      "SUBTITLE": "This is the main admin workflow: review employer freelancer requests and control access.",
-      "PENDING_EMPLOYER_REQUESTS": "Pending Employer Requests",
-      "FREELANCER_DIRECTORY": "Freelancer Directory",
-      "CANDIDATE_FREELANCER_APPLICATIONS": "Candidate Freelancer Applications",
-      "NO_DATA": "No data available",
-      "SKILLS": "Skills",
-      "STATUS": "Status",
-      "ASSIGNED": "Assigned",
-      "SUBMITTED": "Submitted",
-      "ASSIGN_FREELANCER": "Assign freelancer",
-      "APPROVE": "Approve",
-      "REJECT": "رفض"
-    },
-    "USERS": {
-      "CANDIDATES": "Candidates",
-      "EMPLOYERS": "Employers",
-      "DEACTIVATE": "Deactivate",
-      "BLOCK": "حظر",
-      "STATUS": {
-        "ACTIVE": "شط",
-        "INACTIVE": "inactive",
-        "BLOCKED": "blocked"
-      },
-      "TITLES": {
-        "HR_MANAGER": "HR Manager"
-      }
-    },
-    "JOBS": {
-      "TITLE": "Jobs",
-      "SUBTITLE": "Monitor postings and remove only spam, fake, or offensive jobs when needed.",
-      "FLAG": "Flag",
-      "REMOVE": "Remove",
-      "STATUS": {
-        "APPROVED": "approved",
-        "PENDING": "pending",
-        "REJECTED": "rejected"
-      }
-    },
-    "REPORTS": {
-      "TITLE": "Reports & Analytics",
-      "SUBTITLE": "Track moderation, trends, and system health.",
-      "MODERATION_REPORTS": "Moderation Reports",
-      "RESOLVE": "Resolve"
-    },
-    "SETTINGS": {
-      "PLATFORM_CONFIGURATION": {
-        "TITLE": "Platform Configuration",
-        "DESCRIPTION": "Manage platform behavior, approvals, and operational controls."
-      },
-      "JOB_CATEGORIES": {
-        "TITLE": "Job Categories",
-        "DESCRIPTION": "Category and taxonomy management placeholder."
-      },
-      "SKILL_LIBRARY": {
-        "TITLE": "Skill Library",
-        "DESCRIPTION": "Centralized skill management placeholder."
-      }
-    }
+  "WELCOME_SUBTITLE_WITH_ABOUT": "{{about}} لديك {{updates}} تحديثات نشطة و{{roles}} وظائف موصى بها بانتظارك.",
+  "STATS": {
+    "UNREAD_UPDATES": "تحديثات غير مقروءة"
   },
-  "BLOG": {
-    "LIST": {
-      "TITLE": "JOBPORTAL Blogs",
-      "SUBTITLE": "Career advice, tech insights, and industry news to help you grow professionally.",
-      "BADGE": "Articles & Insights",
-      "SEARCH_PLACEHOLDER": "Search articles...",
-      "RESULTS": "{{count}} articles"
-    },
-    "FEATURED": {
-      "BADGE": "Featured",
-      "EDITOR_PICK": "Editor's Pick",
-      "TITLE": "Featured Article",
-      "READ_ARTICLE": "Read Article"
-    },
-    "FILTER": {
-      "ALL": "All"
-    },
-    "CARD": {
-      "MIN_READ": "{{count}} min read",
-      "READ": "Read"
-    },
-    "EMPTY": {
-      "TITLE": "No articles found",
-      "MESSAGE": "Try a different category or clear your search.",
-      "ACTION": "Show All Articles"
-    },
-    "NEWSLETTER": {
-      "TITLE": "Stay in the Loop",
-      "SUBTITLE": "Get the latest career tips, job market insights, and tech articles delivered to your inbox weekly.",
-      "PLACEHOLDER": "your@email.com",
-      "SUBMIT": "اشتراْ"
-    },
-    "DETAIL": {
-      "BACK": "Back to Blog",
-      "RELATED": "Related Articles",
-      "NOT_FOUND": "Article not found."
-    },
-    "CATEGORIES": {
-      "CAREER_TIPS": "Career Tips",
-      "TECH": "Tech",
-      "INDUSTRY_NEWS": "Industry News",
-      "INTERVIEWS": "Interviews",
-      "FREELANCING": "Freelancing"
-    }
+  "PROFILE_HIGHLIGHTS": {
+    "HEADLINE": "العنوان المهني",
+    "ADD_HEADLINE": "أضف عنوانك المهني",
+    "LOCATION": "الموقع",
+    "ADD_LOCATION": "أضف موقعك",
+    "SKILLS": "المهارات",
+    "SKILLS_LISTED": "{{count}} مهارة",
+    "RESUME": "السيرة الذاتية",
+    "UPLOAD_RESUME": "رفع السيرة الذاتية"
   },
-  "COURSES": {
-    "LIST": {
-      "TITLE": "Level Up Your Skills",
-      "SUBTITLE": "Expertly crafted courses to help you land your next role or grow in your current one.",
-      "BADGE": "Courses & Learning",
-      "RESULTS": "عرض {{count}} درة"
+  "PRIORITY_STEPS": {
+    "TITLE": "الخطوات المهمة التالية",
+    "SUBTITLE": "إجراءات بسيطة لتحسين ظهورك هذا الأسبوع.",
+    "PROFILE_DESCRIPTION": "أكمل هذه الخطوة في ملفك لتحسين فرص ظهورك.",
+    "PROFILE_BADGE": "الملف الشخصي",
+    "INBOX_BADGE": "البريد الوارد",
+    "ALERT_BADGE": "تنبيه"
+  },
+  "CAREER_ACCELERATOR": {
+    "TITLE": "تسريع المسار المهني",
+    "SUBTITLE": "حافظ على جاهزية ملفك وفرصك للتقديم.",
+    "DONE": "تم",
+    "NEXT": "التالي"
+  },
+  "INBOX": {
+    "TITLE": "أهم الرسائل",
+    "SUBTITLE": "تحديثات من أصحاب العمل والمنصة تحتاج إلى انتباهك."
+  },
+  "OPPORTUNITY_SIGNALS": {
+    "TITLE": "مؤشرات الفرص",
+    "SUBTITLE": "مؤشرات مباشرة من طلباتك وتنبيهاتك.",
+    "ACTIVE": "نشط"
+  },
+  "PROFILE_STRENGTH_TONE": {
+    "STRONG": "قوي",
+    "GROWING": "في تحسن",
+    "STARTER": "مبتدئ"
+  }
+},
+"USER": {
+  "NAME": {
+    "AHMED_HASSAN": "أحمد حسن"
+  }
+},
+"APPLICATIONS": {
+  "TITLE": "طلبات التقديم",
+  "SUBTITLE": "تابع طلبات التقديم الخاصة بك واطلع على أحدث التحديثات من أصحاب العمل.",
+  "JOB_TITLE": "المسمى الوظيفي",
+  "COMPANY": "الشركة",
+  "APPLIED_DATE": "تاريخ التقديم",
+  "STATUS": "الحالة"
+},
+"MESSAGES": {
+  "TITLE": "الرسائل",
+  "SUBTITLE": "التواصل مع أصحاب العمل جاهز بتجربة مبسطة.",
+  "AT": "في",
+  "CONTACTS": {
+    "NEHA_KAPOOR": "نيها كابور",
+    "RAHUL_MENON": "راهول مينون",
+    "PRIYA_DESAI": "بريا ديساي"
+  },
+  "COMPANIES": {
+    "HIREWAVE": "HireWave",
+    "PEOPLEMESH": "PeopleMesh",
+    "CLOUDORBIT": "CloudOrbit"
+  },
+  "SUBJECTS": {
+    "INTERVIEW_AVAILABILITY": "طلب تحديد موعد مقابلة",
+    "QUICK_FOLLOW_UP": "متابعة سريعة من المجند",
+    "APPLICATION_UPDATE": "تحديث على طلب التقديم"
+  },
+  "PREVIEWS": {
+    "INTERVIEW_AVAILABILITY": "لفت ملفك انتباه الفريق. هل أنت متاح لمقابلة أولية هذا الأسبوع؟",
+    "APPLICATION_FOLLOW_UP": "نحن بصدد متابعة طلبك ونود تأكيد فترة الإشعار الخاصة بك.",
+    "APPLICATION_CLOSED": "شكرًا لتقديمك. تم شغل الوظيفة، لكن نود الاحتفاظ بملفك لدينا."
+  }
+},
+    "NOTIFICATIONS": {
+  "TITLE": "الإشعارات",
+  "SUBTITLE": "تظهر هنا تنبيهات الوظائف وتحديثات طلبات التقديم.",
+  "NEW_BADGE": "جديد",
+  "MARK_READ": "تحديد كمقروء",
+  "ITEMS": {
+    "NEW_JOB_MATCH": {
+      "TITLE": "وظائف جديدة مناسبة",
+      "MESSAGE": "هناك 3 وظائف واجهات أمامية تناسب مهاراتك في Angular وTailwind."
     },
-    "FILTER": {
-      "SEARCH_PLACEHOLDER": "Search courses...",
-      "ALL_LEVELS": "All Levels",
-      "ALL_CATEGORIES": "All Categories",
-      "ANY_PRICE": "Any Price",
-      "CLEAR": "Clear",
-      "PRICE_OPTIONS": {
-        "FREE": "Free",
-        "PAID": "Paid"
-      }
+    "APPLICATION_MOVED": {
+      "TITLE": "تم نقل طلبك إلى مرحلة المقابلة",
+      "MESSAGE": "قامت PeopleMesh بنقل طلبك إلى مرحلة المقابلة."
     },
-    "LEVELS": {
-      "BEGINNER": "Beginner",
-      "INTERMEDIATE": "Intermediate",
-      "ADVANCED": "Advanced"
+    "RECRUITER_MESSAGE": {
+      "TITLE": "تم استلام رسالة من مجند",
+      "MESSAGE": "أرسل لك {{sender}} رسالة جديدة بخصوص جدولة المقابلة."
+    },
+    "COMPLETE_PROFILE": {
+      "TITLE": "أكمل ملفك الشخصي",
+      "MESSAGE": "إضافة مشروع أو شهادة إضافية يمكن أن تحسن ظهورك لدى أصحاب العمل."
+    },
+    "ACTIONS": {
+      "VIEW_JOBS": "عرض الوظائف",
+      "VIEW_APPLICATIONS": "عرض طلبات التقديم",
+      "OPEN_MESSAGES": "فتح الرسائل",
+      "OPEN_PROFILE": "فتح الملف الشخصي"
+    }
+  }
+},
+"SAVED_JOBS": {
+  "TITLE": "الوظائف المحفوظة",
+  "SUBTITLE": "احفظ الوظائف لمقارنتها لاحقًا والتقديم عندما تكون جاهزًا.",
+  "BROWSE_JOBS": "تصفح الوظائف"
+},
+"JOBS": {
+  "TITLE": "الوظائف",
+  "SUBTITLE": "ابحث بالكلمات المفتاحية أو الموقع واحفظ الوظائف للرجوع إليها لاحقًا.",
+  "SEARCH_PLACEHOLDER": "ابحث عن وظائف أو مهارات أو شركة",
+  "LOCATION_PLACEHOLDER": "تصفية حسب الموقع",
+  "RESET_FILTERS": "إعادة تعيين التصفية"
+},
+"STATUS": {
+  "APPLIED": "تم التقديم",
+  "UNDER_REVIEW": "قيد المراجعة",
+  "SHORTLISTED": "تم الاختيار المبدئي",
+  "INTERVIEW_SCHEDULED": "تم تحديد موعد المقابلة",
+  "REJECTED": "مرفوض",
+  "SELECTED": "تم القبول"
+},
+"ACTIVITY": {
+  "MESSAGE_FROM": "رسالة من {{sender}}",
+  "APPLICATION_UPDATE_TITLE": "تحديث على طلب {{jobTitle}}",
+  "APPLICATION_UPDATE_DESCRIPTION": "طلبك الآن {{status}} لدى {{company}}.",
+  "OPEN_MESSAGE": "فتح الرسالة",
+  "VIEW_APPLICATION": "عرض الطلب",
+  "ROLE_FALLBACK": "هذه الوظيفة",
+  "EMPLOYER_FALLBACK": "صاحب العمل"
+},
+"PROFILE": {
+  "EMAIL": "البريد الإلكتروني",
+  "PHONE": "رقم الهاتف",
+  "ABOUT": "نبذة",
+  "READ_ONLY_PREVIEW": "عرض فقط",
+  "SKILLS": "المهارات",
+  "ADD_SKILL": "+ إضافة مهارة",
+  "EXPERIENCE": "الخبرة",
+  "EDUCATION": "التعليم",
+  "CERTIFICATIONS": "الشهادات",
+  "RESUME": "السيرة الذاتية",
+  "VIEW": "عرض",
+  "UPLOAD_RESUME": "رفع السيرة الذاتية",
+  "UPLOADED": "تم الرفع",
+  "ISSUED": "تاريخ الإصدار",
+  "EXPIRES": "تاريخ الانتهاء",
+  "CURRENT": "الحالي",
+  "GRADE": "التقدير",
+  "IN": "في",
+  "ADD": "+ إضافة"
+},
+"SETTINGS": {
+  "TITLE": "الإعدادات",
+  "SUBTITLE": "إدارة أمان الحساب وإمكانية ظهورك لأصحاب العمل.",
+  "CHANGE_PASSWORD": "تغيير كلمة المرور",
+  "PASSWORD_PLACEHOLDER": "أدخل كلمة مرور جديدة",
+  "UPDATE_PASSWORD": "تحديث كلمة المرور",
+  "PROFILE_VISIBILITY": "إمكانية ظهور الملف الشخصي",
+  "PROFILE_VISIBILITY_DESCRIPTION": "السماح لأصحاب العمل بالعثور على ملفك الشخصي.",
+  "VISIBILITY_VISIBLE": "يمكن لأصحاب العمل رؤية ملفك الشخصي.",
+  "VISIBILITY_HIDDEN": "ملفك الشخصي مخفي من البحث.",
+  "TOASTS": {
+    "PASSWORD_REQUIRED": "يرجى إدخال كلمة مرور جديدة.",
+    "PASSWORD_UPDATED": "تم تحديث كلمة المرور.",
+    "VISIBILITY_VISIBLE": "أصبح الملف الشخصي مرئيًا.",
+    "VISIBILITY_UPDATED": "تم تحديث إعدادات ظهور الملف الشخصي."
+  }
+}
+},
+"ADMIN": {
+  "NAV": {
+    "DASHBOARD": "لوحة التحكم",
+    "REQUESTS": "الطلبات",
+    "USERS": "المستخدمون",
+    "JOBS": "الوظائف",
+    "REPORTS": "التقارير",
+    "SETTINGS": "الإعدادات"
+  },
+  "SHELL": {
+    "ROLE": "مسؤول المنصة",
+    "PENDING_APPROVALS": "الموافقات المعلقة"
+  },
+  "DASHBOARD": {
+    "TITLE": "لوحة تحكم المسؤول",
+    "SUBTITLE": "إدارة مركزية للمنصة، والإشراف، وتنظيم شؤون المستقلين.",
+    "REQUEST_STATUS": "الحالة",
+    "SECTIONS": {
+      "PLATFORM_OVERVIEW": "نظرة عامة على المنصة",
+      "FREELANCER_MEDIATION": "إدارة المستقلين",
+      "REPORTS": "التقارير والشكاوى"
     },
     "STATS": {
-      "COURSES": "Courses",
-      "STUDENTS": "Students",
-      "AVG_RATING": "Avg Rating",
-      "CERTIFICATES": "Certificates"
+      "TOTAL_USERS": "إجمالي المستخدمين",
+      "TOTAL_JOBS": "إجمالي الوظائف",
+      "TOTAL_APPLICATIONS": "إجمالي طلبات التقديم",
+      "ACTIVE_FREELANCERS": "المستقلون النشطون",
+      "PENDING_REQUESTS": "الطلبات المعلقة",
+      "QUIZZES_EXAMS": "الاختبارات",
+      "PLATFORM_ACTIVITY": "نشاط المنصة"
     },
-    "EMPTY": {
-      "TITLE": "No courses found",
-      "MESSAGE": "Try a different search or clear your filters.",
-      "ACTION": "Clear Filters"
+    "ANALYTICS": {
+      "CANDIDATE_GROWTH": "نمو المرشحين",
+      "CANDIDATE_GROWTH_DETAIL": "مقارنة بالشهر الماضي",
+      "HIRING_COMPANIES": "الشركات التي توظف",
+      "HIRING_COMPANIES_DETAIL": "حسابات أصحاب العمل النشطة",
+      "APPROVED_JOBS": "الوظائف المعتمدة",
+      "APPROVED_JOBS_DETAIL": "المعروضة على المنصة",
+      "OPEN_REPORTS": "التقارير المفتوحة",
+      "OPEN_REPORTS_DETAIL": "تتطلب مراجعة"
     },
-    "CTA": {
-      "TITLE": "Can't find the right course?",
-      "SUBTITLE": "Tell us what you'd like to learn and we'll notify you when it's available.",
-      "BUTTON": "Request a Course"
+      "REPORT_TYPES": {
+  "JOB": "وظيفة",
+  "USER": "مستخدم",
+  "CONTENT": "محتوى"
+},
+"REPORT_STATUS": {
+  "OPEN": "مفتوح",
+  "REVIEWED": "تمت المراجعة",
+  "RESOLVED": "تم الحل"
+},
+"REPORT_SUBJECTS": {
+  "SALARY_MISMATCH": "عدم تطابق مشبوه في الراتب بوظيفة مهندس خلفية",
+  "SPAM_OUTREACH": "أبلغ مرشح عن رسائل عشوائية من أحد المجندين",
+  "INAPPROPRIATE_WORDING": "تم الإبلاغ عن صياغة غير مناسبة في وصف وظيفة مبيعات"
+},
+"PLATFORM_INSIGHTS_NOTE": "معدل تفاعل المستخدمين في ازدياد مستمر عبر مختلف المناطق.",
+"ACTIVITY_LEVEL": {
+  "HIGH": "مرتفع"
+},
+"QUICK_ACTIONS": {
+  "MANAGE_USERS": {
+    "TITLE": "إدارة المستخدمين",
+    "SUBTITLE": "مراجعة وإدارة المرشحين."
+  },
+  "MANAGE_JOBS": {
+    "TITLE": "إدارة الوظائف",
+    "SUBTITLE": "الإشراف على الوظائف ومراجعتها."
+  },
+  "QUIZZES_EXAMS": {
+    "TITLE": "الاختبارات",
+    "SUBTITLE": "مراجعة التقييمات."
+  },
+  "VIEW_REPORTS": {
+    "TITLE": "عرض التقارير",
+    "SUBTITLE": "معالجة المحتوى بشكل آمن."
+  }
+},
+"RECENT_ACTIVITY": {
+  "TITLE": "النشاط الأخير",
+  "SUBTITLE": "تحديثات المنصة بما يشمل التسجيلات والوظائف والاختبارات.",
+  "EMPTY": "لا يوجد نشاط حديث.",
+  "DATES": {
+    "YESTERDAY": "أمس"
+  },
+  "ITEMS": {
+    "NEW_USER_REGISTRATION": {
+      "TITLE": "تسجيل مستخدم جديد",
+      "DESCRIPTION_1": "طلب عمر الموافقة للعمل كمستقل.",
+      "DESCRIPTION_2": "أنشأت عائشة حساب صاحب عمل."
     },
-    "CARD": {
-      "CERTIFICATE": "ش!ادة",
-      "ENROLL_FREE": "Enroll Free",
-      "ENROLL_FOR_FREE": "Enroll for Free",
-      "ENROLL_NOW": "Enroll Now"
+    "RECENT_JOB_POSTING": {
+      "TITLE": "وظيفة جديدة",
+      "DESCRIPTION_1": "نشرت TechCorp وظيفة مطور أول.",
+      "DESCRIPTION_2": "نشرت FinEdge Corp وظيفة محلل بيانات."
     },
-    "DETAIL": {
-      "STUDENTS": "({{count}} students)",
-      "DURATION": "Duration",
-      "CERTIFICATE": "Certificate Offered",
-      "INSTRUCTOR": "Your Instructor",
-      "EXPERT_INSTRUCTOR": "Expert {{category}} Instructor",
-      "SKILLS": "Skills You'll Learn",
-      "PAYMENT_NOTE": "One-time payment ? Lifetime access",
-      "PREVIEW": "Preview Course",
-      "BACK": "Back to all courses",
-      "NOT_FOUND": "Course not found.",
-      "BROWSE": "Browse all courses",
-      "FEATURES": {
-        "LIFETIME_ACCESS": "Lifetime access",
-        "MOBILE_DESKTOP": "Access on mobile & desktop",
-        "COMMUNITY_SUPPORT": "Community support",
-        "CERTIFICATE": "Certificate of completion"
-      }
+    "EXAM_ACTIVITY": {
+      "TITLE": "نشاط الاختبارات",
+      "DESCRIPTION_1": "اجتاز 3 مرشحين اختبار الواجهات الأمامية."
+    }
+  }
+},
+"SYSTEM_ALERTS": {
+  "TITLE": "تنبيهات النظام",
+  "SUBTITLE": "تقارير مهمة عن حالة المنصة."
+}
+},
+"REQUESTS": {
+  "TITLE": "طلبات المستقلين",
+  "SUBTITLE": "سير العمل الرئيسي للمسؤول: مراجعة طلبات العمل كمستقل والتحكم في الوصول.",
+  "PENDING_EMPLOYER_REQUESTS": "طلبات أصحاب العمل المعلقة",
+  "FREELANCER_DIRECTORY": "دليل المستقلين",
+  "CANDIDATE_FREELANCER_APPLICATIONS": "طلبات المرشحين للعمل كمستقلين",
+  "NO_DATA": "لا توجد بيانات",
+  "SKILLS": "المهارات",
+  "STATUS": "الحالة",
+  "ASSIGNED": "تم التعيين",
+  "SUBMITTED": "تم الإرسال",
+  "ASSIGN_FREELANCER": "تعيين مستقل",
+  "APPROVE": "موافقة",
+  "REJECT": "رفض"
+},
+"USERS": {
+  "CANDIDATES": "المرشحون",
+  "EMPLOYERS": "أصحاب العمل",
+  "DEACTIVATE": "إلغاء التفعيل",
+  "BLOCK": "حظر",
+  "STATUS": {
+    "ACTIVE": "نشط",
+    "INACTIVE": "غير نشط",
+    "BLOCKED": "محظور"
+  },
+  "TITLES": {
+    "HR_MANAGER": "مدير الموارد البشرية"
+  }
+},
+   "JOBS": {
+  "TITLE": "الوظائف",
+  "SUBTITLE": "راقب الوظائف المنشورة واحذف فقط الوظائف المزعجة أو الوهمية أو غير اللائقة عند الحاجة.",
+  "FLAG": "الإبلاغ",
+  "REMOVE": "إزالة",
+  "STATUS": {
+    "APPROVED": "تمت الموافقة",
+    "PENDING": "قيد الانتظار",
+    "REJECTED": "مرفوض"
+  }
+},
+"REPORTS": {
+  "TITLE": "التقارير والتحليلات",
+  "SUBTITLE": "تابع الإشراف والاتجاهات وحالة النظام.",
+  "MODERATION_REPORTS": "تقارير الإشراف",
+  "RESOLVE": "حل"
+},
+"SETTINGS": {
+  "PLATFORM_CONFIGURATION": {
+    "TITLE": "إعدادات المنصة",
+    "DESCRIPTION": "إدارة سلوك المنصة وعمليات الموافقة والتحكمات التشغيلية."
+  },
+  "JOB_CATEGORIES": {
+    "TITLE": "فئات الوظائف",
+    "DESCRIPTION": "إدارة الفئات والتصنيفات."
+  },
+  "SKILL_LIBRARY": {
+    "TITLE": "مكتبة المهارات",
+    "DESCRIPTION": "إدارة مركزية للمهارات."
+  }
+}
+},
+"BLOG": {
+  "LIST": {
+    "TITLE": "مدونة JobPortal",
+    "SUBTITLE": "نصائح مهنية، ورؤى تقنية، وأخبار الصناعة لمساعدتك على التطور مهنيًا.",
+    "BADGE": "مقالات ورؤى",
+    "SEARCH_PLACEHOLDER": "ابحث عن مقالات...",
+    "RESULTS": "{{count}} مقال"
+  },
+  "FEATURED": {
+    "BADGE": "مميز",
+    "EDITOR_PICK": "اختيار المحرر",
+    "TITLE": "مقال مميز",
+    "READ_ARTICLE": "قراءة المقال"
+  },
+  "FILTER": {
+    "ALL": "الكل"
+  },
+  "CARD": {
+    "MIN_READ": "{{count}} دقيقة قراءة",
+    "READ": "قراءة"
+  },
+  "EMPTY": {
+    "TITLE": "لا توجد مقالات",
+    "MESSAGE": "حاول اختيار فئة مختلفة أو مسح البحث.",
+    "ACTION": "عرض جميع المقالات"
+  },
+  "NEWSLETTER": {
+    "TITLE": "ابقَ على اطلاع",
+    "SUBTITLE": "احصل على أحدث النصائح المهنية ورؤى سوق العمل والمقالات التقنية مباشرة إلى بريدك أسبوعيًا.",
+    "PLACEHOLDER": "your@email.com",
+    "SUBMIT": "اشتراك"
+  },
+  "DETAIL": {
+    "BACK": "العودة إلى المدونة",
+    "RELATED": "مقالات ذات صلة",
+    "NOT_FOUND": "المقال غير موجود."
+  },
+  "CATEGORIES": {
+    "CAREER_TIPS": "نصائح مهنية",
+    "TECH": "تقنية",
+    "INDUSTRY_NEWS": "أخبار الصناعة",
+    "INTERVIEWS": "مقابلات",
+    "FREELANCING": "العمل الحر"
+  }
+},
+"COURSES": {
+  "LIST": {
+    "TITLE": "طوّر مهاراتك",
+    "SUBTITLE": "دورات مصممة باحتراف لمساعدتك في الحصول على وظيفتك القادمة أو التقدم في وظيفتك الحالية.",
+    "BADGE": "الدورات والتعلم",
+    "RESULTS": "عرض {{count}} دورة"
+  },
+  "FILTER": {
+    "SEARCH_PLACEHOLDER": "ابحث عن دورات...",
+    "ALL_LEVELS": "جميع المستويات",
+    "ALL_CATEGORIES": "جميع الفئات",
+    "ANY_PRICE": "أي سعر",
+    "CLEAR": "مسح",
+    "PRICE_OPTIONS": {
+      "FREE": "مجاني",
+      "PAID": "مدفوع"
     }
   },
-  "INTERNSHIPS": {
-    "LIST": {
-      "TITLE": "Find Your Perfect Internship",
-      "SUBTITLE": "Kickstart your career with hands-on experience at top companies.",
-      "BADGE": "Internships & Training",
-      "RESULTS": "Showing {{count}} internships"
+  "LEVELS": {
+    "BEGINNER": "مبتدئ",
+    "INTERMEDIATE": "متوسط",
+    "ADVANCED": "متقدم"
+  },
+  "STATS": {
+    "COURSES": "الدورات",
+    "STUDENTS": "الطلاب",
+    "AVG_RATING": "متوسط التقييم",
+    "CERTIFICATES": "الشهادات"
+  },
+  "EMPTY": {
+    "TITLE": "لا توجد دورات",
+    "MESSAGE": "حاول البحث بطريقة مختلفة أو مسح عوامل التصفية.",
+    "ACTION": "مسح التصفية"
+  },
+  "CTA": {
+    "TITLE": "لم تجد الدورة المناسبة؟",
+    "SUBTITLE": "أخبرنا بما تريد تعلمه وسنقوم بإعلامك عند توفره.",
+    "BUTTON": "طلب دورة"
+  },
+  "CARD": {
+    "CERTIFICATE": "شهادة",
+    "ENROLL_FREE": "سجل مجانًا",
+    "ENROLL_FOR_FREE": "سجل مجانًا",
+    "ENROLL_NOW": "سجل الآن"
+  },
+  "DETAIL": {
+    "STUDENTS": "({{count}} طالب)",
+    "DURATION": "المدة",
+    "CERTIFICATE": "شهادة معتمدة",
+    "INSTRUCTOR": "المدرب",
+    "EXPERT_INSTRUCTOR": "مدرب خبير في {{category}}",
+    "SKILLS": "المهارات التي ستتعلمها",
+    "PAYMENT_NOTE": "دفعة واحدة • وصول مدى الحياة",
+    "PREVIEW": "معاينة الدورة",
+    "BACK": "العودة إلى جميع الدورات",
+    "NOT_FOUND": "الدورة غير موجودة.",
+    "BROWSE": "تصفح جميع الدورات",
+    "FEATURES": {
+      "LIFETIME_ACCESS": "وصول مدى الحياة",
+      "MOBILE_DESKTOP": "الوصول عبر الجوال والحاسوب",
+      "COMMUNITY_SUPPORT": "دعم المجتمع",
+      "CERTIFICATE": "شهادة إتمام"
+    }
+  }
+},
+"INTERNSHIPS": {
+  "LIST": {
+    "TITLE": "اعثر على التدريب المناسب لك",
+    "SUBTITLE": "ابدأ مسيرتك المهنية بخبرة عملية مع أفضل الشركات.",
+    "BADGE": "التدريب والتطوير",
+    "RESULTS": "عرض {{count}} تدريب"
+  },
+  "FILTER": {
+    "SEARCH_PLACEHOLDER": "ابحث عن تدريب أو شركة...",
+    "LABEL": "تصفية:",
+    "ALL_LOCATIONS": "جميع المواقع",
+    "ANY_DURATION": "أي مدة",
+    "ANY_STIPEND": "أي مكافأة",
+    "ALL_CATEGORIES": "جميع الفئات",
+    "CLEAR": "مسح التصفية",
+    "LOCATION_OPTIONS": {
+      "REMOTE": "عن بُعد",
+      "ONSITE": "في الموقع",
+      "HYBRID": "هجين"
     },
-    "FILTER": {
-      "SEARCH_PLACEHOLDER": "Search internships or companies...",
-      "LABEL": "Filter:",
-      "ALL_LOCATIONS": "All Locations",
-      "ANY_DURATION": "Any Duration",
-      "ANY_STIPEND": "Any Stipend",
-      "ALL_CATEGORIES": "All Categories",
-      "CLEAR": "Clear filters",
-      "LOCATION_OPTIONS": {
-        "REMOTE": "ع بعد",
-        "ONSITE": "Onsite",
-        "HYBRID": "Hybrid"
-      },
-      "DURATION_OPTIONS": {
-        "THREE_MONTHS": "3 أش!ر",
-        "SIX_MONTHS": "6 أش!ر"
-      },
-      "STIPEND_OPTIONS": {
-        "PAID_ONLY": "Paid Only",
-        "UNPAID": "Unpaid"
-      }
+    "DURATION_OPTIONS": {
+      "THREE_MONTHS": "3 أشهر",
+      "SIX_MONTHS": "6 أشهر"
     },
-    "EMPTY": {
-      "TITLE": "No internships found",
-      "MESSAGE": "Try adjusting your filters or search query.",
-      "ACTION": "Clear Filters"
-    },
-    "CARD": {
-      "BADGE": "Internship",
-      "MONTH": "ش!ر",
-      "UNPAID": "Unpaid",
-      "DEADLINE": "Deadline"
-    },
-    "DETAIL": {
-      "ABOUT": "About the Internship",
-      "REQUIREMENTS": "Requirements",
-      "SKILLS": "Skills Required",
-      "STIPEND": "Stipend",
-      "UNPAID": "Unpaid Internship",
-      "APPLY": "Apply Now",
-      "SAVE": "Save Internship",
-      "OPENINGS": "Openings",
-      "START_DATE": "Start Date",
-      "APPLY_BY": "Apply by",
-      "CATEGORY": "Category",
-      "BACK": "Back to all internships",
-      "NOT_FOUND": "Internship not found.",
-      "BROWSE": "Browse all internships",
-      "META": {
-        "DURATION": "Duration",
-        "LOCATION": "Location",
-        "START_DATE": "Start Date",
-        "OPENINGS": "Openings"
-      }
-    },
-    "LOCATION_TYPES": {
-      "REMOTE": "ع بعد",
-      "ONSITE": "Onsite",
-      "HYBRID": "Hybrid"
-    },
-    "DURATIONS": {
-      "THREE_MONTHS": "3 أش!ر",
-      "SIX_MONTHS": "6 أش!ر"
-    },
-    "CATEGORIES": {
-      "ENGINEERING": "Engineering",
-      "DATA_SCIENCE": "Data Science",
-      "DESIGN": "Design",
-      "MARKETING": "Marketing",
-      "PRODUCT": "Product"
+    "STIPEND_OPTIONS": {
+      "PAID_ONLY": "مدفوع فقط",
+      "UNPAID": "غير مدفوع"
     }
   },
+  "EMPTY": {
+    "TITLE": "لا يوجد تدريب",
+    "MESSAGE": "حاول تعديل عوامل التصفية أو البحث.",
+    "ACTION": "مسح التصفية"
+  },
+  "CARD": {
+    "BADGE": "تدريب",
+    "MONTH": "شهر",
+    "UNPAID": "غير مدفوع",
+    "DEADLINE": "آخر موعد"
+  },
+  "DETAIL": {
+    "ABOUT": "حول التدريب",
+    "REQUIREMENTS": "المتطلبات",
+    "SKILLS": "المهارات المطلوبة",
+    "STIPEND": "المكافأة",
+    "UNPAID": "تدريب غير مدفوع",
+    "APPLY": "قدّم الآن",
+    "SAVE": "حفظ التدريب",
+    "OPENINGS": "عدد الشواغر",
+    "START_DATE": "تاريخ البدء",
+    "APPLY_BY": "آخر موعد للتقديم",
+    "CATEGORY": "الفئة",
+    "BACK": "العودة إلى جميع التدريبات",
+    "NOT_FOUND": "التدريب غير موجود.",
+    "BROWSE": "تصفح جميع التدريبات",
+    "META": {
+      "DURATION": "المدة",
+      "LOCATION": "الموقع",
+      "START_DATE": "تاريخ البدء",
+      "OPENINGS": "الشواغر"
+    }
+  },
+  "LOCATION_TYPES": {
+    "REMOTE": "عن بُعد",
+    "ONSITE": "في الموقع",
+    "HYBRID": "هجين"
+  },
+  "DURATIONS": {
+    "THREE_MONTHS": "3 أشهر",
+    "SIX_MONTHS": "6 أشهر"
+  },
+  "CATEGORIES": {
+    "ENGINEERING": "الهندسة",
+    "DATA_SCIENCE": "علم البيانات",
+    "DESIGN": "التصميم",
+    "MARKETING": "التسويق",
+    "PRODUCT": "إدارة المنتجات"
+  }
+},
   "HELP": {
-    "PAGE": {
-      "TITLE": "How can we help you?",
-      "SUBTITLE": "Search our knowledge base or browse by category below.",
-      "BADGE": "Help & Support",
-      "SEARCH_PLACEHOLDER": "Search FAQs...",
-      "BROWSE_BY_TOPIC": "Browse by topic",
-      "ALL_QUESTIONS": "All Questions",
-      "QUESTIONS_COUNT": "{{count}} questions",
-      "CLEAR_FILTER": "Clear filter",
-      "NO_RESULTS": "No results found for \"{{query}}\"",
-      "CLEAR_SEARCH": "Clear search"
+  "PAGE": {
+    "TITLE": "كيف يمكننا مساعدتك؟",
+    "SUBTITLE": "ابحث في قاعدة المعرفة أو تصفح حسب الفئة أدناه.",
+    "BADGE": "المساعدة والدعم",
+    "SEARCH_PLACEHOLDER": "ابحث في الأسئلة الشائعة...",
+    "BROWSE_BY_TOPIC": "تصفح حسب الموضوع",
+    "ALL_QUESTIONS": "جميع الأسئلة",
+    "QUESTIONS_COUNT": "{{count}} سؤال",
+    "CLEAR_FILTER": "مسح التصفية",
+    "NO_RESULTS": "لا توجد نتائج لـ \"{{query}}\"",
+    "CLEAR_SEARCH": "مسح البحث"
+  },
+  "CATEGORIES": {
+    "CANDIDATES": "المرشحون",
+    "EMPLOYERS": "أصحاب العمل",
+    "GENERAL": "عام",
+    "BILLING": "الفوترة"
+  },
+  "QUICK_LINKS": {
+    "CANDIDATES": "للمرشحين",
+    "EMPLOYERS": "لأصحاب العمل",
+    "GENERAL": "عام",
+    "BILLING": "الفوترة"
+  },
+  "CONTACT": {
+    "LABEL": "هل ما زلت بحاجة إلى مساعدة؟",
+    "TITLE": "تواصل مع فريق الدعم",
+    "SUBTITLE": "لم تجد ما تبحث عنه؟ أرسل لنا رسالة وسنرد عليك في أقرب وقت ممكن.",
+    "INFO": {
+      "EMAIL": {
+        "LABEL": "البريد الإلكتروني",
+        "NOTE": "نرد خلال 24 ساعة"
+      },
+      "LIVE_CHAT": {
+        "LABEL": "الدردشة المباشرة",
+        "VALUE": "متاح من الاثنين إلى الجمعة، 9 صباحًا - 6 مساءً بتوقيت الهند",
+        "NOTE": "أسرع استجابة"
+      },
+      "RESPONSE_TIME": {
+        "LABEL": "وقت الاستجابة",
+        "VALUE": "عادة خلال 2-4 ساعات",
+        "NOTE": "خلال ساعات العمل"
+      }
+    }
+  },
+  "SUPPORT_FORM": {
+    "TITLE": "التواصل مع الدعم",
+    "SUBTITLE": "نقوم عادة بالرد خلال 24 ساعة.",
+    "SUCCESS_TITLE": "تم إرسال الرسالة!",
+    "SUCCESS_MESSAGE": "سيقوم فريقنا بالرد عليك على {{email}} خلال 24 ساعة.",
+    "RESET": "إرسال رسالة أخرى",
+    "SENDING": "جاري الإرسال...",
+    "SUBMIT": "إرسال الرسالة",
+    "FIELDS": {
+      "NAME": "الاسم الكامل *",
+      "EMAIL": "البريد الإلكتروني *",
+      "CATEGORY": "الفئة *",
+      "SUBJECT": "الموضوع *",
+      "MESSAGE": "الرسالة *"
+    },
+    "PLACEHOLDERS": {
+      "NAME": "John Doe",
+      "EMAIL": "you@example.com",
+      "CATEGORY": "اختر فئة",
+      "SUBJECT": "وصف مختصر للمشكلة",
+      "MESSAGE": "اشرح مشكلتك بالتفصيل..."
     },
     "CATEGORIES": {
-      "CANDIDATES": "Candidates",
-      "EMPLOYERS": "Employers",
-      "GENERAL": "General",
-      "BILLING": "Billing"
-    },
-    "QUICK_LINKS": {
-      "CANDIDATES": "For Candidates",
-      "EMPLOYERS": "For Employers",
-      "GENERAL": "General",
-      "BILLING": "Billing"
-    },
-    "CONTACT": {
-      "LABEL": "Still need help?",
-      "TITLE": "Contact our support team",
-      "SUBTITLE": "Can't find what you're looking for? Send us a message and we'll get back to you as soon as possible.",
-      "INFO": {
-        "EMAIL": {
-          "LABEL": "Email",
-          "NOTE": "We reply within 24 hours"
-        },
-        "LIVE_CHAT": {
-          "LABEL": "Live Chat",
-          "VALUE": "Available Mon-Fri, 9am-6pm IST",
-          "NOTE": "Fastest response"
-        },
-        "RESPONSE_TIME": {
-          "LABEL": "Response Time",
-          "VALUE": "Usually within 2-4 hours",
-          "NOTE": "During business hours"
-        }
-      }
-    },
-    "SUPPORT_FORM": {
-      "TITLE": "Contact Support",
-      "SUBTITLE": "We typically respond within 24 hours.",
-      "SUCCESS_TITLE": "Message sent!",
-      "SUCCESS_MESSAGE": "Our team will get back to you at {{email}} within 24 hours.",
-      "RESET": "Send another message",
-      "SENDING": "Sending...",
-      "SUBMIT": "Send Message",
-      "FIELDS": {
-        "NAME": "Full Name *",
-        "EMAIL": "Email Address *",
-        "CATEGORY": "Category *",
-        "SUBJECT": "Subject *",
-        "MESSAGE": "Message *"
-      },
-      "PLACEHOLDERS": {
-        "NAME": "John Doe",
-        "EMAIL": "you@example.com",
-        "CATEGORY": "اختر فئة",
-        "SUBJECT": "Brief description of your issue",
-        "MESSAGE": "Describe your issue in detail..."
-      },
-      "CATEGORIES": {
-        "ACCOUNT": "Account",
-        "JOBS": "Jobs & Applications",
-        "BILLING": "Billing",
-        "TECHNICAL": "Technical Issue",
-        "OTHER": "أخر0"
-      }
-    },
-    "FAQ": {
-      "CANDIDATES": {
-        "CREATE_PROFILE": {
-          "Q": "How do I create a candidate profile?",
-          "A": "Click \"Get Started\" and register with your email. Once verified, navigate to your profile page to fill in your experience, skills, and education details."
-        },
-        "MULTIPLE_APPLICATIONS": {
-          "Q": "Can I apply to multiple jobs at once?",
-          "A": "Yes. Browse jobs and click \"Apply\" on each listing. You can track all your applications from the Applications section in your dashboard."
-        },
-        "UPLOAD_RESUME": {
-          "Q": "How do I upload my resume?",
-          "A": "Go to your Profile page and scroll to the Resume section. Click \"Upload Resume\" and select a PDF file up to 5MB."
-        },
-        "PROFILE_VISIBILITY": {
-          "Q": "Will employers see my profile before I apply?",
-          "A": "Only if your profile visibility is set to Public. You can toggle this in Settings under Privacy."
-        }
-      },
-      "EMPLOYERS": {
-        "POST_JOB": {
-          "Q": "How do I post a job listing?",
-          "A": "Log in as an employer, navigate to \"Post Job\" from your dashboard, fill in the job details, and submit. Your listing will go live after a quick review."
-        },
-        "FREE_JOBS": {
-          "Q": "How many jobs can I post for free?",
-          "A": "The free plan allows up to 3 active job listings. Upgrade to a paid plan to post unlimited listings and access premium features."
-        },
-        "EDIT_JOB": {
-          "Q": "Can I edit a job post after publishing?",
-          "A": "Yes. Go to Manage Jobs in your dashboard, find the listing, and click Edit. Changes are reflected immediately."
-        }
-      },
-      "GENERAL": {
-        "FREE_TO_USE": {
-          "Q": "Is JobPortal free to use?",
-          "A": "JobPortal is free for candidates. Employers can post up to 3 jobs for free. Premium plans are available for advanced hiring features."
-        },
-        "RESET_PASSWORD": {
-          "Q": "How do I reset my password?",
-          "A": "Click \"Sign in\" then \"Forgot password\". Enter your registered email and we will send you a reset link within 5 minutes."
-        },
-        "AVAILABILITY": {
-          "Q": "Which countries is JobPortal available in?",
-          "A": "JobPortal is available worldwide. Remote jobs are accessible globally, while on-site listings are filtered by location."
-        }
-      },
-      "BILLING": {
-        "PAYMENT_METHODS": {
-          "Q": "What payment methods are accepted?",
-          "A": "We accept all major credit/debit cards (Visa, Mastercard, Amex) and UPI payments."
-        },
-        "CANCEL_SUBSCRIPTION": {
-          "Q": "Can I cancel my subscription at any time?",
-          "A": "Yes. You can cancel anytime from your billing settings. Your plan remains active until the end of the current billing cycle."
-        }
-      }
+      "ACCOUNT": "الحساب",
+      "JOBS": "الوظائف وطلبات التقديم",
+      "BILLING": "الفوترة",
+      "TECHNICAL": "مشكلة تقنية",
+      "OTHER": "أخرى"
     }
   },
-  "FREELANCER_REQUEST": {
-    "TITLE": "Request Freelancer",
-    "SUBTITLE": "Submit your requirement and our admin team will review and assign the right freelancer.",
-    "DEFAULT_EMPLOYER": "Employer",
-    "FORM": {
-      "PROJECT_DESCRIPTION": "Project description",
-      "REQUIRED_SKILLS": "Required skills (comma separated)",
-      "DURATION": "Duration (optional)",
-      "DURATION_PLACEHOLDER": "e.g. 3 months",
-      "SUBMIT": "Submit request",
-      "CANCEL": "Cancel"
+  "FAQ": {
+    "CANDIDATES": {
+      "CREATE_PROFILE": {
+        "Q": "كيف يمكنني إنشاء ملف شخصي كمرشح؟",
+        "A": "اضغط على \"ابدأ الآن\" وقم بالتسجيل باستخدام بريدك الإلكتروني. بعد التحقق، انتقل إلى صفحة ملفك الشخصي لإضافة الخبرة والمهارات والتعليم."
+      },
+      "MULTIPLE_APPLICATIONS": {
+        "Q": "هل يمكنني التقديم على عدة وظائف في نفس الوقت؟",
+        "A": "نعم. تصفح الوظائف واضغط على \"تقديم\" لكل وظيفة. يمكنك متابعة جميع طلباتك من قسم الطلبات في لوحة التحكم."
+      },
+      "UPLOAD_RESUME": {
+        "Q": "كيف يمكنني رفع سيرتي الذاتية؟",
+        "A": "انتقل إلى صفحة ملفك الشخصي ثم إلى قسم السيرة الذاتية. اضغط على \"رفع السيرة الذاتية\" واختر ملف PDF بحجم يصل إلى 5 ميجابايت."
+      },
+      "PROFILE_VISIBILITY": {
+        "Q": "هل يمكن لأصحاب العمل رؤية ملفي قبل التقديم؟",
+        "A": "فقط إذا كانت إعدادات الظهور مضبوطة على \"عام\". يمكنك تغيير ذلك من الإعدادات ضمن الخصوصية."
+      }
     },
-    "TOASTS": {
-      "LOGIN_REQUIRED": "Please sign in as an employer to request a freelancer.",
-      "EMPLOYER_ONLY": "Only employers can request freelancers.",
-      "SUBMITTED": "Request submitted. Admin will review and assign a freelancer."
+    "EMPLOYERS": {
+      "POST_JOB": {
+        "Q": "كيف يمكنني نشر وظيفة؟",
+        "A": "قم بتسجيل الدخول كصاحب عمل، وانتقل إلى \"نشر وظيفة\" من لوحة التحكم، واملأ التفاصيل ثم أرسلها. سيتم نشرها بعد مراجعة سريعة."
+      },
+      "FREE_JOBS": {
+        "Q": "كم عدد الوظائف التي يمكنني نشرها مجانًا؟",
+        "A": "تسمح الخطة المجانية بنشر حتى 3 وظائف نشطة. يمكنك الترقية لخطة مدفوعة لنشر وظائف غير محدودة."
+      },
+      "EDIT_JOB": {
+        "Q": "هل يمكنني تعديل الوظيفة بعد نشرها؟",
+        "A": "نعم. انتقل إلى \"إدارة الوظائف\"، واختر الوظيفة ثم اضغط تعديل. سيتم تحديث التغييرات فورًا."
+      }
+    },
+    "GENERAL": {
+      "FREE_TO_USE": {
+        "Q": "هل JobPortal مجاني؟",
+        "A": "المنصة مجانية للمرشحين. يمكن لأصحاب العمل نشر حتى 3 وظائف مجانًا. توجد خطط مدفوعة لميزات إضافية."
+      },
+      "RESET_PASSWORD": {
+        "Q": "كيف يمكنني إعادة تعيين كلمة المرور؟",
+        "A": "اضغط على \"تسجيل الدخول\" ثم \"نسيت كلمة المرور\"، وأدخل بريدك الإلكتروني وسنرسل لك رابط إعادة التعيين خلال 5 دقائق."
+      },
+      "AVAILABILITY": {
+        "Q": "في أي دول يتوفر JobPortal؟",
+        "A": "المنصة متاحة عالميًا. الوظائف عن بُعد متاحة للجميع، بينما الوظائف في الموقع تعتمد على الموقع الجغرافي."
+      }
+    },
+    "BILLING": {
+      "PAYMENT_METHODS": {
+        "Q": "ما طرق الدفع المقبولة؟",
+        "A": "نقبل جميع بطاقات الائتمان والخصم الرئيسية (Visa، Mastercard، Amex) بالإضافة إلى UPI."
+      },
+      "CANCEL_SUBSCRIPTION": {
+        "Q": "هل يمكنني إلغاء الاشتراك في أي وقت؟",
+        "A": "نعم، يمكنك الإلغاء في أي وقت من إعدادات الفوترة. ستظل الخطة نشطة حتى نهاية دورة الفوترة الحالية."
+      }
     }
+  }
+},
+"FREELANCER_REQUEST": {
+  "TITLE": "طلب مستقل",
+  "SUBTITLE": "قدّم طلبك وسيقوم فريق الإدارة بمراجعته وتعيين المستقل المناسب.",
+  "DEFAULT_EMPLOYER": "صاحب عمل",
+  "FORM": {
+    "PROJECT_DESCRIPTION": "وصف المشروع",
+    "REQUIRED_SKILLS": "المهارات المطلوبة (مفصولة بفواصل)",
+    "DURATION": "المدة (اختياري)",
+    "DURATION_PLACEHOLDER": "مثال: 3 أشهر",
+    "SUBMIT": "إرسال الطلب",
+    "CANCEL": "إلغاء"
   },
+  "TOASTS": {
+    "LOGIN_REQUIRED": "يرجى تسجيل الدخول كصاحب عمل لطلب مستقل.",
+    "EMPLOYER_ONLY": "فقط أصحاب العمل يمكنهم طلب مستقلين.",
+    "SUBMITTED": "تم إرسال الطلب. سيقوم المسؤول بمراجعته وتعيين مستقل."
+  }
+},
   "PROFILE": {
     "LOCATIONS": {
       "AUSTIN_TX": "أوستن، تكساس"

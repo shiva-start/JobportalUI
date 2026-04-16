@@ -14,26 +14,26 @@ import { TranslatePipe } from '@ngx-translate/core';
       <div class="flex items-center gap-4 mb-4">
         <img [src]="freelancer.avatar || 'https://ui-avatars.com/api/?name=' + (freelancer.name || '?') + '&size=56&background=dbeafe&color=1d4ed8'" alt="{{ freelancer.name }}" class="w-14 h-14 rounded-full object-cover ring-2 ring-blue-100 flex-shrink-0 transition group-hover:ring-blue-300" />
         <div class="min-w-0 flex-1">
-          <h3 class="text-base font-semibold text-slate-800 truncate">{{ nameKey ? (nameKey | translate) : freelancer.name }}</h3>
-          <p class="text-sm text-slate-500 truncate mt-0.5">{{ roleKey ? (roleKey | translate) : freelancer.role }}</p>
+          <h3 class="text-base font-semibold text-slate-800 truncate">{{ freelancer.name }}</h3>
+          <p class="text-sm text-slate-500 truncate mt-0.5">{{ resolvedRoleKey | translate }}</p>
         </div>
       </div>
 
       <!-- Badge -->
       @if (freelancer.type) {
         <div class="mb-3">
-          <span class="inline-block bg-blue-50 text-blue-600 text-xs font-medium px-3 py-1 rounded-full border border-blue-100">{{ typeKey ? (typeKey | translate) : freelancer.type }}</span>
+          <span class="inline-block bg-blue-50 text-blue-600 text-xs font-medium px-3 py-1 rounded-full border border-blue-100">{{ resolvedTypeKey | translate }}</span>
         </div>
       }
 
       <!-- Description -->
-      <p class="text-sm text-slate-600 leading-relaxed mb-4">{{ descriptionKey ? (descriptionKey | translate) : freelancer.description }}</p>
+      <p class="text-sm text-slate-600 leading-relaxed mb-4">{{ resolvedDescriptionKey | translate }}</p>
 
       <!-- Skills -->
       <div class="flex flex-wrap gap-2 mb-6">
         @for (skill of topSkills; track skill) {
           <span class="bg-slate-100 text-slate-700 text-xs font-medium px-3 py-1.5 rounded-full hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200">
-            {{ skillKey(skill) ? (skillKey(skill) | translate) : skill }}
+            {{ skill }}
           </span>
         }
       </div>
@@ -50,15 +50,6 @@ import { TranslatePipe } from '@ngx-translate/core';
 })
 export class FreelancerCardComponent {
   @Input() freelancer: any = {};
-
-  private readonly nameKeyMap: Record<string, string> = {
-    'Aisha Khan': 'FREELANCERS.CARD.NAMES.AISHA_KHAN',
-    'Omar Rizvi': 'FREELANCERS.CARD.NAMES.OMAR_RIZVI',
-    'Lina Ahmed': 'FREELANCERS.CARD.NAMES.LINA_AHMED',
-    'Samir Patel': 'FREELANCERS.CARD.NAMES.SAMIR_PATEL',
-    'Priya Sharma': 'FREELANCERS.CARD.NAMES.PRIYA_SHARMA',
-    'Zaid Hassan': 'FREELANCERS.CARD.NAMES.ZAID_HASSAN'
-  };
 
   private readonly roleKeyMap: Record<string, string> = {
     'Frontend Developer': 'FREELANCERS.CARD.ROLES.FRONTEND_DEVELOPER',
@@ -82,47 +73,19 @@ export class FreelancerCardComponent {
     'Cross-platform mobile apps for iOS and Android.': 'FREELANCERS.CARD.DESCRIPTIONS.MOBILE_DEVELOPER'
   };
 
-  private readonly skillKeyMap: Record<string, string> = {
-    Angular: 'FREELANCERS.CARD.SKILLS.ANGULAR',
-    TypeScript: 'FREELANCERS.CARD.SKILLS.TYPESCRIPT',
-    'UI Design': 'FREELANCERS.CARD.SKILLS.UI_DESIGN',
-    '.NET': 'FREELANCERS.CARD.SKILLS.DOTNET',
-    'C#': 'FREELANCERS.CARD.SKILLS.C_SHARP',
-    'REST APIs': 'FREELANCERS.CARD.SKILLS.REST_APIS',
-    Figma: 'FREELANCERS.CARD.SKILLS.FIGMA',
-    'UX Research': 'FREELANCERS.CARD.SKILLS.UX_RESEARCH',
-    Prototyping: 'FREELANCERS.CARD.SKILLS.PROTOTYPING',
-    'Node.js': 'FREELANCERS.CARD.SKILLS.NODE_JS',
-    PostgreSQL: 'FREELANCERS.CARD.SKILLS.POSTGRESQL',
-    Python: 'FREELANCERS.CARD.SKILLS.PYTHON',
-    'Power BI': 'FREELANCERS.CARD.SKILLS.POWER_BI',
-    SQL: 'FREELANCERS.CARD.SKILLS.SQL',
-    Flutter: 'FREELANCERS.CARD.SKILLS.FLUTTER',
-    Dart: 'FREELANCERS.CARD.SKILLS.DART',
-    Firebase: 'FREELANCERS.CARD.SKILLS.FIREBASE'
-  };
-
-  get roleKey(): string | null {
-    return this.roleKeyMap[this.freelancer?.role] ?? null;
+  get resolvedRoleKey(): string {
+    return this.roleKeyMap[this.freelancer?.role] ?? 'FREELANCERS.CARD.ROLES.UNKNOWN';
   }
 
-  get nameKey(): string | null {
-    return this.nameKeyMap[this.freelancer?.name] ?? null;
+  get resolvedTypeKey(): string {
+    return this.typeKeyMap[this.freelancer?.type] ?? 'FREELANCERS.CARD.TYPES.FREELANCER';
   }
 
-  get typeKey(): string | null {
-    return this.typeKeyMap[this.freelancer?.type] ?? null;
-  }
-
-  get descriptionKey(): string | null {
-    return this.descriptionKeyMap[this.freelancer?.description] ?? null;
+  get resolvedDescriptionKey(): string {
+    return this.descriptionKeyMap[this.freelancer?.description] ?? 'FREELANCERS.CARD.DESCRIPTIONS.UNKNOWN';
   }
 
   get topSkills() {
     return this.freelancer?.skills?.slice(0, 3) || [];
-  }
-
-  skillKey(skill: string): string | null {
-    return this.skillKeyMap[skill] ?? null;
   }
 }

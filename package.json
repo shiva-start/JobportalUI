@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "i18n:check-encoding": "node scripts/check-i18n-encoding.mjs",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:jobportal": "node dist/jobportal/server/server.mjs"
