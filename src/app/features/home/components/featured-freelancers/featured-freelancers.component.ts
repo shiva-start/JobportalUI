@@ -40,5 +40,12 @@ import { FreelancerService } from '../../../../core/services/freelancer.service'
 })
 export class FeaturedFreelancersComponent {
   private fs = inject(FreelancerService);
-  freelancers = this.fs.list().filter(f => f.status === 'approved').slice(0, 3);
+
+  constructor() {
+    this.fs.loadFreelancers().subscribe();
+  }
+
+  get freelancers() {
+    return this.fs.list().filter(f => f.status === 'approved').slice(0, 3);
+  }
 }

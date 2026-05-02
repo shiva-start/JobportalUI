@@ -5,7 +5,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { AuthService } from '../../../core/services/auth.service';
 import { AppLanguage, LanguageService } from '../../../core/services/language.service';
 
-type UserRole = 'candidate' | 'employer' | 'admin';
+type UserRole = 'candidate' | 'employer' | 'admin' | 'freelancer';
 
 type NavItem = {
   labelKey: string;
@@ -29,7 +29,7 @@ export class NavbarComponent {
 
   readonly role = computed<UserRole>(() => {
     const role = this.auth.getUserRole();
-    return role === 'employer' || role === 'admin' ? role : 'candidate';
+    return role === 'employer' || role === 'admin' || role === 'freelancer' ? role : 'candidate';
   });
 
   readonly menuItems = computed<Record<UserRole, NavItem[]>>(() => ({
@@ -39,7 +39,7 @@ export class NavbarComponent {
       { labelKey: 'CANDIDATE.NAV.APPLICATIONS', route: '/candidate/applications' },
       { labelKey: 'CANDIDATE.NAV.SAVED_JOBS', route: '/candidate/saved-jobs' },
       { labelKey: 'CANDIDATE.NAV.MESSAGES', route: '/candidate/messages' },
-      { labelKey: 'NAV.HELP', route: '/help' },
+      { labelKey: 'NAV.HELP', route: '/candidate/help' },
     ],
     employer: [
       { labelKey: 'EMPLOYER.NAV.OVERVIEW', route: '/employer/dashboard' },
@@ -57,6 +57,14 @@ export class NavbarComponent {
       { labelKey: 'ADMIN.NAV.REPORTS', route: '/admin/reports' },
       { labelKey: 'NAV.HELP', route: '/help' },
     ],
+    freelancer: [
+      { labelKey: 'CANDIDATE.NAV.DASHBOARD', route: '/candidate/dashboard' },
+      { labelKey: 'CANDIDATE.NAV.JOBS', route: '/candidate/jobs' },
+      { labelKey: 'CANDIDATE.NAV.APPLICATIONS', route: '/candidate/applications' },
+      { labelKey: 'CANDIDATE.NAV.SAVED_JOBS', route: '/candidate/saved-jobs' },
+      { labelKey: 'CANDIDATE.NAV.MESSAGES', route: '/candidate/messages' },
+      { labelKey: 'NAV.HELP', route: '/candidate/help' },
+    ],
   }));
 
   readonly activeMenuItems = computed(() => this.menuItems()[this.role()]);
@@ -71,6 +79,8 @@ export class NavbarComponent {
         return 'NAVBAR.EMPLOYER_ACCOUNT';
       case 'admin':
         return 'NAVBAR.ADMIN_ACCOUNT';
+      case 'freelancer':
+        return 'NAVBAR.CANDIDATE_ACCOUNT';
       default:
         return 'NAVBAR.CANDIDATE_ACCOUNT';
     }
@@ -85,6 +95,8 @@ export class NavbarComponent {
         return '/employer/company-profile';
       case 'admin':
         return '/admin/settings';
+      case 'freelancer':
+        return '/candidate/profile';
       default:
         return '/candidate/profile';
     }
@@ -95,6 +107,8 @@ export class NavbarComponent {
         return '/employer/settings';
       case 'admin':
         return '/admin/settings';
+      case 'freelancer':
+        return '/candidate/settings';
       default:
         return '/candidate/settings';
     }
@@ -120,7 +134,9 @@ export class NavbarComponent {
 
   logout(): void {
     this.closeMenus();
-    this.auth.logout();
-    this.router.navigate(['/login']);
+    this.auth.logout().subscribe({
+      next: () => void this.router.navigate(['/']),
+      error: () => void this.router.navigate(['/']),
+    });
   }
 }

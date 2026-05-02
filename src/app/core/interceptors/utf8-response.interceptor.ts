@@ -43,8 +43,7 @@ function normalizeUtf8Payload(payload: unknown): unknown {
 export const utf8ResponseInterceptor: HttpInterceptorFn = (req, next) => {
   const utf8Request = req.clone({
     setHeaders: {
-      Accept: 'application/json; charset=utf-8',
-      'Accept-Charset': 'utf-8'
+      Accept: 'application/json; charset=utf-8'
     }
   });
 

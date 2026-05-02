@@ -4,6 +4,7 @@ import { FreelancerService } from '../../core/services/freelancer.service';
 import { FreelancerRequestService } from '../../core/services/freelancer-request.service';
 import { CandidateFreelancerRequestService } from '../../core/services/candidate-freelancer-request.service';
 import { AuthService } from '../../core/services/auth.service';
+import { UserService } from '../../core/services/user.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -83,6 +84,7 @@ export class AdminComponent {
   private fs = inject(FreelancerService);
   private rs = inject(FreelancerRequestService);
   private auth = inject(AuthService);
+  private userService = inject(UserService);
   private router = inject(Router);
   private cf = inject(CandidateFreelancerRequestService);
 
@@ -98,7 +100,7 @@ export class AdminComponent {
   cfRequests = () => this.cf.list();
 
   getUserName(userId: string) {
-    const u = this.auth.getUserById(userId);
+    const u = this.userService.getUserById(userId);
     return u ? u.name : userId;
   }
 
@@ -117,13 +119,13 @@ export class AdminComponent {
   }
 
   approveCandidate(requestId: string, userId: string) {
-    this.cf.updateStatus(requestId, 'approved');
-    // mark user as freelancer
-    this.auth.setFreelancerStatus(userId, true);
+    this.cf.approve(requestId).subscribe({
+      next: () => this.userService.setFreelancerStatus(userId, true),
+    });
   }
 
   rejectCandidate(requestId: string) {
-    this.cf.updateStatus(requestId, 'rejected');
+    this.cf.reject(requestId).subscribe();
   }
 
   statusClass(s: string) {

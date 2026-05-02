@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, inject } from '@angular/core';
+import { Component, OnInit, computed, inject } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { AuthService } from '../../core/services/auth.service';
@@ -15,7 +15,7 @@ import { ToastService } from '../../core/services/toast.service';
   imports: [CommonModule, RouterLink, RouterLinkActive, RouterOutlet, TranslatePipe, NavbarComponent],
   templateUrl: './candidate-shell.component.html',
 })
-export class CandidateShellComponent {
+export class CandidateShellComponent implements OnInit {
   private readonly userNameKeys: Record<string, string> = {
     'Ahmed Hassan': 'CANDIDATE.USER.NAME.AHMED_HASSAN',
   };
@@ -52,14 +52,21 @@ export class CandidateShellComponent {
   readonly currentUserLocationKey = computed(() => this.getTranslationKey(this.candidate.profile().location, this.userLocationKeys));
   readonly isArabic = computed(() => this.languageService.currentLanguage() === 'ar');
 
+  ngOnInit(): void {
+    this.candidate.refreshProfile().subscribe();
+    this.jobService.refreshCandidateData();
+  }
+
   applyForFreelancer(): void {
     this.candidate.applyForFreelancer();
     this.toast.success(this.translate.instant('CANDIDATE.SHELL.FREELANCER_REQUEST_SUBMITTED'));
   }
 
   logout(): void {
-    this.auth.logout();
-    this.router.navigate(['/login']);
+    this.auth.logout().subscribe({
+      next: () => void this.router.navigate(['/']),
+      error: () => void this.router.navigate(['/']),
+    });
   }
 
   private getTranslationKey(value: string | undefined, dictionary: Record<string, string>): string | null {

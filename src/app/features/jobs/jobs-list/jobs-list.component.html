@@ -24,6 +24,7 @@
                 class="w-full bg-transparent text-sm text-slate-700 placeholder:text-slate-400 focus:outline-none">
             </div>
             <button
+              (click)="applyFilters()"
               type="button"
               class="rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:bg-blue-700">
               {{ 'COMMON.SEARCH' | translate }}
@@ -33,6 +34,11 @@
       </app-page-hero>
 
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        @if (companyScopedView() && selectedCompanyName()) {
+          <div class="mb-5 rounded-xl border border-blue-100 bg-blue-50 px-4 py-3 text-sm text-blue-800">
+            <span class="font-semibold">Jobs at {{ selectedCompanyName() }}</span>
+          </div>
+        }
         <div class="mb-6 flex flex-wrap items-center gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-card">
           <span class="mr-1 text-xs font-semibold uppercase tracking-wide text-slate-400">{{ 'JOBS.FILTER.LABEL' | translate }}</span>
 
@@ -70,7 +76,7 @@
           </button>
 
           <p class="ml-auto text-sm text-slate-500">
-            {{ 'JOBS.FILTER.JOBS_FOUND' | translate:{ count: jobService.filteredJobs().length } }}
+            {{ 'JOBS.FILTER.JOBS_FOUND' | translate:{ count: totalJobs() } }}
           </p>
 
           @if (hasActiveFilters()) {
@@ -95,7 +101,7 @@
               <h3 class="font-semibold text-gray-900 text-sm mb-3">{{ 'JOBS.FILTER.SORT_BY' | translate }}</h3>
               <select [(ngModel)]="sortBy" (ngModelChange)="applyFilters()"
                 class="w-full text-sm border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <option value="recent">{{ 'JOBS.FILTER.SORT_RECENT' | translate }}</option>
+                <option value="posted">{{ 'JOBS.FILTER.SORT_RECENT' | translate }}</option>
                 <option value="salary">{{ 'JOBS.FILTER.SORT_SALARY' | translate }}</option>
               </select>
             </div>
@@ -206,6 +212,11 @@
 
           <!-- Jobs Grid -->
           <div class="flex-1 min-w-0">
+            @if (errorMessage()) {
+              <div class="mb-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+                {{ errorMessage() }}
+              </div>
+            }
             <!-- Active filters chips -->
             @if (hasActiveFilters()) {
               <div class="flex flex-wrap gap-2 mb-4">
@@ -262,7 +273,7 @@
                 @for (job of paginatedJobs(); track job.id) {
                   <app-job-card
                     [job]="job"
-                    [saved]="jobService.isJobSaved(job.id)"
+                    [saved]="isJobSaved(job.id)"
                     (saveToggle)="onSaveJob($event)">
                   </app-job-card>
                 }

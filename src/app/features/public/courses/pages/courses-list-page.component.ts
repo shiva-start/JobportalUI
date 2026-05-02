@@ -1,166 +1,64 @@
-import { Component, inject, signal, computed } from '@angular/core';
+﻿import { Component, OnInit, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { TranslatePipe } from '@ngx-translate/core';
 import { PageHeroComponent } from '../../../../shared/components/page-hero/page-hero.component';
-import { EmptyStateComponent } from '../../../../shared/components/empty-state/empty-state.component';
-import { PaginationComponent } from '../../../../shared/components/pagination/pagination.component';
-import { CourseCardComponent } from '../components/course-card/course-card.component';
-import { CoursesService, CourseFilter } from '../services/courses.service';
-import { LanguageService } from '../../../../core/services/language.service';
-
-const PAGE_SIZE = 6;
+import { ContentCourse, ContentService } from '../../../../core/services/content.service';
 
 @Component({
   selector: 'app-courses-list-page',
   standalone: true,
-  imports: [
-    CommonModule, FormsModule, TranslatePipe,
-    RouterLink, PageHeroComponent, EmptyStateComponent,
-    PaginationComponent, CourseCardComponent,
-  ],
+  imports: [CommonModule, RouterLink, PageHeroComponent],
   template: `
-    <app-page-hero
-      [title]="'COURSES.LIST.TITLE' | translate"
-      [subtitle]="'COURSES.LIST.SUBTITLE' | translate"
-      [badge]="'COURSES.LIST.BADGE' | translate"
-      bgClass="bg-gradient-to-br from-indigo-700 to-blue-600">
-      <div class="mt-8 flex items-center justify-center gap-8 flex-wrap">
-        @for (stat of stats; track stat.labelKey) {
-          <div class="text-center">
-            <p class="text-2xl font-bold text-white">{{ stat.value }}</p>
-            <p class="text-xs text-white/70">{{ stat.labelKey | translate }}</p>
-          </div>
-        }
-      </div>
-    </app-page-hero>
+    <div class="min-h-screen bg-gray-50">
+      <app-page-hero
+        title="Courses"
+        subtitle="Build in-demand skills with curated learning tracks."
+        badge="Upskill Faster"
+        bgClass="bg-gradient-to-br from-indigo-700 to-blue-700">
+      </app-page-hero>
 
-    <section class="py-14 bg-gray-50 min-h-screen">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-wrap gap-3 items-center mb-8 bg-white border border-slate-200 rounded-xl p-4 shadow-card">
-          <div class="flex items-center gap-2 flex-1 min-w-[180px] border border-slate-200 rounded-lg px-3 py-2">
-            <svg class="w-4 h-4 text-slate-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-            </svg>
-            <input type="text" [(ngModel)]="filter.search" (ngModelChange)="onFilterChange()"
-              [placeholder]="'COURSES.FILTER.SEARCH_PLACEHOLDER' | translate"
-              class="w-full text-sm text-slate-600 placeholder:text-slate-400 focus:outline-none bg-transparent"/>
-          </div>
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        @if (error()) { <p class="text-red-600 mb-4">{{ error() }}</p> }
+        @if (loading()) { <p>Loading courses...</p> }
+        @if (!loading() && !error() && courses().length === 0) { <p>No courses found</p> }
 
-          <select [(ngModel)]="filter.level" (ngModelChange)="onFilterChange()"
-            class="text-sm border border-slate-200 rounded-lg px-3 py-2 bg-white text-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
-            <option value="">{{ 'COURSES.FILTER.ALL_LEVELS' | translate }}</option>
-            <option value="Beginner">{{ 'COURSES.LEVELS.BEGINNER' | translate }}</option>
-            <option value="Intermediate">{{ 'COURSES.LEVELS.INTERMEDIATE' | translate }}</option>
-            <option value="Advanced">{{ 'COURSES.LEVELS.ADVANCED' | translate }}</option>
-          </select>
-
-          <select [(ngModel)]="filter.category" (ngModelChange)="onFilterChange()"
-            class="text-sm border border-slate-200 rounded-lg px-3 py-2 bg-white text-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
-            <option value="">{{ 'COURSES.FILTER.ALL_CATEGORIES' | translate }}</option>
-            @for (cat of categories; track cat) {
-              <option [value]="cat">{{ getCategoryLabel(cat) }}</option>
-            }
-          </select>
-
-          <select [(ngModel)]="filter.priceType" (ngModelChange)="onFilterChange()"
-            class="text-sm border border-slate-200 rounded-lg px-3 py-2 bg-white text-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
-            <option value="">{{ 'COURSES.FILTER.ANY_PRICE' | translate }}</option>
-            <option value="free">{{ 'COURSES.FILTER.PRICE_OPTIONS.FREE' | translate }}</option>
-            <option value="paid">{{ 'COURSES.FILTER.PRICE_OPTIONS.PAID' | translate }}</option>
-          </select>
-
-          @if (hasActiveFilter()) {
-            <button (click)="clearFilters()"
-              class="ml-auto text-xs font-medium text-red-500 hover:text-red-600 flex items-center gap-1">
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-              </svg>
-              {{ 'COURSES.FILTER.CLEAR' | translate }}
-            </button>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          @for (course of courses(); track course.id) {
+            <a [routerLink]="['/courses', course.id]" class="group bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 block">
+              <img src="https://source.unsplash.com/featured/?online-course,learning" [alt]="course.title" class="h-44 w-full object-cover" />
+              <div class="p-5">
+                <h2 class="font-semibold text-lg text-slate-900 group-hover:text-blue-600 line-clamp-2">{{ course.title }}</h2>
+                <div class="text-sm text-slate-500 mt-2 space-y-1">
+                  <p>Provider: Job Portal Academy</p>
+                  <p>Duration: {{ course.duration }}</p>
+                  <p>Level: {{ course.level || 'General' }}</p>
+                </div>
+              </div>
+            </a>
           }
         </div>
-
-        <p class="text-sm text-slate-500 mb-6">
-          {{ 'COURSES.LIST.RESULTS' | translate:{ count: filtered().length } }}
-        </p>
-
-        @if (paginated().length > 0) {
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            @for (course of paginated(); track course.id) {
-              <app-course-card [course]="course"/>
-            }
-          </div>
-          <app-pagination
-            [currentPage]="currentPage()"
-            [totalPages]="totalPages()"
-            (pageChange)="onPageChange($event)"/>
-        } @else {
-          <app-empty-state
-            [title]="'COURSES.EMPTY.TITLE' | translate"
-            [message]="'COURSES.EMPTY.MESSAGE' | translate"
-            icon="document"
-            [actionLabel]="'COURSES.EMPTY.ACTION' | translate"
-            (action)="clearFilters()"/>
-        }
-
-        <div class="mt-16 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-center">
-          <h3 class="text-xl font-bold text-white mb-2">{{ 'COURSES.CTA.TITLE' | translate }}</h3>
-          <p class="text-white/80 text-sm mb-5">{{ 'COURSES.CTA.SUBTITLE' | translate }}</p>
-          <a routerLink="/help"
-             class="inline-flex items-center gap-2 px-6 py-2.5 bg-white text-blue-600 text-sm font-semibold rounded-xl hover:bg-blue-50 transition-all duration-200 shadow-sm">
-            {{ 'COURSES.CTA.BUTTON' | translate }}
-          </a>
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
   `
 })
-export class CoursesListPageComponent {
-  private service = inject(CoursesService);
-  private languageService = inject(LanguageService);
+export class CoursesListPageComponent implements OnInit {
+  private readonly contentService = inject(ContentService);
 
-  filter: CourseFilter = { search: '', level: '', category: '', priceType: '' };
-  currentPage = signal(1);
-  categories = this.service.getCategories();
+  protected readonly courses = signal<ContentCourse[]>([]);
+  protected readonly loading = signal(true);
+  protected readonly error = signal('');
 
-  filtered = computed(() => this.service.getFiltered(this.filter));
-  totalPages = computed(() => Math.max(1, Math.ceil(this.filtered().length / PAGE_SIZE)));
-  paginated = computed(() => {
-    const start = (this.currentPage() - 1) * PAGE_SIZE;
-    return this.filtered().slice(start, start + PAGE_SIZE);
-  });
-
-  hasActiveFilter = computed(() => Object.values(this.filter).some(v => v !== ''));
-
-  stats = [
-    { value: '50+', labelKey: 'COURSES.STATS.COURSES' },
-    { value: '30k+', labelKey: 'COURSES.STATS.STUDENTS' },
-    { value: '4.8?', labelKey: 'COURSES.STATS.AVG_RATING' },
-    { value: '100%', labelKey: 'COURSES.STATS.CERTIFICATES' },
-  ];
-
-  getCategoryLabel(category: string): string {
-    if (this.languageService.currentLanguage() !== 'ar') {
-      return category;
-    }
-
-    const labels: Record<string, string> = {
-      'Web Development': 'تطوير الويب',
-      'Data Science': 'علوم البيانات',
-      'Design': 'التصميم',
-      'Marketing': 'التسويق',
-      'DevOps': 'ديف أوبس',
-    };
-
-    return labels[category] ?? category;
-  }
-
-  onFilterChange(): void { this.currentPage.set(1); }
-  onPageChange(page: number): void { this.currentPage.set(page); window.scrollTo({ top: 0, behavior: 'smooth' }); }
-  clearFilters(): void {
-    this.filter = { search: '', level: '', category: '', priceType: '' };
-    this.currentPage.set(1);
+  ngOnInit(): void {
+    this.contentService.getCourses().subscribe({
+      next: courses => {
+        this.courses.set(courses);
+        this.loading.set(false);
+      },
+      error: err => {
+        this.error.set(err.status === 500 ? 'Server error while loading courses.' : 'Failed to load courses.');
+        this.loading.set(false);
+      }
+    });
   }
 }
+

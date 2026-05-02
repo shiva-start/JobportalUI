@@ -22,7 +22,7 @@ export interface User {
   id: string;
   name: string;
   email: string;
-  role: 'candidate' | 'employer' | 'admin';
+  role: 'candidate' | 'employer' | 'admin' | 'freelancer';
   avatar?: string;
   company?: string;
   title?: string;

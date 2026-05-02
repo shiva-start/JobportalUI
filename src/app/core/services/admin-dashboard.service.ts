@@ -1,22 +1,26 @@
 import { Injectable, computed, inject, signal } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from './auth.service';
+import { UserService } from './user.service';
 import { CandidateFreelancerRequestService } from './candidate-freelancer-request.service';
 import { FreelancerRequestService } from './freelancer-request.service';
 import { FreelancerService } from './freelancer.service';
 import { JobService } from './job.service';
 import { PlatformReport, User } from '../../models';
 import { LanguageService } from './language.service';
+import { ToastService } from './toast.service';
 
 @Injectable({ providedIn: 'root' })
 export class AdminDashboardService {
   private readonly auth = inject(AuthService);
+  private readonly userService = inject(UserService);
   private readonly jobs = inject(JobService);
   private readonly freelancers = inject(FreelancerService);
   private readonly freelancerRequests = inject(FreelancerRequestService);
   private readonly candidateFreelancerRequests = inject(CandidateFreelancerRequestService);
   private readonly translate = inject(TranslateService);
   private readonly languageService = inject(LanguageService);
+  private readonly toast = inject(ToastService);
 
   private readonly _reports = signal<PlatformReport[]>([
     { id: 'r1', type: 'job', subject: 'Suspicious salary mismatch in Backend Engineer posting', status: 'open', createdAt: '2026-04-02' },
@@ -24,7 +28,7 @@ export class AdminDashboardService {
     { id: 'r3', type: 'content', subject: 'Inappropriate wording flagged in sales job description', status: 'resolved', createdAt: '2026-03-29' },
   ]);
 
-  readonly users = computed(() => this.auth.listUsers());
+  readonly users = computed(() => this.userService.listUsers());
   readonly candidates = computed(() => this.users().filter(user => user.role === 'candidate'));
   readonly employers = computed(() => this.users().filter(user => user.role === 'employer'));
   readonly jobsList = computed(() => this.jobs.listJobs());
@@ -32,6 +36,11 @@ export class AdminDashboardService {
   readonly freelancerRequestsList = computed(() => this.freelancerRequests.list());
   readonly candidateFreelancerRequestsList = computed(() => this.candidateFreelancerRequests.list());
   readonly reports = computed(() => this._reports());
+
+  constructor() {
+    this.freelancers.loadFreelancers().subscribe();
+    this.refreshCandidateFreelancerRequests();
+  }
 
   readonly companies = computed(() =>
     this.employers().map(employer => ({
@@ -100,15 +109,15 @@ export class AdminDashboardService {
   });
 
   setUserStatus(userId: string, status: User['accountStatus']): void {
-    this.auth.updateUser(userId, { accountStatus: status });
+    this.userService.updateUser(userId, { accountStatus: status });
   }
 
   deleteUser(userId: string): void {
-    this.auth.removeUser(userId);
+    this.userService.removeUser(userId);
   }
 
   updateCompanyStatus(userId: string, status: User['accountStatus']): void {
-    this.auth.updateUser(userId, { accountStatus: status });
+    this.userService.updateUser(userId, { accountStatus: status });
   }
 
   updateJobStatus(jobId: string, status: 'approved' | 'pending' | 'rejected'): void {
@@ -123,14 +132,32 @@ export class AdminDashboardService {
     this.freelancers.updateStatus(id, status);
   }
 
-  approveCandidateFreelancer(requestId: string, userId: string): void {
-    this.candidateFreelancerRequests.updateStatus(requestId, 'approved');
-    this.auth.setFreelancerStatus(userId, true);
-    this.auth.updateUser(userId, { accountStatus: 'active' });
+  refreshCandidateFreelancerRequests(): void {
+    this.candidateFreelancerRequests.loadAdminRequests().subscribe();
+  }
+
+  approveCandidateFreelancer(requestId: string): void {
+    this.candidateFreelancerRequests.approve(requestId).subscribe({
+      next: () => {
+        this.freelancers.loadFreelancers().subscribe();
+        this.toast.success(this.translate.instant('ADMIN.REQUESTS.APPROVE_SUCCESS'));
+      },
+      error: () => {
+        this.toast.error(this.translate.instant('ADMIN.REQUESTS.ACTION_FAILED'));
+      },
+    });
   }
 
   rejectCandidateFreelancer(requestId: string): void {
-    this.candidateFreelancerRequests.updateStatus(requestId, 'rejected');
+    this.candidateFreelancerRequests.reject(requestId).subscribe({
+      next: () => {
+        this.freelancers.loadFreelancers().subscribe();
+        this.toast.success(this.translate.instant('ADMIN.REQUESTS.REJECT_SUCCESS'));
+      },
+      error: () => {
+        this.toast.error(this.translate.instant('ADMIN.REQUESTS.ACTION_FAILED'));
+      },
+    });
   }
 
   approveFreelancerRequest(requestId: string, freelancerId: string): void {

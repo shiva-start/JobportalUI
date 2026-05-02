@@ -1,16 +1,16 @@
-import { Component, Input } from '@angular/core';
+﻿import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
-import { TranslatePipe } from '@ngx-translate/core';
+import { Router } from '@angular/router';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { AuthService } from '../../../core/services/auth.service';
+import { ToastService } from '../../../core/services/toast.service';
 
 @Component({
   selector: 'app-freelancer-card',
   standalone: true,
-  imports: [CommonModule, RouterLink, TranslatePipe],
+  imports: [CommonModule, TranslatePipe],
   template: `
     <div class="group bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-lg hover:border-slate-300 transition-all duration-300 ease-in-out cursor-pointer flex flex-col h-full hover:-translate-y-1">
-
-      <!-- Avatar Header -->
       <div class="flex items-center gap-4 mb-4">
         <img [src]="freelancer.avatar || 'https://ui-avatars.com/api/?name=' + (freelancer.name || '?') + '&size=56&background=dbeafe&color=1d4ed8'" alt="{{ freelancer.name }}" class="w-14 h-14 rounded-full object-cover ring-2 ring-blue-100 flex-shrink-0 transition group-hover:ring-blue-300" />
         <div class="min-w-0 flex-1">
@@ -19,17 +19,19 @@ import { TranslatePipe } from '@ngx-translate/core';
         </div>
       </div>
 
-      <!-- Badge -->
-      @if (freelancer.type) {
-        <div class="mb-3">
-          <span class="inline-block bg-blue-50 text-blue-600 text-xs font-medium px-3 py-1 rounded-full border border-blue-100">{{ resolvedTypeKey | translate }}</span>
+      <div class="grid grid-cols-2 gap-2 mb-4 text-xs">
+        <div class="rounded-lg bg-slate-50 border border-slate-200 px-2.5 py-2">
+          <p class="text-slate-400">Experience</p>
+          <p class="text-slate-700 font-medium truncate">{{ freelancer.experience || 'N/A' }}</p>
         </div>
-      }
+        <div class="rounded-lg bg-slate-50 border border-slate-200 px-2.5 py-2">
+          <p class="text-slate-400">Rating</p>
+          <p class="text-slate-700 font-medium">{{ freelancer.rating || '4.8' }} / 5</p>
+        </div>
+      </div>
 
-      <!-- Description -->
-      <p class="text-sm text-slate-600 leading-relaxed mb-4">{{ resolvedDescriptionKey | translate }}</p>
+      <p class="text-sm text-slate-600 leading-relaxed mb-4 line-clamp-3">{{ resolvedDescriptionKey | translate }}</p>
 
-      <!-- Skills -->
       <div class="flex flex-wrap gap-2 mb-6">
         @for (skill of topSkills; track skill) {
           <span class="bg-slate-100 text-slate-700 text-xs font-medium px-3 py-1.5 rounded-full hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200">
@@ -38,18 +40,22 @@ import { TranslatePipe } from '@ngx-translate/core';
         }
       </div>
 
-      <!-- Spacer -->
       <div class="flex-grow"></div>
 
-      <!-- Action Button (Request via Admin) -->
-      <a [routerLink]="['/freelancer-request']" [queryParams]="{ freelancerId: freelancer.id }" class="w-full text-center px-4 py-2.5 rounded-lg bg-blue-600 text-white font-semibold text-sm hover:bg-blue-700 transition-all duration-200 group-hover:shadow-sm">
-        {{ 'FREELANCERS.CARD.REQUEST' | translate }}
-      </a>
+      <button type="button" (click)="viewProfile()" class="w-full text-center px-4 py-2.5 rounded-lg bg-blue-600 text-white font-semibold text-sm hover:bg-blue-700 transition-all duration-200 group-hover:shadow-sm">
+        View Profile
+      </button>
     </div>
   `
 })
 export class FreelancerCardComponent {
   @Input() freelancer: any = {};
+  constructor(
+    private readonly auth: AuthService,
+    private readonly toastService: ToastService,
+    private readonly translate: TranslateService,
+    private readonly router: Router
+  ) {}
 
   private readonly roleKeyMap: Record<string, string> = {
     'Frontend Developer': 'FREELANCERS.CARD.ROLES.FRONTEND_DEVELOPER',
@@ -58,10 +64,6 @@ export class FreelancerCardComponent {
     'Full-Stack Developer': 'FREELANCERS.CARD.ROLES.FULL_STACK_DEVELOPER',
     'Data Analyst': 'FREELANCERS.CARD.ROLES.DATA_ANALYST',
     'Mobile Developer': 'FREELANCERS.CARD.ROLES.MOBILE_DEVELOPER'
-  };
-
-  private readonly typeKeyMap: Record<string, string> = {
-    Freelancer: 'FREELANCERS.CARD.TYPES.FREELANCER'
   };
 
   private readonly descriptionKeyMap: Record<string, string> = {
@@ -74,18 +76,26 @@ export class FreelancerCardComponent {
   };
 
   get resolvedRoleKey(): string {
-    return this.roleKeyMap[this.freelancer?.role] ?? 'FREELANCERS.CARD.ROLES.UNKNOWN';
-  }
-
-  get resolvedTypeKey(): string {
-    return this.typeKeyMap[this.freelancer?.type] ?? 'FREELANCERS.CARD.TYPES.FREELANCER';
+    return this.roleKeyMap[this.freelancer?.role] ?? this.freelancer?.role ?? 'FREELANCERS.CARD.ROLES.UNKNOWN';
   }
 
   get resolvedDescriptionKey(): string {
-    return this.descriptionKeyMap[this.freelancer?.description] ?? 'FREELANCERS.CARD.DESCRIPTIONS.UNKNOWN';
+    return this.descriptionKeyMap[this.freelancer?.description] ?? this.freelancer?.description ?? 'FREELANCERS.CARD.DESCRIPTIONS.UNKNOWN';
   }
 
   get topSkills() {
-    return this.freelancer?.skills?.slice(0, 3) || [];
+    return this.freelancer?.skills?.slice(0, 4) || [];
+  }
+
+  viewProfile(): void {
+    if (!this.auth.isAuthenticated()) {
+      this.toastService.info(this.translate.instant('JOBS.DETAIL.TOASTS.LOGIN_REQUIRED'));
+      void this.router.navigate(['/login']);
+      return;
+    }
+
+    void this.router.navigate(['/freelancer-request'], {
+      queryParams: { freelancerId: this.freelancer?.id }
+    });
   }
 }

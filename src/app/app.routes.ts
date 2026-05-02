@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { AuthGuard } from './core/guards/auth.guard';
 import { RoleGuard } from './core/guards/role.guard';
+import { PublicOnlyGuard } from './core/guards/public-only.guard';
 
 export const routes: Routes = [
   {
@@ -25,10 +26,12 @@ export const routes: Routes = [
   },
   {
     path: 'login',
+    canActivate: [PublicOnlyGuard],
     loadComponent: () => import('./features/auth/login/login.component').then(m => m.LoginComponent)
   },
   {
     path: 'register',
+    canActivate: [PublicOnlyGuard],
     loadComponent: () => import('./features/auth/register/register.component').then(m => m.RegisterComponent)
   },
   {
@@ -41,7 +44,7 @@ export const routes: Routes = [
     loadComponent: () => import('./features/public/blog/pages/blog-list-page.component').then(m => m.BlogListPageComponent)
   },
   {
-    path: 'blog/:slug',
+    path: 'blog/:id',
     loadComponent: () => import('./features/public/blog/pages/blog-detail-page.component').then(m => m.BlogDetailPageComponent)
   },
   {
@@ -147,6 +150,10 @@ export const routes: Routes = [
       {
         path: 'settings',
         loadComponent: () => import('./features/candidate/pages/candidate-settings-page.component').then(m => m.CandidateSettingsPageComponent),
+      },
+      {
+        path: 'help',
+        loadComponent: () => import('./features/public/help/pages/help-page.component').then(m => m.HelpPageComponent),
       },
     ]
   },

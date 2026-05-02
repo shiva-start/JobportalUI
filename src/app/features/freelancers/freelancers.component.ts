@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+﻿import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TranslatePipe } from '@ngx-translate/core';
@@ -76,22 +76,30 @@ import { FreelancerService } from '../../core/services/freelancer.service';
           }
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        @for (f of filteredFreelancers; track f.id) {
-          <app-freelancer-card [freelancer]="f"></app-freelancer-card>
-        } @empty {
-          <p class="col-span-4 text-center text-gray-400 py-12">{{ 'FREELANCERS.EMPTY' | translate }}</p>
+        @if (fs.loading()) {
+          <p class="text-center text-slate-500 py-12">Loading freelancers...</p>
+        } @else if (fs.error()) {
+          <p class="text-center text-red-500 py-12">{{ fs.error() }}</p>
+        } @else {
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            @for (f of filteredFreelancers; track f.id) {
+              <app-freelancer-card [freelancer]="f"></app-freelancer-card>
+            } @empty {
+              <p class="col-span-4 text-center text-gray-400 py-12">{{ 'FREELANCERS.EMPTY' | translate }}</p>
+            }
+          </div>
         }
-      </div>
       </div>
     </section>
   `
 })
 export class FreelancersComponent {
-  private fs = inject(FreelancerService);
-  freelancers = this.fs.list();
+  protected readonly fs = inject(FreelancerService);
 
-  // simple search state
+  constructor() {
+    this.fs.loadFreelancers().subscribe();
+  }
+
   keyword = '';
   experience = '';
   location = '';
@@ -109,27 +117,23 @@ export class FreelancersComponent {
   }
 
   get approvedFreelancers() {
-    return this.freelancers.filter(f => f.status === 'approved');
+    return this.fs.list().filter(f => f.status === 'approved');
   }
 
   get filteredFreelancers() {
     return this.approvedFreelancers.filter(f => {
       const kw = this.keyword.toLowerCase();
       if (kw) {
+        const inName = (f.name || '').toLowerCase().includes(kw);
         const inRole = (f.role || '').toLowerCase().includes(kw);
         const inSkills = (f.skills || []).join(' ').toLowerCase().includes(kw);
-        if (!inRole && !inSkills) return false;
-      }
-      if (this.experience) {
-        // no experience on mock items; skip
+        if (!inName && !inRole && !inSkills) return false;
       }
       if (this.location) {
-        if (!(((f as any).location||'').toLowerCase().includes(this.location.toLowerCase()))) return false;
-      }
-      if (this.availability) {
-        // no availability field on mock items; skip
+        if (!(((f as any).location || '').toLowerCase().includes(this.location.toLowerCase()))) return false;
       }
       return true;
     });
   }
 }
+

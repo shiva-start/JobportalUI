@@ -1,12 +1,13 @@
-import { Component, inject, signal, OnInit } from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
-import { JobService } from '../../../core/services/job.service';
+import { Job } from '../../../core/models/job.model';
+import { JobsService } from '../../../core/services/jobs.service';
 import { AuthService } from '../../../core/services/auth.service';
 import { LanguageService } from '../../../core/services/language.service';
 import { ToastService } from '../../../core/services/toast.service';
-import { Job } from '../../../models';
 import { BadgeComponent } from '../../../shared/components/badge/badge.component';
 import { JobCardComponent } from '../../../shared/components/job-card/job-card.component';
 
@@ -17,15 +18,21 @@ import { JobCardComponent } from '../../../shared/components/job-card/job-card.c
   templateUrl: './job-detail.component.html'
 })
 export class JobDetailComponent implements OnInit {
-  jobService = inject(JobService);
-  private auth = inject(AuthService);
+  private readonly jobsService = inject(JobsService);
+  private readonly auth = inject(AuthService);
   readonly languageService = inject(LanguageService);
-  private toastService = inject(ToastService);
-  private translate = inject(TranslateService);
-  private route = inject(ActivatedRoute);
-  private router = inject(Router);
+  private readonly toastService = inject(ToastService);
+  private readonly translate = inject(TranslateService);
+  private readonly route = inject(ActivatedRoute);
+  private readonly router = inject(Router);
 
-  loading = signal(true);
+  readonly loading = signal(true);
+  readonly applying = signal(false);
+  readonly saveLoading = signal(false);
+  readonly errorMessage = signal<string | null>(null);
+  readonly savedJobIds = signal<string[]>([]);
+  readonly appliedJobIds = signal<string[]>([]);
+
   job: Job | null = null;
   relatedJobs: Job[] = [];
 
@@ -49,7 +56,8 @@ export class JobDetailComponent implements OnInit {
       'bg-gradient-to-br from-teal-500 to-teal-700',
       'bg-gradient-to-br from-orange-500 to-orange-700',
     ];
-    return colors[parseInt(this.job.id) % colors.length];
+    const index = this.job.id.charCodeAt(0) % colors.length;
+    return colors[index];
   }
 
   get typeVariant(): 'blue' | 'green' | 'purple' | 'orange' | 'teal' | 'gray' {
@@ -61,29 +69,61 @@ export class JobDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      this.loading.set(true);
-      setTimeout(() => {
-        this.job = this.jobService.getJobById(params['id']) || null;
-        if (this.job) this.relatedJobs = this.jobService.getRelatedJobs(this.job);
-        this.loading.set(false);
-      }, 500);
+      const id = params['id'] as string;
+      this.loadJob(id);
     });
   }
 
   applyNow(): void {
-    if (!this.auth.isAuthenticated()) {
-      this.toastService.info(this.translate.instant('JOBS.DETAIL.TOASTS.LOGIN_REQUIRED'));
-      this.router.navigate(['/login']);
+    if (!this.job) {
       return;
     }
-    this.jobService.applyToJob(this.job!.id);
-    this.toastService.success(this.translate.instant('JOBS.DETAIL.TOASTS.APPLIED'));
+
+    if (!this.auth.isAuthenticated()) {
+      this.toastService.info(this.translate.instant('JOBS.DETAIL.TOASTS.LOGIN_REQUIRED'));
+      void this.router.navigate(['/login']);
+      return;
+    }
+
+    this.applying.set(true);
+    this.jobsService.applyToJob(this.job.id).subscribe({
+      next: () => {
+        this.appliedJobIds.update(ids => ids.includes(this.job!.id) ? ids : [...ids, this.job!.id]);
+        this.applying.set(false);
+        this.toastService.success(this.translate.instant('JOBS.DETAIL.TOASTS.APPLIED'));
+      },
+      error: (error) => {
+        this.applying.set(false);
+        this.handleError(error);
+      },
+    });
   }
 
   toggleSave(): void {
-    this.jobService.toggleSaveJob(this.job!.id);
-    const saved = this.jobService.isJobSaved(this.job!.id);
-    this.toastService.success(this.translate.instant(saved ? 'JOBS.TOASTS.SAVED' : 'JOBS.TOASTS.REMOVED'));
+    if (!this.job) {
+      return;
+    }
+
+    this.saveLoading.set(true);
+    const jobId = this.job.id;
+    const request$ = this.isSaved(jobId) ? this.jobsService.unsaveJob(jobId) : this.jobsService.saveJob(jobId);
+
+    request$.subscribe({
+      next: () => {
+        if (this.isSaved(jobId)) {
+          this.savedJobIds.update(ids => ids.filter(id => id !== jobId));
+          this.toastService.success(this.translate.instant('JOBS.TOASTS.REMOVED'));
+        } else {
+          this.savedJobIds.update(ids => [...ids, jobId]);
+          this.toastService.success(this.translate.instant('JOBS.TOASTS.SAVED'));
+        }
+        this.saveLoading.set(false);
+      },
+      error: (error) => {
+        this.saveLoading.set(false);
+        this.handleError(error);
+      },
+    });
   }
 
   shareJob(): void {
@@ -91,12 +131,30 @@ export class JobDetailComponent implements OnInit {
   }
 
   onSaveJob(jobId: string): void {
-    this.jobService.toggleSaveJob(jobId);
-    this.toastService.success(this.translate.instant(this.jobService.isJobSaved(jobId) ? 'JOBS.TOASTS.SAVED_SHORT' : 'JOBS.TOASTS.REMOVED_SHORT'));
+    const request$ = this.isSaved(jobId) ? this.jobsService.unsaveJob(jobId) : this.jobsService.saveJob(jobId);
+    request$.subscribe({
+      next: () => {
+        if (this.isSaved(jobId)) {
+          this.savedJobIds.update(ids => ids.filter(id => id !== jobId));
+          this.toastService.success(this.translate.instant('JOBS.TOASTS.REMOVED_SHORT'));
+        } else {
+          this.savedJobIds.update(ids => [...ids, jobId]);
+          this.toastService.success(this.translate.instant('JOBS.TOASTS.SAVED_SHORT'));
+        }
+      },
+      error: (error) => this.handleError(error),
+    });
+  }
+
+  isSaved(jobId: string): boolean {
+    return this.savedJobIds().includes(jobId);
+  }
+
+  isApplied(jobId: string): boolean {
+    return this.appliedJobIds().includes(jobId);
   }
 
   formatType(type: string): string {
-    // Normalize API-like values (e.g. full-time) into stable translation keys.
     const key = type.split('-').map(w => w.toUpperCase()).join('_');
     return this.translate.instant(`JOBS.TYPES.${key}`);
   }
@@ -115,5 +173,40 @@ export class JobDetailComponent implements OnInit {
     if (diffDays < 7) return this.translate.instant('COMMON.TIME.DAYS_AGO', { count: diffDays });
     if (diffDays < 30) return this.translate.instant('COMMON.TIME.WEEKS_AGO', { count: Math.floor(diffDays / 7) });
     return this.translate.instant('COMMON.TIME.MONTHS_AGO', { count: Math.floor(diffDays / 30) });
+  }
+
+  private loadJob(id: string): void {
+    this.loading.set(true);
+    this.errorMessage.set(null);
+
+    this.jobsService.getJobById(id).subscribe({
+      next: (job) => {
+        this.job = job;
+        this.jobsService.getRelatedJobs(id).subscribe({
+          next: (relatedJobs) => {
+            this.relatedJobs = relatedJobs;
+            this.loading.set(false);
+          },
+          error: () => {
+            this.relatedJobs = [];
+            this.loading.set(false);
+          },
+        });
+      },
+      error: (error) => {
+        this.job = null;
+        this.relatedJobs = [];
+        this.loading.set(false);
+        this.handleError(error);
+      },
+    });
+  }
+
+  private handleError(error: unknown): void {
+    const message = error instanceof HttpErrorResponse
+      ? (error.error?.message || error.message || this.translate.instant('AUTH.LOGIN.ERROR_TOAST'))
+      : this.translate.instant('AUTH.LOGIN.ERROR_TOAST');
+    this.errorMessage.set(message);
+    this.toastService.error(message);
   }
 }

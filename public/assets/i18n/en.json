@@ -254,7 +254,7 @@
         "SALARY": "Salary"
       },
       "TOASTS": {
-        "LOGIN_REQUIRED": "Please sign in to apply.",
+        "LOGIN_REQUIRED": "Please sign in",
         "APPLIED": "Application submitted successfully.",
         "LINK_COPIED": "Link copied to clipboard."
       },

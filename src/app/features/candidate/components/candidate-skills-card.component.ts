@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
@@ -10,7 +10,7 @@ import { TranslatePipe } from '@ngx-translate/core';
     <div class="bg-white rounded-xl shadow-sm p-4 sm:p-6">
       <div class="mb-4 flex items-center justify-between rtl:flex-row-reverse">
         <h2 class="font-bold text-gray-900 rtl:text-right">{{ 'CANDIDATE.PROFILE.SKILLS' | translate }}</h2>
-        <button type="button" class="text-sm font-medium text-blue-600 hover:text-blue-700">{{ 'CANDIDATE.PROFILE.ADD_SKILL' | translate }}</button>
+        <button type="button" (click)="add.emit()" class="text-sm font-medium text-blue-600 hover:text-blue-700">{{ 'CANDIDATE.PROFILE.ADD_SKILL' | translate }}</button>
       </div>
 
       <ng-container *ngIf="skills?.length; else empty">
@@ -32,4 +32,5 @@ import { TranslatePipe } from '@ngx-translate/core';
 })
 export class CandidateSkillsCardComponent {
   @Input() skills: string[] | null = [];
+  @Output() add = new EventEmitter<void>();
 }

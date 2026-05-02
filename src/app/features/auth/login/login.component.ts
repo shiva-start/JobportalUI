@@ -3,6 +3,7 @@ import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { finalize } from 'rxjs';
 import { AuthService } from '../../../core/services/auth.service';
 import { ToastService } from '../../../core/services/toast.service';
 
@@ -21,7 +22,7 @@ export class LoginComponent {
 
   showPassword = signal(false);
   submitting = signal(false);
-  userType = signal<'candidate' | 'employer'>('candidate');
+  errorMessage = signal<string | null>(null);
 
   form = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
@@ -43,39 +44,29 @@ export class LoginComponent {
 
   onSubmit(): void {
     if (this.form.invalid) { this.form.markAllAsTouched(); return; }
+
+    const email = this.form.value.email?.trim() ?? '';
+    const password = this.form.value.password ?? '';
+    if (!email || !password) {
+      return;
+    }
+
+    this.errorMessage.set(null);
     this.submitting.set(true);
-    setTimeout(() => {
-      const success = this.auth.login(this.form.value.email!, this.form.value.password!);
-      this.submitting.set(false);
-      if (success) {
-        this.toastService.success(this.translate.instant('AUTH.LOGIN.WELCOME_TOAST'));
-        const role = this.auth.getUserRole();
-        if (role === 'candidate') {
-          this.router.navigate(['/candidate/home']);
-          return;
+
+    this.auth.login({ email, password })
+      .pipe(finalize(() => this.submitting.set(false)))
+      .subscribe({
+        next: (user) => {
+          this.errorMessage.set(null);
+          this.toastService.success(this.translate.instant('AUTH.LOGIN.WELCOME_TOAST'));
+          void this.router.navigateByUrl(this.auth.getDashboardRoute(user.role));
+        },
+        error: (error: { message?: string }) => {
+          const message = error?.message || this.translate.instant('AUTH.LOGIN.ERROR_TOAST');
+          this.errorMessage.set(message);
+          this.toastService.error(message);
         }
-        this.router.navigate([this.auth.isEmployer() ? '/employer' : '/candidate']);
-      } else {
-        this.toastService.error(this.translate.instant('AUTH.LOGIN.ERROR_TOAST'));
-      }
-    }, 800);
-  }
-
-  loginAsCandidate(): void {
-    this.auth.loginAsCandidate();
-    this.toastService.success(this.translate.instant('AUTH.LOGIN.CANDIDATE_TOAST'));
-    this.router.navigate(['/candidate/home']);
-  }
-
-  loginAsEmployer(): void {
-    this.auth.loginAsEmployer();
-    this.toastService.success(this.translate.instant('AUTH.LOGIN.EMPLOYER_TOAST'));
-    this.router.navigate(['/employer']);
-  }
-
-  loginAsAdmin(): void {
-    this.auth.loginAsAdmin();
-    this.toastService.success(this.translate.instant('AUTH.LOGIN.ADMIN_TOAST'));
-    this.router.navigate(['/admin']);
+      });
   }
 }

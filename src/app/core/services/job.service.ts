@@ -1,21 +1,30 @@
-import { Injectable, signal, computed } from '@angular/core';
-import { Job, JobFilter, Category, ApplicationStatus, ApplicationRecord } from '../../models';
-import jobsData from '../../mock-data/jobs.json';
-import categoriesData from '../../mock-data/categories.json';
+import { Injectable, computed, inject, signal } from '@angular/core';
+import { forkJoin, of } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
+import { ApplicationStatus, ApplicationRecord, Category, Job, JobFilter } from '../../models';
+import { ApplicationsService, JobApplicationDto } from './applications.service';
+import { JobsService } from './jobs.service';
+import { SavedJobsService } from './saved-jobs.service';
 
 @Injectable({ providedIn: 'root' })
 export class JobService {
+  private readonly jobsApi = inject(JobsService);
+  private readonly applicationsApi = inject(ApplicationsService);
+  private readonly savedJobsApi = inject(SavedJobsService);
+
   private readonly applicationStatusAliases: Record<string, ApplicationStatus> = {
+    submitted: 'applied',
+    reviewing: 'under-review',
+    shortlisted: 'shortlisted',
+    rejected: 'rejected',
+    hired: 'selected',
+    withdrawn: 'rejected',
     applied: 'applied',
     'under-review': 'under-review',
     'under review': 'under-review',
-    shortlisted: 'shortlisted',
     'interview-scheduled': 'interview-scheduled',
-    'interview scheduled': 'interview-scheduled',
     interview: 'interview-scheduled',
-    rejected: 'rejected',
     selected: 'selected',
-    'offer received': 'selected',
   };
 
   private readonly applicationStatusKeyMap: Record<ApplicationStatus, string> = {
@@ -27,58 +36,52 @@ export class JobService {
     selected: 'CANDIDATE.STATUS.SELECTED',
   };
 
-  private readonly _jobs = signal<Job[]>(
-    (jobsData as Job[]).map((job, index) => ({
-      ...job,
-      moderationStatus: index < 8 ? 'approved' : 'pending',
-    })),
-  );
+  private readonly _jobs = signal<Job[]>([]);
   private readonly _savedJobIds = signal<string[]>([]);
-  // Pre-seeded so the dashboard shows real data immediately
-  private readonly _appliedJobIds = signal<string[]>(['1', '2', '3', '4']);
-  private readonly _applicationDetails = signal<ApplicationRecord[]>([
-    { jobId: '1', appliedAt: '2026-03-20', status: 'shortlisted' },
-    { jobId: '2', appliedAt: '2026-03-18', status: 'interview-scheduled' },
-    { jobId: '3', appliedAt: '2026-03-28', status: 'applied' },
-    { jobId: '4', appliedAt: '2026-03-15', status: 'rejected' },
-  ]);
+  private readonly _appliedJobIds = signal<string[]>([]);
+  private readonly _applicationDetails = signal<ApplicationRecord[]>([]);
   private readonly _filters = signal<JobFilter>({
     keyword: '',
     location: '',
     category: '',
     experienceLevel: '',
-    type: ''
+    type: '',
   });
 
   readonly savedJobIds = computed(() => this._savedJobIds());
   readonly appliedJobIds = computed(() => this._appliedJobIds());
-
-  readonly featuredJobs = computed(() =>
-    this._jobs().filter(j => j.featured).slice(0, 6)
-  );
-
   readonly jobs = computed(() => this._jobs());
 
-  readonly categories: Category[] = categoriesData as Category[];
+  // Category cards are still UI presets; job list itself is API-backed.
+  readonly categories: Category[] = [
+    { id: 'software-development', name: 'Software Development', icon: 'code', count: 0, color: 'blue' },
+    { id: 'marketing', name: 'Marketing', icon: 'megaphone', count: 0, color: 'emerald' },
+    { id: 'finance', name: 'Finance', icon: 'chart', count: 0, color: 'amber' },
+  ];
 
+  readonly featuredJobs = computed(() => this._jobs().slice(0, 6));
   readonly filteredJobs = computed(() => {
     const f = this._filters();
-    return this._jobs().filter(job => {
+    return this._jobs().filter((job) => {
       const matchesKeyword = !f.keyword ||
         job.title.toLowerCase().includes(f.keyword.toLowerCase()) ||
         job.company.toLowerCase().includes(f.keyword.toLowerCase()) ||
-        job.skills.some(s => s.toLowerCase().includes(f.keyword.toLowerCase()));
-      const matchesLocation = !f.location ||
-        job.location.toLowerCase().includes(f.location.toLowerCase());
-      const matchesCategory = !f.category || job.category === f.category;
+        job.skills.some((s) => s.toLowerCase().includes(f.keyword.toLowerCase()));
+      const matchesLocation = !f.location || job.location.toLowerCase().includes(f.location.toLowerCase());
+      const matchesCategory = !f.category || job.category.toLowerCase().includes(f.category.toLowerCase());
       const matchesLevel = !f.experienceLevel || job.experienceLevel === f.experienceLevel;
       const matchesType = !f.type || job.type === f.type;
       return matchesKeyword && matchesLocation && matchesCategory && matchesLevel && matchesType;
     });
   });
 
+  constructor() {
+    this.refreshCatalog();
+    this.refreshCandidateData();
+  }
+
   getJobById(id: string): Job | undefined {
-    return this._jobs().find(j => j.id === id);
+    return this._jobs().find((j) => j.id === id);
   }
 
   listJobs(): Job[] {
@@ -86,21 +89,26 @@ export class JobService {
   }
 
   setFilters(filters: Partial<JobFilter>): void {
-    this._filters.update(current => ({ ...current, ...filters }));
+    this._filters.update((current) => ({ ...current, ...filters }));
   }
 
   resetFilters(): void {
     this._filters.set({ keyword: '', location: '', category: '', experienceLevel: '', type: '' });
   }
 
-  getFilters() {
+  getFilters(): JobFilter {
     return this._filters();
   }
 
   toggleSaveJob(jobId: string): void {
-    this._savedJobIds.update(ids =>
-      ids.includes(jobId) ? ids.filter(id => id !== jobId) : [...ids, jobId]
-    );
+    this.savedJobsApi.toggleSaveJob(jobId).pipe(
+      tap((result) => {
+        this._savedJobIds.update((ids) =>
+          result.isSaved ? [...new Set([...ids, result.jobId])] : ids.filter((id) => id !== result.jobId),
+        );
+      }),
+      catchError(() => of(null)),
+    ).subscribe();
   }
 
   isJobSaved(jobId: string): boolean {
@@ -108,12 +116,10 @@ export class JobService {
   }
 
   applyToJob(jobId: string): void {
-    if (this._appliedJobIds().includes(jobId)) return;
-    this._appliedJobIds.update(ids => [...ids, jobId]);
-    this._applicationDetails.update(list => [
-      ...list,
-      { jobId, appliedAt: new Date().toISOString().slice(0, 10), status: 'applied' },
-    ]);
+    this.applicationsApi.applyToJob({ jobId }).pipe(
+      tap((created) => this.upsertApplication(created)),
+      catchError(() => of(null)),
+    ).subscribe();
   }
 
   isJobApplied(jobId: string): boolean {
@@ -121,11 +127,13 @@ export class JobService {
   }
 
   getSavedJobs(): Job[] {
-    return this._jobs().filter(j => this._savedJobIds().includes(j.id));
+    const saved = new Set(this._savedJobIds());
+    return this._jobs().filter((j) => saved.has(j.id));
   }
 
   getAppliedJobs(): Job[] {
-    return this._jobs().filter(j => this._appliedJobIds().includes(j.id));
+    const applied = new Set(this._appliedJobIds());
+    return this._jobs().filter((j) => applied.has(j.id));
   }
 
   getApplicationDetails(): ApplicationRecord[] {
@@ -137,15 +145,15 @@ export class JobService {
   }
 
   getApplicationStatus(jobId: string): ApplicationStatus {
-    const rawStatus = this._applicationDetails().find(a => a.jobId === jobId)?.status ?? 'applied';
+    const rawStatus = this._applicationDetails().find((a) => a.jobId === jobId)?.status ?? 'applied';
     return this.normalizeApplicationStatus(rawStatus);
   }
 
   getApplicationDate(jobId: string): string {
-    const detail = this._applicationDetails().find(a => a.jobId === jobId);
+    const detail = this._applicationDetails().find((a) => a.jobId === jobId);
     if (!detail) return '';
-    const d = new Date(detail.appliedAt);
-    return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+    const date = new Date(detail.appliedAt);
+    return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
   }
 
   formatApplicationStatus(status: ApplicationStatus): string {
@@ -165,24 +173,97 @@ export class JobService {
   }
 
   normalizeApplicationStatus(status: string): ApplicationStatus {
-    const normalizedStatus = status.trim().toLowerCase().replace(/[_\s]+/g, '-');
-    return this.applicationStatusAliases[normalizedStatus] ?? 'applied';
+    const normalized = status.trim().toLowerCase().replace(/[_\s]+/g, '-');
+    return this.applicationStatusAliases[normalized] ?? 'applied';
   }
 
   updateModerationStatus(jobId: string, status: Job['moderationStatus']): void {
-    this._jobs.update(list => list.map(job => job.id === jobId ? { ...job, moderationStatus: status } : job));
+    this._jobs.update((list) => list.map((job) => (job.id === jobId ? { ...job, moderationStatus: status } : job)));
   }
 
   removeJob(jobId: string): void {
-    this._jobs.update(list => list.filter(job => job.id !== jobId));
-    this._savedJobIds.update(ids => ids.filter(id => id !== jobId));
-    this._appliedJobIds.update(ids => ids.filter(id => id !== jobId));
-    this._applicationDetails.update(list => list.filter(detail => detail.jobId !== jobId));
+    this._jobs.update((list) => list.filter((job) => job.id !== jobId));
+    this._savedJobIds.update((ids) => ids.filter((id) => id !== jobId));
+    this._appliedJobIds.update((ids) => ids.filter((id) => id !== jobId));
+    this._applicationDetails.update((list) => list.filter((detail) => detail.jobId !== jobId));
   }
 
   getRelatedJobs(job: Job): Job[] {
     return this._jobs()
-      .filter(j => j.id !== job.id && (j.category === job.category || j.experienceLevel === job.experienceLevel))
+      .filter((j) => j.id !== job.id && (j.category === job.category || j.experienceLevel === job.experienceLevel))
       .slice(0, 3);
+  }
+
+  refreshCandidateData(): void {
+    forkJoin({
+      saved: this.savedJobsApi.getSavedJobIds().pipe(catchError(() => of([] as string[]))),
+      applications: this.applicationsApi.getMyApplications().pipe(catchError(() => of([] as JobApplicationDto[]))),
+    }).pipe(
+      tap(({ saved, applications }) => {
+        this._savedJobIds.set(saved);
+        this._applicationDetails.set(applications.map((a) => ({
+          jobId: a.jobId,
+          appliedAt: a.appliedAtUtc,
+          status: this.normalizeApplicationStatus(a.status),
+        })));
+        this._appliedJobIds.set([...new Set(applications.map((a) => a.jobId))]);
+      }),
+      tap(({ applications }) => this.ensureJobsLoaded(applications.map((a) => a.jobId))),
+    ).subscribe();
+  }
+
+  private refreshCatalog(): void {
+    this.jobsApi.getJobs({ page: 1, pageSize: 100, sortBy: 'posted', descending: true }).pipe(
+      map((response) => response.items.map((job) => ({ ...job, moderationStatus: 'approved' as const }))),
+      tap((jobs) => this._jobs.set(jobs)),
+      catchError(() => of([] as Job[])),
+    ).subscribe();
+  }
+
+  private ensureJobsLoaded(jobIds: string[]): void {
+    const existing = new Set(this._jobs().map((j) => j.id));
+    const missing = [...new Set(jobIds)].filter((id) => !existing.has(id));
+    if (!missing.length) {
+      return;
+    }
+
+    forkJoin(
+      missing.map((id) =>
+        this.jobsApi.getJobById(id).pipe(catchError(() => of(null as Job | null))),
+      ),
+    ).pipe(
+      map((items) => items.filter((item): item is Job => item !== null)),
+      tap((loaded) => {
+        if (!loaded.length) {
+          return;
+        }
+        this._jobs.update((current) => {
+          const byId = new Map(current.map((job) => [job.id, job]));
+          loaded.forEach((job) => byId.set(job.id, { ...job, moderationStatus: 'approved' }));
+          return [...byId.values()];
+        });
+      }),
+    ).subscribe();
+  }
+
+  private upsertApplication(application: JobApplicationDto): void {
+    const normalizedStatus = this.normalizeApplicationStatus(application.status);
+    this._applicationDetails.update((items) => {
+      const existingIndex = items.findIndex((i) => i.jobId === application.jobId);
+      const next: ApplicationRecord = {
+        jobId: application.jobId,
+        appliedAt: application.appliedAtUtc,
+        status: normalizedStatus,
+      };
+
+      if (existingIndex === -1) {
+        return [next, ...items];
+      }
+
+      return items.map((item, index) => (index === existingIndex ? next : item));
+    });
+
+    this._appliedJobIds.update((ids) => [...new Set([...ids, application.jobId])]);
+    this.ensureJobsLoaded([application.jobId]);
   }
 }

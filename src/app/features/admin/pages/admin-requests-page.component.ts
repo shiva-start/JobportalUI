@@ -61,12 +61,15 @@ import { LanguageService } from '../../../core/services/language.service';
         <div *ngIf="admin.candidateFreelancerRequestsList().length; else noCandidateRequests" class="space-y-3">
           <div *ngFor="let request of admin.candidateFreelancerRequestsList()" class="rounded-xl border border-gray-100 p-4 flex flex-wrap items-center justify-between gap-3">
             <div>
-              <p class="font-semibold text-gray-900">{{ request.userId }}</p>
+              <p class="font-semibold text-gray-900">{{ request.userName || request.userId }}</p>
+              <p class="text-sm text-gray-500 rtl:text-right">{{ request.userEmail }}</p>
+              <p class="text-sm text-gray-500 rtl:text-right" *ngIf="request.bio">{{ request.bio }}</p>
+              <p class="text-xs text-gray-400 rtl:text-right" *ngIf="request.hourlyRate">{{ 'Hourly Rate' }}: {{ request.hourlyRate }}</p>
               <p class="text-sm text-gray-500 rtl:text-right">{{ 'ADMIN.REQUESTS.SUBMITTED' | translate }} {{ request.createdAt | date:'mediumDate' }}</p>
               <p class="text-xs text-gray-400 rtl:text-right">{{ 'ADMIN.REQUESTS.STATUS' | translate }}: {{ request.status }}</p>
             </div>
             <div class="flex flex-wrap gap-2">
-              <button type="button" (click)="admin.approveCandidateFreelancer(request.id, request.userId)" class="px-3 py-1 rounded-lg text-sm font-medium bg-green-100 text-green-700">{{ 'ADMIN.REQUESTS.APPROVE' | translate }}</button>
+              <button type="button" (click)="admin.approveCandidateFreelancer(request.id)" class="px-3 py-1 rounded-lg text-sm font-medium bg-green-100 text-green-700">{{ 'ADMIN.REQUESTS.APPROVE' | translate }}</button>
               <button type="button" (click)="admin.rejectCandidateFreelancer(request.id)" class="px-3 py-1 rounded-lg text-sm font-medium bg-red-100 text-red-700">{{ 'ADMIN.REQUESTS.REJECT' | translate }}</button>
             </div>
           </div>

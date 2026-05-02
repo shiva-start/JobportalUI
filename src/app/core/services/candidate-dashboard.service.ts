@@ -1,19 +1,64 @@
 import { formatDate } from '@angular/common';
 import { Injectable, computed, inject, signal } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { Observable, catchError, map, of, tap } from 'rxjs';
 import {
   CandidateActivity,
   CandidateNotification,
   CandidateProfile,
   RecruiterMessage,
+  WorkExperience,
 } from '../../models';
+import { ApiService } from './api.service';
 import { AuthService } from './auth.service';
 import { CandidateFreelancerRequestService } from './candidate-freelancer-request.service';
 import { JobService } from './job.service';
 import { LanguageService } from './language.service';
 
+interface CandidateProfileApiDto {
+  id: string;
+  userId: string;
+  headline: string | null;
+  summary: string | null;
+  resumeUrl: string | null;
+  desiredSalary: number | null;
+  currentLocation: string | null;
+  openToRelocate: boolean;
+  skills: string[];
+}
+
+interface UpsertCandidateProfileDto {
+  headline: string | null;
+  summary: string | null;
+  resumeUrl: string | null;
+  desiredSalary: number | null;
+  currentLocation: string | null;
+  openToRelocate: boolean;
+  skills: string[];
+}
+
+interface MessageDto {
+  id: string;
+  senderUserId: string;
+  receiverUserId: string;
+  subject?: string | null;
+  content: string;
+  isRead: boolean;
+  sentAtUtc: string;
+}
+
+interface NotificationDto {
+  id: string;
+  title: string;
+  content: string;
+  type: string;
+  isRead: boolean;
+  createdAtUtc: string;
+}
+
 @Injectable({ providedIn: 'root' })
 export class CandidateDashboardService {
+  private readonly api = inject(ApiService);
   private readonly auth = inject(AuthService);
   private readonly jobService = inject(JobService);
   private readonly freelancerRequests = inject(CandidateFreelancerRequestService);
@@ -196,6 +241,11 @@ export class CandidateDashboardService {
     },
   ]);
 
+  constructor() {
+    this.refreshProfile().subscribe();
+    this.refreshCommunications();
+  }
+
   readonly profile = computed(() => {
     const user = this.auth.currentUser();
     const profile = this._profile();
@@ -352,7 +402,11 @@ export class CandidateDashboardService {
     if (!currentUser || this.freelancerRequestPending()) {
       return;
     }
-    this.freelancerRequests.create(currentUser.id);
+    this.freelancerRequests.create({
+      bio: this.profile().about || null,
+      portfolioUrl: null,
+      hourlyRate: 0,
+    }).subscribe();
   }
 
   markMessageRead(id: string): void {
@@ -362,15 +416,32 @@ export class CandidateDashboardService {
   }
 
   markNotificationRead(id: string): void {
-    this._notifications.update(notifications =>
-      notifications.map(notification =>
-        notification.id === id ? { ...notification, read: true } : notification,
-      ),
-    );
+    this.api.patch<void, Record<string, never>>(`users/notifications/${id}/read`, {}).pipe(
+      tap(() => {
+        this._notifications.update(notifications =>
+          notifications.map(notification =>
+            notification.id === id ? { ...notification, read: true } : notification,
+          ),
+        );
+      }),
+      catchError(() => of(void 0)),
+    ).subscribe();
   }
 
   updateVisibility(visible: boolean): void {
     this._profile.update(profile => ({ ...profile, visibility: visible }));
+  }
+
+  refreshProfile(): Observable<void> {
+    return this.api.get<CandidateProfileApiDto | null>('candidate/profile').pipe(
+      tap((dto) => {
+        if (dto) {
+          this._profile.update((profile) => this.mergeProfileFromApi(profile, dto));
+        }
+      }),
+      map(() => void 0),
+      catchError(() => of(void 0)),
+    );
   }
 
   updatePassword(_password: string): boolean {
@@ -385,6 +456,42 @@ export class CandidateDashboardService {
         uploadedAt: new Date().toISOString().slice(0, 10),
         sizeLabel: 'New upload',
       },
+    }));
+    this.syncProfileToApi();
+  }
+
+  updateProfileBasics(headline: string, about: string, location: string): void {
+    this._profile.update(profile => ({
+      ...profile,
+      headline,
+      about,
+      location,
+    }));
+    this.syncProfileToApi();
+  }
+
+  addSkill(skill: string): void {
+    const trimmed = skill.trim();
+    if (!trimmed) {
+      return;
+    }
+
+    this._profile.update(profile => {
+      if (profile.skills.some(existing => existing.toLowerCase() === trimmed.toLowerCase())) {
+        return profile;
+      }
+      return {
+        ...profile,
+        skills: [...profile.skills, trimmed],
+      };
+    });
+    this.syncProfileToApi();
+  }
+
+  addExperience(experience: WorkExperience): void {
+    this._profile.update(profile => ({
+      ...profile,
+      experience: [experience, ...profile.experience],
     }));
   }
 
@@ -416,5 +523,93 @@ export class CandidateDashboardService {
 
   private formatDisplayDate(date: string, language: 'en' | 'ar'): string {
     return formatDate(date, 'MMM d', language);
+  }
+
+  private mergeProfileFromApi(profile: CandidateProfile, dto: CandidateProfileApiDto): CandidateProfile {
+    const resumeName = dto.resumeUrl ? dto.resumeUrl.split('/').filter(Boolean).pop() || dto.resumeUrl : null;
+
+    return {
+      ...profile,
+      userId: dto.userId || profile.userId,
+      headline: dto.headline ?? profile.headline,
+      about: dto.summary ?? profile.about,
+      location: dto.currentLocation ?? profile.location,
+      skills: dto.skills?.length ? dto.skills : profile.skills,
+      resume: resumeName
+        ? {
+            name: resumeName,
+            uploadedAt: new Date().toISOString().slice(0, 10),
+            sizeLabel: 'Synced',
+          }
+        : profile.resume,
+    };
+  }
+
+  private toUpsertPayload(profile: CandidateProfile): UpsertCandidateProfileDto {
+    return {
+      headline: profile.headline || null,
+      summary: profile.about || null,
+      resumeUrl: profile.resume?.name || null,
+      desiredSalary: null,
+      currentLocation: profile.location || null,
+      openToRelocate: false,
+      skills: profile.skills || [],
+    };
+  }
+
+  private syncProfileToApi(): void {
+    const payload = this.toUpsertPayload(this._profile());
+    this.api.put<CandidateProfileApiDto, UpsertCandidateProfileDto>('candidate/profile', payload).pipe(
+      tap((dto) => this._profile.update((profile) => this.mergeProfileFromApi(profile, dto))),
+      catchError(() => of(null)),
+    ).subscribe();
+  }
+
+  private refreshCommunications(): void {
+    this.api.get<MessageDto[]>('users/messages').pipe(
+      tap((messages) => {
+        this._messages.set(messages.map((message) => ({
+          id: message.id,
+          from: `User ${message.senderUserId.slice(0, 8)}`,
+          company: 'Employer',
+          avatar: message.senderUserId.slice(0, 2).toUpperCase(),
+          subject: message.subject || 'New message',
+          preview: message.content,
+          date: message.sentAtUtc,
+          read: message.isRead,
+        })));
+      }),
+      catchError(() => of([] as MessageDto[])),
+    ).subscribe();
+
+    this.api.get<NotificationDto[]>('users/notifications').pipe(
+      tap((notifications) => {
+        this._notifications.set(notifications.map((notification) => ({
+          id: notification.id,
+          title: notification.title,
+          message: notification.content,
+          date: notification.createdAtUtc,
+          read: notification.isRead,
+          category: this.toNotificationCategory(notification.type),
+          actionLabel: undefined,
+          actionRoute: '/candidate/notifications',
+        })));
+      }),
+      catchError(() => of([] as NotificationDto[])),
+    ).subscribe();
+  }
+
+  private toNotificationCategory(type: string): CandidateNotification['category'] {
+    const normalized = type.toLowerCase();
+    if (normalized === 'message') {
+      return 'message';
+    }
+    if (normalized === 'application') {
+      return 'application-update';
+    }
+    if (normalized === 'job') {
+      return 'job-alert';
+    }
+    return 'profile';
   }
 }

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 import type { WorkExperience } from '../../../models';
 
@@ -11,7 +11,7 @@ import type { WorkExperience } from '../../../models';
     <div class="bg-white rounded-xl shadow-sm p-4 sm:p-6">
       <div class="mb-5 flex items-center justify-between rtl:flex-row-reverse">
         <h2 class="font-bold text-gray-900 rtl:text-right">{{ 'CANDIDATE.PROFILE.EXPERIENCE' | translate }}</h2>
-        <button type="button" class="text-sm font-medium text-blue-600 hover:text-blue-700">{{ 'CANDIDATE.PROFILE.ADD' | translate }}</button>
+        <button type="button" (click)="add.emit()" class="text-sm font-medium text-blue-600 hover:text-blue-700">{{ 'CANDIDATE.PROFILE.ADD' | translate }}</button>
       </div>
 
       <ng-container *ngIf="experience?.length; else empty">
@@ -45,4 +45,5 @@ import type { WorkExperience } from '../../../models';
 })
 export class CandidateExperienceCardComponent {
   @Input() experience: WorkExperience[] | null = [];
+  @Output() add = new EventEmitter<void>();
 }

@@ -3,8 +3,10 @@ import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, Validators, ReactiveFormsModule, AbstractControl } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { finalize } from 'rxjs';
 import { AuthService } from '../../../core/services/auth.service';
 import { ToastService } from '../../../core/services/toast.service';
+import { RegisterRole } from '../../../core/models/user.model';
 
 @Component({
   selector: 'app-register',
@@ -89,17 +91,28 @@ export class RegisterComponent {
     }
 
     this.submitting.set(true);
-    setTimeout(() => {
-      const success = this.auth.register(
-        this.form.value.name!,
-        this.form.value.email!,
-        this.selectedRole()
-      );
-      this.submitting.set(false);
-      if (success) {
+    const name = this.form.value.name?.trim() ?? '';
+    const [firstName, ...restName] = name.split(' ').filter(Boolean);
+    const role: RegisterRole = this.selectedRole() === 'employer' ? 'Employer' : 'Candidate';
+
+    this.auth.register({
+      firstName: firstName || name,
+      lastName: restName.join(' ') || '',
+      email: this.form.value.email!.trim(),
+      password: this.form.value.password!,
+      role,
+      companyName: this.selectedRole() === 'employer' ? (this.form.value.companyName?.trim() || undefined) : undefined,
+      industry: this.selectedRole() === 'employer' ? (this.form.value.industry?.trim() || undefined) : undefined,
+    })
+    .pipe(finalize(() => this.submitting.set(false)))
+    .subscribe({
+      next: (user) => {
         this.toastService.success(this.translate.instant('AUTH.REGISTER.SUCCESS_TOAST'));
-        this.router.navigate([this.selectedRole() === 'employer' ? '/employer' : '/candidate']);
+        void this.router.navigateByUrl(this.auth.getDashboardRoute(user.role));
+      },
+      error: (error: { message?: string }) => {
+        this.toastService.error(error?.message || this.translate.instant('AUTH.LOGIN.ERROR_TOAST'));
       }
-    }, 1000);
+    });
   }
 }

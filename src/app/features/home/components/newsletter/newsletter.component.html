@@ -44,6 +44,9 @@
                 Subscribe
               </button>
             </div>
+            @if (statusMessage()) {
+              <p [class]="statusType() === 'error' ? 'text-red-600 text-sm' : 'text-green-600 text-sm'">{{ statusMessage() }}</p>
+            }
 
             <!-- Trust badges -->
             <div appReveal [revealDelay]="150" class="flex flex-wrap gap-2 pt-1">

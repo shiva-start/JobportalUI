@@ -1,6 +1,12 @@
-import { Component, inject, signal } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { Component, inject, OnInit, signal } from '@angular/core';
+import { DatePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { environment } from '../../../environments/environment';
+import { ApiService } from '../../core/services/api.service';
 import { AuthService } from '../../core/services/auth.service';
+import { CandidateResume, CandidateResumeService } from '../../core/services/candidate-resume.service';
 import { CandidateFreelancerRequestService } from '../../core/services/candidate-freelancer-request.service';
 import { JobService } from '../../core/services/job.service';
 import { ToastService } from '../../core/services/toast.service';
@@ -17,24 +23,55 @@ import type {
 } from '../../models';
 
 type Tab = 'overview' | 'applied' | 'saved' | 'messages' | 'profile' | 'settings';
+interface CandidateProfileResponse {
+  headline: string | null;
+  summary: string | null;
+  currentLocation: string | null;
+  resumeUrl: string | null;
+  skills: string[];
+}
 
 @Component({
   selector: 'app-candidate-dashboard',
   standalone: true,
-  imports: [RouterLink, JobCardComponent, BadgeComponent, CandidateSkillsComponent, CandidateExperienceComponent],
+  imports: [RouterLink, FormsModule, DatePipe, JobCardComponent, BadgeComponent, CandidateSkillsComponent, CandidateExperienceComponent],
   templateUrl: './candidate-dashboard.component.html',
 })
-export class CandidateDashboardComponent {
+export class CandidateDashboardComponent implements OnInit {
   auth = inject(AuthService);
   jobService = inject(JobService);
+  private api = inject(ApiService);
+  private http = inject(HttpClient);
+  private resumeService = inject(CandidateResumeService);
   private toastService = inject(ToastService);
   private cfReq = inject(CandidateFreelancerRequestService);
+  private readonly apiBaseUrl = environment.apiBaseUrl.replace(/\/+$/, '');
 
   activeTab = signal<Tab>('overview');
+  isEditMode = false;
+  isSavingProfile = false;
+  isUploadingResume = false;
+  selectedFile: File | null = null;
+  resume: CandidateResume | null = null;
+  private resumePath: string | null = null;
+  profileForm = {
+    name: '',
+    email: '',
+    phone: '',
+    skills: '',
+    experience: '',
+    summary: '',
+  };
 
   appliedJobs = () => this.jobService.getAppliedJobs();
   savedJobs   = () => this.jobService.getSavedJobs();
   recommendedJobs = () => this.jobService.featuredJobs().slice(0, 4);
+
+  ngOnInit(): void {
+    this.seedProfileForm();
+    this.loadProfile();
+    this.loadResume();
+  }
 
   get unreadCount() {
     return this.messages.filter(m => !m.read).length;
@@ -204,8 +241,10 @@ export class CandidateDashboardComponent {
   applyForFreelancer() {
     const cur = this.auth.currentUser();
     if (!cur) return this.toastService.error('Not signed in');
-    this.cfReq.create(cur.id);
-    this.toastService.success('Freelancer request submitted — awaiting admin review.');
+    this.cfReq.create({ bio: null, portfolioUrl: null, hourlyRate: 0 }).subscribe({
+      next: () => this.toastService.success('Freelancer request submitted - awaiting admin review.'),
+      error: () => this.toastService.error('Unable to submit freelancer request.'),
+    });
   }
 
   getFirstName(): string {
@@ -221,4 +260,174 @@ export class CandidateDashboardComponent {
     const msg = this.messages.find(m => m.id === id);
     if (msg) msg.read = true;
   }
+
+  toggleEdit(): void {
+    this.isEditMode = !this.isEditMode;
+    if (this.isEditMode) {
+      this.seedProfileForm();
+      this.profileForm.skills = this.demoSkills.join(', ');
+      this.profileForm.experience = this.experience[0]?.title ?? '';
+      this.profileForm.summary = this.auth.currentUser()?.bio ?? '';
+    }
+  }
+
+  cancelEdit(): void {
+    this.isEditMode = false;
+    this.seedProfileForm();
+  }
+
+  saveProfile(): void {
+    const currentUser = this.auth.currentUser();
+    if (!currentUser) {
+      this.toastService.error('User session not found.');
+      return;
+    }
+
+    this.isSavingProfile = true;
+    const [firstName, ...lastNameParts] = (this.profileForm.name || '').trim().split(' ');
+    const lastName = lastNameParts.join(' ');
+    const skills = (this.profileForm.skills || '')
+      .split(',')
+      .map(x => x.trim())
+      .filter(Boolean);
+
+    this.api.put('users/me', {
+      firstName: firstName || currentUser.name,
+      lastName: lastName || '',
+      phoneNumber: this.profileForm.phone || null,
+    }).subscribe({
+      next: () => {
+        this.api.put<CandidateProfileResponse, unknown>('candidate/profile', {
+          headline: this.profileForm.experience || null,
+          summary: this.profileForm.summary || null,
+          resumeUrl: this.resumePath,
+          desiredSalary: null,
+          currentLocation: null,
+          openToRelocate: false,
+          skills,
+        }).subscribe({
+          next: () => {
+            this.demoSkills = skills;
+            this.toastService.success('Profile updated successfully.');
+            this.isEditMode = false;
+            this.isSavingProfile = false;
+            this.auth.getCurrentUser().subscribe();
+          },
+          error: () => {
+            this.isSavingProfile = false;
+            this.toastService.error('Failed to save candidate profile.');
+          },
+        });
+      },
+      error: () => {
+        this.isSavingProfile = false;
+        this.toastService.error('Failed to save account information.');
+      },
+    });
+  }
+
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    this.selectedFile = input.files?.[0] ?? null;
+  }
+
+  uploadResume(): void {
+    const currentUser = this.auth.currentUser();
+    if (!this.selectedFile || !currentUser) {
+      return;
+    }
+
+    this.isUploadingResume = true;
+    this.resumeService.uploadResume(this.selectedFile).subscribe({
+      next: (uploaded) => {
+        this.resume = uploaded;
+        this.resumePath = uploaded.filePath;
+        this.selectedFile = null;
+        this.isUploadingResume = false;
+        this.toastService.success('Resume uploaded successfully.');
+      },
+      error: () => {
+        this.isUploadingResume = false;
+        this.toastService.error('Resume upload failed.');
+      },
+    });
+  }
+
+  viewResume(): void {
+    const currentUser = this.auth.currentUser();
+    if (!currentUser) return;
+    const url = `${this.apiBaseUrl}/${this.resume?.filePath ?? ''}`;
+    this.http.get(url, { responseType: 'blob' }).subscribe({
+      next: (blob) => window.open(URL.createObjectURL(blob), '_blank'),
+      error: () => this.toastService.error('Unable to open resume.'),
+    });
+  }
+
+  downloadResume(): void {
+    if (!this.resume) return;
+    this.resumeService.downloadResume().subscribe({
+      next: (blob) => {
+        const objectUrl = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = objectUrl;
+        link.download = this.resume?.fileName || 'resume';
+        link.click();
+        URL.revokeObjectURL(objectUrl);
+      },
+      error: () => this.toastService.error('Unable to download resume.'),
+    });
+  }
+
+  deleteResume(): void {
+    const currentUser = this.auth.currentUser();
+    if (!currentUser) return;
+    this.api.delete<void>(`candidate/resume/${currentUser.id}`).subscribe({
+      next: () => {
+        this.resume = null;
+        this.toastService.success('Resume deleted.');
+      },
+      error: () => this.toastService.error('Unable to delete resume.'),
+    });
+  }
+
+  private seedProfileForm(): void {
+    const currentUser = this.auth.currentUser();
+    this.profileForm = {
+      name: currentUser?.name ?? '',
+      email: currentUser?.email ?? '',
+      phone: currentUser?.phone ?? '',
+      skills: this.demoSkills.join(', '),
+      experience: this.experience[0]?.title ?? '',
+      summary: currentUser?.bio ?? '',
+    };
+  }
+
+  private loadProfile(): void {
+    this.api.get<CandidateProfileResponse | null>('candidate/profile').subscribe({
+      next: (profile) => {
+        if (!profile) return;
+        this.profileForm.skills = profile.skills.join(', ');
+        this.profileForm.summary = profile.summary ?? this.profileForm.summary;
+        this.profileForm.experience = profile.headline ?? this.profileForm.experience;
+        this.resumePath = profile.resumeUrl ?? null;
+        if (profile.skills.length) {
+          this.demoSkills = profile.skills;
+        }
+      },
+    });
+  }
+
+  private loadResume(): void {
+    this.resumeService.getResume().subscribe({
+      next: (data) => {
+        this.resume = data;
+        this.resumePath = data.filePath;
+      },
+      error: () => {
+        this.resume = null;
+      },
+    });
+  }
 }
+
+

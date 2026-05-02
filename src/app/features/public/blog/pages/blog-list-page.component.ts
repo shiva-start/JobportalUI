@@ -1,140 +1,70 @@
-import { Component, inject, signal, computed } from '@angular/core';
+﻿import { Component, OnInit, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { TranslatePipe } from '@ngx-translate/core';
+import { RouterLink } from '@angular/router';
 import { PageHeroComponent } from '../../../../shared/components/page-hero/page-hero.component';
-import { SectionHeaderComponent } from '../../../../shared/components/section-header/section-header.component';
-import { EmptyStateComponent } from '../../../../shared/components/empty-state/empty-state.component';
-import { PaginationComponent } from '../../../../shared/components/pagination/pagination.component';
-import { BlogCardComponent } from '../components/blog-card/blog-card.component';
-import { BlogFeaturedPostComponent } from '../components/blog-featured-post/blog-featured-post.component';
-import { BlogCategoryFilterComponent } from '../components/blog-category-filter/blog-category-filter.component';
-import { BlogService, BlogFilter } from '../services/blog.service';
-import { BlogCategory } from '../../../../models';
-
-const PAGE_SIZE = 6;
+import { ContentBlogPost, ContentService } from '../../../../core/services/content.service';
 
 @Component({
   selector: 'app-blog-list-page',
   standalone: true,
-  imports: [
-    CommonModule, FormsModule, TranslatePipe,
-    PageHeroComponent, SectionHeaderComponent, EmptyStateComponent,
-    PaginationComponent, BlogCardComponent, BlogFeaturedPostComponent,
-    BlogCategoryFilterComponent,
-  ],
+  imports: [CommonModule, RouterLink, PageHeroComponent],
   template: `
-    <app-page-hero
-      [title]="'BLOG.LIST.TITLE' | translate"
-      [subtitle]="'BLOG.LIST.SUBTITLE' | translate"
-      [badge]="'BLOG.LIST.BADGE' | translate"
-      bgClass="bg-gradient-to-br from-slate-900 to-blue-800">
-      <div class="mt-8 max-w-xl mx-auto">
-        <div class="relative">
-          <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-          </svg>
-          <input type="text" [(ngModel)]="filter.search" (ngModelChange)="onSearchChange()"
-            [placeholder]="'BLOG.LIST.SEARCH_PLACEHOLDER' | translate"
-            class="w-full pl-12 pr-4 py-3.5 rounded-xl bg-white text-slate-800 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-400 shadow-lg"/>
-        </div>
-      </div>
-    </app-page-hero>
+    <div class="min-h-screen bg-gray-50">
+      <app-page-hero
+        title="Blog"
+        subtitle="Insights, updates, and career guidance from our team and community."
+        badge="Latest Articles"
+        bgClass="bg-gradient-to-br from-sky-700 to-indigo-700">
+      </app-page-hero>
 
-    <div class="bg-gray-50 min-h-screen">
-      @if (featuredPost() && !filter.category && !filter.search) {
-        <section class="pt-14 pb-6">
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-6">
-              <app-section-header [label]="'BLOG.FEATURED.EDITOR_PICK' | translate" [title]="'BLOG.FEATURED.TITLE' | translate" alignment="left"/>
-            </div>
-            <app-blog-featured-post [post]="featuredPost()!"/>
-          </div>
-        </section>
-      }
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        @if (error()) { <p class="text-red-600 mb-4">{{ error() }}</p> }
+        @if (loading()) { <p>Loading blogs...</p> }
+        @if (!loading() && !error() && posts().length === 0) { <p>No blogs available</p> }
 
-      <section class="py-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
-            <app-blog-category-filter
-              [categories]="categories"
-              [active]="filter.category"
-              (select)="onCategoryChange($event)"/>
-            <p class="text-sm text-slate-500 flex-shrink-0">
-              {{ 'BLOG.LIST.RESULTS' | translate:{ count: filtered().length } }}
-            </p>
-          </div>
-
-          @if (paginated().length > 0) {
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              @for (post of paginated(); track post.id) {
-                <app-blog-card [post]="post"/>
-              }
-            </div>
-            <app-pagination
-              [currentPage]="currentPage()"
-              [totalPages]="totalPages()"
-              (pageChange)="onPageChange($event)"/>
-          } @else {
-            <app-empty-state
-              [title]="'BLOG.EMPTY.TITLE' | translate"
-              [message]="'BLOG.EMPTY.MESSAGE' | translate"
-              [actionLabel]="'BLOG.EMPTY.ACTION' | translate"
-              (action)="clearFilters()"/>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          @for (post of posts(); track post.id) {
+            <a [routerLink]="['/blog', post.id]" class="group bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 block">
+              <img src="https://source.unsplash.com/featured/?technology,blog" [alt]="post.title" class="h-48 w-full object-cover" />
+              <div class="p-5">
+                <h2 class="text-lg font-semibold text-slate-900 group-hover:text-blue-600 transition-colors line-clamp-2">{{ post.title }}</h2>
+                <p class="text-sm text-slate-500 mt-2">By {{ post.author || 'Admin' }} • {{ post.createdAt | date:'mediumDate' }}</p>
+                <p class="text-sm mt-3 text-slate-700 line-clamp-3">{{ snippet(post.content) }}</p>
+              </div>
+            </a>
           }
-        </div>
-      </section>
-
-      <section class="pb-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="bg-gradient-to-br from-blue-700 to-indigo-700 rounded-2xl p-8 md:p-12 text-center">
-            <h3 class="text-2xl font-bold text-white mb-2">{{ 'BLOG.NEWSLETTER.TITLE' | translate }}</h3>
-            <p class="text-white/80 text-sm mb-6 max-w-md mx-auto">{{ 'BLOG.NEWSLETTER.SUBTITLE' | translate }}</p>
-            <div class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <input type="email" [placeholder]="'BLOG.NEWSLETTER.PLACEHOLDER' | translate"
-                class="flex-1 px-4 py-3 rounded-xl text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-300"/>
-              <button class="px-6 py-3 bg-white text-blue-600 font-semibold text-sm rounded-xl hover:bg-blue-50 transition-all duration-200 whitespace-nowrap">
-                {{ 'BLOG.NEWSLETTER.SUBMIT' | translate }}
-              </button>
-            </div>
-          </div>
         </div>
       </section>
     </div>
   `
 })
-export class BlogListPageComponent {
-  private blogService = inject(BlogService);
+export class BlogListPageComponent implements OnInit {
+  private readonly contentService = inject(ContentService);
 
-  filter: BlogFilter = { category: '', search: '' };
-  currentPage = signal(1);
-  categories = this.blogService.getCategories();
-  featuredPost = computed(() => this.blogService.getFeatured());
+  protected readonly posts = signal<ContentBlogPost[]>([]);
+  protected readonly loading = signal(true);
+  protected readonly error = signal('');
 
-  filtered = computed(() => this.blogService.getFiltered(this.filter));
-  totalPages = computed(() => Math.max(1, Math.ceil(this.filtered().length / PAGE_SIZE)));
-  paginated = computed(() => {
-    const start = (this.currentPage() - 1) * PAGE_SIZE;
-    return this.filtered().slice(start, start + PAGE_SIZE);
-  });
-
-  onCategoryChange(cat: BlogCategory | ''): void {
-    this.filter = { ...this.filter, category: cat };
-    this.currentPage.set(1);
+  ngOnInit(): void {
+    this.contentService.getBlogPosts().subscribe({
+      next: posts => {
+        this.posts.set(posts);
+        this.loading.set(false);
+      },
+      error: err => {
+        this.error.set(this.toErrorMessage(err));
+        this.loading.set(false);
+      }
+    });
   }
 
-  onSearchChange(): void {
-    this.filter = { ...this.filter };
-    this.currentPage.set(1);
+  protected snippet(content: string): string {
+    return content.length > 150 ? `${content.slice(0, 150)}...` : content;
   }
 
-  onPageChange(page: number): void {
-    this.currentPage.set(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  clearFilters(): void {
-    this.filter = { category: '', search: '' };
-    this.currentPage.set(1);
+  private toErrorMessage(error: { status?: number }): string {
+    if (error.status === 500) return 'Server error while loading blogs.';
+    return 'Failed to load blogs.';
   }
 }
+
